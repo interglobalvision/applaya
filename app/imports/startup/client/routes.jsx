@@ -1,11 +1,11 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 
-import { AppLayout } from '/imports/components/appLayout.jsx';
+import { MainLayout } from '/imports/components/mainLayout.jsx';
 
 FlowRouter.route("/", {
   action (){
-    mount(AppLayout, {
+    mount(MainLayout, {
       content: "Hello world!",
     });
   }
@@ -13,7 +13,7 @@ FlowRouter.route("/", {
 
 FlowRouter.route("/login", {
   action(params) {
-    mount(AppLayout, {
+    mount(MainLayout, {
       content: <Accounts.ui.LoginForm />,
     });
   }
