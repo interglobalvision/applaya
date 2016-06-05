@@ -1,16 +1,12 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 
-import { AppLayout } from '/imports/ui/appLayout.jsx';
-import Content from '/imports/ui/content.jsx';
-import Header from '/imports/ui/header.jsx';
-import Footer from '/imports/ui/footer.jsx';
+import { AppLayout } from '/imports/components/appLayout.jsx';
 
 FlowRouter.route("/", {
   action (){
     mount(AppLayout, {
-      header: <Header />,
-      footer: <Footer />,
+      content: "Hello world!",
     });
   }
 });
@@ -18,9 +14,7 @@ FlowRouter.route("/", {
 FlowRouter.route("/login", {
   action(params) {
     mount(AppLayout, {
-      header: <Header />,
       content: <Accounts.ui.LoginForm />,
-      footer: <Footer />,
     });
   }
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Navbar from '/imports/ui/navbar.jsx';
+import Navbar from '/imports/components/navbar.jsx';
 
 export default Header = () =>(
   <header>
