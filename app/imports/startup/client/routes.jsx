@@ -14,3 +14,13 @@ FlowRouter.route("/", {
     });
   }
 });
+
+FlowRouter.route("/login", {
+  action(params) {
+    mount(AppLayout, {
+      header: <Header />,
+      content: <Accounts.ui.LoginForm />,
+      footer: <Footer />,
+    });
+  }
+});
