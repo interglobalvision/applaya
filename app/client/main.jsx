@@ -6,4 +6,5 @@
  * Preferably this file should be kept minimal.
  */
 
+import '../imports/startup/client/accounts.jsx';
 import '../imports/startup/client/routes.jsx';
