@@ -34,11 +34,20 @@ publicRoutes.route("/logout", {
 
 const authenticatedRoutes = FlowRouter.group( { name: 'authenticated' } );
 
-publicRoutes.route("/apply", {
+authenticatedRoutes.route("/apply", {
   name: 'apply',
   action(params) {
     mount(MainLayout, {
       content: <ApplyContainer />,
+    });
+  }
+});
+
+authenticatedRoutes.route("/apply/:section", {
+  name: 'apply',
+  action(params) {
+    mount(MainLayout, {
+      content: <ApplyContainer section={params.section} />,
     });
   }
 });
