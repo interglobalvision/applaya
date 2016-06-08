@@ -1,16 +1,54 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 
-import { AppLayout } from '/imports/ui/appLayout.jsx';
-import Content from '/imports/ui/content.jsx';
-import Header from '/imports/ui/header.jsx';
-import Footer from '/imports/ui/footer.jsx';
+import { MainLayout } from '/imports/components/mainLayout.jsx';
+import ApplyContainer from '/imports/containers/applyContainer.jsx';
 
-FlowRouter.route("/", {
+const publicRoutes = FlowRouter.group({ name: 'public'});
+
+publicRoutes.route("/", {
+  name: 'home',
   action (){
-    mount(AppLayout, {
-      header: <Header />,
-      footer: <Footer />,
+    mount(MainLayout, {
+      content: "Hello world!",
     });
   }
 });
+
+publicRoutes.route("/login", {
+  name: 'login',
+  action(params) {
+    mount(MainLayout, {
+      content: <Accounts.ui.LoginForm />,
+    });
+  }
+});
+
+publicRoutes.route("/logout", {
+  name: 'logout',
+  action(params) {
+    Meteor.logout();
+    FlowRouter.go('/login');
+  }
+});
+
+const authenticatedRoutes = FlowRouter.group( { name: 'authenticated' } );
+
+authenticatedRoutes.route("/apply", {
+  name: 'apply',
+  action(params) {
+    mount(MainLayout, {
+      content: <ApplyContainer />,
+    });
+  }
+});
+
+authenticatedRoutes.route("/apply/:section", {
+  name: 'apply',
+  action(params) {
+    mount(MainLayout, {
+      content: <ApplyContainer section={params.section} />,
+    });
+  }
+});
+
