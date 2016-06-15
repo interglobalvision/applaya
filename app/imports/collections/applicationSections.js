@@ -7,7 +7,6 @@ class ApplicationSectionsCollection extends Mongo.Collection {
     doc.createdAt = doc.createdAt || new Date();
     doc.updatedAt = doc.updatedAt || new Date();
     doc.userId = Meteor.userId();
-    doc.year = doc.year || new Date().getFullYear();
 
     // This call it's parent original method.
     return super.insert(doc,callback);
