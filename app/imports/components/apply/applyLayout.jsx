@@ -12,23 +12,21 @@ export default class ApplyLayout extends Component {
       return <Accounts.ui.LoginForm />;
     }
 
-    if( !!this.props.section ) {
 
-      // This switch need a btter and nicer way to be declared.
-      // I found out that trying to use an array doesn't work.
-      // I wanna try to return react components dinamicaly by
-      // using component name (String) or something like that
-      switch(this.props.section.type) {
-        case '1': return (
-          <FormTest
-            applicationId={this.props.application._id}
-            type={this.props.section.type}
-            sectionId={this.props.section.id}
-            model={this.props.section.data} />
-        );
-        default: return ':('; // 404
-      };
-    }
+    // This switch need a btter and nicer way to be declared.
+    // I found out that trying to use an array doesn't work.
+    // I wanna try to return react components dinamicaly by
+    // using component name (String) or something like that
+    switch(this.props.section.type) {
+      case '1': return (
+        <FormTest
+          applicationId={this.props.application._id}
+          type={this.props.section.type}
+          sectionId={this.props.section.id}
+          model={this.props.section.data} />
+      );
+    default: return ':('; // 404
+    };
 
   }
 

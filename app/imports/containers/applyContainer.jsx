@@ -20,47 +20,41 @@ const composer = ( props, onData ) => {
     // Get section URL (props come from the router)
     const currentSection = props.section; // TODO: Or get last visited section
 
-    let section = {
-      type: currentSection,
-      data: {}, 
-    };
-
-    let application = {};
-    
     // Wait for user subscription (kinda)
     if( user ) {
 
       // Look for user's application
-      application = Applications.findOne({ userId: user._id });
+      let application = Applications.findOne({ userId: user._id });
 
-      // If no application returned proceed to create a new application for the user
-      if ( application == null ) {
+      if ( !!application ) {
+        let section = {
+          applicationId: application._id,
+          type: currentSection,
+        }
+
+        let sectionData = ApplicationSections.findOne({
+          applicationId: application._id,
+          type: currentSection,
+        });
+
+        if( !!sectionData ) {
+          section = sectionData;
+        }
+
+        onData( null, { user, section, application } );
+
+      } else {
+        // If no application returned proceed to create a new application for the user
         createApplication.call({
           userId: user._id,
         }, (err,res) => {
           if (err) {
-            alert(err);
+            onData(new Meteor.Error(err));
           }
-
-          application = Applications.findOne({ userId: user._id });
-
         });
       }
 
-      // Get section data
-      let sectionData = ApplicationSections.findOne({
-        applicationId: application._id,
-        type: currentSection,
-      });
-
-      // Set section
-      if( !!sectionData ) {
-        section = sectionData;
-      }
-
     }
-
-    onData( null, { user, section, application } );
   }
 };
 
