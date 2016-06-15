@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 
 // Import apply parts
 import TextTest from '/imports/components/apply/text-test.jsx';
-
 import FormTest from '/imports/components/apply/form-test.jsx';
 
 export default class ApplyLayout extends Component {
