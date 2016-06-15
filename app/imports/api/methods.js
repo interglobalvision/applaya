@@ -3,6 +3,10 @@ import { ApplicationSections } from '/imports/collections/applicationSections.js
 
 import { FormSchema } from '/imports/schemas/TestForm.js';
 
+// This is a validated method. From the meteor pckg validated-method 
+// https://github.com/meteor/validated-method
+//
+// It runs run() only if validate: true.
 export const createApplication = new ValidatedMethod({
   name: 'application.create',
 
