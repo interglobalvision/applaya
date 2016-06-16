@@ -1,10 +1,32 @@
 import React, { Component, PropTypes } from 'react';
 
+// Import methods
+import { saveApplyPosition } from '/imports/api/methods.js';
+
 // Import apply parts
 import TextTest from '/imports/components/apply/text-test.jsx';
 import FormTest from '/imports/components/apply/form-test.jsx';
 
 export default class ApplyLayout extends Component {
+  savePosition() {
+    saveApplyPosition.call({
+      position: this.props.section.type,
+      applicationId: this.props.application._id,
+    }, (err, res) => {
+      if (err) {
+        console.error(err);
+      }
+    });
+  }
+
+  componentDidUpdate() {
+    this.savePosition();
+  }
+
+  componentDidMount() {
+    this.savePosition();
+  }
+
   getApplySection() {
 
     // Check if logged in

@@ -50,7 +50,7 @@ export const saveApplicationSection = new ValidatedMethod({
   run({ type, applicationId, data }) {
 
     if( !this.userId ) {
-      throw new Meteor.Error('Applications.methods.insert.not-logged-in', 'Must be logged in to create an application.');
+      throw new Meteor.Error('ApplicationSection.methods.saveSection.not-logged-in', 'Must be logged in to save a section.');
     }
 
     const userId = this.userId;
@@ -76,4 +76,40 @@ export const saveApplicationSection = new ValidatedMethod({
     ApplicationSections.update( query, update, { upsert: true });
   }
 
+});
+
+export const saveApplyPosition = new ValidatedMethod({
+  name: 'application.position',
+
+  validate: new SimpleSchema({
+
+    position: {
+      type: String,
+    },
+
+    applicationId: {
+      type: String
+    },
+
+  }).validator(),
+
+  run({ position, applicationId }) {
+    if( !this.userId ) {
+      throw new Meteor.Error('Applications.methods.save-position.not-logged-in', 'Must be logged in to save position');
+    }
+
+    const updatedAt = new Date();
+
+    const query = {
+      applicationId,
+    };
+
+    const update = {
+      $set: {
+        position,
+      }
+    };
+
+    ApplicationSections.update( query, update );
+  }
 });
