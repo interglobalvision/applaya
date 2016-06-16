@@ -53,10 +53,6 @@ export const saveApplicationSection = new ValidatedMethod({
       throw new Meteor.Error('Applications.methods.insert.not-logged-in', 'Must be logged in to create an application.');
     }
 
-    if( this.userId != userId ) {
-      throw new Meteor.Error('Applications.methods.insert.different-user', 'Who you trying to mess with, uh?');
-    }
-
     const userId = this.userId;
     const updatedAt = new Date();
 
