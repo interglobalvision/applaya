@@ -20,12 +20,18 @@ Meteor.publishComposite('application.single', function() {
       find(application) {
         return Applications.find({
           _id: application._id
+        }, {
+          createdAt: 0,
+          updatedAt: 0,
         });
       }
     },{
       find(application) {
         return ApplicationSections.find({
           applicationId: application._id
+        }, {
+          createdAt: 0,
+          updatedAt: 0,
         });
       }
     }]

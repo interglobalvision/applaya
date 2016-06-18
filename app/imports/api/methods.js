@@ -54,7 +54,6 @@ export const saveApplicationSection = new ValidatedMethod({
     }
 
     const userId = this.userId;
-    const updatedAt = new Date();
 
     const query = {
       type,
@@ -66,7 +65,6 @@ export const saveApplicationSection = new ValidatedMethod({
       $set: {
         applicationId,
         data,
-        updatedAt,
       }
     };
 
@@ -85,6 +83,7 @@ export const saveApplyPosition = new ValidatedMethod({
 
     position: {
       type: String,
+      optional: true,
     },
 
     applicationId: {
@@ -98,18 +97,15 @@ export const saveApplyPosition = new ValidatedMethod({
       throw new Meteor.Error('Applications.methods.save-position.not-logged-in', 'Must be logged in to save position');
     }
 
-    const updatedAt = new Date();
+    if( !!position ) {
 
-    const query = {
-      applicationId,
-    };
+      const update = {
+        $set: {
+          position,
+        }
+      };
 
-    const update = {
-      $set: {
-        position,
-      }
-    };
-
-    ApplicationSections.update( query, update );
+      Applications.update( applicationId, update );
+    }
   }
 });

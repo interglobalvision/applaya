@@ -9,9 +9,25 @@ import { FormSchema } from '/imports/schemas/TestForm.js';
 
 // Import methods
 import { saveApplicationSection } from '/imports/api/methods.js';
+import { saveApplyPosition } from '/imports/api/methods.js';
 
 // Component
 export default class FormTest extends Component {
+  savePosition() {
+    saveApplyPosition.call({
+      position: this.props.type,
+      applicationId: this.props.applicationId,
+    }, (err, res) => {
+      if (err) {
+        console.error(err);
+      }
+    });
+  }
+
+  componentDidMount() {
+    this.savePosition();
+  }
+
   onSubmit(doc) {
     let type = this.props.type;
     let applicationId = this.props.applicationId;

@@ -17,9 +17,6 @@ const composer = ( props, onData ) => {
     // Set some data 
     const user = !!Meteor.user() ? Meteor.user() : null;
 
-    // Get section URL (props come from the router)
-    const currentSection = props.section; // TODO: Or get last visited section
-
     // Wait for user subscription (kinda)
     if( user ) {
 
@@ -27,6 +24,17 @@ const composer = ( props, onData ) => {
       let application = Applications.findOne({ userId: user._id });
 
       if ( !!application ) {
+        // Get section URL (props come from the router)
+        const currentSection = props.section;
+
+        // If section is not in the URL, get the latest position in the application
+        if( currentSection == null && application.position != null ) {
+          return FlowRouter.go('/apply/' + application.position);
+        } else if ( currentSection == null ) {
+          // Otherwise go to /apply/1
+          return FlowRouter.go('/apply/1');
+        }
+
         let section = {
           applicationId: application._id,
           type: currentSection,
@@ -37,9 +45,7 @@ const composer = ( props, onData ) => {
           type: currentSection,
         });
 
-        if( !!sectionData ) {
-          section = sectionData;
-        }
+        section = Object.assign(section, sectionData);
 
         onData( null, { user, section, application } );
 
@@ -54,7 +60,11 @@ const composer = ( props, onData ) => {
         });
       }
 
+    } else {
+      // We return an empty user to make applyLayout show the login form
+      onData( null, { user: null } );
     }
+
   }
 };
 

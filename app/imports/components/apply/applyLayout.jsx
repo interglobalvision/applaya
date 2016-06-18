@@ -8,24 +8,6 @@ import TextTest from '/imports/components/apply/text-test.jsx';
 import FormTest from '/imports/components/apply/form-test.jsx';
 
 export default class ApplyLayout extends Component {
-  savePosition() {
-    saveApplyPosition.call({
-      position: this.props.section.type,
-      applicationId: this.props.application._id,
-    }, (err, res) => {
-      if (err) {
-        console.error(err);
-      }
-    });
-  }
-
-  componentDidUpdate() {
-    this.savePosition();
-  }
-
-  componentDidMount() {
-    this.savePosition();
-  }
 
   getApplySection() {
 
@@ -34,7 +16,6 @@ export default class ApplyLayout extends Component {
       return <Accounts.ui.LoginForm />;
     }
 
-
     // This switch need a btter and nicer way to be declared.
     // I found out that trying to use an array doesn't work.
     // I wanna try to return react components dinamicaly by
@@ -42,6 +23,13 @@ export default class ApplyLayout extends Component {
     switch(this.props.section.type) {
       case '1': return (
         <FormTest
+          applicationId={this.props.application._id}
+          type={this.props.section.type}
+          sectionId={this.props.section.id}
+          model={this.props.section.data} />
+      );
+      case '2': return (
+        <TextTest
           applicationId={this.props.application._id}
           type={this.props.section.type}
           sectionId={this.props.section.id}
