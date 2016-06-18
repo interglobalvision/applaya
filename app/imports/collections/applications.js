@@ -10,10 +10,11 @@ class ApplicationsCollection extends Mongo.Collection {
     return super.insert(doc,callback);
   }
 
-  update(doc, callback) {
-    doc.updatedAt = new Date();
+  update(selector, modifier, ...optionsAndCallback) {
+    modifier.$set['updatedAt'] =  modifier.$set['updatedAt'] || new Date();
   
-    return super.insert(doc,callback);
+    return super.update(selector, modifier, ...optionsAndCallback);
   }
 }
+
 export const Applications = new ApplicationsCollection('Applications');

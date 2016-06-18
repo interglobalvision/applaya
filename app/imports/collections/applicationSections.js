@@ -11,6 +11,12 @@ class ApplicationSectionsCollection extends Mongo.Collection {
     // This call it's parent original method.
     return super.insert(doc,callback);
   }
+
+  update(selector, modifier, ...optionsAndCallback) {
+    modifier.$set['updatedAt'] =  modifier.$set['updatedAt'] || new Date();
+  
+    return super.update(selector, modifier, ...optionsAndCallback);
+  }
 }
 
 // Export instance of our extended class
