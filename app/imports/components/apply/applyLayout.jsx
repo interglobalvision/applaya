@@ -1,8 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 
-// Import methods
-import { saveApplyPosition } from '/imports/api/methods.js';
-
 // Import apply parts
 import TextTest from '/imports/components/apply/text-test.jsx';
 import FormTest from '/imports/components/apply/form-test.jsx';

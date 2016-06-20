@@ -13,6 +13,11 @@ Meteor.publishComposite('application.single', function() {
     find() {
       return Applications.find({
         userId: this.userId,
+      }, {
+        fields: {
+          createdAt: 0,
+          updatedAt: 0,
+        }
       });
     },
 
@@ -21,8 +26,10 @@ Meteor.publishComposite('application.single', function() {
         return Applications.find({
           _id: application._id
         }, {
-          createdAt: 0,
-          updatedAt: 0,
+          fields: {
+            createdAt: 0,
+            updatedAt: 0,
+          }
         });
       }
     },{
@@ -30,8 +37,10 @@ Meteor.publishComposite('application.single', function() {
         return ApplicationSections.find({
           applicationId: application._id
         }, {
-          createdAt: 0,
-          updatedAt: 0,
+          fields: {
+            createdAt: 0,
+            updatedAt: 0,
+          }
         });
       }
     }]
