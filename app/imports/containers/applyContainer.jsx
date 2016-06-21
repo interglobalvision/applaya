@@ -37,12 +37,12 @@ const composer = ( props, onData ) => {
 
         let section = {
           applicationId: application._id,
-          type: currentSection,
+          step: currentSection,
         }
 
         let sectionData = ApplicationSections.findOne({
           applicationId: application._id,
-          type: currentSection,
+          step: currentSection,
         });
 
         section = Object.assign(section, sectionData);
@@ -51,9 +51,7 @@ const composer = ( props, onData ) => {
 
       } else {
         // If no application returned proceed to create a new application for the user
-        createApplication.call({
-          userId: user._id,
-        }, (err,res) => {
+        createApplication.call({}, (err,res) => {
           if (err) {
             onData(new Meteor.Error(err));
           }

@@ -8,14 +8,13 @@ import { ApplicationSections } from '/imports/collections/applicationSections.js
 import { FormSchema } from '/imports/schemas/TestForm.js';
 
 // Import methods
-import { saveApplicationSection } from '/imports/api/methods.js';
-import { saveApplyPosition } from '/imports/api/methods.js';
+import { saveApplicationSection, savePosition } from '/imports/api/methods.js';
 
 // Component
 export default class FormTest extends Component {
   savePosition() {
     saveApplyPosition.call({
-      position: this.props.type,
+      position: this.props.step,
       applicationId: this.props.applicationId,
     }, (err, res) => {
       if (err) {
@@ -29,17 +28,17 @@ export default class FormTest extends Component {
   }
 
   onSubmit(doc) {
-    let type = this.props.type;
+    let step = this.props.step;
     let applicationId = this.props.applicationId;
     let data = doc;
 
     saveApplicationSection.call({
-      type,
+      step,
       applicationId,
       data,
     }, (err,res) => {
       if (err) {
-        alert(err);
+        return new Meteor.Error(err);
       }
     });
   }

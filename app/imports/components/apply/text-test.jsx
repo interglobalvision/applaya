@@ -7,7 +7,7 @@ import { saveApplyPosition } from '/imports/api/methods.js';
 export default class TextTest extends Component {
   savePosition() {
     saveApplyPosition.call({
-      position: this.props.type,
+      position: this.props.step,
       applicationId: this.props.applicationId,
     }, (err, res) => {
       if (err) {
