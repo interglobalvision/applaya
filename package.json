@@ -11,5 +11,8 @@
     "gulp-cached": "^1.1.0",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.1.0"
+  },
+  "dependencies": {
+    "gulp-eslint": "^2.0.0"
   }
 }
