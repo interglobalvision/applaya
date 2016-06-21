@@ -84,6 +84,17 @@
     "comma-dangle": [
       2,
       "always-multiline"
-    ]
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "space-before-function-paren": 0,
+    "max-len": [0],
+    "react/jsx-indent": [
+      2,
+      2
+    ],
+    "react/display-name": [0]
   }
 }
