@@ -1,0 +1,89 @@
+{
+  "ecmaFeatures": {
+    "jsx": true
+  },
+  "extends": "vazco",
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "jQuery": true,
+    "$": true,
+    "FlowRouter": true,
+    "Meteor": true,
+    "Accounts": true,
+    "Mongo": true,
+    "SimpleSchema": true,
+    "ValidatedMethod": true
+  },
+  "rules": {
+    "curly": [
+      2,
+      "all"
+    ],
+    "eqeqeq": 2,
+    "guard-for-in": 2,
+    "indent": [
+      2,
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "no-use-before-define": 2,
+    "new-cap": 2,
+    "no-caller": 2,
+    "strict": 0,
+    "no-undef": 2,
+    "no-unused-vars": 2,
+    "no-empty": 2,
+    "no-with": 2,
+    "no-multiple-empty-lines": 2,
+    "brace-style": 2,
+    "no-mixed-spaces-and-tabs": 2,
+    "no-multi-str": 2,
+    "no-multi-spaces": 2,
+    "space-unary-ops": [
+      2,
+      {
+        "words": false,
+        "nonwords": false
+      }
+    ],
+    "no-spaced-func": 2,
+    "array-bracket-spacing": [
+      2,
+      "never",
+      {
+        "singleValue": true
+      }
+    ],
+    "yoda": [
+      2,
+      "never"
+    ],
+    "camelcase": [
+      2,
+      {
+        "properties": "never"
+      }
+    ],
+    "comma-style": [
+      2,
+      "last"
+    ],
+    "newline-after-var": [
+      2,
+      "always"
+    ],
+    "semi": [
+      2,
+      "always"
+    ],
+    "space-infix-ops": 2,
+    "comma-dangle": [
+      2,
+      "always-multiline"
+    ]
+  }
+}
