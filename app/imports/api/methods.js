@@ -10,21 +10,19 @@ import { FormSchema } from '/imports/schemas/TestForm.js';
 export const createApplication = new ValidatedMethod({
   name: 'application.create',
 
-  validate: new SimpleSchema({
-    userId: { type: String }
-  }).validator(),
+  // This doesn't receive any arguments, so we don't need validation
+  validate: null,
 
-  run({ userId }) {
+  run() {
 
     if( !this.userId ) {
       throw new Meteor.Error('Applications.methods.insert.not-logged-in', 'Must be logged in to create an application.');
     }
 
-    if( this.userId != userId ) {
-      throw new Meteor.Error('Applications.methods.insert.different-user', 'Who you trying to mess with, uh?');
-    }
+    Applications.insert({
+      userId: this.userId,
+    });
 
-    Applications.insert({userId});
   }
 });
 
@@ -35,7 +33,7 @@ export const saveApplicationSection = new ValidatedMethod({
   name: 'application.section.save',
 
   validate: new SimpleSchema({
-    type: {
+    step: {
       type: String,
     },
     applicationId: {
@@ -47,21 +45,16 @@ export const saveApplicationSection = new ValidatedMethod({
     }
   }).validator(),
 
-  run({ type, applicationId, data }) {
+  run({ step, applicationId, data }) {
 
     if( !this.userId ) {
-      throw new Meteor.Error('Applications.methods.insert.not-logged-in', 'Must be logged in to create an application.');
-    }
-
-    if( this.userId != userId ) {
-      throw new Meteor.Error('Applications.methods.insert.different-user', 'Who you trying to mess with, uh?');
+      throw new Meteor.Error('ApplicationSection.methods.saveSection.not-logged-in', 'Must be logged in to save a section.');
     }
 
     const userId = this.userId;
-    const updatedAt = new Date();
 
     const query = {
-      type,
+      step,
       userId,
       applicationId,
     };
@@ -70,14 +63,44 @@ export const saveApplicationSection = new ValidatedMethod({
       $set: {
         applicationId,
         data,
-        updatedAt,
       }
     };
-
-    // TODO
-    // increment progress
 
     ApplicationSections.update( query, update, { upsert: true });
   }
 
+});
+
+export const saveApplyPosition = new ValidatedMethod({
+  name: 'application.position',
+
+  validate: new SimpleSchema({
+
+    position: {
+      type: String,
+      optional: true,
+    },
+
+    applicationId: {
+      type: String
+    },
+
+  }).validator(),
+
+  run({ position, applicationId }) {
+    if( !this.userId ) {
+      throw new Meteor.Error('Applications.methods.save-position.not-logged-in', 'Must be logged in to save position');
+    }
+
+    if( !!position ) {
+
+      const update = {
+        $set: {
+          position,
+        }
+      };
+
+      Applications.update( applicationId, update );
+    }
+  }
 });

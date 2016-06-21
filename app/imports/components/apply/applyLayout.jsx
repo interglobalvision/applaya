@@ -5,6 +5,7 @@ import TextTest from '/imports/components/apply/text-test.jsx';
 import FormTest from '/imports/components/apply/form-test.jsx';
 
 export default class ApplyLayout extends Component {
+
   getApplySection() {
 
     // Check if logged in
@@ -12,16 +13,22 @@ export default class ApplyLayout extends Component {
       return <Accounts.ui.LoginForm />;
     }
 
-
     // This switch need a btter and nicer way to be declared.
     // I found out that trying to use an array doesn't work.
     // I wanna try to return react components dinamicaly by
     // using component name (String) or something like that
-    switch(this.props.section.type) {
+    switch(this.props.section.step) {
       case '1': return (
         <FormTest
           applicationId={this.props.application._id}
-          type={this.props.section.type}
+          step={this.props.section.step}
+          sectionId={this.props.section.id}
+          model={this.props.section.data} />
+      );
+      case '2': return (
+        <TextTest
+          applicationId={this.props.application._id}
+          step={this.props.section.step}
           sectionId={this.props.section.id}
           model={this.props.section.data} />
       );
