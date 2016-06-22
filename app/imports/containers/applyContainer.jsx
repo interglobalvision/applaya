@@ -10,6 +10,10 @@ import { ApplicationSections } from '/imports/collections/applicationSections.js
 import { createApplication } from '/imports/api/methods.js';
 
 const composer = (props, onData) => {
+  // Check if time is after deadline
+  if (moment() > moment(Meteor.settings.public.applicationDeadline, Meteor.settings.public.dateFormat)) {
+    return FlowRouter.go('/applications-closed');
+  }
 
   const subscription = Meteor.subscribe('application.single');
 
@@ -26,11 +30,6 @@ const composer = (props, onData) => {
       let application = Applications.findOne({ userId: user._id });
 
       if (!!application) {
-
-        // Check if time is after deadline
-        if (moment() > moment(Meteor.settings.public.applicationDeadline, Meteor.settings.public.dateFormat)) {
-          return FlowRouter.go('/applications-closed');
-        }
 
         // Get section URL (props come from the router)
         const currentSection = props.section;
