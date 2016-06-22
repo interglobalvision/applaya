@@ -2,12 +2,11 @@ import React from 'react';
 
 export default Navbar = ({ isLogged }) => (
   <nav role="navigation">
-    <ul>
-      <li><a href="/">Home</a></li>
-      { isLogged ? 
+    <ul id="main-menu" className="u-inline-list">
+      { isLogged ?
         <li><a href="/apply">My Application</a></li>
       :<li><a href="/login">Login</a></li> }
-      { isLogged ? 
+      { isLogged ?
         <li><a href="/logout">Logout</a></li>
       :''}
     </ul>
