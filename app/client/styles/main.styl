@@ -340,6 +340,52 @@ img
 
 // ******************************************************
 
+// FORMS
+
+.field
+  margin-bottom: $margin-basic
+
+form
+  section
+    margin-bottom: $margin-basic
+
+label
+  display: block
+  padding-left: $margin-small
+  margin-bottom: $margin-tiny
+
+input
+  width: 100%
+  max-width: 600px
+  font-size: 1rem
+  padding: $margin-small
+  &[type=checkbox]
+    display: inline-block
+    width: auto
+  &[type=submit]
+    width: auto
+    -webkit-appearance: button
+
+select
+  width: 100%
+  max-width: 600px + ($margin-small * 2)
+  font-size: 1rem
+  border-radius: 0
+  height: 2.5rem
+
+.buttons
+  a
+    display: block
+    margin-bottom: $margin-tiny
+
+button[type=submit]
+  display: block
+  font-size: 1rem
+  padding: $margin-small
+  margin-bottom: $margin-tiny
+
+// ******************************************************
+
 // MAIN LAYOUT
 
 .container
