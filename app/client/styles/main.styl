@@ -1,0 +1,416 @@
+// ******************************************************
+
+@import 'nib'
+// https://tj.github.io/nib/
+// but I want Kouto Swiss :[
+
+// ******************************************************
+
+global-reset()
+
+// ******************************************************
+
+// GRID
+
+$cols = 12
+$col = 90px
+$gutter = 16px
+
+.container
+  margin: 0 auto
+  width: ($col * $cols)+($gutter * $cols)
+
+.row
+  clearfix()
+
+.col
+  float: left
+  margin-left: ($gutter/2)
+  margin-right: ($gutter/2)
+  min-height: 1px
+
+for col in 1..$cols
+  .col{col}
+    width: ( col * $col ) + ( ( col - 1 ) * $gutter )
+
+    // FLUID COLS
+
+.fluid-col
+  float: left
+  box-sizing: border-box
+
+$pcols = 10
+
+for pcol in 1..$pcols
+  .s-into-{pcol}
+    width: ( 100% / pcol )
+
+for pcol in 1..$pcols
+  .s-{pcol}
+    width: ( 100% / $pcols ) * pcol
+
+@media screen and (min-width: 601px)
+
+  for pcol in 1..$pcols
+    .m-into-{pcol}
+      width: ( 100% / pcol )
+
+  for pcol in 1..$pcols
+    .m-{pcol}
+      width: ( 100% / $pcols ) * pcol
+
+@media screen and (min-width: 993px)
+
+  for pcol in 1..$pcols
+    .l-into-{pcol}
+      width: ( 100% / pcol )
+
+  for pcol in 1..$pcols
+    .l-{pcol}
+      width: ( 100% / $pcols ) * pcol
+
+// ******************************************************
+
+// VARIABLES
+
+$golden-ratio = 1.61803398875
+
+$margin-small = ($gutter)
+$margin-tiny = ($gutter / 2)
+$margin-micro = ($gutter / 3.5)
+$margin-basic = ($gutter * 2)
+$margin-mid = ($gutter * 3.5)
+$margin-large = ($gutter * 5)
+
+$font-size-basic = 17px
+$font-size-larger = 1.2rem
+$font-size-smaller = 0.8rem
+$font-size-h3 = 1.6rem
+$font-size-h2 = 1.8rem
+$font-size-h1 = 2.5rem
+
+$font-leading-basic = 1.35
+$font-leading-tighter = 1.15
+$font-leading-larger = 1.45
+
+$font-tracking-basic = 0.001em
+$font-tracking-wider = 0.05em
+
+$color-black-soft = rgb(14, 14, 14)
+$color-white-soft = rgb(253, 253, 253)
+
+$color-main = #0078FF
+$color-compliment-1 = #554CED
+$color-compliment-2 = #1F14CC
+$color-alternate-1 = #FFA240
+$color-alternate-2 = #CC5814
+
+// ******************************************************
+
+// TYPOGRAPHY
+
+html
+  font-family: 'Helvetica', sans-serif
+  font-size: $font-size-basic
+  letter-spacing: $font-tracking-basic
+
+body
+  line-height: $font-leading-basic
+
+  // HTML ELEMENT STYLING
+
+h1
+  font-size: $font-size-h1
+  line-height: $font-leading-tighter
+
+h2
+  font-size: $font-size-h2
+  line-height: $font-leading-tighter
+
+h3
+  font-size: $font-size-h3
+
+p
+  margin-bottom: 1rem
+
+  // FONT RULES
+
+.font-italic
+  font-style: italic
+
+.font-bold
+  font-weight: bold
+
+.font-small-caps
+  font-size: 0.85em
+  text-transform: uppercase
+
+.font-capitalize
+  text-transform: capitalize
+
+.font-smaller
+  font-size: $font-size-smaller
+
+  // TEXT RULES
+
+.text-overflow-ellipsis
+  overflow: ellipsis
+
+.text-align-left
+  text-align: left
+
+.text-align-right
+  text-align: right
+
+.text-align-center
+  text-align: center
+
+  // LINKS
+
+a,
+a:active,
+a:visited
+  color: inherit
+  text-decoration: none
+
+// ******************************************************
+
+// COLORS
+
+.background-color-main
+  background-color: $color-main
+
+.background-color-compliment1
+  background-color: $color-compliment-1
+
+.background-color-compliment2
+  background-color: $color-compliment-2
+
+.background-color-alt1
+  background-color: $color-alternate-1
+
+.background-color-alt2
+  background-color: $color-alternate-2
+
+
+// ******************************************************
+
+// UTILITY
+
+.u-inline-block
+  display: inline-block
+
+.u-inline-list
+  display: inline-block
+  li
+    display: inline-block
+
+
+// ******************************************************
+
+// BASIC
+
+html
+  background-color: $color-white-soft
+  color: $color-black-soft
+
+img
+  max-width: 100%
+  height: auto
+
+// ******************************************************
+
+// MARGINS AND PADDING
+
+.margin-micro
+  margin: $margin-micro
+
+.margin-tiny
+  margin: $margin-tiny
+
+.margin-small
+  margin: $margin-small
+
+.margin-basic
+  margin: $margin-basic
+
+.margin-mid
+  margin: $margin-mid
+
+.margin-large
+  margin: $margin-large
+
+.padding-micro
+  padding: $margin-micro
+
+.padding-tiny
+  padding: $margin-tiny
+
+.padding-small
+  padding: $margin-small
+
+.padding-basic
+  padding: $margin-basic
+
+.padding-mid
+  padding: $margin-mid
+
+.padding-large
+  padding: $margin-large
+
+  // MARGIN TOP
+
+.margin-top-micro
+  margin-top: $margin-micro
+
+.margin-top-tiny
+  margin-top: $margin-tiny
+
+.margin-top-small
+  margin-top: $margin-small
+
+.margin-top-basic
+  margin-top: $margin-basic
+
+.margin-top-mid
+  margin-top: $margin-mid
+
+.margin-top-large
+  margin-top: $margin-large
+
+  // MARGIN BOTTOM
+
+.margin-bottom-micro
+  margin-bottom: $margin-micro
+
+.margin-bottom-tiny
+  margin-bottom: $margin-tiny
+
+.margin-bottom-small
+  margin-bottom: $margin-small
+
+.margin-bottom-basic
+  margin-bottom: $margin-basic
+
+.margin-bottom-mid
+  margin-bottom: $margin-mid
+
+.margin-bottom-large
+  margin-bottom: $margin-large
+
+  // PADDING TOP
+
+.padding-top-micro
+  padding-top: $margin-micro
+
+.padding-top-tiny
+  padding-top: $margin-tiny
+
+.padding-top-small
+  padding-top: $margin-small
+
+.padding-top-basic
+  padding-top: $margin-basic
+
+.padding-top-mid
+  padding-top: $margin-mid
+
+.padding-top-large
+  padding-top: $margin-large
+
+  // PADDING BOTTOM
+
+.padding-bottom-micro
+  padding-bottom: $margin-micro
+
+.padding-bottom-tiny
+  padding-bottom: $margin-tiny
+
+.padding-bottom-small
+  padding-bottom: $margin-small
+
+.padding-bottom-basic
+  padding-bottom: $margin-basic
+
+.padding-bottom-mid
+  padding-bottom: $margin-mid
+
+.padding-bottom-large
+  padding-bottom: $margin-large
+
+// ******************************************************
+
+// FORMS
+
+.field
+  margin-bottom: $margin-basic
+
+form
+  section
+    margin-bottom: $margin-basic
+
+label
+  display: block
+  padding-left: $margin-small
+  margin-bottom: $margin-tiny
+
+input
+  width: 100%
+  max-width: 600px
+  font-size: 1rem
+  padding: $margin-small
+  &[type=checkbox]
+    display: inline-block
+    width: auto
+  &[type=submit]
+    width: auto
+    -webkit-appearance: button
+
+select
+  width: 100%
+  max-width: 600px + ($margin-small * 2)
+  font-size: 1rem
+  border-radius: 0
+  height: 2.5rem
+
+.buttons
+  a
+    display: block
+    margin-bottom: $margin-tiny
+
+button[type=submit]
+  display: block
+  font-size: 1rem
+  padding: $margin-small
+  margin-bottom: $margin-tiny
+
+// ******************************************************
+
+// MAIN LAYOUT
+
+.container
+  width: 80%
+  max-width: 1400px
+  min-width: 360px
+  margin-left: auto
+  margin-right: auto
+
+// ******************************************************
+
+// HEADER
+
+#header
+  h1
+    font-size: 1rem
+
+#main-menu
+  li
+    margin-left: $margin-tiny
+
+// ******************************************************
+
+// MEDIA QUERIES
+
+// @media screen and (max-width: ($col * $cols)+($gutter * $cols))
+
+// @media screen and (max-width: 601px)
