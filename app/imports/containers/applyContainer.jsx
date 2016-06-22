@@ -1,3 +1,5 @@
+import { Meteor } from 'meteor/meteor';
+
 import { composeWithTracker } from 'react-komposer';
 
 import ApplyLayout from '/imports/components/apply/applyLayout.jsx';
@@ -7,28 +9,34 @@ import { ApplicationSections } from '/imports/collections/applicationSections.js
 
 import { createApplication } from '/imports/api/methods.js';
 
-const composer = ( props, onData ) => {
+const composer = (props, onData) => {
 
-  const subscription = Meteor.subscribe( 'application.single' );
+  const subscription = Meteor.subscribe('application.single');
 
   // Check if subscription is ready
   if ( subscription.ready() ) {
 
-    // Set some data 
+    // Set some data
     const user = !!Meteor.user() ? Meteor.user() : null;
 
     // Wait for user subscription (kinda)
-    if( user ) {
+    if (user) {
 
       // Look for user's application
       let application = Applications.findOne({ userId: user._id });
 
-      if ( !!application ) {
+      if (!!application) {
+
+        // Check if time is after deadline
+        if (moment() > moment(Meteor.settings.public.applicationDeadline, Meteor.settings.public.dateFormat)) {
+          return FlowRouter.go('/applications-closed');
+        }
+
         // Get section URL (props come from the router)
         const currentSection = props.section;
 
         // If section is not in the URL, get the latest position in the application
-        if( currentSection == null && application.position != null ) {
+        if(currentSection == null && application.position != null) {
           return FlowRouter.go('/apply/' + application.position);
         } else if ( currentSection == null ) {
           // Otherwise go to /apply/1
