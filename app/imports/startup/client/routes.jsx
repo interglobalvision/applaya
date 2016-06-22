@@ -32,6 +32,15 @@ publicRoutes.route("/logout", {
   }
 });
 
+publicRoutes.route('/applications-closed', {
+  name: 'applications-closed',
+  action (){
+    mount(MainLayout, {
+      content: "Applications closed!!!",
+    });
+  }
+});
+
 const authenticatedRoutes = FlowRouter.group( { name: 'authenticated' } );
 
 authenticatedRoutes.route("/apply", {
