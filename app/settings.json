@@ -17,7 +17,8 @@
     "public": {
       "conekta_public_sandbox":"xxx",
       "conekta_public":"xxx",
-      "applicationDeadline":"Sep 19 2016 00:00:00",
-      "applicationExtension":"Dec 19 2016 00:00:00"
+      "dateFormat":"DD-MM-YYYY HH:mm",
+      "applicationDeadline":"19-09-2015 00:00",
+      "applicationExtension":"19-11-2016 00:00"
     }
 }
