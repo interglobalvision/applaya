@@ -2,6 +2,9 @@ import React from 'react';
 import {mount} from 'react-mounter';
 
 import { MainLayout } from '/imports/components/mainLayout.jsx';
+
+import { PageApplicationsClosed } from '/imports/components/pages/pageApplicationsClosed.jsx';
+
 import ApplyContainer from '/imports/containers/applyContainer.jsx';
 
 const publicRoutes = FlowRouter.group({ name: 'public'});
@@ -34,9 +37,9 @@ publicRoutes.route("/logout", {
 
 publicRoutes.route('/applications-closed', {
   name: 'applications-closed',
-  action (){
+  action (params){
     mount(MainLayout, {
-      content: "Applications closed!!!",
+      content: <PageApplicationsClosed />,
     });
   }
 });
