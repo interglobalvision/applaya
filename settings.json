@@ -1,0 +1,23 @@
+{
+    "aws_bucket":"xxx",
+    "AWSAccessKeyId":"xxx",
+    "AWSSecretAccessKey":"xxx",
+    "AWSRegion":"xxx",
+
+    "conekta_private_sandbox":"xxx",
+    "conekta_private":"xxx",
+
+    "email_from": "Name <email@domain.com>",
+
+    "kadira": {
+      "appId": "xxx",
+      "appSecret": "xxx"
+    },
+
+    "public": {
+      "conekta_public_sandbox":"xxx",
+      "conekta_public":"xxx",
+      "applicationDeadline":"Sep 19 2016 00:00:00",
+      "applicationExtension":"Dec 19 2016 00:00:00"
+    }
+}
