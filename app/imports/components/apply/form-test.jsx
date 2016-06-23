@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import {AutoForm} from 'uniforms-unstyled';
-
-// Import collections
-import { ApplicationSections } from '/imports/collections/applicationSections.js';
+import { AutoForm } from 'uniforms-unstyled';
 
 // Import schemas
 import { FormSchema } from '/imports/schemas/TestForm.js';
 
 // Import methods
-import { saveApplicationSection, savePosition } from '/imports/api/methods.js';
+import { saveApplicationSection, saveApplyPosition } from '/imports/api/methods.js';
 
 // Component
 export default class FormTest extends Component {
@@ -46,7 +43,7 @@ export default class FormTest extends Component {
   render() {
     // Get saved data
     return (
-      <AutoForm schema={FormSchema} autosave={true} onSubmit={this.onSubmit.bind(this)} model={this.props.model}/>
+      <AutoForm schema={FormSchema} autosave onSubmit={this.onSubmit.bind(this)} model={this.props.model}/>
     );
   }
-};
+}

@@ -15,7 +15,7 @@ export const createApplication = new ValidatedMethod({
 
   run() {
 
-    if( !this.userId ) {
+    if (!this.userId) {
       throw new Meteor.Error('Applications.methods.insert.not-logged-in', 'Must be logged in to create an application.');
     }
 
@@ -23,7 +23,7 @@ export const createApplication = new ValidatedMethod({
       userId: this.userId,
     });
 
-  }
+  },
 });
 
 
@@ -37,17 +37,17 @@ export const saveApplicationSection = new ValidatedMethod({
       type: String,
     },
     applicationId: {
-      type: String
+      type: String,
     },
     data: {
       type: FormSchema,
       optional: true,
-    }
+    },
   }).validator(),
 
   run({ step, applicationId, data }) {
 
-    if( !this.userId ) {
+    if (!this.userId) {
       throw new Meteor.Error('ApplicationSection.methods.saveSection.not-logged-in', 'Must be logged in to save a section.');
     }
 
@@ -63,11 +63,11 @@ export const saveApplicationSection = new ValidatedMethod({
       $set: {
         applicationId,
         data,
-      }
+      },
     };
 
-    ApplicationSections.update( query, update, { upsert: true });
-  }
+    ApplicationSections.update(query, update, { upsert: true });
+  },
 
 });
 
@@ -82,25 +82,25 @@ export const saveApplyPosition = new ValidatedMethod({
     },
 
     applicationId: {
-      type: String
+      type: String,
     },
 
   }).validator(),
 
   run({ position, applicationId }) {
-    if( !this.userId ) {
+    if (!this.userId) {
       throw new Meteor.Error('Applications.methods.save-position.not-logged-in', 'Must be logged in to save position');
     }
 
-    if( !!position ) {
+    if (!!position) {
 
       const update = {
         $set: {
           position,
-        }
+        },
       };
 
-      Applications.update( applicationId, update );
+      Applications.update(applicationId, update);
     }
-  }
+  },
 });

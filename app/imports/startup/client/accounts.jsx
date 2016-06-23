@@ -4,5 +4,5 @@ Accounts.ui.config({
   passwordSignupFields: 'EMAIL_ONLY',
   loginPath: '/login',
   onSignedInHook: () => FlowRouter.go('/apply'),
-  onSignedOutHook: () => FlowRouter.go('/')
+  onSignedOutHook: () => FlowRouter.go('/'),
 });

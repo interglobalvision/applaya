@@ -1,5 +1,5 @@
 import React from 'react';
-import {mount} from 'react-mounter';
+import { mount } from 'react-mounter';
 
 import { MainLayout } from '/imports/components/mainLayout.jsx';
 
@@ -7,60 +7,60 @@ import { PageApplicationsClosed } from '/imports/components/pages/pageApplicatio
 
 import ApplyContainer from '/imports/containers/applyContainer.jsx';
 
-const publicRoutes = FlowRouter.group({ name: 'public'});
+const publicRoutes = FlowRouter.group({ name: 'public' });
 
-publicRoutes.route("/", {
+publicRoutes.route('/', {
   name: 'home',
-  action (){
+  action () {
     mount(MainLayout, {
-      content: "Hello world!",
+      content: 'Hello world!',
     });
-  }
+  },
 });
 
-publicRoutes.route("/login", {
+publicRoutes.route('/login', {
   name: 'login',
-  action(params) {
+  action() {
     mount(MainLayout, {
       content: <Accounts.ui.LoginForm />,
     });
-  }
+  },
 });
 
-publicRoutes.route("/logout", {
+publicRoutes.route('/logout', {
   name: 'logout',
-  action(params) {
+  action() {
     Meteor.logout();
     FlowRouter.go('/login');
-  }
+  },
 });
 
 publicRoutes.route('/applications-closed', {
   name: 'applications-closed',
-  action (params){
+  action() {
     mount(MainLayout, {
       content: <PageApplicationsClosed />,
     });
-  }
+  },
 });
 
-const authenticatedRoutes = FlowRouter.group( { name: 'authenticated' } );
+const authenticatedRoutes = FlowRouter.group({ name: 'authenticated' });
 
-authenticatedRoutes.route("/apply", {
+authenticatedRoutes.route('/apply', {
   name: 'apply',
-  action(params) {
+  action() {
     mount(MainLayout, {
       content: <ApplyContainer />,
     });
-  }
+  },
 });
 
-authenticatedRoutes.route("/apply/:section", {
+authenticatedRoutes.route('/apply/:section', {
   name: 'apply',
   action(params) {
     mount(MainLayout, {
       content: <ApplyContainer section={params.section} />,
     });
-  }
+  },
 });
 

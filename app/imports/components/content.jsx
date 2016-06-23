@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default Content = ({name}) => (
+export default Content = ({ name }) => (
   <div>
     <div className="section no-pad-bot" id="index-banner">
       <div className="container">

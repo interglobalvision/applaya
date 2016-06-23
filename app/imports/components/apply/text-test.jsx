@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 // Import methods
-import { saveApplicationSection } from '/imports/api/methods.js';
 import { saveApplyPosition } from '/imports/api/methods.js';
 
 export default class TextTest extends Component {
@@ -29,4 +28,4 @@ export default class TextTest extends Component {
       </div>
     );
   }
-};
+}

@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 
 // Import apply parts
 import TextTest from '/imports/components/apply/text-test.jsx';
@@ -9,7 +9,7 @@ export default class ApplyLayout extends Component {
   getApplySection() {
 
     // Check if logged in
-    if( !this.props.user  ) {
+    if (!this.props.user) {
       return <Accounts.ui.LoginForm />;
     }
 
@@ -17,7 +17,7 @@ export default class ApplyLayout extends Component {
     // I found out that trying to use an array doesn't work.
     // I wanna try to return react components dinamicaly by
     // using component name (String) or something like that
-    switch(this.props.section.step) {
+    switch (this.props.section.step) {
       case '1': return (
         <FormTest
           applicationId={this.props.application._id}
@@ -32,8 +32,8 @@ export default class ApplyLayout extends Component {
           sectionId={this.props.section.id}
           model={this.props.section.data} />
       );
-    default: return ':('; // 404
-    };
+      default: return ':('; // 404
+    }
 
   }
 
@@ -44,7 +44,7 @@ export default class ApplyLayout extends Component {
       </section>
     );
   }
-};
+}
 
 ApplyLayout.protoTypes = {
   user: React.PropTypes.object,
