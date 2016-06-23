@@ -18,7 +18,7 @@ const composer = (props, onData) => {
   const subscription = Meteor.subscribe('application.single');
 
   // Check if subscription is ready
-  if ( subscription.ready() ) {
+  if (subscription.ready()) {
 
     // Set some data
     const user = !!Meteor.user() ? Meteor.user() : null;
@@ -35,9 +35,11 @@ const composer = (props, onData) => {
         const currentSection = props.section;
 
         // If section is not in the URL, get the latest position in the application
-        if(currentSection == null && application.position != null) {
+        // I changed these conditions. In ES6 you can check for undefined as expected.
+        // Fallback for <IE8 is done by Babel if configured.
+        if (currentSection === undefined && application.position !== undefined) {
           return FlowRouter.go('/apply/' + application.position);
-        } else if ( currentSection == null ) {
+        } else if (currentSection === undefined) {
           // Otherwise go to /apply/1
           return FlowRouter.go('/apply/1');
         }
@@ -45,7 +47,7 @@ const composer = (props, onData) => {
         let section = {
           applicationId: application._id,
           step: currentSection,
-        }
+        };
 
         let sectionData = ApplicationSections.findOne({
           applicationId: application._id,
@@ -54,11 +56,11 @@ const composer = (props, onData) => {
 
         section = Object.assign(section, sectionData);
 
-        onData( null, { user, section, application } );
+        onData(null, { user, section, application });
 
       } else {
         // If no application returned proceed to create a new application for the user
-        createApplication.call({}, (err,res) => {
+        createApplication.call({}, (err) => {
           if (err) {
             onData(new Meteor.Error(err));
           }
@@ -67,7 +69,7 @@ const composer = (props, onData) => {
 
     } else {
       // We return an empty user to make applyLayout show the login form
-      onData( null, { user: null } );
+      onData(null, { user: null });
     }
 
   }

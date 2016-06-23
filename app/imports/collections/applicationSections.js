@@ -13,7 +13,7 @@ class ApplicationSectionsCollection extends Mongo.Collection {
   }
 
   update(selector, modifier, ...optionsAndCallback) {
-    modifier.$set['updatedAt'] =  modifier.$set['updatedAt'] || new Date();
+    modifier.$set['updatedAt'] = modifier.$set['updatedAt'] || new Date();
   
     return super.update(selector, modifier, ...optionsAndCallback);
   }

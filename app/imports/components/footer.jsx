@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default Footer = () => (
+const Footer = () => (
   <footer id="footer" className="margin-top-large font-smaller">
     <div className="container">
       <div className="row">
@@ -11,3 +11,5 @@ export default Footer = () => (
     </div>
   </footer>
 );
+
+export default Footer;

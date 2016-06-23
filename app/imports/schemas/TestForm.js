@@ -6,18 +6,18 @@ export const FormSchema = new SimpleSchema({
   category: {
     type: String,
     allowedValues: [
-      "news",
-      "image",
-      "video"
-    ]
+      'news',
+      'image',
+      'video',
+    ],
   },
 
   publishedDate: {
-    type: Date
+    type: Date,
   },
 
   published: {
     type: Boolean,
-    optional: true
-  }
+    optional: true,
+  },
 });

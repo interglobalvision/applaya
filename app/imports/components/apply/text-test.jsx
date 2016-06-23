@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 // Import methods
-import { saveApplicationSection } from '/imports/api/methods.js';
 import { saveApplyPosition } from '/imports/api/methods.js';
 
 export default class TextTest extends Component {
@@ -9,7 +8,7 @@ export default class TextTest extends Component {
     saveApplyPosition.call({
       position: this.props.step,
       applicationId: this.props.applicationId,
-    }, (err, res) => {
+    }, (err) => {
       if (err) {
         console.error(err);
       }
@@ -29,4 +28,4 @@ export default class TextTest extends Component {
       </div>
     );
   }
-};
+}
