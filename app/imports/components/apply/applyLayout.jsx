@@ -20,7 +20,7 @@ export default class ApplyLayout extends Component {
 
     // Steps is an array, so positions start at 0.
     // But the step numbers for the routs start at 1. So we
-    // Rest the offset to the step param received.
+    // substract the offset to the step param received.
     step--;
     const StepComponent = Steps[step].component;
 
