@@ -16,7 +16,7 @@ export default class ApplyLayout extends Component {
 
     let step = this.props.section.step;
 
-    if (step === step) {
+    if (step === undefined) {
       return <Page404 />;
     }
 
