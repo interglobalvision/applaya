@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
-// Import apply parts
-import TextTest from '/imports/components/apply/text-test.jsx';
-import FormTest from '/imports/components/apply/form-test.jsx';
+import { Page404 } from '/imports/components/pages/page404.jsx';
+
+// Import apply steps
+import Steps from '/imports/components/apply/steps.js';
 
 export default class ApplyLayout extends Component {
 
@@ -13,27 +14,25 @@ export default class ApplyLayout extends Component {
       return <Accounts.ui.LoginForm />;
     }
 
-    // This switch need a btter and nicer way to be declared.
-    // I found out that trying to use an array doesn't work.
-    // I wanna try to return react components dinamicaly by
-    // using component name (String) or something like that
-    switch (this.props.section.step) {
-      case '1': return (
-        <FormTest
-          applicationId={this.props.application._id}
-          step={this.props.section.step}
-          sectionId={this.props.section.id}
-          model={this.props.section.data} />
-      );
-      case '2': return (
-        <TextTest
-          applicationId={this.props.application._id}
-          step={this.props.section.step}
-          sectionId={this.props.section.id}
-          model={this.props.section.data} />
-      );
-      default: return ':('; // 404
+    let step = this.props.section.step;
+
+    if (step === undefined) {
+      return <Page404 />;
     }
+
+    // Steps is an array, so positions start at 0.
+    // But the step numbers for the routs start at 1. So we
+    // substract the offset to the step param received.
+    step--;
+    const StepComponent = Steps[step].component;
+
+    return (
+      <StepComponent
+        applicationId={this.props.application._id}
+        step={this.props.section.step}
+        sectionId={this.props.section.id}
+        model={this.props.section.data} />
+    );
 
   }
 
