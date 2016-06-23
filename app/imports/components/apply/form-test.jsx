@@ -13,7 +13,7 @@ export default class FormTest extends Component {
     saveApplyPosition.call({
       position: this.props.step,
       applicationId: this.props.applicationId,
-    }, (err, res) => {
+    }, (err) => {
       if (err) {
         console.error(err);
       }
@@ -33,7 +33,7 @@ export default class FormTest extends Component {
       step,
       applicationId,
       data,
-    }, (err,res) => {
+    }, (err) => {
       if (err) {
         return new Meteor.Error(err);
       }
