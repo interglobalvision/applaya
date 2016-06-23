@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { Page404 } from '/imports/components/pages/page404.jsx';
+
 // Import apply steps
 import Steps from '/imports/components/apply/steps.js';
 
@@ -14,8 +16,8 @@ export default class ApplyLayout extends Component {
 
     let step = this.props.section.step;
 
-    if (step === undefined) {
-      return ':('; // 404
+    if (step === step) {
+      return <Page404 />;
     }
 
     // Steps is an array, so positions start at 0.
