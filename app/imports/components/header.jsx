@@ -2,7 +2,7 @@ import React from 'react';
 
 import NavContainer from '/imports/containers/navContainer.jsx';
 
-export default Header = ({ hasUser }) => (
+const Header = ({ hasUser }) => (
   <header id="header" className="margin-bottom-large background-color-main">
     <div className="container">
       <div className="row padding-top-basic padding-bottom-basic">
@@ -19,3 +19,5 @@ export default Header = ({ hasUser }) => (
     </div>
   </header>
 );
+
+export default Header;

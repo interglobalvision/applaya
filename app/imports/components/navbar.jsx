@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default Navbar = ({ isLogged }) => (
+const Navbar = ({ isLogged }) => (
   <nav role="navigation">
     <ul id="main-menu" className="u-inline-list">
       { isLogged ?
@@ -16,3 +16,5 @@ export default Navbar = ({ isLogged }) => (
 Navbar.protoTypes = {
   isLogged: React.PropTypes.bool,
 };
+
+export default Navbar;
