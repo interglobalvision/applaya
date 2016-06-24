@@ -3,7 +3,7 @@ import { ApplicationSections } from '/imports/collections/applicationSections.js
 
 import { FormSchema } from '/imports/schemas/TestForm.js';
 
-// This is a validated method. From the meteor pckg validated-method 
+// This is a validated method. From the meteor pckg validated-method
 // https://github.com/meteor/validated-method
 //
 // It runs run() only if validate: true.
@@ -27,14 +27,14 @@ export const createApplication = new ValidatedMethod({
 });
 
 
-// This method could be named better and maybe live 
+// This method could be named better and maybe live
 // in a separate file.
 export const saveApplicationSection = new ValidatedMethod({
   name: 'application.section.save',
 
   validate: new SimpleSchema({
     step: {
-      type: String,
+      type: Number,
     },
     applicationId: {
       type: String,
@@ -77,7 +77,7 @@ export const saveApplyPosition = new ValidatedMethod({
   validate: new SimpleSchema({
 
     position: {
-      type: String,
+      type: Number,
       optional: true,
     },
 
