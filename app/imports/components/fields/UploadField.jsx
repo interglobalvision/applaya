@@ -15,7 +15,7 @@ const uploadFile = (event, onChange) => {
   uploader.send(image, function(error, url) {
     if (error) {  
       throw new Meteor.Error('upload-file-fail', error);
-    } else if (url) {
+    } else {
       const file = {
         url: url,
         name: image.name,
@@ -23,6 +23,14 @@ const uploadFile = (event, onChange) => {
       onChange(file);
     }
   });
+
+  /*
+  const file = {
+    name : "Screen Shot 2016-06-28 at 4.16.50 PM.png",
+    url : "https://material-art-fair.s3.amazonaws.com/pCG9PriKwoZhZJq6K/image/aYyp_screenshot20160628at41650pm.png" url: url,
+  }
+  onChange(file);
+  */
 };
 
 const FieldUpload = ({

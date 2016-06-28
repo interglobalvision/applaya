@@ -1,31 +1,50 @@
-import FieldUpload from '/imports/components/fields/FileUpload.jsx';
+import UploadField from '/imports/components/fields/UploadField.jsx';
+
+const UploadSchema = new SimpleSchema({
+  file: {
+    type: Object,
+    uniforms: {
+      component: UploadField,
+    },
+  },
+});
+
+UploadSchema.messages({
+  'required file': 'Msg for required file',
+});
 
 export const FormSchema = new SimpleSchema({
   name: {
     type: String,
   },
 
-  category: {
+  docs: {
+    type: [Object],
+    minCount: 2,
+    maxCount: 2,
+    label: 'Documents',
+  },
+
+  'docs.$': {
+    label: 'File',
+    type: Object,
+    uniforms: {
+      component: UploadField,
+    },
+  },
+
+  'docs.$.url': {
     type: String,
-    allowedValues: [
-      'news',
-      'image',
-      'video',
-    ],
+    optional: true,
   },
-
-  publishedDate: {
-    type: Date,
+  'docs.$.sizes': {
+    type: Object,
+    optional: true,
   },
-
-  published: {
-    type: Boolean,
+  'docs.$.name': {
+    type: String,
     optional: true,
   },
 
-  cv: {
-    type: String,
-    uniforms: FieldUpload,
-    optional: true,
-  }
 });
+

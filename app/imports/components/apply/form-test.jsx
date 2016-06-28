@@ -29,6 +29,8 @@ export default class FormTest extends Component {
     let applicationId = this.props.applicationId;
     let data = doc;
 
+    data.docs = _.compactObject(data.docs);
+
     saveApplicationSection.call({
       step,
       applicationId,
@@ -40,10 +42,36 @@ export default class FormTest extends Component {
     });
   }
 
+
+  onValidate(model, error, callback) {
+    // You can pass additional validation if an error is already there
+    if (error) {
+      return callback();
+    }
+    return null;
+  }
+
   render() {
     // Get saved data
     return (
-      <AutoForm schema={FormSchema} autosave onSubmit={this.onSubmit.bind(this)} model={this.props.model}/>
+      <AutoForm 
+        schema={FormSchema}
+        model={this.props.model}
+        onSubmit={ doc => this.onSubmit(doc)} 
+        onValidate={this.onValidate}
+      />
     );
   }
 }
+
+_.mixin({
+  compactObject : function(o) {
+    var clone = _.clone(o);
+    _.each(clone, function(v, k) {
+      if(!v) {
+        delete clone[k];
+      }
+    });
+    return clone;
+  }
+});
