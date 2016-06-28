@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { Page404 } from '/imports/components/pages/page404.jsx';
+import { ApplySidebar } from '/imports/components/apply/applySidebar.jsx';
 
 // Import apply steps
 import Steps from '/imports/components/apply/steps.js';
@@ -38,9 +39,14 @@ export default class ApplyLayout extends Component {
 
   render() {
     return (
-      <section className="apply-layout">
-        { this.getApplySection() }
-      </section>
+      <div className="row">
+        <section className="apply-layout fluid-col s-10 m-7">
+          { this.getApplySection() }
+        </section>
+        <nav className="fluid-col s-10 m-3">
+          <ApplySidebar />
+        </nav>
+      </div>
     );
   }
 }
