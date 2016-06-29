@@ -8,7 +8,7 @@ import { GalleryInformationSchema } from '/imports/schemas/GalleryInformation.js
 import { saveApplicationSection, saveApplyPosition } from '/imports/api/methods.js';
 
 // Component
-export default class GalleryInformation extends Component {
+export class GalleryInformation extends Component {
   savePosition() {
     saveApplyPosition.call({
       position: this.props.step,

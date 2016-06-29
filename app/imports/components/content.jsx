@@ -56,4 +56,4 @@ const Content = ({ name }) => (
   </div>
 );
 
-export default Content;
+export Content;

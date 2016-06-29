@@ -1,7 +1,7 @@
 // Import apply parts
-import TextTest from '/imports/components/apply/text-test.jsx';
-import FormTest from '/imports/components/apply/form-test.jsx';
-import GalleryInformation from '/imports/components/apply/galleryInformation.jsx';
+import { TextTest } from '/imports/components/apply/text-test.jsx';
+import { FormTest } from '/imports/components/apply/form-test.jsx';
+import { GalleryInformation } from '/imports/components/apply/galleryInformation.jsx';
 
 // Import schemas
 import { FormSchema } from '/imports/schemas/TestForm.js';

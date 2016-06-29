@@ -1,6 +1,6 @@
 import { composeWithTracker } from 'react-komposer';
 
-import Navbar from '/imports/components/navbar.jsx';
+import { Navbar } from '/imports/components/navbar.jsx';
 
 const composer = (props, onData) => {
   let isLogged = !!Meteor.user() ? true : false;
@@ -8,4 +8,4 @@ const composer = (props, onData) => {
   onData(null, { isLogged });
 };
 
-export default composeWithTracker(composer)(Navbar);
+export const NavContainer = composeWithTracker(composer)(Navbar);

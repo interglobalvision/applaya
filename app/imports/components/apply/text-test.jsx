@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 // Import methods
 import { saveApplyPosition } from '/imports/api/methods.js';
 
-export default class TextTest extends Component {
+export class TextTest extends Component {
   savePosition() {
     saveApplyPosition.call({
       position: this.props.step,

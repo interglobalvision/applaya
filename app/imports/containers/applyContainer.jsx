@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 
 import { composeWithTracker } from 'react-komposer';
 
-import ApplyLayout from '/imports/components/apply/applyLayout.jsx';
+import { ApplyLayout } from '/imports/components/apply/applyLayout.jsx';
 
 import { Applications } from '/imports/collections/applications.js';
 import { ApplicationSections } from '/imports/collections/applicationSections.js';
@@ -75,4 +75,4 @@ const composer = (props, onData) => {
   }
 };
 
-export default composeWithTracker(composer)(ApplyLayout);
+export const ApplyContainer = composeWithTracker(composer)(ApplyLayout);

@@ -8,7 +8,7 @@ import { FormSchema } from '/imports/schemas/TestForm.js';
 import { saveApplicationSection, saveApplyPosition } from '/imports/api/methods.js';
 
 // Component
-export default class FormTest extends Component {
+export class FormTest extends Component {
   savePosition() {
     saveApplyPosition.call({
       position: this.props.step,
