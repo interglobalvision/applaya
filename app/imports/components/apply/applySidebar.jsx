@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-import Steps from '/imports/components/apply/steps.js';
+import { StepsInfo } from '/imports/components/apply/steps.js';
 
 import { ApplicationSections } from '/imports/collections/applicationSections.js';
 
 export class ApplySidebar extends Component {
   render() {
-    let steps = Steps;
+    let steps = StepsInfo;
 
     steps = steps.map((step, key) => {
       let applicationSection = ApplicationSections.findOne({ step: (key + 1) });
@@ -25,7 +25,7 @@ export class ApplySidebar extends Component {
         <h3>Application Progress</h3>
         <ul>
         {steps.map((step, key) => (
-          <ApplySidebarStep name={step.name} url={step.url}/>
+          <ApplySidebarStep name={step.name} url={step.url} key={key} />
         ))}
         </ul>
       </div>

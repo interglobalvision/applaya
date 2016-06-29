@@ -4,7 +4,7 @@ import { Page404 } from '/imports/components/pages/page404.jsx';
 import { ApplySidebar } from '/imports/components/apply/applySidebar.jsx';
 
 // Import apply steps
-import Steps from '/imports/components/apply/steps.js';
+import { Steps } from '/imports/components/apply/steps.js';
 
 export default class ApplyLayout extends Component {
 
