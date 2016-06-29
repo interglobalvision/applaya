@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { AutoForm } from 'uniforms-unstyled';
 
 // Import schemas
-import { FormSchema } from '/imports/schemas/testForm.js';
+import { ContactInformationSchema } from '/imports/schemas/contactInformation.js';
 
 // Import methods
 import { saveApplicationSection, saveApplyPosition } from '/imports/api/methods.js';
 
 // Component
-export class FormTest extends Component {
+export class ContactInformation extends Component {
   savePosition() {
     saveApplyPosition.call({
       position: this.props.step,
@@ -43,7 +43,7 @@ export class FormTest extends Component {
   render() {
     // Get saved data
     return (
-      <AutoForm schema={FormSchema} autosave onSubmit={this.onSubmit.bind(this)} model={this.props.model}/>
+      <AutoForm schema={ContactInformationSchema} autosave onSubmit={this.onSubmit.bind(this)} model={this.props.model}/>
     );
   }
 }
