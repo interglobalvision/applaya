@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { AutoForm } from 'uniforms-unstyled';
 
 // Import schemas
-import { GalleryInformationSchema } from '/imports/schemas/GalleryInformation.js';
+import { GalleryInformationSchema } from '/imports/schemas/galleryInformation.js';
 
 // Import methods
 import { saveApplicationSection, saveApplyPosition } from '/imports/api/methods.js';

@@ -1,11 +1,11 @@
 // Import apply parts
-import { TextTest } from '/imports/components/apply/text-test.jsx';
-import { FormTest } from '/imports/components/apply/form-test.jsx';
+import { TextTest } from '/imports/components/apply/textTest.jsx';
+import { FormTest } from '/imports/components/apply/formTest.jsx';
 import { GalleryInformation } from '/imports/components/apply/galleryInformation.jsx';
 
 // Import schemas
 import { FormSchema } from '/imports/schemas/TestForm.js';
-import { GalleryInformationSchema } from '/imports/schemas/GalleryInformation.js';
+import { GalleryInformationSchema } from '/imports/schemas/galleryInformation.js';
 
 export const Steps = [{ // 1
   component: FormTest,
@@ -23,6 +23,7 @@ export const Steps = [{ // 1
   schema: GalleryInformationSchema
 }];
 
+// Exports a variable with the steps without the components
 export const StepsInfo = _.map(Steps, function(step) {
   return _.omit(step, 'component');
 });
