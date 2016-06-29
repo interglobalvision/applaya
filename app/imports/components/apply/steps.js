@@ -3,11 +3,13 @@ import { TextTest } from '/imports/components/apply/textTest.jsx';
 import { FormTest } from '/imports/components/apply/formTest.jsx';
 import { GalleryInformation } from '/imports/components/apply/galleryInformation.jsx';
 import { ContactInformation } from '/imports/components/apply/contactInformation.jsx';
+import { Proposal } from '/imports/components/apply/proposal.jsx';
 
 // Import schemas
 import { FormSchema } from '/imports/schemas/testForm.js';
 import { GalleryInformationSchema } from '/imports/schemas/galleryInformation.js';
 import { ContactInformationSchema } from '/imports/schemas/contactInformation.js';
+import { ProposalSchema } from '/imports/schemas/proposal.js';
 
 export const Steps = [{ // 1
   component: FormTest,
@@ -28,6 +30,11 @@ export const Steps = [{ // 1
   name: 'Contact Information',
   key: 'contact-information',
   schema: ContactInformationSchema,
+}, {
+  component: Proposal,
+  name: 'Proposal',
+  key: 'proposal',
+  schema: ProposalSchema,
 }];
 
 // Exports a variable with the steps without the components
