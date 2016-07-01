@@ -46,9 +46,9 @@ export default class FormTest extends Component {
   onValidate(model, error, callback) {
     // You can pass additional validation if an error is already there
     if (error) {
-      return callback();
+      return callback(error);
     }
-    return null;
+    return callback();
   }
 
   render() {
@@ -57,7 +57,7 @@ export default class FormTest extends Component {
       <AutoForm 
         schema={FormSchema}
         model={this.props.model}
-        onSubmit={ doc => this.onSubmit(doc)} 
+        onSubmit={this.onSubmit.bind(this)} 
         onValidate={this.onValidate}
       />
     );

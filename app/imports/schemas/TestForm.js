@@ -18,6 +18,15 @@ export const FormSchema = new SimpleSchema({
     type: String,
   },
 
+  cv: {
+    type: Object,
+    label: 'CV',
+    uniforms: {
+      component: UploadField,
+    },
+  }
+
+  /*
   docs: {
     type: [Object],
     minCount: 2,
@@ -45,6 +54,7 @@ export const FormSchema = new SimpleSchema({
     type: String,
     optional: true,
   },
+  */
 
 });
 

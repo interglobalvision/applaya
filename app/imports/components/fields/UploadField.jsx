@@ -38,12 +38,20 @@ const FieldUpload = ({
   value,
   onChange,
   name,
+  label,
   ...props
   }) =>
 
   <section {...props}>
-    <input type="file"
-      name="uploadFile"
+    {label && (
+      <label htmlFor={id}>
+        {label}
+      </label>
+    )}
+    <input
+      id={id}
+      type="file"
+      name={name}
       onChange={event => uploadFile(event, onChange)}
     />
     <img src={value.url} />
