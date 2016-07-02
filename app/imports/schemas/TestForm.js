@@ -1,32 +1,42 @@
 import UploadField from '/imports/components/fields/UploadField.jsx';
 
-const UploadSchema = new SimpleSchema({
+const Upload = new SimpleSchema({
   file: {
     type: Object,
+    blackbox: true,
     uniforms: {
       component: UploadField,
+    },
+    custom() {
+      if (_.isEmpty(this.value)) {
+        return 'required';
+      }
+    },
+    autoValue() {
+      if (_.isEmpty(this.value)) {
+        this.unset();
+      }
     },
   },
 });
 
-UploadSchema.messages({
-  'required file': 'Msg for required file',
-});
-
-export const FormSchema = new SimpleSchema({
+const Schema = new SimpleSchema({
   name: {
     type: String,
   },
 
   cv: {
-    type: Object,
-    label: 'CV',
-    uniforms: {
-      component: UploadField,
-    },
-  }
-
+    type: Upload,
+  },
+  
   /*
+  'cv.url': {
+    type: String,
+  },
+  'cv.name': {
+    type: String,
+  },
+
   docs: {
     type: [Object],
     minCount: 2,
@@ -58,3 +68,4 @@ export const FormSchema = new SimpleSchema({
 
 });
 
+export const FormSchema = Schema;

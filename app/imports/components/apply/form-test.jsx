@@ -3,6 +3,7 @@ import { AutoForm } from 'uniforms-unstyled';
 
 // Import schemas
 import { FormSchema } from '/imports/schemas/TestForm.js';
+import { Upload } from '/imports/schemas/Upload.js';
 
 // Import methods
 import { saveApplicationSection, saveApplyPosition } from '/imports/api/methods.js';
@@ -29,8 +30,6 @@ export default class FormTest extends Component {
     let applicationId = this.props.applicationId;
     let data = doc;
 
-    data.docs = _.compactObject(data.docs);
-
     saveApplicationSection.call({
       step,
       applicationId,
@@ -42,15 +41,6 @@ export default class FormTest extends Component {
     });
   }
 
-
-  onValidate(model, error, callback) {
-    // You can pass additional validation if an error is already there
-    if (error) {
-      return callback(error);
-    }
-    return callback();
-  }
-
   render() {
     // Get saved data
     return (
@@ -58,20 +48,7 @@ export default class FormTest extends Component {
         schema={FormSchema}
         model={this.props.model}
         onSubmit={this.onSubmit.bind(this)} 
-        onValidate={this.onValidate}
       />
     );
   }
 }
-
-_.mixin({
-  compactObject : function(o) {
-    var clone = _.clone(o);
-    _.each(clone, function(v, k) {
-      if(!v) {
-        delete clone[k];
-      }
-    });
-    return clone;
-  }
-});

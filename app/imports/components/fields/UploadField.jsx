@@ -9,8 +9,10 @@ const uploadFile = (event, onChange) => {
 
   const image = event.currentTarget.files[0];
 
-  // TODO: Disable input
-  // TODO: Show "Loading…" or somthing
+  // Disable input field
+  inputRef.disabled = true;
+
+  // TODO: Show "Uploading…" or somthing
 
   uploader.send(image, function(error, url) {
     if (error) {  
@@ -22,15 +24,11 @@ const uploadFile = (event, onChange) => {
       }
       onChange(file);
     }
+
+    // Enable input field
+    inputRef.disabled = false;
   });
 
-  /*
-  const file = {
-    name : "Screen Shot 2016-06-28 at 4.16.50 PM.png",
-    url : "https://material-art-fair.s3.amazonaws.com/pCG9PriKwoZhZJq6K/image/aYyp_screenshot20160628at41650pm.png" url: url,
-  }
-  onChange(file);
-  */
 };
 
 const FieldUpload = ({
@@ -43,16 +41,12 @@ const FieldUpload = ({
   }) =>
 
   <section {...props}>
-    {label && (
-      <label htmlFor={id}>
-        {label}
-      </label>
-    )}
     <input
       id={id}
       type="file"
       name={name}
       onChange={event => uploadFile(event, onChange)}
+      ref={ref => inputRef = ref}
     />
     <img src={value.url} />
     <p>{value.name}</p>
