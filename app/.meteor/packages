@@ -28,3 +28,4 @@ reywood:publish-composite
 mdg:validated-method
 stylus
 momentjs:moment
+mdg:validation-error

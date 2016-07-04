@@ -5,7 +5,7 @@ import { MainLayout } from '/imports/components/mainLayout.jsx';
 
 import { PageApplicationsClosed } from '/imports/components/pages/pageApplicationsClosed.jsx';
 
-import ApplyContainer from '/imports/containers/applyContainer.jsx';
+import { ApplyContainer } from '/imports/containers/applyContainer.jsx';
 
 const publicRoutes = FlowRouter.group({ name: 'public' });
 
@@ -59,6 +59,7 @@ authenticatedRoutes.route('/apply/:section', {
   name: 'apply',
   action(params) {
     let step = parseInt(params.section);
+
     mount(MainLayout, {
       content: <ApplyContainer section={step} />,
     });

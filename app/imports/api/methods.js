@@ -1,7 +1,9 @@
+// Import collections
 import { Applications } from '/imports/collections/applications.js';
 import { ApplicationSections } from '/imports/collections/applicationSections.js';
 
-import { FormSchema } from '/imports/schemas/TestForm.js';
+// Import Steps
+import { StepsInfo } from '/imports/components/apply/steps.js';
 
 // This is a validated method. From the meteor pckg validated-method
 // https://github.com/meteor/validated-method
@@ -32,18 +34,32 @@ export const createApplication = new ValidatedMethod({
 export const saveApplicationSection = new ValidatedMethod({
   name: 'application.section.save',
 
-  validate: new SimpleSchema({
-    step: {
-      type: Number,
-    },
-    applicationId: {
-      type: String,
-    },
-    data: {
-      type: FormSchema,
-      optional: true,
-    },
-  }).validator(),
+  validate({ step, data, applicationId }) {
+    
+    // Steps is an array, so positions start at 0.
+    // But the step numbers for the routs start at 1. So we
+    // substract the offset to the step param received.
+    step--;
+
+    const validationSchema = StepsInfo[step].schema;
+
+    return new SimpleSchema({
+      step: {
+        type: Number,
+      },
+      applicationId: {
+        type: String,
+      },
+      data: {
+        type: validationSchema,
+        optional: true,
+      },
+    }).validate({
+      step,
+      applicationId,
+      data,
+    }); 
+  },
 
   run({ step, applicationId, data }) {
 

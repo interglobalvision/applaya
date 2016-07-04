@@ -1,8 +1,8 @@
 import React from 'react';
 
-import NavContainer from '/imports/containers/navContainer.jsx';
+import { NavContainer } from '/imports/containers/navContainer.jsx';
 
-const Header = ({ hasUser }) => (
+export const Header = ({ hasUser }) => (
   <header id="header" className="margin-bottom-large background-color-main">
     <div className="container">
       <div className="row padding-top-basic padding-bottom-basic">
@@ -19,5 +19,3 @@ const Header = ({ hasUser }) => (
     </div>
   </header>
 );
-
-export default Header;
