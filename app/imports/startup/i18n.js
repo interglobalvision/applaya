@@ -1,7 +1,7 @@
 import i18n from 'meteor/universe:i18n';
 
 
-i18n.addTranslations('en-US', {
+i18n.addTranslations('en', {
   common: {
     hello: 'Hello {$name} {$0}!',
   },
@@ -11,7 +11,7 @@ i18n.addTranslations('en-US', {
   },
 });
 
-i18n.addTranslations('es-MX', {
+i18n.addTranslations('es', {
   common: {
     hello: '¡Hola {$name} {$0}!',
   },
@@ -23,7 +23,7 @@ i18n.addTranslations('es-MX', {
 
 function getLang() {
   if (navigator.languages != undefined)  {
-    return navigator.languages[0];
+    return navigator.languages[0].substring(0, 2);
   }
   return navigator.language || navigator.browserLanguage;
 }
