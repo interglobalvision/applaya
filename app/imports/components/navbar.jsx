@@ -13,7 +13,7 @@ export const Navbar = ({ isLogged }) => (
     </ul>
     <ul>
       <a href="#" onClick={ () => i18n.setLocale('en') }>EN</a> 
-      <a href="#" onClick={ () => i18n.setLocale('es') }>EN</a> 
+      <a href="#" onClick={ () => i18n.setLocale('es') }>ES</a> 
     </ul>
   </nav>
 );
