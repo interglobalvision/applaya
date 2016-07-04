@@ -35,7 +35,7 @@ export class Booth extends Component {
 
     // Check if at least on booth is selected by checking if
     // model is empty {} (initial state) or all values are false
-    if ( _.isEmpty(model) || _.isEmpty(_.filter(model, val => val ) ) ) {
+    if (_.isEmpty(model) || _.isEmpty(_.filter(model, val => val))) {
 
       // Return a validated error with a custom type. This type
       // is used to return a proper validation message (declated

@@ -1,7 +1,7 @@
 export const ArtistsSchema = new SimpleSchema({
   // Artists
   artists: {
-    type: [Object,],
+    type: [ Object ],
     minCount: 1,
   },
   'artists.$.name': {
@@ -17,7 +17,7 @@ export const ArtistsSchema = new SimpleSchema({
   },
   */
   'artists.$.work': {
-    type: [Object,],
+    type: [ Object ],
     minCount: 1,
     maxCount: 5,
   },

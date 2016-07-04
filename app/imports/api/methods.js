@@ -57,7 +57,7 @@ export const saveApplicationSection = new ValidatedMethod({
     }).validate({
       step,
       applicationId,
-      data
+      data,
     }); 
   },
 

@@ -1,4 +1,4 @@
-import { TextField, LongTextField } from 'uniforms-unstyled';
+import { LongTextField } from 'uniforms-unstyled';
 
 export const ProposalSchema = new SimpleSchema({
   // Proposal

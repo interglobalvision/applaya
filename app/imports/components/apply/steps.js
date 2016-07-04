@@ -19,7 +19,7 @@ export const Steps = [{ // 1
   component: FormTest,
   name: 'First Form',
   key: 'form-test',
-  schema: FormSchema
+  schema: FormSchema,
 }, { // 2
   component: TextTest,
   name: 'Text page example',
