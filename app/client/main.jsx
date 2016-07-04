@@ -6,6 +6,6 @@
  * Preferably this file should be kept minimal.
  */
 
-import '/imports/startup/i18n.js';
+import '/imports/startup/client/i18n.js';
 import '/imports/startup/client/accounts.jsx';
 import '/imports/startup/client/routes.jsx';

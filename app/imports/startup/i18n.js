@@ -1,25 +1,7 @@
 import i18n from 'meteor/universe:i18n';
 
-
-i18n.addTranslations('en', {
-  common: {
-    hello: 'Hello {$name} {$0}!',
-  },
-
-  apply: {
-    completed: '{$percentage}% Complete',
-  },
-});
-
-i18n.addTranslations('es', {
-  common: {
-    hello: '¡Hola {$name} {$0}!',
-  },
-
-  apply: {
-    completed: '{$percentage}% Completado',
-  },
-});
+import 'import/i18n/es.js';
+import 'import/i18n/en.js';
 
 function getLang() {
   if (navigator.languages != undefined)  {
