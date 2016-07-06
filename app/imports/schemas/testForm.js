@@ -3,6 +3,17 @@ export const FormSchema = new SimpleSchema({
     type: String,
   },
 
+  lastname: {
+    type: String,
+    min: 3,
+    max: 10,
+  },
+
+  alias: {
+    type: String,
+    optional: true,
+  },
+
   category: {
     type: String,
     allowedValues: [
