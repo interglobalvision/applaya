@@ -31,8 +31,8 @@ export const createApplication = new ValidatedMethod({
 
 // This method could be named better and maybe live
 // in a separate file.
-export const saveApplicationSection = new ValidatedMethod({
-  name: 'application.section.save',
+export const submitApplicationSection = new ValidatedMethod({
+  name: 'application.section.submit',
 
   validate({ step, data, applicationId }) {
     
@@ -52,6 +52,10 @@ export const saveApplicationSection = new ValidatedMethod({
       },
       data: {
         type: validationSchema,
+        optional: true,
+      },
+      validated: {
+        type: Boolean,
         optional: true,
       },
     }).validate({
@@ -79,6 +83,54 @@ export const saveApplicationSection = new ValidatedMethod({
       $set: {
         applicationId,
         data,
+        validated: true,
+      },
+    };
+
+    ApplicationSections.update(query, update, { upsert: true });
+  },
+
+});
+
+export const saveApplicationSection = new ValidatedMethod({
+  name: 'application.section.save',
+
+  validate: new SimpleSchema({
+    step: {
+      type: Number,
+    },
+    applicationId: {
+      type: String,
+    },
+    data: {
+      type: Object,
+      optional: true,
+      blackbox: true
+    },
+    validated: {
+      type: Boolean,
+    },
+  }).validator(),
+
+  run({ step, applicationId, data }) {
+
+    if (!this.userId) {
+      throw new Meteor.Error('ApplicationSection.methods.saveSection.not-logged-in', 'Must be logged in to save a section.');
+    }
+
+    const userId = this.userId;
+
+    const query = {
+      step,
+      userId,
+      applicationId,
+    };
+
+    const update = {
+      $set: {
+        applicationId,
+        data,
+        validated: false,
       },
     };
 
