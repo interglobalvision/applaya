@@ -5,7 +5,7 @@ import { AutoForm } from 'uniforms-unstyled';
 import { FormSchema } from '/imports/schemas/testForm.js';
 
 // Import methods
-import { saveApplicationSection, saveApplyPosition } from '/imports/api/methods.js';
+import { submitApplicationSection, saveApplicationSection, saveApplyPosition } from '/imports/api/methods.js';
 
 // Component
 export class FormTest extends Component {
@@ -29,7 +29,7 @@ export class FormTest extends Component {
     let applicationId = this.props.applicationId;
     let data = doc;
 
-    saveApplicationSection.call({
+    submitApplicationSection.call({
       step,
       applicationId,
       data,
@@ -40,10 +40,46 @@ export class FormTest extends Component {
     });
   }
 
+  onValidate(model, error, callback) {
+    let step = this.props.step;
+    let applicationId = this.props.applicationId;
+    let data = model;
+
+    saveApplicationSection.call({
+      step,
+      applicationId,
+      data,
+      validated: false,
+    }, (err) => {
+      if (err) {
+        return new Meteor.Error(err);
+      }
+    });
+
+    return callback();
+  }
+
+  isValidated() {
+    if (this.props.validated === false) {
+      return 'Not Validated';
+    }
+
+    return 'Validated';
+  }
+
   render() {
     // Get saved data
     return (
-      <AutoForm schema={FormSchema} autosave onSubmit={this.onSubmit.bind(this)} model={this.props.model}/>
+      <div>
+        <p>{this.isValidated()}</p>
+        <AutoForm
+          autosave
+          schema={FormSchema}
+          onSubmit={this.onSubmit.bind(this)}
+          onValidate={this.onValidate.bind(this)}
+          model={this.props.model}
+        />
+      </div>
     );
   }
 }
