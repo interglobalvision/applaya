@@ -12,11 +12,21 @@ export class ApplySidebar extends Component {
       let applicationSection = ApplicationSections.findOne({ step: (key + 1) });
 
       // todo add boolean for if section is validated and complete
-      // console.log(applicationSection);
+      //console.log(applicationSection);
+      let validated = false;
+
+      if (! _.isUndefined(applicationSection) ) {
+
+        if (! _.isUndefined(applicationSection.validated) ) {
+          validated = applicationSection.validated;
+        }
+
+      }
 
       return {
         name: step.name,
         url: '/apply/' + (key + 1),
+        validated,
       };
     });
 
@@ -25,7 +35,7 @@ export class ApplySidebar extends Component {
         <h3>Application Progress</h3>
         <ul>
         {steps.map((step, key) => (
-          <ApplySidebarStep name={step.name} url={step.url} key={key} />
+          <ApplySidebarStep name={step.name} url={step.url}  validated={step.validated} key={key} />
         ))}
         </ul>
       </div>
@@ -36,7 +46,7 @@ export class ApplySidebar extends Component {
 export class ApplySidebarStep extends Component {
   render() {
     return (
-      <li><a href={this.props.url}>{this.props.name}</a></li>
+      <li><a href={this.props.url}>{this.props.name}{ this.props.validated ? ' ✔︎' : ''}</a></li>
     );
   }
 }
