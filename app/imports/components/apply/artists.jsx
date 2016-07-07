@@ -1,49 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { AutoForm } from 'uniforms-unstyled';
 
 // Import schemas
 import { ArtistsSchema } from '/imports/schemas/artists.js';
 
-// Import methods
-import { saveApplicationSection, saveApplyPosition } from '/imports/api/methods.js';
+// Import apply section base component
+import { ApplySection } from '/imports/components/apply/applySection.jsx';
 
 // Component
-export class Artists extends Component {
-  savePosition() {
-    saveApplyPosition.call({
-      position: this.props.step,
-      applicationId: this.props.applicationId,
-    }, (err) => {
-      if (err) {
-        console.error(err);
-      }
-    });
-  }
-
-  componentDidMount() {
-    this.savePosition();
-  }
-
-  onSubmit(doc) {
-    let step = this.props.step;
-    let applicationId = this.props.applicationId;
-    let data = doc;
-
-    saveApplicationSection.call({
-      step,
-      applicationId,
-      data,
-    }, (err) => {
-      if (err) {
-        return new Meteor.Error(err);
-      }
-    });
-  }
-
+export class Artists extends ApplySection {
   render() {
-    // Get saved data
     return (
-      <AutoForm schema={ArtistsSchema} autosave onSubmit={this.onSubmit.bind(this)} model={this.props.model}/>
+      <AutoForm
+        autosave
+        schema={ArtistsSchema}
+        onSubmit={this.onSubmit.bind(this)}
+        onValidate={this.onValidate.bind(this)}
+        model={this.props.model}
+      />
     );
   }
 }
