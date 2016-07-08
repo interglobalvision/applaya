@@ -22,7 +22,7 @@ i18n.addTranslations('es', {
 });
 
 function getLang() {
-  if (navigator.languages != undefined)  {
+  if (!_.isUndefined(navigator.languages)) {
     return navigator.languages[0].substring(0, 2);
   }
   return navigator.language || navigator.browserLanguage;
