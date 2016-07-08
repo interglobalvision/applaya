@@ -36,13 +36,6 @@ export const submitApplicationSection = new ValidatedMethod({
 
   validate({ step, data, applicationId }) {
     
-    // Steps is an array, so positions start at 0.
-    // But the step numbers for the routs start at 1. So we
-    // substract the offset to the step param received.
-    step--;
-
-    const validationSchema = StepsInfo[step].schema;
-
     return new SimpleSchema({
       step: {
         type: Number,
@@ -51,8 +44,9 @@ export const submitApplicationSection = new ValidatedMethod({
         type: String,
       },
       data: {
-        type: validationSchema,
+        type: Object,
         optional: true,
+        blackbox: true,
       },
       validated: {
         type: Boolean,
@@ -79,58 +73,31 @@ export const submitApplicationSection = new ValidatedMethod({
       applicationId,
     };
 
-    const update = {
-      $set: {
-        applicationId,
-        data,
-        validated: true,
-      },
-    };
+    // -- Validate data against section schema
 
-    ApplicationSections.update(query, update, { upsert: true });
-  },
+    // Steps is an array, so positions start at 0.
+    // But the step numbers for the routs start at 1. So we
+    // substract the offset to the step param received.
+    step--;
 
-});
+    const validationSchema = StepsInfo[step].schema;
 
-export const saveApplicationSection = new ValidatedMethod({
-  name: 'application.section.save',
+    const validationContext = validationSchema.newContext();
 
-  validate: new SimpleSchema({
-    step: {
-      type: Number,
-    },
-    applicationId: {
-      type: String,
-    },
-    data: {
-      type: Object,
-      optional: true,
-      blackbox: true
-    },
-    validated: {
-      type: Boolean,
-    },
-  }).validator(),
+    let validated = false;
 
-  run({ step, applicationId, data }) {
+    // Clean data before validation
+    data = validationSchema.clean(data);
 
-    if (!this.userId) {
-      throw new Meteor.Error('ApplicationSection.methods.saveSection.not-logged-in', 'Must be logged in to save a section.');
+    if (validationContext.validate(data)) {
+      validated = true;
     }
 
-    const userId = this.userId;
-
-    const query = {
-      step,
-      userId,
-      applicationId,
-    };
-
     const update = {
       $set: {
         applicationId,
         data,
-        validated: false,
+        validated,
       },
     };
 

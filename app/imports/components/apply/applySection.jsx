@@ -42,7 +42,7 @@ export class ApplySection extends Component {
     let applicationId = this.props.applicationId;
     let data = model;
 
-    saveApplicationSection.call({
+    submitApplicationSection.call({
       step,
       applicationId,
       data,
