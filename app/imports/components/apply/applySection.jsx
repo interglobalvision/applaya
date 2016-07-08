@@ -45,7 +45,6 @@ export class ApplySection extends Component {
       step,
       applicationId,
       data,
-      validated: false,
     }, (err) => {
       if (err) {
         return new Meteor.Error(err);

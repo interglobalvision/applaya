@@ -48,10 +48,6 @@ export const submitApplicationSection = new ValidatedMethod({
         optional: true,
         blackbox: true,
       },
-      validated: {
-        type: Boolean,
-        optional: true,
-      },
     }).validate({
       step,
       applicationId,
