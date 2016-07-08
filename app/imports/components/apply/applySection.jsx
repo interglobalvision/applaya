@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import { AutoForm } from 'uniforms-unstyled';
+import { Component } from 'react';
 
 // Import methods
-import { submitApplicationSection, saveApplicationSection, saveApplyPosition } from '/imports/api/methods.js';
+import { submitApplicationSection, saveApplyPosition } from '/imports/api/methods.js';
 
 // Component
 export class ApplySection extends Component {

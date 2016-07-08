@@ -4,10 +4,10 @@ export const BoothSchema = new SimpleSchema({
     minCount: 1,
     custom() {
       // Check if all values are false; if none booth size is checked
-      if (_.every(this.value, function(val) { return val === false })) {
+      if (_.every(this.value, val => val === false)) {
         return 'minCount';
       }
-    }
+    },
   },
 
   'boothSize.single': {

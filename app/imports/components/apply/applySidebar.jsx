@@ -15,9 +15,9 @@ export class ApplySidebar extends Component {
       //console.log(applicationSection);
       let validated = false;
 
-      if (! _.isUndefined(applicationSection) ) {
+      if (!_.isUndefined(applicationSection)) {
 
-        if (! _.isUndefined(applicationSection.validated) ) {
+        if (!_.isUndefined(applicationSection.validated)) {
           validated = applicationSection.validated;
         }
 
@@ -35,7 +35,7 @@ export class ApplySidebar extends Component {
         <h3>Application Progress</h3>
         <ul>
         {steps.map((step, key) => (
-          <ApplySidebarStep name={step.name} url={step.url}  validated={step.validated} key={key} />
+          <ApplySidebarStep name={step.name} url={step.url} validated={step.validated} key={key} />
         ))}
         </ul>
       </div>
