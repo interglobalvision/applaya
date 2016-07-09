@@ -1,4 +1,5 @@
 import React from 'react';
+import i18n from 'meteor/universe:i18n';
 
 export const Navbar = ({ isLogged }) => (
   <nav role="navigation">
@@ -9,6 +10,10 @@ export const Navbar = ({ isLogged }) => (
       { isLogged ?
         <li><a href="/logout">Logout</a></li>
       : ''}
+    </ul>
+    <ul>
+      <a href="#" onClick={ () => i18n.setLocale('en') }>EN</a> 
+      <a href="#" onClick={ () => i18n.setLocale('es') }>ES</a> 
     </ul>
   </nav>
 );
