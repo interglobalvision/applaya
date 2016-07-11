@@ -30,7 +30,7 @@ export class ApplySidebar extends Component {
 
   render() {
 
-    const steps = this.mapSteps(stepsInfo);
+    const steps = this.mapSteps(StepsInfo);
 
     return (
       <div class="content">
