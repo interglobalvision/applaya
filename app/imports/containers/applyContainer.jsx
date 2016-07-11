@@ -54,9 +54,12 @@ const composer = (props, onData) => {
           step: currentSection,
         });
 
+        let validated = _.isUndefined(sectionData) || _.isUndefined(sectionData.validated) ? false : sectionData.validated;
+
+        // Merge data
         section = Object.assign(section, sectionData);
 
-        onData(null, { user, section, application });
+        onData(null, { user, section, application, validated });
 
       } else {
         // If no application returned proceed to create a new application for the user

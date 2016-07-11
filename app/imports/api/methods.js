@@ -31,18 +31,11 @@ export const createApplication = new ValidatedMethod({
 
 // This method could be named better and maybe live
 // in a separate file.
-export const saveApplicationSection = new ValidatedMethod({
-  name: 'application.section.save',
+export const submitApplicationSection = new ValidatedMethod({
+  name: 'application.section.submit',
 
   validate({ step, data, applicationId }) {
     
-    // Steps is an array, so positions start at 0.
-    // But the step numbers for the routs start at 1. So we
-    // substract the offset to the step param received.
-    step--;
-
-    const validationSchema = StepsInfo[step].schema;
-
     return new SimpleSchema({
       step: {
         type: Number,
@@ -51,8 +44,9 @@ export const saveApplicationSection = new ValidatedMethod({
         type: String,
       },
       data: {
-        type: validationSchema,
+        type: Object,
         optional: true,
+        blackbox: true,
       },
     }).validate({
       step,
@@ -75,10 +69,31 @@ export const saveApplicationSection = new ValidatedMethod({
       applicationId,
     };
 
+    // -- Validate data against section schema
+
+    // Steps is an array, so positions start at 0.
+    // But the step numbers for the routs start at 1. So we
+    // substract the offset to the step param received.
+    step--;
+
+    const validationSchema = StepsInfo[step].schema;
+
+    const validationContext = validationSchema.newContext();
+
+    let validated = false;
+
+    // Clean data before validation
+    data = validationSchema.clean(data);
+
+    if (validationContext.validate(data)) {
+      validated = true;
+    }
+
     const update = {
       $set: {
         applicationId,
         data,
+        validated,
       },
     };
 

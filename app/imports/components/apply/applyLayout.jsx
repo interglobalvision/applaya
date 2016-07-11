@@ -32,7 +32,9 @@ export class ApplyLayout extends Component {
         applicationId={this.props.application._id}
         step={this.props.section.step}
         sectionId={this.props.section.id}
-        model={this.props.section.data} />
+        model={this.props.section.data}
+        validated={this.props.validated}
+      />
     );
 
   }
@@ -55,4 +57,5 @@ ApplyLayout.protoTypes = {
   user: React.PropTypes.object,
   section: React.PropTypes.string,
   application: React.PropTypes.object,
+  validated: React.PropTypes.bool,
 };

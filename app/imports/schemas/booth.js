@@ -1,23 +1,32 @@
 export const BoothSchema = new SimpleSchema({
-  
-  'boothSingle': {
-    type: Boolean,
-    optional: true,
+  boothSize: {
+    type: Object,
+    minCount: 1,
+    custom() {
+      // Check if all values are false; if none booth size is checked
+      if (_.every(this.value, val => val === false)) {
+        return 'minCount';
+      }
+    },
   },
-  'boothDouble': {
-    type: Boolean,
-    optional: true,
-  },
-  'boothSmall': {
-    type: Boolean,
-    optional: true,
-  },
-  'boothMedium': {
-    type: Boolean,
-    optional: true,
-  },
-});
 
-BoothSchema.messages({
-  emptyCheckboxes: 'Select at least one booth size',
+  'boothSize.single': {
+    type: Boolean,
+  },
+
+  'boothSize.double': {
+    type: Boolean,
+    optional: true,
+  },
+
+  'boothSize.small': {
+    type: Boolean,
+    optional: true,
+  },
+
+  'boothSize.medium': {
+    type: Boolean,
+    optional: true,
+  },
+
 });
