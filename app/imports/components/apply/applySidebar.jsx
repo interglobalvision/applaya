@@ -26,7 +26,7 @@ export class ApplySidebar extends Component {
     });
 
     return steps;
-  },
+  }
 
   render() {
 
