@@ -1,7 +1,7 @@
 import { Component } from 'react';
 
 // Import methods
-import { submitApplicationSection, saveApplyPosition } from '/imports/api/methods.js';
+import { submitApplicationSection, saveApplyPosition } from '/imports/api/methods/applicationMethods.js';
 
 // Component
 export class ApplySection extends Component {
