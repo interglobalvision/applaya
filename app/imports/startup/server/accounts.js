@@ -1,11 +1,13 @@
 import { Meteor } from 'meteor/meteor';
+
+import { AccountsCommon } from 'meteor/accounts-base';
 import { AccountsServer } from 'meteor/accounts-base';
 
 // Creating super admin on application creation
 
 Meteor.startup(() => {
 
-  if (Meteor.users.find().count() === 0) {
+  if (!Accounts.findUserByEmail(Meteor.settings.adminEmail)) {
 
     Accounts.createUser({
       email: Meteor.settings.adminEmail,
@@ -14,17 +16,8 @@ Meteor.startup(() => {
 
     let adminUser = Accounts.findUserByEmail(Meteor.settings.adminEmail);
 
-    Roles.addUsersToRoles(adminUser._id, 'superadmin', Roles.GLOBAL_GROUP);
+    Roles.addUsersToRoles(adminUser._id, 'superadmin');
 
   }
 
-});
-
-// Setting user roles on signup
-
-Accounts.onCreateUser((options, user) => {
-
-  Roles.addUsersToRoles(user._id, ['create-application', 'edit-application', 'submit-application'], 'applicants');
-
-  return user;
 });
