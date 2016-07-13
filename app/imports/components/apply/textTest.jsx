@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 // Import methods
-import { saveApplyPosition } from '/imports/api/methods.js';
+import { saveApplyPosition } from '/imports/api/methods/applicationMethods.js';
 
 export class TextTest extends Component {
   savePosition() {

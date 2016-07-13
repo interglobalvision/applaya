@@ -17,7 +17,8 @@
     "ValidatedMethod": true,
     "moment": true,
     "ValidationError": true,
-    "_": true
+    "_": true,
+    "Roles": true
   },
   "rules": {
     "curly": [

@@ -35,7 +35,7 @@ export const submitApplicationSection = new ValidatedMethod({
   name: 'application.section.submit',
 
   validate({ step, data, applicationId }) {
-    
+
     return new SimpleSchema({
       step: {
         type: Number,
@@ -52,7 +52,7 @@ export const submitApplicationSection = new ValidatedMethod({
       step,
       applicationId,
       data,
-    }); 
+    });
   },
 
   run({ step, applicationId, data }) {
