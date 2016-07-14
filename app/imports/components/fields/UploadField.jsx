@@ -1,57 +1,75 @@
 /* globals Slingshot _ */
-import React from 'react';
+import React, { Component } from 'react';
 
 import { connectField } from 'uniforms';
 
 import '/imports/startup/slingshot.js';
 
-const uploadFile = (event, onChange) => {
-  const uploader = new Slingshot.Upload('imageUpload');
+class FieldUpload extends Component {
+  constructor(props) {
+    super(props);
 
-  const image = event.currentTarget.files[0];
+    this.state = {
+      uploading: false,
+    };
+  }
 
-  // Disable input field
-  inputRef.disabled = true;
+  componentDidMount() {
+    this.uploader = new Slingshot.Upload('imageUpload');
+  }
 
-  // TODO: Show "Uploading…" or somthing
+  uploadFile() {
+    var _this = this;
+    this.setState({ uploading: true, });
+    
+    const image = this.refs.fileInput.files[0];
+    this.uploader.send(image, (error, url) => {
+      if (error) {  
+        throw new Meteor.Error('upload-file-fail', error);
+      } else {
+        const file = {
+          url: url,
+          name: image.name,
+        };
 
-  uploader.send(image, function(error, url) {
-    if (error) {  
-      throw new Meteor.Error('upload-file-fail', error);
-    } else {
-      const file = {
-        url: url,
-        name: image.name,
-      };
-      
-      onChange(file);
-    }
+        _this.setState({ uploading: false });
+        _this.props.onChange(file);
+      }
+    });
+  }
 
-    // Enable input field
-    inputRef.disabled = false;
-  });
+  render() {
+    return(
+      <section {...this.props}>
+        { this.state.uploading ? <p>Uploading...</p> : '' }
+        <input
+          id={this.props.id}
+          type="file"
+          name={this.props.name}
+          onChange={this.uploadFile.bind(this)}
+          ref="fileInput"
+          disabled={this.state.uploading}
+        />
+        <FilePreview url={this.props.fileUrl} name={this.props.fileName} />
+      </section>
+    );
+  } 
+}
 
+const FilePreview = (props) => {
+  return(
+    <div>
+      <img src={props.url} />
+      <p>{props.name}</p>
+    </div>
+  );
 };
 
-const FieldUpload = ({
-  id,
-  value,
-  onChange,
-  name,
-  ...props,
-  }) =>
+export const UploadField = connectField(FieldUpload, {
+  mapProps: props => {
+    props.fileUrl = props.value.url || ''; 
+    props.fileName = props.value.name || ''; 
 
-  <section {...props}>
-    <input
-      id={id}
-      type="file"
-      name={name}
-      onChange={event => uploadFile(event, onChange)}
-      ref={ref => inputRef = ref}
-    />
-    <img src={value.url} />
-    <p>{value.name}</p>
-  </section>
-;
-
-export const UploadField = connectField(FieldUpload);
+    return props;
+  }
+});
