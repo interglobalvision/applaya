@@ -3,7 +3,7 @@ import React from 'react';
 
 import { connectField } from 'uniforms';
 
-import '/imports/lib/slingshot.js';
+import '/imports/startup/slingshot.js';
 
 const uploadFile = (event, onChange) => {
   const uploader = new Slingshot.Upload('imageUpload');
