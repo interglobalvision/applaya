@@ -1,71 +1,41 @@
-import UploadField from '/imports/components/fields/UploadField.jsx';
-
-const Upload = new SimpleSchema({
-  file: {
-    type: Object,
-    blackbox: true,
-    uniforms: {
-      component: UploadField,
-    },
-    custom() {
-      if (_.isEmpty(this.value)) {
-        return 'required';
-      }
-    },
-    autoValue() {
-      if (_.isEmpty(this.value)) {
-        this.unset();
-      }
-    },
-  },
-});
+import { Upload } from '/imports/schemas/Upload.js';
 
 const Schema = new SimpleSchema({
   name: {
     type: String,
   },
 
-  cv: {
+  idCard: {
     type: Upload,
-  },
-  
-  /*
-  'cv.url': {
-    type: String,
-  },
-  'cv.name': {
-    type: String,
-  },
-
-  docs: {
-    type: [Object],
-    minCount: 2,
-    maxCount: 2,
-    label: 'Documents',
-  },
-
-  'docs.$': {
-    label: 'File',
-    type: Object,
-    uniforms: {
-      component: UploadField,
+    // This makes the field 'required'
+    autoValue() {
+      if (_.isEmpty(this.value.file)) {
+        this.unset();
+      }
     },
   },
 
-  'docs.$.url': {
-    type: String,
-    optional: true,
+  cv: {
+    type: Upload,
   },
-  'docs.$.sizes': {
-    type: Object,
-    optional: true,
-  },
-  'docs.$.name': {
-    type: String,
-    optional: true,
-  },
-  */
 
+  photos: {
+    type: [ Upload ],
+    maxCount: 2,
+  },
+  
+  docs: {
+    type: [ Upload ],
+    // This makes minCount work
+    autoValue() {
+      return _.filter(this.value, function(val) {
+        return !_.isEmpty(val.file);
+      });
+    },
+    minCount: 1,
+    maxCount: 2,
+  },
+  
 });
 
 export const FormSchema = Schema;

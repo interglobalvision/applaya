@@ -1,11 +1,12 @@
+/* globals Slingshot _ */
 import React from 'react';
 
-import { BaseField, connectField } from 'uniforms';
+import { connectField } from 'uniforms';
 
 import '/imports/lib/slingshot.js';
 
 const uploadFile = (event, onChange) => {
-  const uploader = new Slingshot.Upload("imageUpload");
+  const uploader = new Slingshot.Upload('imageUpload');
 
   const image = event.currentTarget.files[0];
 
@@ -21,7 +22,8 @@ const uploadFile = (event, onChange) => {
       const file = {
         url: url,
         name: image.name,
-      }
+      };
+      
       onChange(file);
     }
 
@@ -36,8 +38,7 @@ const FieldUpload = ({
   value,
   onChange,
   name,
-  label,
-  ...props
+  ...props,
   }) =>
 
   <section {...props}>
@@ -53,4 +54,4 @@ const FieldUpload = ({
   </section>
 ;
 
-export default connectField(FieldUpload);
+export const UploadField = connectField(FieldUpload);
