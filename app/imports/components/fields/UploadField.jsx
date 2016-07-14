@@ -14,16 +14,13 @@ class FieldUpload extends Component {
     };
   }
 
-  componentDidMount() {
-    this.uploader = new Slingshot.Upload('imageUpload');
-  }
-
   uploadFile() {
-    var _this = this;
     this.setState({ uploading: true, });
     
     const image = this.refs.fileInput.files[0];
-    this.uploader.send(image, (error, url) => {
+    const uploader = new Slingshot.Upload('imageUpload');
+
+    uploader.send(image, function(error, url) {
       if (error) {  
         throw new Meteor.Error('upload-file-fail', error);
       } else {
@@ -32,10 +29,10 @@ class FieldUpload extends Component {
           name: image.name,
         };
 
-        _this.setState({ uploading: false });
-        _this.props.onChange(file);
+        this.setState({ uploading: false });
+        this.props.onChange(file);
       }
-    });
+    }.bind(this));
   }
 
   render() {
