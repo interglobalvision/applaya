@@ -1,4 +1,4 @@
-/* globals Slingshot _ */
+/* globals Slingshot */
 import React, { Component } from 'react';
 
 import { connectField } from 'uniforms';
@@ -15,11 +15,13 @@ class FieldUpload extends Component {
   }
 
   uploadFile() {
-    this.setState({ uploading: true, });
-    
     const image = this.refs.fileInput.files[0];
     const uploader = new Slingshot.Upload('imageUpload');
 
+    this.setState({
+      uploading: true,
+    });
+    
     uploader.send(image, function(error, url) {
       if (error) {  
         throw new Meteor.Error('upload-file-fail', error);
@@ -29,14 +31,17 @@ class FieldUpload extends Component {
           name: image.name,
         };
 
-        this.setState({ uploading: false });
+        this.setState({
+          uploading: false,
+        });
+
         this.props.onChange(file);
       }
     }.bind(this));
   }
 
   render() {
-    return(
+    return (
       <section {...this.props}>
         { this.state.uploading ? <p>Uploading...</p> : '' }
         <input
@@ -54,7 +59,7 @@ class FieldUpload extends Component {
 }
 
 const FilePreview = (props) => {
-  return(
+  return (
     <div>
       <img src={props.url} />
       <p>{props.name}</p>
@@ -68,5 +73,5 @@ export const UploadField = connectField(FieldUpload, {
     props.fileName = props.value.name || ''; 
 
     return props;
-  }
+  },
 });

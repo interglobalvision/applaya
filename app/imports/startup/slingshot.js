@@ -1,9 +1,18 @@
+/* globals Slingshot Random */
 import { Meteor } from 'meteor/meteor';
 
-Slingshot.fileRestrictions("imageUpload", {
-  allowedFileTypes: ["image/png", "image/jpeg", "image/gif",],
+Slingshot.fileRestrictions('imageUpload', {
+  allowedFileTypes: ['image/png', 'image/jpeg', 'image/gif'],
   maxSize: 4 * 1024 * 1024, // 4 MB
 });
+
+// Misc
+function createFilename(filename) {
+  var extension = filename.split('.').slice(0).pop();
+  var sanitized = filename.replace(extension, '').replace(/\W+/g, '').toLowerCase() + '.' + extension;
+
+  return Random.id(4) + '_' + sanitized;
+}
 
 // Server code
 if (Meteor.isServer) {
@@ -13,7 +22,7 @@ if (Meteor.isServer) {
 
     acl: 'public-read',
 
-    authorize: function () {
+    authorize() {
       if (!this.userId) {
         throw new Meteor.Error('not-signed-in', 'You must register a user first before uploading a file.');
       }
@@ -21,7 +30,7 @@ if (Meteor.isServer) {
       return true;
     },
 
-    key: function (file) {
+    key(file) {
       // Store file into an image directory for the user's username.
       return this.userId + '/image/' + createFilename(file.name);
     },
@@ -29,10 +38,3 @@ if (Meteor.isServer) {
   });
 }
 
-// Misc
-function createFilename(filename) {
-  var extension = filename.split('.').slice(0).pop();
-  var sanitized = filename.replace(extension, '').replace(/\W+/g, '').toLowerCase() + '.' + extension;
-
-  return Random.id(4) + '_' + sanitized;
-}

@@ -3,7 +3,6 @@ import { AutoForm } from 'uniforms-unstyled';
 
 // Import schemas
 import { FormSchema } from '/imports/schemas/TestForm.js';
-import { Upload } from '/imports/schemas/Upload.js';
 
 // Import methods
 import { saveApplicationSection, saveApplyPosition } from '/imports/api/methods.js';

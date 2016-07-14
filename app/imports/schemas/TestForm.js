@@ -1,3 +1,4 @@
+/* globals _ */
 import { Upload } from '/imports/schemas/Upload.js';
 
 const Schema = new SimpleSchema({
@@ -28,9 +29,7 @@ const Schema = new SimpleSchema({
     type: [ Upload ],
     // This makes minCount work
     autoValue() {
-      return _.filter(this.value, function(val) {
-        return !_.isEmpty(val.file);
-      });
+      return _.filter(this.value, (val) => !_.isEmpty(val.file));
     },
     minCount: 1,
     maxCount: 2,
