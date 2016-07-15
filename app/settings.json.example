@@ -1,8 +1,13 @@
 {
+    "applicationName": "Applaya",
+    "applicationSafeName": "applaya",
+
     "aws_bucket":"xxx",
     "AWSAccessKeyId":"xxx",
     "AWSSecretAccessKey":"xxx",
     "AWSRegion":"xxx",
+
+    "maxUploadSize": "4194304",
 
     "conekta_private_sandbox":"xxx",
     "conekta_private":"xxx",

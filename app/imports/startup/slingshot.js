@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 
 Slingshot.fileRestrictions('imageUpload', {
   allowedFileTypes: ['image/png', 'image/jpeg', 'image/gif'],
-  maxSize: 4 * 1024 * 1024, // 4 MB
+  maxSize: Meteor.settings.maxUploadSize,
 });
 
 // Misc
@@ -18,7 +18,7 @@ function createFilename(filename) {
 if (Meteor.isServer) {
 
   Slingshot.createDirective('imageUpload', Slingshot.S3Storage, {
-    bucket: Meteor.settings.aws_bucket,
+    bucket: Meteor.settings.awsBucket,
 
     acl: 'public-read',
 
@@ -32,7 +32,7 @@ if (Meteor.isServer) {
 
     key(file) {
       // Store file into an image directory for the user's username.
-      return this.userId + '/image/' + createFilename(file.name);
+      return Meteor.settings.applicationSafeName + this.userId + '/image/' + createFilename(file.name);
     },
 
   });
