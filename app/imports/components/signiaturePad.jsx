@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { connectField } from 'uniforms';
 
-class SingaturePad extends Component {
+class SignaturePad extends Component {
   constructor(props) {
     super(props);
   }
@@ -16,4 +16,4 @@ class SingaturePad extends Component {
   }
 }
 
-export const SignatureField = connectField(SingaturePad);
+export const SignatureField = connectField(SignaturePad);
