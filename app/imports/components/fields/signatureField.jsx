@@ -12,11 +12,12 @@ class SignatureComponent extends Component {
     this.canvas = this.refs.signatureCanvas;
     this.canvasContext = this.canvas.getContext('2d');
 
+    this.signaturePad = new SignaturePad(this.canvas);
+
     window.addEventListener('resize', this.handleResize.bind(this));
 
     this.drawSignature();
 
-    new SignaturePad(this.canvas);
   }
 
   componentDidUpdate() {
@@ -30,7 +31,7 @@ class SignatureComponent extends Component {
   drawSignature() {
     // If signature is empty just clear the canvas
     if (this.props.value === '') {
-      return this.canvasContext.clearRect(0, 0, this.canvas.width,this.canvas.height);
+      return this.signaturePad.clear();
     }
 
     let img = new Image();
@@ -48,7 +49,7 @@ class SignatureComponent extends Component {
   }
 
   handleMouseUp() {
-    this.props.onChange(this.canvas.toDataURL());
+    this.props.onChange(this.signaturePad.toDataURL());
   }
 
   handleResize() {
