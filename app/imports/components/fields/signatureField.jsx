@@ -8,47 +8,43 @@ class SignatureComponent extends Component {
   }
 
   componentDidMount() {
+    this.canvas = this.refs.signatureCanvas;
+    this.canvasContext = this.canvas.getContext('2d');
 
+    window.addEventListener('resize', this.handleResize.bind(this));
 
-    let canvas = this.refs.signatureCanvas;
-    let ctx = canvas.getContext('2d');
-    let data = canvas.toDataURL();
+    this.drawSignature();
 
-    let resizeCanvas = () => {
-      // When zoomed out to less than 100%, for some very strange reason,
-      // some browsers report devicePixelRatio as less than 1
-      // and only part of the canvas is cleared then.
-      let ratio = Math.max(window.devicePixelRatio || 1, 1);
-      let img = new Image();
+    new SignaturePad(this.canvas);
+  }
 
-      $('#signature-card').css('height', ($('#signature-card').width() * 0.4) );
+  handleMouseUp() {
+    this.props.onChange(this.canvas.toDataURL());
+  }
 
-      canvas.width = canvas.offsetWidth * ratio;
-      canvas.height = canvas.offsetHeight * ratio;
-      ctx.scale(ratio, ratio);
+  drawSignature() {
+    let img = new Image();
 
-      img.onload = function(){
-        ctx.drawImage(img,0,0,img.width,img.height,0,0,canvas.width,canvas.height);
-      };
+    img.onload = function() {
+      this.canvasContext.drawImage(img,0,0,img.width,img.height,0,0,this.canvas.width,this.canvas.height);
+    }.bind(this);
 
-      img.src = data;
-    }
+    img.src = this.props.value;
+  }
 
-    window.onresize = resizeCanvas;
+  handleResize() {
+    let ratio = Math.max(window.devicePixelRatio || 1, 1);
 
-    resizeCanvas();
+    this.canvas.width = this.canvas.offsetWidth * ratio;
+    this.canvas.height = this.canvas.offsetHeight * ratio;
+    this.canvasContext.scale(ratio, ratio);
 
-    canvas.onmouseup = function(e){
-      data = canvas.toDataURL();
-    };
-
-    signaturePad = new SignaturePad(canvas);
   }
 
   render() {
     return (
       <section {...this.props}>
-        <canvas id={this.props.id} ref='signatureCanvas'></canvas>
+        <canvas id={this.props.id} ref='signatureCanvas' onMouseUp={this.handleMouseUp.bind(this)}></canvas>
         <p>Sign here</p>
       </section>
     );
