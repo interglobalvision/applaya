@@ -12,7 +12,9 @@ class SignatureComponent extends Component {
     this.canvas = this.refs.signatureCanvas;
     this.canvasContext = this.canvas.getContext('2d');
 
-    this.signaturePad = new SignaturePad(this.canvas);
+    this.signaturePad = new SignaturePad(this.canvas, {
+      onEnd: this.handleEndStroke.bind(this),
+    });
 
     window.addEventListener('resize', this.handleResize.bind(this));
 
@@ -48,7 +50,7 @@ class SignatureComponent extends Component {
     this.props.onChange('');
   }
 
-  handleMouseUp() {
+  handleEndStroke() {
     this.props.onChange(this.signaturePad.toDataURL());
   }
 
@@ -65,7 +67,7 @@ class SignatureComponent extends Component {
   render() {
     return (
       <section {...this.props}>
-        <canvas id={this.props.id} ref="signatureCanvas" onMouseUp={this.handleMouseUp.bind(this)}></canvas>
+        <canvas id={this.props.id} ref="signatureCanvas"></canvas>
         <p>Sign here</p>
         { !!this.props.value ? <button onClick={this.clearSignature.bind(this)}>Clear</button> : '' }
       </section>
