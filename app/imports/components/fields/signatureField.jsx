@@ -18,11 +18,19 @@ class SignatureComponent extends Component {
     new SignaturePad(this.canvas);
   }
 
-  handleMouseUp() {
-    this.props.onChange(this.canvas.toDataURL());
+  componentDidUpdate() {
+    this.drawSignature();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize.bind(this));
   }
 
   drawSignature() {
+    if( this.props.value === '' ) {
+      return this.canvasContext.clearRect(0, 0, this.canvas.width,this.canvas.height);
+    }
+
     let img = new Image();
 
     img.onload = function() {
@@ -32,13 +40,21 @@ class SignatureComponent extends Component {
     img.src = this.props.value;
   }
 
+  clearSignature() {
+    // maybe use a confirm() or something here
+    this.props.onChange('');
+  }
+
+  handleMouseUp() {
+    this.props.onChange(this.canvas.toDataURL());
+  }
+
   handleResize() {
     let ratio = Math.max(window.devicePixelRatio || 1, 1);
 
     this.canvas.width = this.canvas.offsetWidth * ratio;
     this.canvas.height = this.canvas.offsetHeight * ratio;
     this.canvasContext.scale(ratio, ratio);
-
   }
 
   render() {
@@ -46,6 +62,7 @@ class SignatureComponent extends Component {
       <section {...this.props}>
         <canvas id={this.props.id} ref='signatureCanvas' onMouseUp={this.handleMouseUp.bind(this)}></canvas>
         <p>Sign here</p>
+        { !!this.props.value ? <button onClick={this.clearSignature.bind(this)}>Clear</button> : '' }
       </section>
     );
   }
