@@ -1,3 +1,4 @@
+/* globals SignaturePad */
 import React, { Component } from 'react';
 
 import { connectField } from 'uniforms';
@@ -27,7 +28,8 @@ class SignatureComponent extends Component {
   }
 
   drawSignature() {
-    if( this.props.value === '' ) {
+    // If signature is empty just clear the canvas
+    if (this.props.value === '') {
       return this.canvasContext.clearRect(0, 0, this.canvas.width,this.canvas.height);
     }
 
@@ -60,7 +62,7 @@ class SignatureComponent extends Component {
   render() {
     return (
       <section {...this.props}>
-        <canvas id={this.props.id} ref='signatureCanvas' onMouseUp={this.handleMouseUp.bind(this)}></canvas>
+        <canvas id={this.props.id} ref="signatureCanvas" onMouseUp={this.handleMouseUp.bind(this)}></canvas>
         <p>Sign here</p>
         { !!this.props.value ? <button onClick={this.clearSignature.bind(this)}>Clear</button> : '' }
       </section>
