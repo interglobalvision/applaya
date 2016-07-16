@@ -29,7 +29,6 @@ class SignatureComponent extends Component {
 
   drawSignature() {
     // If signature is empty just clear the canvas
-    console.log(this.props.value);
     if (this.props.value === '') {
       return this.canvasContext.clearRect(0, 0, this.canvas.width,this.canvas.height);
     }
