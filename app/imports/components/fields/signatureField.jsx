@@ -29,6 +29,7 @@ class SignatureComponent extends Component {
 
   drawSignature() {
     // If signature is empty just clear the canvas
+    console.log(this.props.value);
     if (this.props.value === '') {
       return this.canvasContext.clearRect(0, 0, this.canvas.width,this.canvas.height);
     }
@@ -57,6 +58,8 @@ class SignatureComponent extends Component {
     this.canvas.width = this.canvas.offsetWidth * ratio;
     this.canvas.height = this.canvas.offsetHeight * ratio;
     this.canvasContext.scale(ratio, ratio);
+
+    this.drawSignature();
   }
 
   render() {
