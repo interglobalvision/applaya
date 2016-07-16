@@ -70,11 +70,4 @@ class SignatureComponent extends Component {
   }
 }
 
-export const SignatureField = connectField(SignatureComponent, {
-  mapProps: props => {
-    props.fileUrl = props.value.url || ''; 
-    props.fileName = props.value.name || ''; 
-
-    return props;
-  },
-});
+export const SignatureField = connectField(SignatureComponent);
