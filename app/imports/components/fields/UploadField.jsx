@@ -42,7 +42,7 @@ class FieldUpload extends Component {
 
   render() {
     return (
-      <section {...this.props}>
+      <section>
         { this.state.uploading ? <p>Uploading...</p> : '' }
         <input
           id={this.props.id}
