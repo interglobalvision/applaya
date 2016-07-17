@@ -1,6 +1,7 @@
 import React from 'react';
+import i18n from 'meteor/universe:i18n';
 
-const Navbar = ({ isLogged }) => (
+export const Navbar = ({ isLogged }) => (
   <nav role="navigation">
     <ul id="main-menu" className="u-inline-list">
       { isLogged ?
@@ -10,11 +11,13 @@ const Navbar = ({ isLogged }) => (
         <li><a href="/logout">Logout</a></li>
       : ''}
     </ul>
+    <ul>
+      <a href="#" onClick={ () => i18n.setLocale('en') }>EN</a> 
+      <a href="#" onClick={ () => i18n.setLocale('es') }>ES</a> 
+    </ul>
   </nav>
 );
 
 Navbar.protoTypes = {
   isLogged: React.PropTypes.bool,
 };
-
-export default Navbar;

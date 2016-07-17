@@ -14,6 +14,9 @@
 
     "email_from": "Name <email@domain.com>",
 
+    "adminEmail": "email@domain.com",
+    "adminPassword": "qwerty12345xyz",
+
     "kadira": {
       "appId": "xxx",
       "appSecret": "xxx"

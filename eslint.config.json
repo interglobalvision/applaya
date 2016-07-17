@@ -15,7 +15,10 @@
     "Mongo": true,
     "SimpleSchema": true,
     "ValidatedMethod": true,
-    "moment": true
+    "moment": true,
+    "ValidationError": true,
+    "_": true,
+    "Roles": true
   },
   "rules": {
     "curly": [

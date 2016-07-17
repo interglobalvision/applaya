@@ -1,9 +1,11 @@
+// Import collections
 import { Applications } from '/imports/collections/applications.js';
 import { ApplicationSections } from '/imports/collections/applicationSections.js';
 
-import { FormSchema } from '/imports/schemas/TestForm.js';
+// Import Steps
+import { StepsInfo } from '/imports/components/apply/steps.js';
 
-// This is a validated method. From the meteor pckg validated-method 
+// This is a validated method. From the meteor pckg validated-method
 // https://github.com/meteor/validated-method
 //
 // It runs run() only if validate: true.
@@ -27,23 +29,31 @@ export const createApplication = new ValidatedMethod({
 });
 
 
-// This method could be named better and maybe live 
+// This method could be named better and maybe live
 // in a separate file.
-export const saveApplicationSection = new ValidatedMethod({
-  name: 'application.section.save',
+export const submitApplicationSection = new ValidatedMethod({
+  name: 'application.section.submit',
 
-  validate: new SimpleSchema({
-    step: {
-      type: String,
-    },
-    applicationId: {
-      type: String,
-    },
-    data: {
-      type: FormSchema,
-      optional: true,
-    },
-  }).validator(),
+  validate({ step, data, applicationId }) {
+
+    return new SimpleSchema({
+      step: {
+        type: Number,
+      },
+      applicationId: {
+        type: String,
+      },
+      data: {
+        type: Object,
+        optional: true,
+        blackbox: true,
+      },
+    }).validate({
+      step,
+      applicationId,
+      data,
+    });
+  },
 
   run({ step, applicationId, data }) {
 
@@ -59,10 +69,31 @@ export const saveApplicationSection = new ValidatedMethod({
       applicationId,
     };
 
+    // -- Validate data against section schema
+
+    // Steps is an array, so positions start at 0.
+    // But the step numbers for the routs start at 1. So we
+    // substract the offset to the step param received.
+    step--;
+
+    const validationSchema = StepsInfo[step].schema;
+
+    const validationContext = validationSchema.newContext();
+
+    let validated = false;
+
+    // Clean data before validation
+    data = validationSchema.clean(data);
+
+    if (validationContext.validate(data)) {
+      validated = true;
+    }
+
     const update = {
       $set: {
         applicationId,
         data,
+        validated,
       },
     };
 
@@ -77,7 +108,7 @@ export const saveApplyPosition = new ValidatedMethod({
   validate: new SimpleSchema({
 
     position: {
-      type: String,
+      type: Number,
       optional: true,
     },
 

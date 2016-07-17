@@ -1,14 +1,10 @@
-import React, { Component } from 'react';
-import { AutoForm } from 'uniforms-unstyled';
-
-// Import schemas
-import { FormSchema } from '/imports/schemas/TestForm.js';
+import { Component } from 'react';
 
 // Import methods
-import { saveApplicationSection, saveApplyPosition } from '/imports/api/methods.js';
+import { submitApplicationSection, saveApplyPosition } from '/imports/api/methods/applicationMethods.js';
 
 // Component
-export default class FormTest extends Component {
+export class ApplySection extends Component {
   savePosition() {
     saveApplyPosition.call({
       position: this.props.step,
@@ -29,7 +25,7 @@ export default class FormTest extends Component {
     let applicationId = this.props.applicationId;
     let data = doc;
 
-    saveApplicationSection.call({
+    submitApplicationSection.call({
       step,
       applicationId,
       data,
@@ -40,14 +36,22 @@ export default class FormTest extends Component {
     });
   }
 
-  render() {
-    // Get saved data
-    return (
-      <AutoForm 
-        schema={FormSchema}
-        model={this.props.model}
-        onSubmit={this.onSubmit.bind(this)} 
-      />
-    );
+  onValidate(model, error, callback) {
+    let step = this.props.step;
+    let applicationId = this.props.applicationId;
+    let data = model;
+
+    submitApplicationSection.call({
+      step,
+      applicationId,
+      data,
+    }, (err) => {
+      if (err) {
+        return new Meteor.Error(err);
+      }
+    });
+
+    return callback();
   }
+
 }
