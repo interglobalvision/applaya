@@ -32,7 +32,7 @@ if (Meteor.isServer) {
 
     key(file) {
       // Store file into an image directory for the user's username.
-      return Meteor.settings.applicationSafeName + this.userId + '/image/' + createFilename(file.name);
+      return Meteor.settings.applicationSafeName + '/' + this.userId + '/image/' + createFilename(file.name);
     },
 
   });
