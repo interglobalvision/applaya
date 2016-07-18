@@ -5,6 +5,7 @@ import { ContactInformation } from '/imports/components/apply/contactInformation
 import { Proposal } from '/imports/components/apply/proposal.jsx';
 import { Artists } from '/imports/components/apply/artists.jsx';
 import { Booth } from '/imports/components/apply/booth.jsx';
+import { Signature } from '/imports/components/apply/signature.jsx';
 import { Terms } from '/imports/components/apply/terms.jsx';
 
 // Import schemas
@@ -14,6 +15,7 @@ import { ContactInformationSchema } from '/imports/schemas/contactInformation.js
 import { ProposalSchema } from '/imports/schemas/proposal.js';
 import { ArtistsSchema } from '/imports/schemas/artists.js';
 import { BoothSchema } from '/imports/schemas/booth.js';
+import { SignatureSchema } from '/imports/schemas/signature.js';
 import { TermsSchema } from '/imports/schemas/terms.js';
 
 export const Steps = [{ // 1
@@ -46,6 +48,11 @@ export const Steps = [{ // 1
   name: 'Booth',
   key: 'booth',
   schema: BoothSchema,
+}, { // 8
+  component: Signature,
+  name: 'Signature',
+  key: 'signature',
+  schema: SignatureSchema,
 }, { // 7
   component: Terms,
   name: 'Terms and conditions',
