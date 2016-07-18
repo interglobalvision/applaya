@@ -28,6 +28,8 @@ reywood:publish-composite
 mdg:validated-method
 stylus
 momentjs:moment
+edgee:slingshot
+random
 mdg:validation-error
 universe:i18n
 alanning:roles
