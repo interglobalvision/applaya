@@ -7,6 +7,18 @@ import { ApplySidebar } from '/imports/components/apply/applySidebar.jsx';
 import { Steps } from '/imports/components/apply/steps.js';
 
 export class ApplyLayout extends Component {
+  localeChanged(locale) {
+    this.forceUpdate();
+  }
+
+  componentWillMount() {
+    i18n.onChangeLocale(this.localeChanged.bind(this));
+  }
+
+  componentWillUnmount() {
+    i18n.offChangeLocale(this.localeChanged.bind(this));
+  }
+
 
   getApplySection() {
 
