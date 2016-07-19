@@ -1,27 +1,38 @@
+import i18n from 'meteor/universe:i18n';
+
+const schemaLocaleBase = 'apply.sections.galleryInformation.';
+
 export const GalleryInformationSchema = new SimpleSchema({
   galleryName: {
     type: String,
+    label: () => i18n.__(schemaLocaleBase + 'galleryName.label'),
   },
   address1: {
     type: String,
+    label: () => i18n.__(schemaLocaleBase + 'address1.label'),
   },
   address2: {
     type: String,
     optional: true,
+    label: () => i18n.__(schemaLocaleBase + 'address2.label'),
   },
   city: {
     type: String,
+    label: () => i18n.__(schemaLocaleBase + 'city.label'),
   },
   state: {
     type: String,
     optional: true,
+    label: () => i18n.__(schemaLocaleBase + 'state.label'),
   },
   postalCode: {
     type: String,
     optional: true,
+    label: () => i18n.__(schemaLocaleBase + 'postalCode.label'),
   },
   country: {
     type: String,
+    label: () => i18n.__(schemaLocaleBase + 'country.label'),
     allowedValues: function () {
       return [
         'Afghanistan',
@@ -278,12 +289,15 @@ export const GalleryInformationSchema = new SimpleSchema({
   },
   galleryPhone: {
     type: String,
+    label: () => i18n.__(schemaLocaleBase + 'galleryPhone.label'),
   },
   galleryEmail: {
     type: String,
+    label: () => i18n.__(schemaLocaleBase + 'galleryEmail.label'),
   },
   website: {
     type: String,
     optional: true,
+    label: () => i18n.__(schemaLocaleBase + 'website.label'),
   },
 });
