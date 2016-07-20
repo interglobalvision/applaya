@@ -4,6 +4,8 @@ i18n.addTranslations('es', {
   apply: {
     completed: '{$percentage}% Completado',
     sections: {
+
+      // Section: Gallery Information
       galleryInformation: {
         title: "Información de galería/espacio",
         description: `<p class='flow-text'>Gracias por tu solicitud a la tercera edición de Material Art Fair, que se llevará a cabo a del 4 al 7 de Febrero del 2016, en el Expo Reforma en la Ciudad de México.</p>
@@ -55,15 +57,19 @@ i18n.addTranslations('es', {
 
       },
 
+      // Section: Contact Information
       contactInformation: {
         title: 'Contacto principal',
-        description: '<p class="flow-text">Favor de indicar la información de contacto de la persona encargada de la galería que actuará como responsable de coordinar todo lo relacionado con la feria.</p>',
+        description: '<p>Favor de indicar la información de contacto de la persona encargada de la galería que actuará como responsable de coordinar todo lo relacionado con la feria.</p>',
+
         contactName: {
           label: 'Nombre completo',
         },
+
         contactEmail: {
           label: 'Correo electrónico',
         },
+
         contactPhone: {
           label: 'Teléfono celular (con clave lada)',
         },
@@ -86,6 +92,33 @@ i18n.addTranslations('es', {
         instagram: {
           label: 'Instagram',
           placeholder: '@theGallery',
+        },
+
+      },
+
+      // Section: Proposal
+      proposal: {
+        title: 'Propuesta de <em>stand</em> para Material Art Fair 2016',
+        description: '<p>En esta sección, proporcionarás información sobre tu galería, artistas seleccionados y propuesta de stand para que el Comité de Selección genere una decisión informada con respecto a tu solicitud.</p>',
+
+        galleryHistory: {
+          label: 'Historia breve de la galería'
+        },
+
+        galleryYear: {
+          label: 'Año de fundación'
+        },
+
+        participation: {
+          label: 'Participación en otras ferias'
+        },
+
+        artistsRepresented: {
+          label: 'Artistas representados por la galería'
+        },
+
+        standProposal: {
+          label: 'Propuesta de stand'
         },
 
       }

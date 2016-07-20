@@ -1,5 +1,7 @@
 import { LongTextField } from 'uniforms-unstyled';
 
+const schemaLocaleBase = 'apply.sections.proposal.';
+
 export const ProposalSchema = new SimpleSchema({
   // Proposal
   galleryHistory: {
@@ -8,6 +10,7 @@ export const ProposalSchema = new SimpleSchema({
     uniforms: {
       component: LongTextField,
     },
+    label: () => i18n.__(schemaLocaleBase + 'galleryHistory.label'),
   },
   artistsRepresented: {
     type: String,
@@ -15,12 +18,15 @@ export const ProposalSchema = new SimpleSchema({
     uniforms: {
       component: LongTextField,
     },
+    label: () => i18n.__(schemaLocaleBase + 'artistsRepresented.label'),
   },
   galleryYear: {
     type: Number,
+    label: () => i18n.__(schemaLocaleBase + 'galleryYear.label'),
   },
   participation: {
     type: String,
+    label: () => i18n.__(schemaLocaleBase + 'participation.label'),
   },
   standProposal: {
     type: String,
@@ -28,5 +34,6 @@ export const ProposalSchema = new SimpleSchema({
     uniforms: {
       component: LongTextField,
     },
+    label: () => i18n.__(schemaLocaleBase + 'standProposal.label'),
   },
 });

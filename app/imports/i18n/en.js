@@ -4,6 +4,8 @@ i18n.addTranslations('en', {
   apply: {
     completed: '{$percentage}% Complete',
     sections: {
+
+      // Section: Contact Information
       galleryInformation: {
         title: 'Gallery Information',
         description: "<p class='flow-text'>Thank you for your application to the third edition of Material Art Fair, which will take place from February 4th - 7th, 2016, at Expo Reforma in Mexico City.</p> <p class='flow-text'>Please remember that the <strong>application deadline is Friday, September 18th, 2015</strong>. No applications will be accepted after that date.</p> \
@@ -59,6 +61,7 @@ i18n.addTranslations('en', {
 
       },
 
+      // Section: Contact Information
       contactInformation: {
         title: 'Primary contact',
         description: '<p class="flow-text">Please indicate the contact information for the primary person at the gallery who will be responsible for managing the fair details.</p>',
@@ -92,6 +95,32 @@ i18n.addTranslations('en', {
           placeholder: '@theGallery'
         },
 
+      },
+
+      // Section: Proposal
+      proposal: {
+        title: 'Material Art Fair 2016 Booth Proposal',
+        description: '<p>In this section, you will provide information about your gallery, selected artists and booth proposal that will allow the Selection Committee to make an informed decision with respect to your application.</p>',
+
+        galleryHistory: {
+          label: 'Brief history of the gallery'
+        },
+
+        galleryYear: {
+          label: 'Year gallery was founded'
+        },
+
+        participation: {
+          label: 'Participation in other fairs'
+        },
+
+        artistsRepresented: {
+          label: 'Artists represented by the gallery'
+        },
+
+        standProposal: {
+          label: 'Booth proposal'
+        },
       }
     },
   },
