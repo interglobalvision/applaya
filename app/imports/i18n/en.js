@@ -45,6 +45,33 @@ i18n.addTranslations('en', {
           label: 'Social networks'
         },
 
+        galleryPhone: {
+          label: 'Gallery phone',
+        },
+
+        galleryEmail: {
+          label: 'Gallery email',
+        },
+
+        website: {
+          label: 'Website'
+        },
+
+      },
+
+      contactInformation: {
+        title: 'Primary contact',
+        description: '<p class="flow-text">Please indicate the contact information for the primary person at the gallery who will be responsible for managing the fair details.</p>',
+        contactName: {
+          label: 'Name',
+        },
+        contactEmail: {
+          label: 'Email',
+        },
+        contactPhone: {
+          label: 'Mobile phone (with country code)',
+        },
+
         twitter: {
           label: 'Twitter',
           placeholder: '@theGallery'
@@ -65,19 +92,7 @@ i18n.addTranslations('en', {
           placeholder: '@theGallery'
         },
 
-        galleryPhone: {
-          label: 'Gallery phone',
-        },
-
-        galleryEmail: {
-          label: 'Gallery email',
-        },
-
-        website: {
-          label: 'Website'
-        },
-
-      },
+      }
     },
   },
 });

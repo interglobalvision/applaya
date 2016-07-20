@@ -41,8 +41,31 @@ i18n.addTranslations('es', {
           label: 'País',
         },
 
-        social: {
-          label: 'Redes sociales',
+        galleryPhone: {
+          label: 'Teléfono de la galería',
+        },
+
+        galleryEmail: {
+          label: 'Correo electrónico de la galería',
+        },
+
+        website: {
+          label: 'Sitio web',
+        },
+
+      },
+
+      contactInformation: {
+        title: 'Contacto principal',
+        description: '<p class="flow-text">Favor de indicar la información de contacto de la persona encargada de la galería que actuará como responsable de coordinar todo lo relacionado con la feria.</p>',
+        contactName: {
+          label: 'Nombre completo',
+        },
+        contactEmail: {
+          label: 'Correo electrónico',
+        },
+        contactPhone: {
+          label: 'Teléfono celular (con clave lada)',
         },
 
         twitter: {
@@ -65,19 +88,7 @@ i18n.addTranslations('es', {
           placeholder: '@theGallery',
         },
 
-        galleryPhone: {
-          label: 'Teléfono de la galería'
-        },
-
-        galleryEmail: {
-          label: 'Correo electrónico de la galería'
-        },
-
-        website: {
-          label: 'Sitio web'
-        },
-
-      },
+      }
     },
   },
 });

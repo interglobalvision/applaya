@@ -10,15 +10,20 @@ import { ApplySection } from '/imports/components/apply/applySection.jsx';
 // Component
 export class ContactInformation extends ApplySection {
   render() {
-    // Get saved data
+    const T = i18n.createComponent();
+
     return (
-      <AutoForm
-        autosave
-        schema={ContactInformationSchema}
-        onSubmit={this.onSubmit.bind(this)}
-        onValidate={this.onValidate.bind(this)}
-        model={this.props.model}
-      />
+      <section>
+        <h2><T>apply.sections.contactInformation.title</T></h2>
+        <T>apply.sections.contactInformation.description</T>
+        <AutoForm
+          autosave
+          schema={ContactInformationSchema}
+          onSubmit={this.onSubmit.bind(this)}
+          onValidate={this.onValidate.bind(this)}
+          model={this.props.model}
+        />
+      </section>
     );
   }
 }
