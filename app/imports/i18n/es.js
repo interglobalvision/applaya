@@ -121,7 +121,42 @@ i18n.addTranslations('es', {
           label: 'Propuesta de stand'
         },
 
-      }
+      },
+      
+      // Section: Artists
+      artists: {
+        title: 'Artistas propuestos para Material Art Fair 2017',
+        label: 'Artistas',
+
+        name: {
+          label: 'Nombre de artista'
+        },
+        cv: {
+          label: 'CV',
+          specs:  'PDF o DOCX.  Max 10mb'
+        },
+        work: {
+          label: 'Obra',
+
+          image: {
+            label: 'Imágen',
+            specs: 'JPG, PNG, o GIF.  72 dpi.  Max 1200px, 4mb'
+          },
+          workTitle: {
+            label: 'Titulo'
+          },
+          medium: {
+            label: 'Soporte'
+          },
+          dimensions: {
+            label: 'Medidas'
+          },
+          year: {
+            label: 'Año'
+          },
+        },
+      },
+
     },
   },
 });

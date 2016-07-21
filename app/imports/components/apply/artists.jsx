@@ -10,14 +10,19 @@ import { ApplySection } from '/imports/components/apply/applySection.jsx';
 // Component
 export class Artists extends ApplySection {
   render() {
+    const T = i18n.createComponent();
+
     return (
-      <AutoForm
-        autosave
-        schema={ArtistsSchema}
-        onSubmit={this.onSubmit.bind(this)}
-        onValidate={this.onValidate.bind(this)}
-        model={this.props.model}
-      />
+      <section>
+        <h2><T>apply.sections.artists.title</T></h2>
+        <AutoForm
+          autosave
+          schema={ArtistsSchema}
+          onSubmit={this.onSubmit.bind(this)}
+          onValidate={this.onValidate.bind(this)}
+          model={this.props.model}
+        />
+      </section>
     );
   }
 }

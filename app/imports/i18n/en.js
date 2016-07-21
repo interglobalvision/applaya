@@ -8,8 +8,8 @@ i18n.addTranslations('en', {
       // Section: Contact Information
       galleryInformation: {
         title: 'Gallery Information',
-        description: "<p class='flow-text'>Thank you for your application to the third edition of Material Art Fair, which will take place from February 4th - 7th, 2016, at Expo Reforma in Mexico City.</p> <p class='flow-text'>Please remember that the <strong>application deadline is Friday, September 18th, 2015</strong>. No applications will be accepted after that date.</p> \
-        <p class='flow-text'>Each application will be carefully reviewed, considered, and discussed by our 2016 Selection Committee and we will send notification of their decisions to all applicants beginning in early October.</p> \
+        description: "<p class='flow-text'>Thank you for your application to the third edition of Material Art Fair, which will take place from February 4th - 7th, 2017, at Expo Reforma in Mexico City.</p> <p class='flow-text'>Please remember that the <strong>application deadline is Friday, September 18th, 2015</strong>. No applications will be accepted after that date.</p> \
+        <p class='flow-text'>Each application will be carefully reviewed, considered, and discussed by our 2017 Selection Committee and we will send notification of their decisions to all applicants beginning in early October.</p> \
         <p class='flow-text'>If at any time you need to pause and continue your application at a later moment, please click the save button so as not to lose any information.</p> \
         <p class='flow-text'>Please report any errors or problems directly to us at <a href='mailto:applications@material-fair.com' class='u-inline-block'>applications@material-fair.com</a>.</p>",
         galleryName: {
@@ -99,7 +99,7 @@ i18n.addTranslations('en', {
 
       // Section: Proposal
       proposal: {
-        title: 'Material Art Fair 2016 Booth Proposal',
+        title: 'Material Art Fair 2017 Booth Proposal',
         description: '<p>In this section, you will provide information about your gallery, selected artists and booth proposal that will allow the Selection Committee to make an informed decision with respect to your application.</p>',
 
         galleryHistory: {
@@ -121,7 +121,42 @@ i18n.addTranslations('en', {
         standProposal: {
           label: 'Booth proposal'
         },
-      }
+      },
+
+      // Section: Artists
+      artists: {
+        title: 'Proposed Artists for Material Art Fair 2016',
+        label: 'Artists',
+
+        name: {
+          label: 'Artist name'
+        },
+        cv: {
+          label: 'CV',
+          specs:  'PDF o DOCX.  Max 10mb'
+        },
+        work: {
+          label: 'Work',
+
+          image: {
+            label: 'Image',
+            specs: 'JPG, PNG, or GIF.  72 dpi.  Maximum 1200px, 4mb',
+          },
+          workTitle: {
+            label: 'Title'
+          },
+          medium: {
+            label: 'Medium'
+          },
+          dimensions: {
+            label: 'Dimensions'
+          },
+          year: {
+            label: 'Year'
+          },
+
+        },
+      },
     },
   },
 });
