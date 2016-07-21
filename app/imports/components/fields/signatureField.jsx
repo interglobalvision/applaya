@@ -1,7 +1,7 @@
 /* globals SignaturePad */
 import React, { Component } from 'react';
 
-import { connectField } from 'uniforms';
+import { connectField, filterDOMProps } from 'uniforms';
 
 class SignatureComponent extends Component {
   constructor(props) {
@@ -65,10 +65,12 @@ class SignatureComponent extends Component {
   }
 
   render() {
+    const T = i18n.createComponent();
+
     return (
-      <section {...this.props}>
+      <section>
         <canvas id={this.props.id} ref="signatureCanvas"></canvas>
-        <p>Sign here</p>
+        <p><T>fields.signature.callToAction</T></p>
         { !!this.props.value ? <button onClick={this.clearSignature.bind(this)}>Clear</button> : '' }
       </section>
     );
