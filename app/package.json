@@ -5,13 +5,12 @@
     "start": "meteor run"
   },
   "dependencies": {
-    "babel-plugin-transform-class-properties": "^6.10.2",
     "meteor-node-stubs": "~0.2.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-komposer": "^1.8.0",
     "react-mounter": "^1.2.0",
-    "uniforms": "1.0.0-rc.23",
-    "uniforms-unstyled": "1.0.0-rc.23"
+    "uniforms": "^1.0.0-rc.26",
+    "uniforms-unstyled": "^1.0.0-rc.26"
   }
 }
