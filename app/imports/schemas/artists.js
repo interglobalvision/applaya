@@ -1,3 +1,5 @@
+import { Upload } from '/imports/schemas/Upload.js';
+
 const schemaLocaleBase = 'apply.sections.artists.';
 
 export const ArtistsSchema = new SimpleSchema({
@@ -11,33 +13,35 @@ export const ArtistsSchema = new SimpleSchema({
     type: String,
     label: () => i18n.__(schemaLocaleBase + 'name.label'),
   },
-  /*
-  * To be implemented
   'artists.$.cv': {
-    type: String,
-    autoform: {
-      type: "docUpload",
+    type: Upload,
+    // This makes the field 'required'
+    autoValue() {
+      if (_.isEmpty(this.value) || _.isEmpty(this.value.file)) {
+        this.unset();
+      }
     },
+    label: () => i18n.__(schemaLocaleBase + 'cv.label'),
   },
-  */
   'artists.$.work': {
     type: [ Object ],
     minCount: 1,
     maxCount: 5,
     label: () => i18n.__(schemaLocaleBase + 'work.label'),
   },
-  /*
-   * To be implemented
   'artists.$.work.$.image': {
-    type: String,
-    autoform: {
-      type: "imageUpload",
+    type: Upload,
+    // This makes the field 'required'
+    autoValue() {
+      if (_.isEmpty(this.value) || _.isEmpty(this.value.file)) {
+        this.unset();
+      }
     },
+    label: () => i18n.__(schemaLocaleBase + 'work.image.label'),
   },
-  */
   'artists.$.work.$.workTitle': {
     type: String,
-    label: () => i18n.__(schemaLocaleBase + 'work.image.label'),
+    label: () => i18n.__(schemaLocaleBase + 'work.workTitle.label'),
   },
   'artists.$.work.$.medium': {
     type: String,
