@@ -1,17 +1,17 @@
-const SectionSchema = new SimpleSchema({
-  accept: {
-    type: Boolean,
-    label: 'Terms and Conditions',
-    autoValue() {
-      if (!this.value) {
-        this.unset();
-      }
-    },
-  },
-});
+import { SignatureField } from '/imports/components/fields/signatureField.jsx';
 
-SectionSchema.messages({
-  'required accept': 'Please accept the Terms and Conditions',
+import i18n from 'meteor/universe:i18n';
+
+const schemaLocaleBase = 'apply.sections.terms.';
+
+const SectionSchema = new SimpleSchema({
+  signature: {
+    type: String,
+    uniforms: {
+      component: SignatureField,
+    },
+    label: () => i18n.__(schemaLocaleBase + 'signature.label'),
+  },
 });
 
 export const TermsSchema = SectionSchema;
