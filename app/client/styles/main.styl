@@ -97,7 +97,8 @@ $font-tracking-basic = 0.001em
 $font-tracking-wider = 0.05em
 
 $color-black-soft = rgb(14, 14, 14)
-$color-white-soft = rgb(253, 253, 253)
+$color-white-soft = rgb(251, 251, 251)
+$color-white-bright = rgb(255, 255, 255)
 
 $color-main = #0078FF
 $color-compliment-1 = #554CED
@@ -354,25 +355,27 @@ label
   padding-left: $margin-small
   margin-bottom: $margin-tiny
 
-input
+input, select
   width: 100%
-  max-width: 600px
-  font-size: 1rem
   padding: $margin-small
+  background-color: $color-white-bright
+  border: 1px solid $color-black-soft
+  box-sizing: border-box
+  font-size: 1rem
+  border-radius: 3px !important
+  -webkit-appearance: none
+  -moz-appearance: none
+  &:focus
+    outline: none !important
+    border-color: $color-compliment-1
+
+input
   &[type=checkbox]
     display: inline-block
     width: auto
   &[type=submit]
     width: auto
-    -webkit-appearance: button
-
-select
-  width: 100%
-  max-width: 600px + ($margin-small * 2)
-  font-size: 1rem
-  border-radius: 0
-  height: 2.5rem
-
+    
 .buttons
   a
     display: block
