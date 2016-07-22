@@ -1,7 +1,7 @@
 /* globals SignaturePad */
 import React, { Component } from 'react';
 
-import { connectField, filterDOMProps } from 'uniforms';
+import { connectField } from 'uniforms';
 
 class SignatureComponent extends Component {
   constructor(props) {
