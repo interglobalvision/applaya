@@ -1,4 +1,5 @@
 import React from 'react';
+import i18n from 'meteor/universe:i18n';
 import { AutoForm } from 'uniforms-unstyled';
 
 // Import schemas
@@ -10,13 +11,19 @@ import { ApplySection } from '/imports/components/apply/applySection.jsx';
 // Component
 export class GalleryInformation extends ApplySection {
   render() {
+    const T = i18n.createComponent();
+
     return (
-      <AutoForm
-        autosave
-        schema={GalleryInformationSchema}
-        onSubmit={this.onSubmit.bind(this)}
-        onValidate={this.onValidate.bind(this)}
-        model={this.props.model}/>
+      <section>
+        <h2><T>apply.sections.galleryInformation.title</T></h2>
+        <T>apply.sections.galleryInformation.description</T>
+        <AutoForm
+          autosave
+          schema={GalleryInformationSchema}
+          onSubmit={this.onSubmit.bind(this)}
+          onValidate={this.onValidate.bind(this)}
+          model={this.props.model}/>
+      </section>
     );
   }
 }

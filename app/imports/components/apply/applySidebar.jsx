@@ -33,7 +33,7 @@ export class ApplySidebar extends Component {
     const steps = this.mapSteps(StepsInfo);
 
     return (
-      <div class="content">
+      <div className="content">
         <h3>Application Progress</h3>
         <ul>
         {steps.map((step, key) => (

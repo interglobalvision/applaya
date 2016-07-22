@@ -18,7 +18,8 @@
     "moment": true,
     "ValidationError": true,
     "_": true,
-    "Roles": true
+    "Roles": true,
+    "i18n": true
   },
   "rules": {
     "curly": [
