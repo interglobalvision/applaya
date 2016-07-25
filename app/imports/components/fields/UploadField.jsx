@@ -49,7 +49,7 @@ class FieldUpload extends Component {
   }
 
   render() {
-    let displayTrigger = !this.state.uploading || _.isEmpty(this.props.fileUrl) ? 'block' : 'none';
+    let displayTrigger = (!this.state.uploading || _.isEmpty(this.props.fileUrl)) ? 'inline-block' : 'none';
 
     return (
       <section className="upload-container">
@@ -63,8 +63,8 @@ class FieldUpload extends Component {
           disabled={this.state.uploading}
           style={{display:'none'}}
         />
-        <div onClick={this.handleClick.bind(this)} style={{display: displayTrigger}}>Trigger</div>
         <FilePreview url={this.props.fileUrl} name={this.props.fileName} />
+        <div className="buttons"><a onClick={this.handleClick.bind(this)} style={{display: displayTrigger}}>Choose File</a></div> 
       </section>
     );
   } 

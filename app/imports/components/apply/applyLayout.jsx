@@ -45,7 +45,7 @@ export class ApplyLayout extends Component {
         <section className="apply-layout fluid-col s-10 m-7">
           { this.getApplySection() }
         </section>
-        <nav className="fluid-col s-10 m-3">
+        <nav className="fluid-col s-10 m-3 background-color-sidebar">
           <ApplySidebar />
         </nav>
       </div>
