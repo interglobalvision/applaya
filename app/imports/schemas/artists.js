@@ -1,5 +1,7 @@
 import { Upload } from '/imports/schemas/Upload.js';
 
+import ListField from '/imports/components/fields/listField.js';
+
 const schemaLocaleBase = 'apply.sections.artists.';
 
 export const ArtistsSchema = new SimpleSchema({
@@ -7,6 +9,7 @@ export const ArtistsSchema = new SimpleSchema({
   artists: {
     type: [ Object ],
     minCount: 1,
+    uniforms: ListField,
     label: () => i18n.__(schemaLocaleBase + 'label'),
   },
   'artists.$.name': {
@@ -27,6 +30,7 @@ export const ArtistsSchema = new SimpleSchema({
     type: [ Object ],
     minCount: 1,
     maxCount: 5,
+    uniforms: ListField,
     label: () => i18n.__(schemaLocaleBase + 'work.label'),
   },
   'artists.$.work.$.image': {
