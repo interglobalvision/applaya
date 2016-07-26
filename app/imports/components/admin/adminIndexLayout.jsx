@@ -28,6 +28,10 @@ export class AdminIndexLayout extends Component {
   }
 
   render() {
+    if (!this.props.user) {
+      return <Accounts.ui.LoginForm />;
+    }
+
     return (
       <section id="admin-index">
         <AdminIndexAnalytics applications={this.props.applicationsWithUsers} />

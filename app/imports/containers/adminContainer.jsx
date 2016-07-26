@@ -33,12 +33,10 @@ const composer = (props, onData) => {
           return application;
         });
 
-        onData(null, { applicationsWithUsers });
+        onData(null, { user, applicationsWithUsers });
 
       } else {
-        // >>>> How to alert the user to lack of permission
-        console.log('Permission clash needs resolution');
-        onData(null, { user: null });
+        FlowRouter.go('/unauthorized');
       }
 
     } else {
