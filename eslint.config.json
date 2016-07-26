@@ -20,7 +20,7 @@
     "_": true,
     "Roles": true,
     "i18n": true,
-    "Tracker", true
+    "Tracker": true
   },
   "rules": {
     "curly": [
