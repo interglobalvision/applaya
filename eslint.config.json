@@ -19,7 +19,8 @@
     "ValidationError": true,
     "_": true,
     "Roles": true,
-    "i18n": true
+    "i18n": true,
+    "Tracker", true
   },
   "rules": {
     "curly": [
