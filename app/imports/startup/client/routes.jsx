@@ -4,10 +4,13 @@ import { mount } from 'react-mounter';
 import { MainLayout } from '/imports/components/mainLayout.jsx';
 
 import { PageApplicationsClosed } from '/imports/components/pages/pageApplicationsClosed.jsx';
+import { Page401 } from '/imports/components/pages/page401.jsx';
+import { Page404 } from '/imports/components/pages/page404.jsx';
 
 import { ApplyContainer } from '/imports/containers/applyContainer.jsx';
 import { AdminContainer } from '/imports/containers/adminContainer.jsx';
 
+// Public Routes
 const publicRoutes = FlowRouter.group({ name: 'public' });
 
 publicRoutes.route('/', {
@@ -45,13 +48,27 @@ publicRoutes.route('/applications-closed', {
   },
 });
 
+publicRoutes.route('/not-found', {
+  name: 'not-found',
+  action() {
+    mount(MainLayout, {
+      content: <Page404 />,
+    });
+  },
+});
+
+publicRoutes.route('/unauthorized', {
+  name: 'unauthorized',
+  action() {
+    mount(MainLayout, {
+      content: <Page401 />,
+    });
+  },
+});
+
+// Authenticated Routes
 const authenticatedRoutes = FlowRouter.group({
   name: 'authenticated',
-  triggersEnter: [ () => {
-    if (!Meteor.loggingIn() || !Meteor.userId()) {
-      FlowRouter.go('/login');
-    }
-  } ],
 });
 
 authenticatedRoutes.route('/apply', {
@@ -74,14 +91,9 @@ authenticatedRoutes.route('/apply/:section', {
   },
 });
 
+// Admin Routes
 const adminRoutes = FlowRouter.group({
   name: 'adminRoutes',
-  triggersEnter: [ () => {
-    if (!Roles.userIsInRole(Meteor.userId(), 'superadmin')) {
-      console.log(Roles.userIsInRole(Meteor.userId(), 'superadmin'));
-      FlowRouter.go('/login');
-    }
-  } ],
 });
 
 adminRoutes.route('/admin', {
@@ -93,8 +105,7 @@ adminRoutes.route('/admin', {
   },
 });
 
-//
-
+// Other Routes stuff
 FlowRouter.wait();
 
 Tracker.autorun(() => {
