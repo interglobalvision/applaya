@@ -21,10 +21,19 @@ const composer = (props, onData) => {
       // And check roles
       if (Roles.userIsInRole(user._id, [ 'superadmin' ])) {
 
-        // Look for user's application
-        let applications = Applications.find({});
+        let applications = Applications.find({}).fetch();
 
-        onData(null, { applications });
+        let applicationsWithUsers = _.map(applications, (application) => {
+          let applicationUser = Meteor.users.findOne(application.userId);
+
+          if (applicationUser) {
+            application.userEmail = applicationUser.emails[0].address;
+          }
+
+          return application;
+        });
+
+        onData(null, { applicationsWithUsers });
 
       } else {
         // >>>> How to alert the user to lack of permission

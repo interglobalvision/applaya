@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 
 import i18n from 'meteor/universe:i18n';
 
+import { AdminIndexAnalytics } from '/imports/components/admin/adminIndexAnalytics.jsx';
+import { AdminIndexApplications } from '/imports/components/admin/adminIndexApplications.jsx';
+
 export class AdminIndexLayout extends Component {
   localeChanged(locale) {
     this.localizeMessages(locale);
@@ -9,7 +12,7 @@ export class AdminIndexLayout extends Component {
   }
 
   localizeMessages(locale) {
-    if(locale === 'en') {
+    if (locale === 'en') {
 
     } else if (locale === 'es') {
 
@@ -26,11 +29,10 @@ export class AdminIndexLayout extends Component {
 
   render() {
     return (
-      <div className="row">
-        <section className="admin-index-layout fluid-col s-12 m-12">
-          This is admin section
-        </section>
-      </div>
+      <section id="admin-index">
+        <AdminIndexAnalytics applications={this.props.applicationsWithUsers} />
+        <AdminIndexApplications applications={this.props.applicationsWithUsers} />
+      </section>
     );
   }
 }
