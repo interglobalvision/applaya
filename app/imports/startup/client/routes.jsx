@@ -6,6 +6,7 @@ import { MainLayout } from '/imports/components/mainLayout.jsx';
 import { PageApplicationsClosed } from '/imports/components/pages/pageApplicationsClosed.jsx';
 
 import { ApplyContainer } from '/imports/containers/applyContainer.jsx';
+import { AdminContainer } from '/imports/containers/adminContainer.jsx';
 
 const publicRoutes = FlowRouter.group({ name: 'public' });
 
@@ -44,7 +45,14 @@ publicRoutes.route('/applications-closed', {
   },
 });
 
-const authenticatedRoutes = FlowRouter.group({ name: 'authenticated' });
+const authenticatedRoutes = FlowRouter.group({
+  name: 'authenticated',
+  triggersEnter: [ () => {
+    if (!Meteor.loggingIn() || !Meteor.userId()) {
+      FlowRouter.go('/login');
+    }
+  } ],
+});
 
 authenticatedRoutes.route('/apply', {
   name: 'apply',
@@ -66,3 +74,31 @@ authenticatedRoutes.route('/apply/:section', {
   },
 });
 
+const adminRoutes = FlowRouter.group({
+  name: 'adminRoutes',
+  triggersEnter: [ () => {
+    if (!Roles.userIsInRole(Meteor.userId(), 'superadmin')) {
+      console.log(Roles.userIsInRole(Meteor.userId(), 'superadmin'));
+      FlowRouter.go('/login');
+    }
+  } ],
+});
+
+adminRoutes.route('/admin', {
+  name: 'admin',
+  action() {
+    mount(MainLayout, {
+      content: <AdminContainer />,
+    });
+  },
+});
+
+//
+
+FlowRouter.wait();
+
+Tracker.autorun(() => {
+  if (Roles.subscription.ready() && !FlowRouter._initialized) {
+    FlowRouter.initialize();
+  }
+});
