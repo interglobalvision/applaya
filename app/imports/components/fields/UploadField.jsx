@@ -49,22 +49,23 @@ class FieldUpload extends Component {
   }
 
   render() {
-    let displayTrigger = (!this.state.uploading || _.isEmpty(this.props.fileUrl)) ? 'inline-block' : 'none';
-
     return (
       <section className="upload-container">
-        { this.state.uploading ? <p>Uploading...</p> : '' }
         <input
           id={this.props.id}
-          type="file"
+          type='file'
           name={this.props.name}
           onChange={this.uploadFile.bind(this)}
-          ref="fileInput"
+          ref='fileInput'
           disabled={this.state.uploading}
           style={{display:'none'}}
         />
         <FilePreview url={this.props.fileUrl} name={this.props.fileName} />
-        <div className="buttons"><a onClick={this.handleClick.bind(this)} style={{display: displayTrigger}}>Choose File</a></div> 
+        <div className='buttons'>
+          <a onClick={this.handleClick.bind(this)}>
+            { this.state.uploading ? 'Uploading...' : 'Choose File' }
+          </a>
+        </div>
       </section>
     );
   } 

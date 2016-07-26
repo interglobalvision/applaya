@@ -97,6 +97,7 @@ $font-tracking-basic = 0.001em
 $font-tracking-wider = 0.05em
 
 $input-height = 2.5em
+$input-disabled-opacity = 0.5
 
 $color-black-soft = rgb(14, 14, 14)
 $color-white-soft = rgb(251, 251, 251)
@@ -354,8 +355,7 @@ label
   margin-bottom: $margin-tiny
 
 input, select, textarea
-  -webkit-appearance: none
-  -moz-appearance: none
+  appearance: none
   position: relative
   width: 100%
   height: $input-height
@@ -387,8 +387,7 @@ input[type=radio]
   border-radius: $input-height
 
 select
-  -webkit-appearance: menulist
-  -moz-appearance: menulist
+  appearance: menulist
   
 textarea
   min-height: $input-height * 3
@@ -399,18 +398,23 @@ section[name=signature] canvas
   border: 1px solid $color-black-soft
   border-radius: 3px
 
-.buttons a
-  -webkit-appearance: none
-  -moz-appearance: none
-  background-color: $color-compliment-2
-  color: $color-white-bright
-  border-color: $color-white-soft
+.buttons 
   display: block
-  font-size: 1rem
-  padding: $margin-small
-  margin-bottom: $margin-tiny
-  border-radius: 3px
+  a
+    background-color: $color-compliment-2
+    color: $color-white-bright
+    border-color: $color-white-soft
+    display: inline-block
+    font-size: 1rem
+    padding: $margin-small
+    margin-bottom: $margin-tiny
+    border-radius: 3px
+    cursor: pointer
   
+.upload-container 
+  input[type=file]:disabled ~ .buttons 
+    pointer-events: none
+    opacity: $input-disabled-opacity
 
   
 
