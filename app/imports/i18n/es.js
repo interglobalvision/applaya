@@ -4,7 +4,11 @@ i18n.addTranslations('es', {
   fields: {
     signature: {
       callToAction: 'Firma aquí',
-    }
+    },
+    list: {
+      add: 'Agregar',
+      del: 'Eliminar',
+    },
   },
 
   apply: {
