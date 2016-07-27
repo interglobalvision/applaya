@@ -40,19 +40,32 @@ class FieldUpload extends Component {
     }.bind(this));
   }
 
+  handleClick() {
+    this.refs.fileInput.dispatchEvent(new MouseEvent('click', {
+      'view': window,
+      'bubbles': true,
+      'cancelable': true
+    }));
+  }
+
   render() {
     return (
-      <section>
-        { this.state.uploading ? <p>Uploading...</p> : '' }
+      <section className="upload-container">
         <input
           id={this.props.id}
-          type="file"
+          type='file'
           name={this.props.name}
           onChange={this.uploadFile.bind(this)}
-          ref="fileInput"
+          ref='fileInput'
           disabled={this.state.uploading}
+          style={{display:'none'}}
         />
         <FilePreview url={this.props.fileUrl} name={this.props.fileName} />
+        <div className='buttons'>
+          <a onClick={this.handleClick.bind(this)}>
+            { this.state.uploading ? 'Uploading...' : 'Choose File' }
+          </a>
+        </div>
       </section>
     );
   } 
