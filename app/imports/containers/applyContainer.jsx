@@ -74,9 +74,7 @@ const composer = (props, onData) => {
         }
 
       } else {
-        // >>>> How to alert the user to lack of permission
-        console.log('Permission clash needs resolution');
-        onData(null, { user: null });
+        FlowRouter.go('/unauthorized');
       }
 
     } else {
