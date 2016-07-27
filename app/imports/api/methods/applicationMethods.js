@@ -97,7 +97,11 @@ export const submitApplicationSection = new ValidatedMethod({
       },
     };
 
-    ApplicationSections.update(query, update, { upsert: true });
+    ApplicationSections.update(query, update, { upsert: true }, (err) => {
+      if (!err) {
+        saveApplyProgress.call(applicationId);
+      }
+    });
   },
 
 });
@@ -133,5 +137,31 @@ export const saveApplyPosition = new ValidatedMethod({
 
       Applications.update(applicationId, update);
     }
+  },
+});
+
+export const saveApplyProgress = new ValidatedMethod({
+  name: 'application.progress.save',
+
+  validate(applicationId) {
+    check(applicationId, String);
+  },
+
+  run(applicationId) {
+    if (!this.userId) {
+      throw new Meteor.Error('Applications.methods.save-position.not-logged-in', 'Must be logged in to save position');
+    }
+
+    const validatedSteps = ApplicationSections.find({ 
+      applicationId: applicationId,
+      validated: true,
+    }).count();
+
+    Applications.update(applicationId, {
+      $set: {
+        progress: validatedSteps,
+      },
+    });
+
   },
 });
