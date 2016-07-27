@@ -188,7 +188,7 @@ a:visited
 
 .background-color-compliment2
   background-color: $color-compliment-2
-  
+
 .font-color-white
   color: $color-white-bright
 
@@ -342,6 +342,20 @@ img
 
 // FORMS
 
+button()
+  background-color: $color-compliment-2
+  color: $color-white-bright
+  border-width: 1px
+  border-style: solid
+  border-color: $color-white-soft
+  display: inline-block
+  font-size: 1rem
+  line-height: 1.4rem
+  padding: $margin-small
+  margin-bottom: $margin-tiny
+  border-radius: 3px
+  cursor: pointer
+
 .field
   margin-bottom: $margin-basic
 
@@ -368,7 +382,7 @@ input, select, textarea
   &:focus
     outline: none !important
     border-color: $color-compliment-1
-    
+
 input[type=checkbox], input[type=radio]
   display: block
   width: $input-height
@@ -382,41 +396,41 @@ input[type=checkbox], input[type=radio]
     height: 100%
     text-align: center
     font-size: ( $input-height / 1.75 )
-  
+
 input[type=radio]
   border-radius: $input-height
 
+input[type=submit]
+  button()
+  width: auto
+  height: auto
+
 select
   appearance: menulist
-  
+
 textarea
   min-height: $input-height * 3
   padding: ( $input-height / 4 )
-  
+
 section[name=signature] canvas
   background-color: $color-white-bright
   border: 1px solid $color-black-soft
   border-radius: 3px
 
-.buttons 
+.buttons
   display: block
   a
-    background-color: $color-compliment-2
-    color: $color-white-bright
-    border-color: $color-white-soft
-    display: inline-block
-    font-size: 1rem
-    padding: $margin-small
-    margin-bottom: $margin-tiny
-    border-radius: 3px
-    cursor: pointer
-  
-.upload-container 
-  input[type=file]:disabled ~ .buttons 
+    button()
+
+button, .button
+  button()
+
+.upload-container
+  input[type=file]:disabled ~ .buttons
     pointer-events: none
     opacity: $input-disabled-opacity
 
-  
+
 
 // ******************************************************
 
