@@ -4,9 +4,13 @@ import { mount } from 'react-mounter';
 import { MainLayout } from '/imports/components/mainLayout.jsx';
 
 import { PageApplicationsClosed } from '/imports/components/pages/pageApplicationsClosed.jsx';
+import { Page401 } from '/imports/components/pages/page401.jsx';
+import { Page404 } from '/imports/components/pages/page404.jsx';
 
 import { ApplyContainer } from '/imports/containers/applyContainer.jsx';
+import { AdminContainer } from '/imports/containers/adminContainer.jsx';
 
+// Public Routes
 const publicRoutes = FlowRouter.group({ name: 'public' });
 
 publicRoutes.route('/', {
@@ -44,7 +48,28 @@ publicRoutes.route('/applications-closed', {
   },
 });
 
-const authenticatedRoutes = FlowRouter.group({ name: 'authenticated' });
+publicRoutes.route('/not-found', {
+  name: 'not-found',
+  action() {
+    mount(MainLayout, {
+      content: <Page404 />,
+    });
+  },
+});
+
+publicRoutes.route('/unauthorized', {
+  name: 'unauthorized',
+  action() {
+    mount(MainLayout, {
+      content: <Page401 />,
+    });
+  },
+});
+
+// Authenticated Routes
+const authenticatedRoutes = FlowRouter.group({
+  name: 'authenticated',
+});
 
 authenticatedRoutes.route('/apply', {
   name: 'apply',
@@ -66,3 +91,25 @@ authenticatedRoutes.route('/apply/:section', {
   },
 });
 
+// Admin Routes
+const adminRoutes = FlowRouter.group({
+  name: 'adminRoutes',
+});
+
+adminRoutes.route('/admin', {
+  name: 'admin',
+  action() {
+    mount(MainLayout, {
+      content: <AdminContainer />,
+    });
+  },
+});
+
+// Other Routes stuff
+FlowRouter.wait();
+
+Tracker.autorun(() => {
+  if (Roles.subscription.ready() && !FlowRouter._initialized) {
+    FlowRouter.initialize();
+  }
+});

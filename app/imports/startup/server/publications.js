@@ -8,7 +8,7 @@ Meteor.publishComposite('application.single', function() {
   const userId = this.userId;
 
   return {
-    
+
     // This function
     find() {
       return Applications.find({
@@ -44,6 +44,25 @@ Meteor.publishComposite('application.single', function() {
         });
       },
     }],
+  };
+
+});
+
+Meteor.publishComposite('admin.index', function() {
+  return {
+
+    // This function
+    find() {
+      return Applications.find({});
+    },
+
+    children: [ {
+      find(application) {
+        return Meteor.users.find({
+          _id: application.userId,
+        });
+      },
+    } ],
   };
 
 });
