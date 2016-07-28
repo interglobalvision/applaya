@@ -9,6 +9,7 @@ import { Page404 } from '/imports/components/pages/page404.jsx';
 
 import { ApplyContainer } from '/imports/containers/applyContainer.jsx';
 import { AdminContainer } from '/imports/containers/adminContainer.jsx';
+import { SingleContainer } from '/imports/containers/singleContainer.jsx';
 
 // Public Routes
 const publicRoutes = FlowRouter.group({ name: 'public' });
@@ -94,6 +95,15 @@ authenticatedRoutes.route('/apply/:section', {
 // Admin Routes
 const adminRoutes = FlowRouter.group({
   name: 'adminRoutes',
+});
+
+adminRoutes.route('/single/:id', {
+  name: 'single',
+  action(params) {
+    mount(MainLayout, {
+      content: <SingleContainer applicationId={params.id} />,
+    });
+  },
 });
 
 adminRoutes.route('/admin', {
