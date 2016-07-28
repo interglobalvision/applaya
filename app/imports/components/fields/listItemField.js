@@ -7,20 +7,20 @@ import { AutoField } from 'uniforms-unstyled';
 import ListDelField from './listDelField';
 
 const ListItem = props =>
-    <section>
-        <ListDelField name={props.name} />
+  <li>
+    <ListDelField name={props.name} />
 
-        {props.children ? (
-            Children.map(props.children, child =>
-                React.cloneElement(child, {
-                    name: joinName(props.name, child.props.name),
-                    label: null
-                })
-            )
-        ) : (
-            <AutoField {...props} />
-        )}
-    </section>
+    {props.children ? (
+      Children.map(props.children, child =>
+        React.cloneElement(child, {
+          name: joinName(props.name, child.props.name),
+          label: null
+        })
+      )
+    ) : (
+      <AutoField {...props} />
+    )}
+  </li>
 ;
 
 export default connectField(ListItem, {includeInChain: false});

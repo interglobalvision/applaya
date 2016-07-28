@@ -14,12 +14,14 @@ const ListDel = ({
   const T = i18n.createComponent();
 
   return (
-    <span
-    {...filterDOMProps(props)}
-    onClick={() => limitNotReached && parent.onChange([].concat(parent.value.slice(0,  fieldIndex)).concat(parent.value.slice(1 + fieldIndex)))}
-    >
-     <T name={props.field.label}>fields.list.del</T>
-    </span>
+    <div className="buttons">
+      <a className="listFieldDel"
+      {...filterDOMProps(props)}
+      onClick={() => limitNotReached && parent.onChange([].concat(parent.value.slice(0,  fieldIndex)).concat(parent.value.slice(1 + fieldIndex)))}
+      >
+       <T name={props.field.label}>fields.list.del</T> {label}
+      </a>
+    </div>
   );
 };
 

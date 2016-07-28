@@ -4,6 +4,7 @@ import {filterDOMProps} from 'uniforms';
 
 const ListAdd = ({
   disabled,
+  label,
   parent,
   value,
   ...props
@@ -12,12 +13,14 @@ const ListAdd = ({
   const T = i18n.createComponent();
 
   return (
-    <span
-    {...filterDOMProps(props)}
-    onClick={() => limitNotReached && parent.onChange(parent.value.concat([value]))}
-    >
-      <T>fields.list.add</T>
-    </span>
+    <div class="buttons">
+      <a
+      {...filterDOMProps(props)}
+      onClick={() => limitNotReached && parent.onChange(parent.value.concat([value]))}
+      >
+        <T>fields.list.add</T> {label}
+      </a>
+    </div>
   );
 };
 
