@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 
-import i18n from 'meteor/universe:i18n';
-
 import { Page404 } from '/imports/components/pages/page404.jsx';
 import { ApplySidebar } from '/imports/components/apply/applySidebar.jsx';
+import { ApplyPayment } from '/imports/components/apply/applyPayment.jsx';
 
 // Import apply steps
 import { Steps } from '/imports/components/apply/steps.js';
@@ -107,6 +106,10 @@ export class ApplyLayout extends Component {
 
     if (step === undefined) {
       return <Page404 />;
+    }
+
+    if (step === 'payment') {
+      return <ApplyPayment />;
     }
 
     // Steps is an array, so positions start at 0.
