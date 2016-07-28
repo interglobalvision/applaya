@@ -83,7 +83,7 @@ authenticatedRoutes.route('/apply', {
 authenticatedRoutes.route('/apply/:section', {
   name: 'apply',
   action(params) {
-    let step = parseInt(params.section);
+    let step = !!parseInt(params.section) ? parseInt(params.section) : params.section;
 
     mount(MainLayout, {
       content: <ApplyContainer section={step} />,
