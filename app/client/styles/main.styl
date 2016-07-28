@@ -387,12 +387,17 @@ button[type=submit]
 // LIST FIELD 
 ul.list-field
   li 
-    background-color: grey 
+    background-color: $color-main
     margin-bottom: $margin-small
     ul.list-field
       li 
-        background-color: grey 
-        background-color: white
+        background-color: $color-white-soft
+        ul.list-field
+          li 
+            background-color: $color-main
+            ul.list-field
+              li 
+                background-color: $color-white-soft
   
 
 // ******************************************************
