@@ -3,22 +3,22 @@ import { AutoForm } from 'uniforms-unstyled';
 
 import { NewAdminUserSchema } from '/imports/schemas/newAdminUserSchema.js';
 
-import { adminAddUser } from '/imports/api/methods/adminMethods.js';
+import { adminAddUser, deleteUser } from '/imports/api/methods/adminMethods.js';
 
 export class AdminIndexUsers extends Component {
   onSubmit(doc) {
 
-  adminAddUser.call({ doc }, (err) => {
+    adminAddUser.call({ doc }, (err) => {
 
-    console.log(this);
+      console.log(this);
 
-    if (err) {
-      // >>> needs actual error handling here [user notification etc]
-      console.log(err);
-    } else {
-      // >>> needs to clear form
-    }
-  });
+      if (err) {
+        // >>> needs actual error handling here [user notification etc]
+        console.log(err);
+      } else {
+        // >>> needs to clear form
+      }
+    });
 
   }
 
@@ -64,9 +64,23 @@ export class AdminIndexUsers extends Component {
 }
 
 export class AdminIndexUser extends Component {
+  deleteUser() {
+    let userId = this.props.user._id;
+
+    deleteUser.call({ userId }, (err) => {
+
+      if (err) {
+        // >>> needs actual error handling here [user notification etc]
+        console.log(err);
+      }
+
+    });
+
+  }
+
   render() {
     return (
-      <li>{this.props.user._id}: {this.props.user.emails[0].address}</li>
+      <li>{this.props.user._id}: {this.props.user.emails[0].address} <a onClick={this.deleteUser.bind(this)} className='button'>{'delete'}</a></li>
     );
   }
 }
