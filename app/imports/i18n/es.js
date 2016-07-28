@@ -7,6 +7,19 @@ i18n.addTranslations('es', {
     }
   },
 
+  admin: {
+    users: {
+      addUser: {
+        email: {
+          label: 'Email'
+        },
+        role: {
+          label: 'Rol'
+        }
+      }
+    }
+  },
+
   apply: {
     completed: '{$percentage}% Completado',
     sections: {
@@ -128,7 +141,7 @@ i18n.addTranslations('es', {
         },
 
       },
-      
+
       // Section: Artists
       artists: {
         title: 'Artistas propuestos para Material Art Fair 2017',

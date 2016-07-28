@@ -7,6 +7,19 @@ i18n.addTranslations('en', {
     }
   },
 
+  admin: {
+    users: {
+      addUser: {
+        email: {
+          label: 'Email'
+        },
+        role: {
+          label: 'Role'
+        }
+      }
+    }
+  },
+
   apply: {
     completed: '{$percentage}% Complete',
     sections: {
@@ -212,7 +225,7 @@ i18n.addTranslations('en', {
           label: 'Principal / Extra Large / We will contact you with further details',
         },
       },
-      
+
       // Section: Terms and Conditions
       terms: {
         title: 'Terms and Conditions of Participation',
