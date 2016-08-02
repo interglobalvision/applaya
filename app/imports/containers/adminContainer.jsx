@@ -30,8 +30,10 @@ const composer = (props, onData) => {
 
         let latestApplications = Applications.find({}, {
           // >>> why does this sort not seem to work?
-          sort: ['createdAt', 'desc'],
-          limit: 10
+          sort: {
+            createdAt: -1,
+          },
+          limit: 10,
         }).fetch();
 
         let latestApplicationsWithUsers = _.map(latestApplications, (application) => {
