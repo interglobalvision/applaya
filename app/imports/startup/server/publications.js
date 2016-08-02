@@ -80,7 +80,7 @@ Meteor.publish('admin.users.committee', function() {
 Meteor.publish('admin.users.admin', function() {
 
   if (Roles.userIsInRole(this.userId, 'superadmin')) {
-    return Roles.getUsersInRole('superadmin');
+    return Roles.getUsersInRole('admin');
   } else {
     this.stop();
     return

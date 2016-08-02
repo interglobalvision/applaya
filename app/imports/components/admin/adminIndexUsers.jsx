@@ -8,7 +8,7 @@ import { adminAddUser, deleteUser } from '/imports/api/methods/adminMethods.js';
 export class AdminIndexUsers extends Component {
   onSubmit(doc) {
 
-    adminAddUser.call({ doc }, (err) => {
+    adminAddUser.call(doc, (err) => {
 
       console.log(this);
 
