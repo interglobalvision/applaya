@@ -2,23 +2,23 @@
 const schemaLocaleBase = 'apply.payment.';
 
 const Schema = new SimpleSchema({
-  number: {
+  'card.number': {
     type: Number,
     label: () => i18n.__(schemaLocaleBase + 'cardNumber.label'),
   },
-  name: {
+  'card.name': {
     type: String,
     label: () => i18n.__(schemaLocaleBase + 'name.label'),
   },
-  exp_year: {
+  'card.exp_year': {
     type: Number,
     label: () => i18n.__(schemaLocaleBase + 'expirationYear.label'),
   },
-  exp_month: {
+  'card.exp_month': {
     type: Number,
     label: () => i18n.__(schemaLocaleBase + 'expirationMonth.label'),
   },
-  cvc: {
+  'card.cvc': {
     type: Number,
     label: () => i18n.__(schemaLocaleBase + 'cvc.label'),
   },
