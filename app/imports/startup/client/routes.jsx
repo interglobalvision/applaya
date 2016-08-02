@@ -9,6 +9,7 @@ import { Page404 } from '/imports/components/pages/page404.jsx';
 
 import { ApplyContainer } from '/imports/containers/applyContainer.jsx';
 import { AdminContainer } from '/imports/containers/adminContainer.jsx';
+import { ApplicationsContainer } from '/imports/containers/applicationsContainer.jsx';
 
 // Public Routes
 const publicRoutes = FlowRouter.group({ name: 'public' });
@@ -101,6 +102,26 @@ adminRoutes.route('/admin', {
   action() {
     mount(MainLayout, {
       content: <AdminContainer />,
+    });
+  },
+});
+
+adminRoutes.route('/applications', {
+  name: 'applications',
+  action() {
+    mount(MainLayout, {
+      content: <ApplicationsContainer />,
+    });
+  },
+});
+
+adminRoutes.route('/applications/page/:page', {
+  name: 'applications',
+  action(params) {
+    let page = parseInt(params.page);
+
+    mount(MainLayout, {
+      content: <ApplicationsContainer page={page} />,
     });
   },
 });
