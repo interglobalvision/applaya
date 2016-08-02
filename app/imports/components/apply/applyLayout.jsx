@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import { Page404 } from '/imports/components/pages/page404.jsx';
 import { ApplySidebar } from '/imports/components/apply/applySidebar.jsx';
-import { ApplyPayment } from '/imports/components/apply/applyPayment.jsx';
 
 // Import apply steps
 import { Steps } from '/imports/components/apply/steps.js';
@@ -103,14 +102,6 @@ export class ApplyLayout extends Component {
     }
 
     let step = this.props.section.step;
-
-    if (step === undefined) {
-      return <Page404 />;
-    }
-
-    if (step === 'payment') {
-      return <ApplyPayment />;
-    }
 
     // Steps is an array, so positions start at 0.
     // But the step numbers for the routs start at 1. So we
