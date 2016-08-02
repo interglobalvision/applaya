@@ -1,5 +1,7 @@
-import Promise from 'promise';
+import { Meteor } from 'meteor/meteor'
+
 import { ApplicationPaymentSchema } from '/imports/schemas/applicationPayment.js';
+
 import Conekta from 'conekta';
 
 // It runs run() only if validate: true.
@@ -34,24 +36,30 @@ export const makePayment = new ValidatedMethod({
       throw new Meteor.Error('Payment.methods.pay-application.not-logged-in', 'Must be logged in to pay application.');
     }
 
-    //Conekta.locale = Meteor.user().profile.lang;
+    if (Meteor.isServer) {
 
-    Conekta.api_key = Meteor.settings.conekta_private;
+      Conekta.api_key = Meteor.settings.conekta_private;
+      const wrapContektaChargeCreate = Meteor.wrapAsync(Conekta.Charge.create, Conekta.Charge);
 
-    //data.email = Meteor.user().emails[0].address;
+      console.log('data from client', data);
 
-    debugger;
-    let conektaSync = (data) => {
+      //Conekta.locale = Meteor.user().profile.lang;
 
-      return new Promise((resolve, reject) => {
-        Conekta.Charge.create({
+      data.email = Meteor.user().emails[0].address;
+
+      let result;
+
+      try {
+        result = wrapContektaChargeCreate({
           "amount": data.amount,
           "currency": "USD",
           "description": "Material Art Fair",
           //"reference_id": data.applicationId,
           "card": data.card,
           "details": {
-            //"email": data.email,
+            "name": data.details.card.name,
+            "phone": data.details.cellphone,
+            "email": data.email,
             "line_items": [{
               "name": "Material Art Fair application fee",
               "sku": "maf_fee_1",
@@ -71,30 +79,21 @@ export const makePayment = new ValidatedMethod({
               "cellphone": data.cellphone,
             },
           },
-        }, (err, res) => {
-            if (err) {
-              reject(err);
-            } else {
-              resolve(charge);
-            }
-          }
-        );
+        });
+      } catch(error) {
+        throw new Meteor.Error('Payment.methods.pay-application.' + error.type, error.message, error);
+      }
 
-      });
-    };
+      console.log('result: ', result);
 
-    let chargeResult = await conektaSync(data);
+      let charge = result._json;
 
-    console.log('New transaction: ', chargeResult);
+//       paymentSuccessEmail.call(Meteor.userId(), charge.id, charge.payment_method.brand, charge.payment_method.last4);
 
-    if (chargeResult.object === 'error') {
-      throw new Meteor.Error('card-payment-failed', chargeResult.message_to_purchaser);
+//       return Applications.update(data.applicationId, {$set: {transactionId: charge.id, transaction: charge, status: 'paid',},});
+
+    } else {
+      return true;
     }
-
-    charge = chargeResult._json;
-    debugger;
-
-    //Meteor.call('paymentSuccessEmail', Meteor.userId(), charge.id, charge.payment_method.brand, charge.payment_method.last4);
-    return true; //Applications.update(data.applicationId, {$set: {transactionId: charge.id, transaction: charge, status: 'paid',},});
   },
 });
