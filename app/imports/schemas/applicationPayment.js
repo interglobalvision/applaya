@@ -2,50 +2,50 @@
 const schemaLocaleBase = 'apply.payment.';
 
 const Schema = new SimpleSchema({
+  number: {
+    type: Number,
+    label: () => i18n.__(schemaLocaleBase + 'cardNumber.label'),
+  },
   name: {
     type: String,
     label: () => i18n.__(schemaLocaleBase + 'name.label'),
   },
-  cardNumber: {
+  exp_year: {
     type: Number,
-    label: () => i18n.__(schemaLocaleBase + 'cardNumber.label'),
+    label: () => i18n.__(schemaLocaleBase + 'expirationYear.label'),
+  },
+  exp_month: {
+    type: Number,
+    label: () => i18n.__(schemaLocaleBase + 'expirationMonth.label'),
   },
   cvc: {
     type: Number,
     label: () => i18n.__(schemaLocaleBase + 'cvc.label'),
   },
-  expirationMonth: {
-    type: Number,
-    label: () => i18n.__(schemaLocaleBase + 'expirationMonth.label'),
-  },
-  expirationYear: {
-    type: Number,
-    label: () => i18n.__(schemaLocaleBase + 'expirationYear.label'),
-  },
-  address1: {
+  'address.street1': {
     type: String,
     label: () => i18n.__(schemaLocaleBase + 'address1.label'),
   },
-  address2: {
+  'address.street2': {
     type: String,
     optional: true,
     label: () => i18n.__(schemaLocaleBase + 'address2.label'),
   },
-  city: {
+  'address.city': {
     type: String,
     label: () => i18n.__(schemaLocaleBase + 'city.label'),
   },
-  state: {
+  'address.state': {
     type: String,
     optional: true,
     label: () => i18n.__(schemaLocaleBase + 'state.label'),
   },
-  postalCode: {
+  'address.zip': {
     type: String,
     optional: true,
     label: () => i18n.__(schemaLocaleBase + 'postalCode.label'),
   },
-  country: {
+  'address.country': {
     type: String,
     label: () => i18n.__(schemaLocaleBase + 'country.label'),
     uniforms: {
