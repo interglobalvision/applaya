@@ -100,8 +100,9 @@ export class ApplicationsApplication extends Component {
         <td><a href={'/application/' + this.props._id}>{title}</a></td>
         <td>status goes here</td>
         <td>
-          <a className="button">Unsubmit</a>
           <a className="button">Delete</a>
+          <a className="button">Unsubmit</a>
+          <a className="button">Mark Paid</a>
           <a className="button">Extend</a>
           <a className="button">Approve</a>
         </td>
