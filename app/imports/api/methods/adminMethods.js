@@ -4,23 +4,15 @@ import { Accounts } from 'meteor/accounts-base'
 export const adminAddUser = new ValidatedMethod({
   name: 'admin.newUser',
 
-  validate({ doc }) {
-
-    return new SimpleSchema({
-      doc: {
-        type: Object
-      },
-      'doc.email': {
-        type: String
-      },
-      'doc.role': {
-        type: String,
-        allowedValues: ['Admin', 'Committee']
-      }
-    }).validate({
-      doc
-    });
-  },
+  validate: new SimpleSchema({
+    email: {
+      type: String
+    },
+    role: {
+      type: String,
+      allowedValues: ['Admin', 'Committee']
+    }
+  }).validator(),
 
   run( doc ) {
 
@@ -30,17 +22,17 @@ export const adminAddUser = new ValidatedMethod({
 
     if (Meteor.isServer) {
 
-      let role = doc.doc.role.toLowerCase();
+      let role = doc.role.toLowerCase();
 
-      if (Accounts.findUserByEmail(doc.doc.email)) {
+      if (Accounts.findUserByEmail(doc.email)) {
         throw new Meteor.Error('Admin.methods.add-user.already-exists', 'User with same email already exists.');
       }
 
       Accounts.createUser({
-        email: doc.doc.email
+        email: doc.email
       });
 
-      let newUser = Accounts.findUserByEmail(doc.doc.email);
+      let newUser = Accounts.findUserByEmail(doc.email);
 
       Roles.addUsersToRoles(newUser._id, role);
 
@@ -64,6 +56,12 @@ export const deleteUser = new ValidatedMethod({
       userId
     });
   },
+
+  validate: new SimpleSchema({
+    userId: {
+      type: String
+    }
+  }).validator(),
 
   run( args ) {
 
