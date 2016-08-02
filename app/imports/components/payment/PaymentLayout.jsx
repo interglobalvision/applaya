@@ -5,19 +5,24 @@ import { ApplicationPaymentSchema } from '/imports/schemas/applicationPayment.js
 import { makePayment } from '/imports/api/methods/paymentMethods.js';
 
 export class PaymentLayout extends Component {
+  componentDidMount() {
+    Conekta.setPublicKey(Meteor.settings.public.conekta_public);
+  }
+
   onSubmit(data) {
+    let _this = this;
     Conekta.locale = i18n.getLocale();
 
     // Disable pay button
     
     // Tokenize card
-    Conekta.token.create(data, response => {
-      data.token = response.id;
+    Conekta.Token.create(data, response => {
 
       makePayment.call({
-        amount: this.props.amount,
-        description: this.props.description,
-        card: data,
+        amount: _this.props.amount,
+        description: _this.props.description,
+        card: response.id,
+        details: data,
         locale: i18n.getLocale(),
       }, (err, res) => {
         if (err) {
@@ -46,6 +51,26 @@ export class PaymentLayout extends Component {
 
     const T = i18n.createComponent();
 
+    const info = {
+      card: {
+        name: 'Carlos Solares',
+        number: 4242424242424242,
+        cvc: 123,
+        exp_year: 2020,
+        exp_month: 2,
+      },
+      address: {
+        street1: 'Ayuntamiento 132',
+        street2: 'Int 15, Col Centro.',
+        city: 'Cuauhtemoc',
+        state: 'Ciudad de México',
+        zip: '06040',
+        country: 'Mexico',
+      },
+      phone: '1726069',
+      cellphone: '5518393308',
+    }
+
     return (
       <section>
         <h2><T>apply.payment.title</T></h2>
@@ -53,12 +78,14 @@ export class PaymentLayout extends Component {
         <AutoForm
           schema={ApplicationPaymentSchema}
           onSubmit={this.onSubmit.bind(this)}
+          ref='pay-form'
+          model={info}
         >
-          <AutoField name="name" />
-          <AutoField name="number" />
-          <AutoField name="cvc" />
-          <AutoField name="exp_year" />
-          <AutoField name="exp_month" />
+          <AutoField name="card.name" />
+          <AutoField name="card.number" />
+          <AutoField name="card.cvc" />
+          <AutoField name="card.exp_year" />
+          <AutoField name="card.exp_month" />
           <AutoField name="address.street1" />
           <AutoField name="address.street2" />
           <AutoField name="address.city" />
