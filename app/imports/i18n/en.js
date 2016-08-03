@@ -1,6 +1,27 @@
 import i18n from 'meteor/universe:i18n';
 
 i18n.addTranslations('en', {
+  common: {
+    next: 'Next',
+    prev: 'Prev',
+    application: 'Application', 
+  },
+
+  applications: {
+    title: 'Applications',
+    status: {
+      label: 'Status',
+    },
+    actions: {
+      label: 'Actions',
+      remove: 'Remove',
+      unsubmit: 'Unsubmit',
+      markAsPaid: 'Mark as paid',
+      extend: 'Extend',
+      approve: 'Approve',
+    },
+  },
+
   fields: {
     signature: {
       callToAction: 'Sign here',
