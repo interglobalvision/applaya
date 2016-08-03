@@ -14,7 +14,7 @@ export class PaymentLayout extends Component {
     Conekta.locale = i18n.getLocale();
 
     // Disable pay button
-    
+
     // Tokenize card
     Conekta.Token.create(data, response => {
 
@@ -24,6 +24,7 @@ export class PaymentLayout extends Component {
         card: response.id,
         details: data,
         locale: i18n.getLocale(),
+        applicationId: _this.props.application._id,
       }, (err, res) => {
         if (err) {
           return console.log(err);
@@ -39,7 +40,7 @@ export class PaymentLayout extends Component {
     amount = amount.toString();
     const cents = amount.slice(amount.length - 2, amount.length);
     let dollars = amount.slice(0, amount.length - 2);
-    
+
     while (/(\d+)(\d{3})/.test(dollars.toString())){
       dollars = dollars.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
     }

@@ -37,10 +37,10 @@ const composer = (props, onData) => {
           const amount = props.amount || null;
           const description = props.description || null;
 
-          onData(null, { amount, description });
+          onData(null, { application, amount, description });
 
         } else {
-          // Return error: application not found
+          FlowRouter.go('/');
         }
 
       } else {

@@ -1,5 +1,8 @@
 import { Meteor } from 'meteor/meteor'
 
+import { Applications } from '/imports/collections/applications.js';
+import { Charges } from '/imports/collections/charges.js';
+
 import { ApplicationPaymentSchema } from '/imports/schemas/applicationPayment.js';
 
 if (Meteor.isServer) {
@@ -32,6 +35,9 @@ export const makePayment = new ValidatedMethod({
         },
       }]),
     },
+    applicationId: {
+      type: String,
+    },
   }).validator(),
 
   run(data) {
@@ -43,9 +49,10 @@ export const makePayment = new ValidatedMethod({
     if (Meteor.isServer) {
 
       Conekta.api_key = Meteor.settings.conekta_private;
+
       const wrapContektaChargeCreate = Meteor.wrapAsync(Conekta.Charge.create, Conekta.Charge);
 
-//       console.log('data from client', data);
+      const application = Applications.findOne(data.applicationId);
 
       //Conekta.locale = Meteor.user().profile.lang;
 
@@ -88,14 +95,15 @@ export const makePayment = new ValidatedMethod({
         throw new Meteor.Error('Payment.methods.pay-application.' + error.type, error.message, error);
       }
 
-      let charge = result._json;
+      let chargeData = result._json;
 
-      paymentSuccessEmail(this.userId, charge.id, charge.payment_method.brand, charge.payment_method.last4);
+      Charges.insert({applicationId: application._id, chargeData: chargeData});
 
-//       return Applications.update(data.applicationId, {$set: {transactionId: charge.id, transaction: charge, status: 'paid',},});
+      paymentSuccessEmail(this.userId, chargeData.id, chargeData.payment_method.brand, chargeData.payment_method.last4);
 
-    } else {
-      return true;
+      return Applications.update(application._id, {$set: {'status.paid': true,},});
+
     }
+
   },
 });
