@@ -7,6 +7,7 @@ import { adminAddUser, removeUser } from '/imports/api/methods/adminMethods.js';
 
 export class AdminIndexUsers extends Component {
   onSubmit(doc) {
+    let _this = this;
 
     adminAddUser.call(doc, (err) => {
 
@@ -16,7 +17,8 @@ export class AdminIndexUsers extends Component {
         // >>> needs actual error handling here [user notification etc]
         console.log(err);
       } else {
-        // >>> needs to clear form
+        // Reset Form
+        _this.refs.addUserForm.reset();
       }
     });
 
@@ -55,7 +57,7 @@ export class AdminIndexUsers extends Component {
         <div className="row">
           <div className="fluid-col s-12 m-12">
             <h3>Add User</h3>
-            <AutoForm ref={ref => newUserForm = ref} schema={NewAdminUserSchema} onSubmit={this.onSubmit.bind(this)} />
+            <AutoForm ref='addUserForm' schema={NewAdminUserSchema} onSubmit={this.onSubmit.bind(this)} />
           </div>
         </div>
       </section>
