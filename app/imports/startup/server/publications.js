@@ -49,7 +49,6 @@ Meteor.publishComposite('application.single', function() {
 });
 
 Meteor.publishComposite('admin.application.single', function(applicationId) {
-
   return {
 
     find() {
@@ -60,6 +59,12 @@ Meteor.publishComposite('admin.application.single', function(applicationId) {
       find(application) {
         return ApplicationSections.find({
           applicationId: application._id,
+        });
+      },
+    }, {
+      find(application) {
+        return Meteor.users.find({
+          _id: application.userId,
         });
       },
     }],

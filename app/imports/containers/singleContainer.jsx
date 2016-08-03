@@ -15,24 +15,24 @@ const composer = (props, onData) => {
   // Check if subscription is ready
   if (subscription.ready()) {
 
-    console.log(subscription);
-    console.log(applicationId);
-
     const user = !!Meteor.user() ? Meteor.user() : null;
 
     // Wait for user subscription (kinda)
     if (user) {
 
       // And check roles
-      if (Roles.userIsInRole(user._id, ['superadmin', 'committee'])) {
+      if (Roles.userIsInRole(user._id, ['admin', 'committee'])) {
 
-        let application = Applications.findOne({ applicationId });
+        let application = Applications.findOne(applicationId);
+        let sections = ApplicationSections.find(
+          { applicationId: application._id },
+          { sort: {
+            step: 1,
+          } });
 
-        console.log(application);
+        let applicationUser = Meteor.users.findOne(application.userId);
 
-        let sections = ApplicationSections.find({ applicationId: application._id }, { sort: [] });
-
-        onData(null, { user, application, sections });
+        onData(null, { user, application, sections, applicationUser });
 
       } else {
         FlowRouter.go('/unauthorized');
