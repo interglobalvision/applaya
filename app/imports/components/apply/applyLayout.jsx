@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { Page404 } from '/imports/components/pages/page404.jsx';
 import { ApplySidebar } from '/imports/components/apply/applySidebar.jsx';
 
+import { ApplyIntro } from '/imports/components/apply/applyIntro.jsx';
+
 // Import apply steps
 import { Steps } from '/imports/components/apply/steps.js';
 
@@ -96,11 +98,6 @@ export class ApplyLayout extends Component {
 
   getApplySection() {
 
-    // Check if logged in
-    if (!this.props.user) {
-      return <Accounts.ui.LoginForm />;
-    }
-
     let step = this.props.section.step;
 
     // Steps is an array, so positions start at 0.
@@ -122,10 +119,18 @@ export class ApplyLayout extends Component {
   }
 
   render() {
+    // Check if logged in
+    if (!this.props.user) {
+      return <Accounts.ui.LoginForm />;
+    }
+
     return (
       <div className="row">
-        <section className="apply-layout fluid-col s-10 m-7">
-          { this.getApplySection() }
+        <section className="apply-layout fluid-col s-10 m-9">
+          { this.props.showIntro ?
+            <ApplyIntro />
+          : this.getApplySection()
+          }
         </section>
         <nav className="fluid-col s-10 m-3 background-color-sidebar">
           <ApplySidebar />

@@ -34,8 +34,9 @@ export class ApplySidebar extends Component {
 
     return (
       <div className="content">
-        <h3>Application Progress</h3>
+        <h4>Application Progress</h4>
         <ul>
+          <li><a href="/apply/introduction">Introduction</a></li>
         {steps.map((step, key) => (
           <ApplySidebarStep name={step.name} url={step.url} validated={step.validated} key={key} />
         ))}

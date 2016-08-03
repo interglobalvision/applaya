@@ -82,6 +82,17 @@ authenticatedRoutes.route('/apply', {
   },
 });
 
+authenticatedRoutes.route('/apply/introduction', {
+  name: 'apply',
+  action() {
+    let intro = true;
+
+    mount(MainLayout, {
+      content: <ApplyContainer intro={intro} />,
+    });
+  },
+});
+
 authenticatedRoutes.route('/apply/section/:section', {
   name: 'apply',
   action(params) {
@@ -93,8 +104,8 @@ authenticatedRoutes.route('/apply/section/:section', {
   },
 });
 
-authenticatedRoutes.route('/pay-application', {
-  name: 'payApplication',
+authenticatedRoutes.route('/apply/pay', {
+  name: 'pay-application',
   action(params, queryParams) {
     mount(MainLayout, {
       content: <PaymentContainer />,

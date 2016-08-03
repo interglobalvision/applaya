@@ -37,32 +37,48 @@ const composer = (props, onData) => {
           // Get section URL (props come from the router)
           const currentSection = props.section;
 
-          // If section is not in the URL, get the latest position in the application
-          // I changed these conditions. In ES6 you can check for undefined as expected.
-          // Fallback for <IE8 is done by Babel if configured.
-          if (currentSection === undefined && application.position !== undefined) {
+          // If section is not in the URL, route to  latest position in the application if set
+          if (currentSection === undefined && application.position !== undefined && props.intro === false) {
             return FlowRouter.go('/apply/section/' + application.position);
-          } else if (currentSection === undefined) {
-            // Otherwise go to /apply/1
-            return FlowRouter.go('/apply/section/1');
           }
 
-          let section = {
-            applicationId: application._id,
-            step: currentSection,
-          };
+          // Check if props section is set
+          if (currentSection !== undefined) {
 
-          let sectionData = ApplicationSections.findOne({
-            applicationId: application._id,
-            step: currentSection,
-          });
+            // If section is not in the URL, get the latest position in the application
+            // I changed these conditions. In ES6 you can check for undefined as expected.
+            // Fallback for <IE8 is done by Babel if configured.
+            if (currentSection === undefined && application.position !== undefined) {
+              return FlowRouter.go('/apply/section/' + application.position);
+            } else if (currentSection === undefined) {
+              // Otherwise go to /apply/1
+              return FlowRouter.go('/apply/section/1');
+            }
 
-          let validated = _.isUndefined(sectionData) || _.isUndefined(sectionData.validated) ? false : sectionData.validated;
+            let section = {
+              applicationId: application._id,
+              step: currentSection,
+            };
 
-          // Merge data
-          section = Object.assign(section, sectionData);
+            let sectionData = ApplicationSections.findOne({
+              applicationId: application._id,
+              step: currentSection,
+            });
 
-          onData(null, { user, section, application, validated });
+            let validated = _.isUndefined(sectionData) || _.isUndefined(sectionData.validated) ? false : sectionData.validated;
+
+            // Merge data
+            section = Object.assign(section, sectionData);
+
+            onData(null, { user, section, application, validated });
+
+          } else {
+
+            let showIntro = true;
+
+            onData(null, { user, application, showIntro });
+
+          }
 
         } else {
           // If no application returned proceed to create a new application for the user
