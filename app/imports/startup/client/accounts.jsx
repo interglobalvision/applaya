@@ -10,7 +10,7 @@ Accounts.ui.config({
 
     if (Roles.userIsInRole(user._id, [ 'applicant' ])) {
       FlowRouter.go('/apply');
-    } else if (Roles.userIsInRole(user._id, [ 'superadmin' ])) {
+    } else if (Roles.userIsInRole(user._id, [ 'admin' ])) {
       FlowRouter.go('/admin');
     }
   },

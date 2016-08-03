@@ -16,8 +16,8 @@ export const adminAddUser = new ValidatedMethod({
 
   run( doc ) {
 
-    if (!Roles.userIsInRole(this.userId, 'superadmin')) {
-      throw new Meteor.Error('Admin.methods.add-user.not-allowed', 'Must be superadmin to do this.');
+    if (!Roles.userIsInRole(this.userId, 'admin')) {
+      throw new Meteor.Error('Admin.methods.add-user.not-allowed', 'Must be admin to do this.');
     }
 
     if (Meteor.isServer) {
@@ -67,8 +67,8 @@ export const deleteUser = new ValidatedMethod({
 
     let userId = args.userId;
 
-    if (!Roles.userIsInRole(this.userId, 'superadmin')) {
-      throw new Meteor.Error('Admin.methods.add-user.not-allowed', 'Must be superadmin to do this.');
+    if (!Roles.userIsInRole(this.userId, 'admin')) {
+      throw new Meteor.Error('Admin.methods.add-user.not-allowed', 'Must be admin to do this.');
     }
 
     if (userId === this.userId) {

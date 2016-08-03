@@ -68,7 +68,7 @@ Meteor.publishComposite('admin.applications', function() {
 
 Meteor.publish('admin.users.committee', function() {
 
-  if (Roles.userIsInRole(this.userId, 'superadmin')) {
+  if (Roles.userIsInRole(this.userId, 'admin')) {
     return Roles.getUsersInRole('committee');
   } else {
     this.stop();
@@ -79,7 +79,7 @@ Meteor.publish('admin.users.committee', function() {
 
 Meteor.publish('admin.users.admin', function() {
 
-  if (Roles.userIsInRole(this.userId, 'superadmin')) {
+  if (Roles.userIsInRole(this.userId, 'admin')) {
     return Roles.getUsersInRole('admin');
   } else {
     this.stop();

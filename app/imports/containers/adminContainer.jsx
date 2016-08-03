@@ -21,7 +21,7 @@ const composer = (props, onData) => {
     if (user) {
 
       // And check roles
-      if (Roles.userIsInRole(user._id, [ 'superadmin' ])) {
+      if (Roles.userIsInRole(user._id, [ 'admin' ])) {
 
         let admins = Roles.getUsersInRole('admin');
         let committee = Roles.getUsersInRole('committee');
