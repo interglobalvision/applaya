@@ -41,10 +41,10 @@ const composer = (props, onData) => {
           // I changed these conditions. In ES6 you can check for undefined as expected.
           // Fallback for <IE8 is done by Babel if configured.
           if (currentSection === undefined && application.position !== undefined) {
-            return FlowRouter.go('/apply/' + application.position);
+            return FlowRouter.go('/apply/section/' + application.position);
           } else if (currentSection === undefined) {
             // Otherwise go to /apply/1
-            return FlowRouter.go('/apply/1');
+            return FlowRouter.go('/apply/section/1');
           }
 
           let section = {

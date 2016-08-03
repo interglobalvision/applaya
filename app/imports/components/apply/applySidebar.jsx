@@ -20,7 +20,7 @@ export class ApplySidebar extends Component {
 
       return {
         name: step.name,
-        url: '/apply/' + (key + 1),
+        url: '/apply/section/' + (key + 1),
         validated,
       };
     });

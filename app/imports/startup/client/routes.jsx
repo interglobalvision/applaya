@@ -82,7 +82,7 @@ authenticatedRoutes.route('/apply', {
   },
 });
 
-authenticatedRoutes.route('/apply/:section', {
+authenticatedRoutes.route('/apply/section/:section', {
   name: 'apply',
   action(params) {
     let step = parseInt(params.section);
