@@ -3,7 +3,7 @@ import { AutoForm } from 'uniforms-unstyled';
 
 import { NewAdminUserSchema } from '/imports/schemas/newAdminUserSchema.js';
 
-import { adminAddUser, deleteUser } from '/imports/api/methods/adminMethods.js';
+import { adminAddUser, removeUser } from '/imports/api/methods/adminMethods.js';
 
 export class AdminIndexUsers extends Component {
   onSubmit(doc) {
@@ -64,23 +64,27 @@ export class AdminIndexUsers extends Component {
 }
 
 export class AdminIndexUser extends Component {
-  deleteUser() {
+  removeUser() {
     let userId = this.props.user._id;
 
-    deleteUser.call({ userId }, (err) => {
+    if (confirm(i18n.__('admin.users.removeUser.confirm'))) {
+      removeUser.call({ userId }, (err) => {
 
-      if (err) {
-        // >>> needs actual error handling here [user notification etc]
-        console.log(err);
-      }
+        if (err) {
+          // >>> needs actual error handling here [user notification etc]
+          console.log(err);
+        }
 
-    });
+      });
+    }
 
   }
 
   render() {
+    const T = i18n.createComponent();
+
     return (
-      <li>{this.props.user._id}: {this.props.user.emails[0].address} <a onClick={this.deleteUser.bind(this)} className='button'>{'delete'}</a></li>
+      <li>{this.props.user._id}: {this.props.user.emails[0].address} <a onClick={this.removeUser.bind(this)} className='button'><T>admin.users.removeUser.label</T></a></li>
     );
   }
 }

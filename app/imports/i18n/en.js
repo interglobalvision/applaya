@@ -10,14 +10,19 @@ i18n.addTranslations('en', {
   admin: {
     users: {
       addUser: {
+        label: 'Add new user',
         email: {
           label: 'Email'
         },
         role: {
           label: 'Role'
         }
-      }
-    }
+      },
+      removeUser: {
+        label: 'Remove user',
+        confirm: 'Are you sure you want to remove this user?',
+      },
+    },
   },
 
   apply: {

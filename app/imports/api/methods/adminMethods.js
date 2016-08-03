@@ -43,8 +43,8 @@ export const adminAddUser = new ValidatedMethod({
   },
 });
 
-export const deleteUser = new ValidatedMethod({
-  name: 'admin.deleteUser',
+export const removeUser = new ValidatedMethod({
+  name: 'admin.removeUser',
 
   validate({ userId }) {
 
@@ -72,7 +72,7 @@ export const deleteUser = new ValidatedMethod({
     }
 
     if (userId === this.userId) {
-      throw new Meteor.Error('Admin.methods.add-user.no-selfdestruct', 'You can\'t delete yourself.');
+      throw new Meteor.Error('Admin.methods.add-user.no-selfdestruct', 'You can\'t remove yourself.');
     }
 
     if (Meteor.isServer) {
