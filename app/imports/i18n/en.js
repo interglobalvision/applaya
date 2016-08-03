@@ -7,6 +7,24 @@ i18n.addTranslations('en', {
     }
   },
 
+  admin: {
+    users: {
+      addUser: {
+        label: 'Add new user',
+        email: {
+          label: 'Email'
+        },
+        role: {
+          label: 'Role'
+        }
+      },
+      removeUser: {
+        label: 'Remove user',
+        confirm: 'Are you sure you want to remove this user?',
+      },
+    },
+  },
+
   apply: {
     completed: '{$percentage}% Complete',
     sections: {
@@ -212,7 +230,7 @@ i18n.addTranslations('en', {
           label: 'Principal / Extra Large / We will contact you with further details',
         },
       },
-      
+
       // Section: Terms and Conditions
       terms: {
         title: 'Terms and Conditions of Participation',
