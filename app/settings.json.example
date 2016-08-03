@@ -23,6 +23,7 @@
     },
 
     "public": {
+      "applicationFee": 10000,
       "conekta_public_sandbox":"xxx",
       "conekta_public":"xxx",
       "dateFormat":"DD-MM-YYYY HH:mm",

@@ -16,12 +16,6 @@ export const makePayment = new ValidatedMethod({
   name: 'pay.application',
 
   validate: new SimpleSchema({
-    amount: {
-      type: Number,
-    },
-    description: {
-      type: String,
-    },
     locale: {
       type: String,
     },
@@ -62,7 +56,7 @@ export const makePayment = new ValidatedMethod({
 
       try {
         result = wrapContektaChargeCreate({
-          "amount": data.amount,
+          "amount": Meteor.settings.public.applicationFee,
           "currency": "USD",
           "description": "Material Art Fair",
           //"reference_id": data.applicationId,

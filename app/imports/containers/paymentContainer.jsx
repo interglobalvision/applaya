@@ -34,10 +34,7 @@ const composer = (props, onData) => {
 
           // TODO: Check if application is fully validated
 
-          const amount = props.amount || null;
-          const description = props.description || null;
-
-          onData(null, { application, amount, description });
+          onData(null, { application });
 
         } else {
           FlowRouter.go('/');

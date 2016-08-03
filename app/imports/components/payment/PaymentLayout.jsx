@@ -20,8 +20,6 @@ export class PaymentLayout extends Component {
     let _this = this;
     Conekta.locale = i18n.getLocale();
 
-    debugger;
-
     // Set processing state [to disable submission]
     this.setState({processing: true});
 
@@ -29,8 +27,6 @@ export class PaymentLayout extends Component {
     Conekta.Token.create(data, response => {
 
       makePayment.call({
-        amount: _this.props.amount,
-        description: _this.props.description,
         card: response.id,
         details: data,
         locale: i18n.getLocale(),
@@ -109,7 +105,7 @@ export class PaymentLayout extends Component {
           <AutoField name="cellphone" />
           <hr />
           <h3>Totals</h3>
-          <p><b>{this.props.description}</b>: {this.formatAmount(this.props.amount)}</p>
+          <p><b>Application Fee</b>: {this.formatAmount(Meteor.settings.public.applicationFee)}</p>
           <ErrorsField />
           <SubmitField value="Pay" />
         </AutoForm>

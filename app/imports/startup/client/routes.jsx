@@ -96,7 +96,7 @@ authenticatedRoutes.route('/pay-application', {
   name: 'payApplication',
   action(params, queryParams) {
     mount(MainLayout, {
-      content: <PaymentContainer amount={12500} description={'Application Fee'} />,
+      content: <PaymentContainer />,
     });
   }
 });
