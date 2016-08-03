@@ -2,6 +2,10 @@ import { Meteor } from 'meteor/meteor'
 
 import { ApplicationPaymentSchema } from '/imports/schemas/applicationPayment.js';
 
+if (Meteor.isServer) {
+  import { paymentSuccessEmail } from '/imports/api/server/emailFunctions.js';
+}
+
 import Conekta from 'conekta';
 
 // It runs run() only if validate: true.
@@ -41,7 +45,7 @@ export const makePayment = new ValidatedMethod({
       Conekta.api_key = Meteor.settings.conekta_private;
       const wrapContektaChargeCreate = Meteor.wrapAsync(Conekta.Charge.create, Conekta.Charge);
 
-      console.log('data from client', data);
+//       console.log('data from client', data);
 
       //Conekta.locale = Meteor.user().profile.lang;
 
@@ -84,11 +88,9 @@ export const makePayment = new ValidatedMethod({
         throw new Meteor.Error('Payment.methods.pay-application.' + error.type, error.message, error);
       }
 
-      console.log('result: ', result);
-
       let charge = result._json;
 
-//       paymentSuccessEmail.call(Meteor.userId(), charge.id, charge.payment_method.brand, charge.payment_method.last4);
+      paymentSuccessEmail(this.userId, charge.id, charge.payment_method.brand, charge.payment_method.last4);
 
 //       return Applications.update(data.applicationId, {$set: {transactionId: charge.id, transaction: charge, status: 'paid',},});
 
