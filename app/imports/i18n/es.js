@@ -28,6 +28,24 @@ i18n.addTranslations('es', {
     }
   },
 
+  admin: {
+    users: {
+      addUser: {
+        label: 'Añadir nuevo usuario',
+        email: {
+          label: 'Email'
+        },
+        role: {
+          label: 'Rol'
+        }
+      },
+      removeUser: {
+        label: 'Eliminar Usuario',
+        confirm: '¿Estas seguro que deseas eliminar este usuario?',
+      },
+    }
+  },
+
   apply: {
     completed: '{$percentage}% Completado',
     sections: {
@@ -149,7 +167,7 @@ i18n.addTranslations('es', {
         },
 
       },
-      
+
       // Section: Artists
       artists: {
         title: 'Artistas propuestos para Material Art Fair 2017',
@@ -309,6 +327,58 @@ i18n.addTranslations('es', {
           label: 'Firma',
         },
       }
+    },
+
+    payment: {
+      title: 'Pago de tasa de solicitud',
+      description: 'Gracias de nuevo por tu solicitud para la edición 2016 de Material Art Fair. Con el fin de completar el registro, se debe de pagar con tarjeta de crédito o débito una tasa de solicitud de $125 USD, esta es obligatoria y no reembolsable. Toma en cuenta que este cargo aparecerá como "Conekta" en tu estado de cuenta bancaria o tarjeta de crédito.',
+      pay: {
+        label: 'Pagar',
+      },
+
+      name: {
+        label: 'Nombre como aparece en la tarjeta',
+      },
+      cardNumber: {
+        label: 'Numero de tarjeta',
+      },
+      cvc: {
+        label: 'CVC',
+      },
+      expirationMonth: {
+        label: 'Mes de expiración',
+      },
+      expirationYear: {
+        label: 'Año de expiración',
+      },
+      address1: {
+        label: 'Dirección línea 1',
+      },
+      address2: {
+        label: 'Dirección línea 2',
+      },
+      city: {
+        label: 'Ciudad',
+      },
+      postalCode: {
+        label: 'Código postal',
+      },
+      state: {
+        label: 'Estado',
+      },
+      country: {
+        label: 'País',
+      },
+      phone: {
+        label: 'Teléfono',
+      },
+      cell: {
+        label: 'Teléfono celular',
+      },
+
+      confirm: {
+        label: 'Al hacer click en el botón "Pagar", te comprometes a pagar la tasa de solicitud de $125 USD. Recibirás una confirmación del cargo, así como la confirmación de que tu solicitud a Material Art Fair 2016 se ha completado.',
+      },
     },
   },
 });

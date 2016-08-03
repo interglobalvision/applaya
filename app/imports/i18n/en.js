@@ -28,6 +28,23 @@ i18n.addTranslations('en', {
     }
   },
 
+  admin: {
+    users: {
+      addUser: {
+        label: 'Add new user',
+        email: {
+          label: 'Email'
+        },
+        role: {
+          label: 'Role'
+        }
+      },
+      removeUser: {
+        label: 'Remove user',
+        confirm: 'Are you sure you want to remove this user?',
+      },
+    },
+  },
 
   apply: {
     completed: '{$percentage}% Complete',
@@ -234,7 +251,7 @@ i18n.addTranslations('en', {
           label: 'Principal / Extra Large / We will contact you with further details',
         },
       },
-      
+
       // Section: Terms and Conditions
       terms: {
         title: 'Terms and Conditions of Participation',
@@ -310,6 +327,56 @@ i18n.addTranslations('en', {
           label: 'Signature',
         },
       }
+    },
+
+    payment: {
+      title: 'Payment',
+      description: 'Thank you again for your application to the 2016 edition of Material Art Fair. In order to complete the submission of your application, there is a $125 USD application fee, payable by any major credit or debit card below. Please note that this charge will appear as "Conekta" on your bank or credit card statement.',
+      pay: {
+        label: 'Pay',
+      },
+      name: {
+        label: 'Name as it appears on your card',
+      },
+      cardNumber: {
+        label: 'Card number',
+      },
+      cvc: {
+        label: 'CVC',
+      },
+      expirationMonth: {
+        label: 'Expiration month',
+      },
+      expirationYear: {
+        label: 'Expiration year',
+      },
+      address1: {
+        label: 'Address line 1',
+      },
+      address2: {
+        label: 'Address line 2',
+      },
+      city: {
+        label: 'City',
+      },
+      postalCode: {
+        label: 'Postal code',
+      },
+      state: {
+        label: 'State',
+      },
+      country: {
+        label: 'Country',
+      },
+      phone: {
+        label: 'Telephone',
+      },
+      cell: {
+        label: 'Cellphone',
+      },
+      confirm: {
+        label: 'y clicking the "Pay" button below, you agree to pay the $125 USD application fee. You will receive confirmation of the charge as well as confirmation that your application to Material Art Fair 2016 has been completed.',
+      },
     },
   },
 });

@@ -8,6 +8,7 @@ import { Page401 } from '/imports/components/pages/page401.jsx';
 import { Page404 } from '/imports/components/pages/page404.jsx';
 
 import { ApplyContainer } from '/imports/containers/applyContainer.jsx';
+import { PaymentContainer } from '/imports/containers/paymentContainer.jsx';
 import { AdminContainer } from '/imports/containers/adminContainer.jsx';
 import { ApplicationsContainer } from '/imports/containers/applicationsContainer.jsx';
 
@@ -90,6 +91,15 @@ authenticatedRoutes.route('/apply/:section', {
       content: <ApplyContainer section={step} />,
     });
   },
+});
+
+authenticatedRoutes.route('/pay-application', {
+  name: 'payApplication',
+  action(params, queryParams) {
+    mount(MainLayout, {
+      content: <PaymentContainer />,
+    });
+  }
 });
 
 // Admin Routes

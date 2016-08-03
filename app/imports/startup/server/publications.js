@@ -48,10 +48,9 @@ Meteor.publishComposite('application.single', function() {
 
 });
 
-Meteor.publishComposite('admin.index', function() {
+Meteor.publishComposite('admin.applications', function() {
   return {
 
-    // This function
     find() {
       return Applications.find({});
     },
@@ -94,3 +93,26 @@ Meteor.publishComposite('applications.index', function(posts, page) {
   };
 
 });
+
+Meteor.publish('admin.users.committee', function() {
+
+  if (Roles.userIsInRole(this.userId, 'admin')) {
+    return Roles.getUsersInRole('committee');
+  } else {
+    this.stop();
+    return
+  }
+
+});
+
+Meteor.publish('admin.users.admin', function() {
+
+  if (Roles.userIsInRole(this.userId, 'admin')) {
+    return Roles.getUsersInRole('admin');
+  } else {
+    this.stop();
+    return
+  }
+
+});
+>>>>>>> master
