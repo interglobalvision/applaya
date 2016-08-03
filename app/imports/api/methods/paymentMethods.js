@@ -42,7 +42,11 @@ export const makePayment = new ValidatedMethod({
 
     if (Meteor.isServer) {
 
-      Conekta.api_key = Meteor.settings.conekta_private;
+      if (process.env.NODE_ENV === 'production') {
+        Conekta.api_key = Meteor.settings.conekta_private;
+      } else if (process.env.NODE_ENV === 'development') {
+        Conekta.api_key = Meteor.settings.conekta_private_sandbox;
+      }
 
       const wrapContektaChargeCreate = Meteor.wrapAsync(Conekta.Charge.create, Conekta.Charge);
 

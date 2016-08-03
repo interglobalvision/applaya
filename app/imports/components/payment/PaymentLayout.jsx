@@ -13,7 +13,11 @@ export class PaymentLayout extends Component {
   }
 
   componentDidMount() {
-    Conekta.setPublicKey(Meteor.settings.public.conekta_public);
+    if (process.env.NODE_ENV === 'production') {
+      Conekta.setPublicKey(Meteor.settings.public.conekta_public);
+    } else if (process.env.NODE_ENV === 'development') {
+      Conekta.setPublicKey(Meteor.settings.public.conekta_public_sandbox);
+    }
   }
 
   onSubmit(data) {
@@ -61,10 +65,11 @@ export class PaymentLayout extends Component {
 
     const T = i18n.createComponent();
 
+    /*
     const info = {
       card: {
         name: 'Carlos Solares',
-        number: 4242424242424242,
+        number: 4000000000000002,
         cvc: 123,
         exp_year: 2020,
         exp_month: 2,
@@ -79,7 +84,8 @@ export class PaymentLayout extends Component {
       },
       phone: '1726069',
       cellphone: '5518393308',
-    }
+    };
+    */
 
     return (
       <section>
@@ -90,7 +96,6 @@ export class PaymentLayout extends Component {
           onSubmit={this.onSubmit.bind(this)}
           ref='pay-form'
           disabled={this.state.processing}
-          model={info}
         >
           <AutoField name="card.name" />
           <AutoField name="card.number" />
