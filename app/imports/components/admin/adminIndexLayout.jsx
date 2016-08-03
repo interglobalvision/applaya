@@ -4,6 +4,7 @@ import i18n from 'meteor/universe:i18n';
 
 import { AdminIndexAnalytics } from '/imports/components/admin/adminIndexAnalytics.jsx';
 import { AdminIndexApplications } from '/imports/components/admin/adminIndexApplications.jsx';
+import { AdminIndexUsers } from '/imports/components/admin/adminIndexUsers.jsx';
 
 export class AdminIndexLayout extends Component {
   localeChanged(locale) {
@@ -34,8 +35,10 @@ export class AdminIndexLayout extends Component {
 
     return (
       <section id="admin-index">
-        <AdminIndexAnalytics applications={this.props.applicationsWithUsers} />
-        <AdminIndexApplications applications={this.props.applicationsWithUsers} />
+        <h1>Admin Zone</h1>
+        <AdminIndexAnalytics applications={this.props.applications} />
+        <AdminIndexApplications applications={this.props.latestApplicationsWithUsers} />
+        <AdminIndexUsers admins={this.props.admins} committee={this.props.committee} />
       </section>
     );
   }
