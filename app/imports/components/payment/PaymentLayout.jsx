@@ -38,7 +38,9 @@ export class PaymentLayout extends Component {
 
           return console.log(err);
         }
-        console.log(res);
+
+        FlowRouter.go('/apply/thanks');
+
       });
     });
   }

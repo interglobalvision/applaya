@@ -32,6 +32,10 @@ const composer = (props, onData) => {
 
         if (!!application) {
 
+          if (application.status.paid) {
+            FlowRouter.go('/apply/thanks');
+          }
+
           // TODO: Check if application is fully validated
 
           onData(null, { application });
