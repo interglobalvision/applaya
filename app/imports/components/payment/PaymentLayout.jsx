@@ -5,6 +5,13 @@ import { ApplicationPaymentSchema } from '/imports/schemas/applicationPayment.js
 import { makePayment } from '/imports/api/methods/paymentMethods.js';
 
 export class PaymentLayout extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      processing: false,
+    };
+  }
+
   componentDidMount() {
     Conekta.setPublicKey(Meteor.settings.public.conekta_public);
   }
@@ -13,9 +20,12 @@ export class PaymentLayout extends Component {
     let _this = this;
     Conekta.locale = i18n.getLocale();
 
-    // Disable pay button
+    debugger;
 
-    // Tokenize card
+    // Set processing state [to disable submission]
+    this.setState({processing: true});
+
+    // Tokenize card and call method
     Conekta.Token.create(data, response => {
 
       makePayment.call({
@@ -27,11 +37,12 @@ export class PaymentLayout extends Component {
         applicationId: _this.props.application._id,
       }, (err, res) => {
         if (err) {
+          // Revert state
+          _this.setState({processing: false});
+
           return console.log(err);
         }
-
         console.log(res);
-
       });
     });
   }
@@ -80,6 +91,7 @@ export class PaymentLayout extends Component {
           schema={ApplicationPaymentSchema}
           onSubmit={this.onSubmit.bind(this)}
           ref='pay-form'
+          disabled={this.state.processing}
           model={info}
         >
           <AutoField name="card.name" />
@@ -99,7 +111,7 @@ export class PaymentLayout extends Component {
           <h3>Totals</h3>
           <p><b>{this.props.description}</b>: {this.formatAmount(this.props.amount)}</p>
           <ErrorsField />
-          <SubmitField value="Pay"/>
+          <SubmitField value="Pay" />
         </AutoForm>
       </section>
     );
