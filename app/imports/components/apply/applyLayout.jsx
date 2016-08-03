@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import i18n from 'meteor/universe:i18n';
-
 import { Page404 } from '/imports/components/pages/page404.jsx';
 import { ApplySidebar } from '/imports/components/apply/applySidebar.jsx';
 
@@ -104,10 +102,6 @@ export class ApplyLayout extends Component {
     }
 
     let step = this.props.section.step;
-
-    if (step === undefined) {
-      return <Page404 />;
-    }
 
     // Steps is an array, so positions start at 0.
     // But the step numbers for the routs start at 1. So we
