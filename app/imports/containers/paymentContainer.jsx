@@ -32,7 +32,7 @@ const composer = (props, onData) => {
 
         if (!!application) {
 
-          if (application.status.paid) {
+          if (!_.isUndefined(application.status) && application.status.paid === true) {
             FlowRouter.go('/apply/thanks');
           }
 
