@@ -16,7 +16,7 @@ Meteor.startup(() => {
 
     let adminUser = Accounts.findUserByEmail(Meteor.settings.adminEmail);
 
-    Roles.addUsersToRoles(adminUser._id, 'superadmin');
+    Roles.addUsersToRoles(adminUser._id, 'admin');
 
   }
 

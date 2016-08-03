@@ -5,12 +5,13 @@ export class AdminIndexApplications extends Component {
     return (
       <div className="row">
         <section className="fluid-col s-12 m-12">
-          <h3>Applications</h3>
+          <h2>Latest Applications</h2>
           <ul>
           {this.props.applications.map((application, key) => (
             <AdminIndexApplication _id={application._id} userId={application.userId} userEmail={application.userEmail} key={key} />
           ))}
           </ul>
+          <a href="/applications" className="button">See All Applications</a>
         </section>
       </div>
     );

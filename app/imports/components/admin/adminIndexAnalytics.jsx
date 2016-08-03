@@ -8,7 +8,7 @@ export class AdminIndexAnalytics extends Component {
     return (
       <div className="row">
         <section className="fluid-col s-12 m-12">
-          <h3>Admin Analytics Dashboard</h3>
+          <h2>Admin Analytics Dashboard</h2>
           Total applications: {totalApplications}
         </section>
       </div>

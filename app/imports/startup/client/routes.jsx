@@ -97,8 +97,8 @@ const adminRoutes = FlowRouter.group({
   name: 'adminRoutes',
 });
 
-adminRoutes.route('/single/:id', {
-  name: 'single',
+adminRoutes.route('/application/:id', {
+  name: 'single-application',
   action(params) {
     mount(MainLayout, {
       content: <SingleContainer applicationId={params.id} />,
