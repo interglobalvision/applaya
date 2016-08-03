@@ -48,6 +48,27 @@ Meteor.publishComposite('application.single', function() {
 
 });
 
+Meteor.publishComposite('admin.application.single', function(applicationId) {
+
+  console.log(Applications.findOne({applicationId}));
+
+  return {
+
+    find() {
+      return Applications.findOne({applicationId});
+    },
+
+    children: [{
+      find(application) {
+        return ApplicationSections.find({
+          applicationId: application._id,
+        });
+      },
+    }],
+  };
+
+});
+
 Meteor.publishComposite('admin.index', function() {
   return {
 
