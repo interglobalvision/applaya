@@ -1,38 +1,14 @@
 import React, { Component } from 'react';
-
-import i18n from 'meteor/universe:i18n';
+const T = i18n.createComponent();
 
 export class ApplicationsLayout extends Component {
-  localeChanged(locale) {
-    this.localizeMessages(locale);
-    this.forceUpdate();
-  }
-
-  localizeMessages(locale) {
-    if (locale === 'en') {
-
-    } else if (locale === 'es') {
-
-    }
-  }
-
-  componentWillMount() {
-    i18n.onChangeLocale(this.localeChanged.bind(this));
-  }
-
-  componentWillUnmount() {
-    i18n.offChangeLocale(this.localeChanged.bind(this));
-  }
-
   renderPaginationPrev() {
     let pagePrev = this.props.page - 1;
 
     if (pagePrev !== 0) {
       let url = '/applications/page/' + pagePrev;
       return (
-        React.createElement('a', {className: "button", href: url},
-          "Prev"
-        )
+        <a className="button" href={url}><T>common.prev</T></a>
       );
     } else {
       return false;
@@ -42,13 +18,10 @@ export class ApplicationsLayout extends Component {
   renderPaginationNext() {
     let pageNext = this.props.page + 1;
 
-    // >>> there is no check here for if this button goes anywhere :/
     if (pageNext) {
       let url = '/applications/page/' + pageNext;
       return (
-        React.createElement('a', {className: "button", href: url},
-          "Next"
-        )
+        <a className="button" href={url}><T>common.next</T></a>
       );
     } else {
       return false;
@@ -62,13 +35,13 @@ export class ApplicationsLayout extends Component {
 
     return (
       <section id="applications" className="fluid-col s-12 m-12">
-        <h3>Applications</h3>
+        <h3><T>applications.title</T></h3>
         <table>
           <thead>
             <tr>
-              <td>Application</td>
-              <td>Status</td>
-              <td>Actions</td>
+              <td><T>applications.title</T></td>
+              <td><T>applications.status.label</T></td>
+              <td><T>applications.actions.label</T></td>
             </tr>
           </thead>
           <tbody>
@@ -100,11 +73,11 @@ export class ApplicationsApplication extends Component {
         <td><a href={'/application/' + this.props._id}>{title}</a></td>
         <td>status goes here</td>
         <td>
-          <a className="button">Delete</a>
-          <a className="button">Unsubmit</a>
-          <a className="button">Mark Paid</a>
-          <a className="button">Extend</a>
-          <a className="button">Approve</a>
+          <a className="button"><T>applications.actions.remove</T></a>
+          <a className="button"><T>applications.actions.unsubmit</T></a>
+          <a className="button"><T>applications.actions.markAsPaid</T></a>
+          <a className="button"><T>applications.actions.extend</T></a>
+          <a className="button"><T>applications.actions.approve</T></a>
         </td>
       </tr>
     );
