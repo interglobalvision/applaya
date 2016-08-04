@@ -394,6 +394,10 @@ button()
 form
   section
     margin-bottom: $margin-basic
+    clearfix()
+  canvas
+    border: 1px solid $color-black-soft
+    border-radius: 3px
 
 label
   display: block
@@ -420,6 +424,8 @@ input[type=checkbox], input[type=radio]
   width: $input-height
   height: $input-height
   padding: 0
+  float: left
+  margin-right: $margin-small
   &:checked:after
     content: "\2713"
     position: absolute
@@ -428,6 +434,8 @@ input[type=checkbox], input[type=radio]
     height: 100%
     text-align: center
     font-size: ( $input-height / 1.75 )
+  & ~ label
+    float: left
 
 input[type=radio]
   border-radius: $input-height
@@ -443,6 +451,7 @@ select
 textarea
   min-height: $input-height * 3
   padding: ( $input-height / 4 )
+  max-width: 100%
 
 section[name=signature] canvas
   background-color: $color-white-bright
