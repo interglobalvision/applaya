@@ -54,16 +54,18 @@ export class ApplySidebar extends Component {
     const steps = this.mapSteps(StepsInfo);
 
     return (
-      <div className="content">
-        <h4>Application Progress</h4>
+      <nav className="fluid-col s-10 m-3 background-color-sidebar padding-top-small padding-bottom-small">
         <ul>
           <li><a href="/apply/introduction">Introduction</a></li>
+        </ul>
+        <ul>
+          <li className="font-small-caps">Sections</li>
         {steps.map((step, key) => (
           <ApplySidebarStep name={step.name} url={step.url} validated={step.validated} key={key} />
         ))}
         </ul>
         {this.renderPayAndSubmit(this.props.application)}
-      </div>
+      </nav>
     );
   }
 }
