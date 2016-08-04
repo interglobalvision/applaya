@@ -11,7 +11,7 @@ export const Header = ({ hasUser }) => (
     <div className="container">
       <div className="row padding-top-basic padding-bottom-basic">
         <div className="fluid-col s-6 m-6">
-          <a href="/"><h1>APPLAYA</h1></a>
+          <a href="/">APPLAYA</a>
         </div>
         <div className="fluid-col s-12 m-6 text-align-right">
           <NavContainer />
