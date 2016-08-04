@@ -99,7 +99,7 @@ export const makePayment = new ValidatedMethod({
 
       paymentSuccessEmail(this.userId, chargeData.id, chargeData.payment_method.brand, chargeData.payment_method.last4);
 
-      return Applications.update(application._id, {$set: {'status.paid': true,},});
+      return Applications.update(application._id, {$set: {'status.submitted': true, 'status.paid': true,},});
 
     }
 
