@@ -7,6 +7,13 @@ i18n.addTranslations('es', {
     application: 'Aplicación', 
   },
 
+  notifications: {
+    error: 'Error',
+    upload: {
+      success: '¡Carga exitosa del archivo {$filename}!'
+    },
+  },
+
   applications: {
     title: 'Aplicaciones',
     status: {
