@@ -39,7 +39,7 @@ export class SingleSection extends Component {
 
     // console.log(this.props.section);
     let stepIndex = this.props.section.step - 1;
-    let step = StepsInfo[stepIndex];  
+    let step = StepsInfo[stepIndex];
     let data = this.props.section.data;
 
     return (
@@ -54,9 +54,12 @@ export class SingleSection extends Component {
                   <h4><T>apply.sections.galleryInformation.galleryName.label</T></h4>
                   <p>{data.galleryName}</p>
                   <h4><T>apply.sections.galleryInformation.address.label</T></h4>
-                  <p>{data.address1}</p>
-                  <p>{data.address2}</p> <p>{data.city}, {data.state}</p>
-                  <p>{data.country}. {data.postalCode}</p>
+                  <p>
+                    {data.address1}<br />
+                    {data.address2}<br />
+                    {data.city}, {data.state}<br />
+                    {data.country}. {data.postalCode}
+                  </p>
                   <p>Tel: {data.galleryPhone}</p>
                   <p>Email: {data.galleryEmail}</p>
                   <p><a href={data.website}>{data.website}</a></p>
@@ -79,7 +82,6 @@ export class SingleSection extends Component {
               return (
                 <section>
                   <h4><T>apply.sections.proposal.galleryHistory.label</T></h4>
-                  <div dangerouslySetInnerHTML={autoParagraph(data.galleryHistory)} />
                   <div dangerouslySetInnerHTML={autoParagraph(data.galleryHistory)} />
                   <h4><T>apply.sections.proposal.artistsRepresented.label</T></h4>
                   <div dangerouslySetInnerHTML={autoParagraph(data.artistsRepresented)} />
