@@ -1,23 +1,54 @@
-import React from 'react';
+import React, { Component } from 'react';
 import i18n from 'meteor/universe:i18n';
 
-export const Navbar = ({ isLogged }) => (
-  <nav role="navigation">
-    <ul id="main-menu" className="u-inline-list">
-      { isLogged ?
-        <li><a href="/apply">My Application</a></li>
-      : <li><a href="/login">Login</a></li> }
-      { isLogged ?
-        <li><a href="/logout">Logout</a></li>
-      : ''}
-    </ul>
-    <ul>
-      <a href="#" onClick={ () => i18n.setLocale('en') }>EN</a> 
-      <a href="#" onClick={ () => i18n.setLocale('es') }>ES</a> 
-    </ul>
-  </nav>
-);
+export class Navbar extends Component {
+  localeChanged(locale) {
+    this.localizeMessages(locale);
+    this.forceUpdate();
+  }
 
-Navbar.protoTypes = {
-  isLogged: React.PropTypes.bool,
-};
+  localizeMessages(locale) {
+    if (locale === 'en') {
+
+    } else if (locale === 'es') {
+
+    }
+  }
+
+  componentWillMount() {
+    i18n.onChangeLocale(this.localeChanged.bind(this));
+  }
+
+  componentWillUnmount() {
+    i18n.offChangeLocale(this.localeChanged.bind(this));
+  }
+
+  render() {
+    let roles = Roles.getRolesForUser(Meteor.userId());
+
+    return (
+      <nav role="navigation">
+        <ul id="main-menu" className="u-inline-list">
+          { roles.indexOf('admin') > -1 ?
+            <li><a href="/admin">Admin</a></li>
+            : ''
+          }
+          { roles.indexOf('committee') > -1 ?
+            <li><a href="/applications">Applications</a></li>
+            : ''
+          }
+          { roles.indexOf('applicant') > -1 ?
+            <li><a href="/apply">My Application</a></li>
+            : ''
+          }
+          { this.props.isLogged ?
+            <li><a href="/logout">Logout</a></li>
+          : <li><a href="/login">Login</a></li>
+          }
+          <li><a href="#" onClick={ () => i18n.setLocale('en') }>En</a></li>
+          <li><a href="#" onClick={ () => i18n.setLocale('es') }>Es</a></li>
+        </ul>
+      </nav>
+    );
+  }
+}

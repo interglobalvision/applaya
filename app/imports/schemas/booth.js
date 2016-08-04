@@ -13,42 +13,42 @@ export const BoothSchema = new SimpleSchema({
     label: () => i18n.__(schemaLocaleBase + 'label'),
   },
 
-  'boothSize.boothSingle': {
+  'boothSize.singleSize': {
     type: Boolean,
     label: () => i18n.__(schemaLocaleBase + 'boothSingle.label'),
   },
 
-  'boothSize.boothDouble': {
+  'boothSize.doubleSize': {
     type: Boolean,
     optional: true,
     label: () => i18n.__(schemaLocaleBase + 'boothDouble.label'),
   },
 
-  'boothSize.boothSmall': {
+  'boothSize.smallSize': {
     type: Boolean,
     optional: true,
     label: () => i18n.__(schemaLocaleBase + 'boothSmall.label'),
   },
 
-  'boothSize.boothMedium': {
+  'boothSize.mediumSize': {
     type: Boolean,
     optional: true,
     label: () => i18n.__(schemaLocaleBase + 'boothMedium.label'),
   },
 
-  'boothSize.boothPlus': {
+  'boothSize.plusSize': {
     type: Boolean,
     optional: true,
     label: () => i18n.__(schemaLocaleBase + 'boothPlus.label'),
   },
 
-  'boothSize.boothLarge': {
+  'boothSize.largeSize': {
     type: Boolean,
     optional: true,
     label: () => i18n.__(schemaLocaleBase + 'boothLarge.label'),
   },
 
-  'boothSize.boothExtra': {
+  'boothSize.extraSize': {
     type: Boolean,
     optional: true,
     label: () => i18n.__(schemaLocaleBase + 'boothExtra.label'),
