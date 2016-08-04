@@ -152,7 +152,7 @@ export const saveApplyProgress = new ValidatedMethod({
       throw new Meteor.Error('Applications.methods.save-position.not-logged-in', 'Must be logged in to save position');
     }
 
-    const validatedSteps = ApplicationSections.find({ 
+    const validatedSteps = ApplicationSections.find({
       applicationId: applicationId,
       validated: true,
     }).count();
@@ -160,6 +160,33 @@ export const saveApplyProgress = new ValidatedMethod({
     Applications.update(applicationId, {
       $set: {
         progress: validatedSteps,
+      },
+    });
+
+  },
+});
+
+export const submitApplication = new ValidatedMethod({
+  name: 'application.progress.submit',
+
+  validate(applicationId) {
+    check(applicationId, String);
+  },
+
+  run(applicationId) {
+    if (!this.userId) {
+      throw new Meteor.Error('Applications.methods.save-position.not-logged-in', 'Must be logged in to save position');
+    }
+
+    let application = Applications.findOne(applicationId);
+
+    if (Meteor.userId() !== application.userId) {
+      throw new Meteor.Error('Applications.methods.submit.not-owned', 'Must own application to submit it');
+    }
+
+    Applications.update(application._id, {
+      $set: {
+        'status.submitted': true,
       },
     });
 
