@@ -1,5 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
+import i18n from 'meteor/universe:i18n';
 
-export const Page404 = () => (
-  <div>404 Page Not Found :/</div>
-);
+export class Page404 extends Component {
+  render() {
+  	  const T = i18n.createComponent();
+
+    return(
+      <div className="row">
+        <section className="fluid-col s-12">
+          <h3><T>errors.codes.fourzerofour</T></h3>
+        </section>
+      </div>
+    );
+  }
+};
