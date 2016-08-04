@@ -6,8 +6,15 @@ class ApplicationsCollection extends Mongo.Collection {
     doc.updatedAt = doc.updatedAt || new Date();
     doc.userId = Meteor.userId();
     doc.year = doc.year || new Date().getFullYear();
+    doc.status = {
+      complete: false,
+      extended: false,
+      submitted: false,
+      paid: false,
+      approved: false,
+    };
 
-    return super.insert(doc,callback);
+    return super.insert(doc, callback);
   }
 
   update(selector, modifier, ...optionsAndCallback) {
