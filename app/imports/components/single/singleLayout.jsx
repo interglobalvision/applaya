@@ -53,7 +53,7 @@ export class SingleSection extends Component {
                 <section>
                   <h4><T>apply.sections.galleryInformation.galleryName.label</T></h4>
                   <p>{data.galleryName}</p>
-                  <h4><T>schemaLocaleBase.address.label</T></h4>
+                  <h4><T>apply.sections.galleryInformation.address.label</T></h4>
                   <p>{data.address1}</p>
                   <p>{data.address2}</p> <p>{data.city}, {data.state}</p>
                   <p>{data.country}. {data.postalCode}</p>
