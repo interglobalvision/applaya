@@ -7,7 +7,7 @@ import { NavContainer } from '/imports/containers/navContainer.jsx';
 const T = i18n.createComponent();
 
 export const Header = ({ hasUser }) => (
-  <header id="header" className="margin-bottom-large background-color-compliment1 font-color-white">
+  <header id="header" className="margin-bottom-mid background-color-compliment1 font-color-white">
     <div className="container">
       <div className="row padding-top-basic padding-bottom-basic">
         <div className="fluid-col s-6 m-6">
