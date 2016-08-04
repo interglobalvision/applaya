@@ -61,6 +61,10 @@ i18n.addTranslations('en', {
           label: 'Gallery Name'
         },
 
+        address: {
+          label: 'Address',
+        },
+
         address1: {
           label: 'Address line 1'
         },

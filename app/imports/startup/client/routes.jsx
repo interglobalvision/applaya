@@ -10,6 +10,7 @@ import { Page404 } from '/imports/components/pages/page404.jsx';
 import { ApplyContainer } from '/imports/containers/applyContainer.jsx';
 import { PaymentContainer } from '/imports/containers/paymentContainer.jsx';
 import { AdminContainer } from '/imports/containers/adminContainer.jsx';
+import { SingleContainer } from '/imports/containers/singleContainer.jsx';
 import { ApplicationsContainer } from '/imports/containers/applicationsContainer.jsx';
 
 // Public Routes
@@ -105,6 +106,15 @@ authenticatedRoutes.route('/pay-application', {
 // Admin Routes
 const adminRoutes = FlowRouter.group({
   name: 'adminRoutes',
+});
+
+adminRoutes.route('/application/:id', {
+  name: 'single-application',
+  action(params) {
+    mount(MainLayout, {
+      content: <SingleContainer applicationId={params.id} />,
+    });
+  },
 });
 
 adminRoutes.route('/admin', {

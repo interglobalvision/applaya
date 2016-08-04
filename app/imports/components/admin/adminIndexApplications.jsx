@@ -28,7 +28,7 @@ export class AdminIndexApplication extends Component {
     }
 
     return (
-      <li><a href={'/admin/single/' + this.props._id}>{title}</a></li>
+      <li><a href={'/application/' + this.props._id}>{title}</a></li>
     );
   }
 }

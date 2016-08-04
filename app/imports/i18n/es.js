@@ -61,6 +61,9 @@ i18n.addTranslations('es', {
         galleryName: {
           label: 'Nombre de la Galería',
         },
+        address: {
+          label: 'Dirección',
+        },
         address1: {
           label: 'Dirección línea 1',
         },
