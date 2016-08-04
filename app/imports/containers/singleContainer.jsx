@@ -12,13 +12,14 @@ const composer = (props, onData) => {
   const applicationId = props.applicationId;
   const subscription = Meteor.subscribe('admin.application.single', applicationId);
 
-  // Check if subscription is ready
-  if (subscription.ready()) {
+  const user = !!Meteor.user() ? Meteor.user() : null;
 
-    const user = !!Meteor.user() ? Meteor.user() : null;
+  // Wait for user subscription (kinda)
+  if (user) {
 
-    // Wait for user subscription (kinda)
-    if (user) {
+    // Check if subscription is ready
+    if (subscription.ready()) {
+
 
       // And check roles
       if (Roles.userIsInRole(user._id, ['admin', 'committee'])) {
@@ -28,7 +29,7 @@ const composer = (props, onData) => {
           { applicationId: application._id },
           { sort: {
             step: 1,
-          } });
+          } }).fetch();
 
         let applicationUser = Meteor.users.findOne(application.userId);
 
@@ -43,6 +44,9 @@ const composer = (props, onData) => {
       onData(null, { user: null });
     }
 
+  } else {
+    // We return an empty user to make applyLayout show the login form
+    onData(null, { user: null });
   }
 };
 
