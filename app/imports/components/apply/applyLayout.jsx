@@ -133,7 +133,7 @@ export class ApplyLayout extends Component {
           }
         </section>
         <nav className="fluid-col s-10 m-3 background-color-sidebar">
-          <ApplySidebar />
+          <ApplySidebar application={this.props.application} />
         </nav>
       </div>
     );
