@@ -4,7 +4,7 @@ i18n.addTranslations('es', {
   common: {
     next: 'Siguiente',
     prev: 'Anterior',
-    application: 'Aplicación', 
+    application: 'Aplicación',
   },
 
   applications: {
@@ -48,6 +48,7 @@ i18n.addTranslations('es', {
 
   apply: {
     completed: '{$percentage}% Completado',
+    thanks: 'Gracias por tu solicitud a Material Art Fair 2016. Tu tasa de solicitud ha sido procesado exitosamente. El comite de selección de 2016 va a empezar a revisar las solicitudes después de la fecha límite del 10 de Septiembre y Material Art Fair comenzará a notificar a los solicitantes en los principios de Octubre.',
     sections: {
 
       // Section: Gallery Information

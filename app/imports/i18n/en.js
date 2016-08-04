@@ -4,7 +4,7 @@ i18n.addTranslations('en', {
   common: {
     next: 'Next',
     prev: 'Prev',
-    application: 'Application', 
+    application: 'Application',
   },
 
   applications: {
@@ -48,6 +48,7 @@ i18n.addTranslations('en', {
 
   apply: {
     completed: '{$percentage}% Complete',
+    thanks: 'Thanks for your application to Material Art Fair 2016. Your application fee has been processed. The 2016 Selection Committee will begin reviewing applications after the deadline of September 18th and we will begin the notification process in early October.',
     sections: {
 
       // Section: Contact Information
