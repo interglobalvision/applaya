@@ -34,6 +34,11 @@ const composer = (props, onData) => {
 
         if (!!application) {
 
+          // Route according to status
+          if (application.status.submitted === true) {
+            return FlowRouter.go('/apply/pay');
+          }
+
           // Get section URL (props come from the router)
           const currentSection = props.section;
 

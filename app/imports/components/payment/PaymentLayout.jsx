@@ -65,7 +65,7 @@ export class PaymentLayout extends Component {
 
     const T = i18n.createComponent();
 
-    /*
+/*
     const info = {
       card: {
         name: 'Carlos Solares',
@@ -85,7 +85,8 @@ export class PaymentLayout extends Component {
       phone: '1726069',
       cellphone: '5518393308',
     };
-    */
+*/
+
 
     return (
       <section>

@@ -157,10 +157,18 @@ export const saveApplyProgress = new ValidatedMethod({
       validated: true,
     }).count();
 
+    let data = {
+      progress: validatedSteps,
+    }
+
+    if (validatedSteps === StepsInfo.length) {
+
+      data['status.complete'] = true;
+
+    }
+
     Applications.update(applicationId, {
-      $set: {
-        progress: validatedSteps,
-      },
+      $set: data,
     });
 
   },
