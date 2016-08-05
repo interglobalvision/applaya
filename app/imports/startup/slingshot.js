@@ -3,12 +3,12 @@ import { Meteor } from 'meteor/meteor';
 
 Slingshot.fileRestrictions('fileUpload', {
   allowedFileTypes: ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'],
-  maxSize: parseInt(Meteor.settings.maxUploadSize),
+  maxSize: parseInt(Meteor.settings.public.maxUploadSize),
 });
 
 Slingshot.fileRestrictions('imageUpload', {
   allowedFileTypes: ['image/png', 'image/jpeg', 'image/gif'],
-  maxSize: parseInt(Meteor.settings.maxUploadSize),
+  maxSize: parseInt(Meteor.settings.public.maxUploadSize),
 });
 
 // Misc
