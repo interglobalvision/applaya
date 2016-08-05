@@ -38,8 +38,10 @@ export const adminAddUser = new ValidatedMethod({
 
       Accounts.sendEnrollmentEmail(newUser._id);
 
-    }
+      const message =  'Successfull ' + doc.role + ' account created for ' + doc.email + '!';
 
+      return { message };
+    }
   },
 });
 
@@ -77,6 +79,10 @@ export const removeUser = new ValidatedMethod({
 
     if (Meteor.isServer) {
       Meteor.users.remove(userId);
+
+      const message =  'Account removed successfully!';
+
+      return { message };
     }
 
   },
