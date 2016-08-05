@@ -9,6 +9,7 @@ import { Page404 } from '/imports/components/pages/page404.jsx';
 import { PageThanks } from '/imports/components/pages/pageThanks.jsx';
 
 import { ApplyContainer } from '/imports/containers/applyContainer.jsx';
+import { SubmitContainer } from '/imports/containers/submitContainer.jsx';
 import { PaymentContainer } from '/imports/containers/paymentContainer.jsx';
 import { AdminContainer } from '/imports/containers/adminContainer.jsx';
 import { SingleContainer } from '/imports/containers/singleContainer.jsx';
@@ -104,6 +105,15 @@ authenticatedRoutes.route('/apply/section/:section', {
       content: <ApplyContainer section={step} />,
     });
   },
+});
+
+authenticatedRoutes.route('/apply/submit', {
+  name: 'submit',
+  action(params, queryParams) {
+    mount(MainLayout, {
+      content: <SubmitContainer />,
+    });
+  }
 });
 
 authenticatedRoutes.route('/apply/pay', {
