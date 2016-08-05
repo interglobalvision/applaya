@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Alert from 'react-s-alert';
 
 import { Applications } from '/imports/collections/applications.js';
 import { ApplicationSections } from '/imports/collections/applicationSections.js';
@@ -34,6 +35,7 @@ export class ApplySidebar extends Component {
   resubmitClick() {
     submitApplication.call(this.props.application._id, (err) => {
       if (err) {
+        Alert.error(err.reason);
         return new Meteor.Error(err);
       }
       FlowRouter.go('/apply/thanks');
