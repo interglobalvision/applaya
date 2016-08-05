@@ -9,8 +9,8 @@ i18n.addTranslations('es', {
 
   errors: {
     codes: {
-      fourzeroone: '401 Unauthorized :/',
-      fourzerofour: '404 Page Not Found :/',
+      fourzeroone: '401 No autorizado :/',
+      fourzerofour: '404 No encontramos lo que estas buscando :/',
     }
   },
 
