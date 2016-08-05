@@ -31,21 +31,12 @@ export class ApplySidebar extends Component {
     return steps;
   }
 
-  resubmitClick() {
-    submitApplication.call(this.props.application._id, (err) => {
-      if (err) {
-        return new Meteor.Error(err);
-      }
-      FlowRouter.go('/apply/thanks');
-    });
-  }
-
   renderPayAndSubmit(application) {
     if (StepsInfo.length === application.progress) {
       if (application.status.paid) {
-        return <a className="button" onClick={this.resubmitClick.bind(this)}>Re-Submit</a>
+        return <a href="/apply/submit" className="button">Re-Submit</a>
       } else {
-        return <a href="/apply/pay" className="button">Submit & Pay</a>
+        return <a href="/apply/submit" className="button">Submit & Pay</a>
       }
     }
   }
