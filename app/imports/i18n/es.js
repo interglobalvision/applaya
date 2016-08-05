@@ -7,6 +7,13 @@ i18n.addTranslations('es', {
     application: 'Aplicación',
   },
 
+  errors: {
+    codes: {
+      fourzeroone: '401 No autorizado :/',
+      fourzerofour: '404 No encontramos lo que estas buscando :/',
+    }
+  },
+
   applications: {
     title: 'Aplicaciones',
     status: {
@@ -53,6 +60,8 @@ i18n.addTranslations('es', {
         <p class='flow-text'>Si en algún momento necesitas pausar y deseas continuar después con tu solicitud, por favor haz click en el botón “guardar” para no perder tu información.</p>
         <p class='flow-text'>Por favor reporta cualquier error o problema directamente con nosotros a <a href='mailto:applications@material-fair.com' class='u-inline-block'>applications@material-fair.com</a>.</p>`,
     completed: '{$percentage}% Completado',
+    thanks: 'Gracias por tu solicitud a Material Art Fair 2016. Tu tasa de solicitud ha sido procesado exitosamente. El comite de selección de 2016 va a empezar a revisar las solicitudes después de la fecha límite del 10 de Septiembre y Material Art Fair comenzará a notificar a los solicitantes en los principios de Octubre.',
+    closed: 'Sorry applications are now closed',
     sections: {
 
       // Section: Gallery Information
