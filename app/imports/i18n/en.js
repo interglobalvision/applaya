@@ -342,6 +342,12 @@ i18n.addTranslations('en', {
       }
     },
 
+    submit: {
+      title: 'Review and Submit',
+      description: 'Bla Bla',
+      button: 'Submit and go to Payment',
+    },
+
     payment: {
       title: 'Payment',
       description: 'Thank you again for your application to the 2016 edition of Material Art Fair. In order to complete the submission of your application, there is a $125 USD application fee, payable by any major credit or debit card below. Please note that this charge will appear as "Conekta" on your bank or credit card statement.',
