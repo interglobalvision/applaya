@@ -16,6 +16,7 @@ export const BoothSchema = new SimpleSchema({
   'boothSize.singleSize': {
     type: Boolean,
     label: () => i18n.__(schemaLocaleBase + 'boothSingle.label'),
+    optional: true,
   },
 
   'boothSize.doubleSize': {
