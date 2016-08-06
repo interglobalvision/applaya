@@ -14,6 +14,6 @@ export const MainLayout = ({ content }) => (
       {content}
     </div>
     <Footer />
-    <Alert stack={{limit: 8}}  position='bottom-right' timeout={5000}/>
+    <Alert stack={{limit: 8}}  position='bottom-right' timeout={8000}/>
   </div>
 );

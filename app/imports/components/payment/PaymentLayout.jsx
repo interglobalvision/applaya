@@ -45,7 +45,7 @@ export class PaymentLayout extends Component {
           return console.log(err);
         }
 
-        Alert.success('Succesful payment! Thanks for submission');
+        Alert.success(i18n.__('notifications.payment.success');
         FlowRouter.go('/apply/thanks');
 
       });

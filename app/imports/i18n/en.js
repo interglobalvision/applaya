@@ -16,6 +16,9 @@ i18n.addTranslations('en', {
       success: 'Successfull {$role} account created for {$email}',
       alreadyExists: '{$email} already has an account',
     },
+    payment: {
+      success: 'Thanks for your payment',
+    },
   },
 
   applications: {
