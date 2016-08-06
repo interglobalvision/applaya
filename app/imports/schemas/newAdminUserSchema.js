@@ -11,7 +11,6 @@ export const NewAdminUserSchema = new SimpleSchema({
       'Admin'
     ],
     uniforms: {
-      component: 
       options: function () {
         // This use " to keep literal values
         return [
