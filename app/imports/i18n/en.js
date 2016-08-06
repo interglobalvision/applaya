@@ -10,7 +10,11 @@ i18n.addTranslations('en', {
   notifications: {
     error: 'Error',
     upload: {
-      success: 'File {$filename} upload successful!'
+      success: '{$filename} uploaded successfully!',
+    },
+    addUser: {
+      success: 'Successfull {$role} account created for {$email}',
+      alreadyExists: '{$email} already has an account',
     },
   },
 
