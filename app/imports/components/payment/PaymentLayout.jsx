@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { AutoForm, AutoField, ErrorsField, SubmitField } from 'uniforms-unstyled';
+import Alert from 'react-s-alert';
 
 import { ApplicationPaymentSchema } from '/imports/schemas/applicationPayment.js';
 import { makePayment } from '/imports/api/methods/paymentMethods.js';
@@ -40,9 +41,11 @@ export class PaymentLayout extends Component {
           // Revert state
           _this.setState({processing: false});
 
+          Alert.error(err.reason);
           return console.log(err);
         }
 
+        Alert.success('Succesful payment! Thanks for submission');
         FlowRouter.go('/apply/thanks');
 
       });
@@ -65,7 +68,6 @@ export class PaymentLayout extends Component {
 
     const T = i18n.createComponent();
 
-    /*
     const info = {
       card: {
         name: 'Carlos Solares',
@@ -85,7 +87,6 @@ export class PaymentLayout extends Component {
       phone: '1726069',
       cellphone: '5518393308',
     };
-    */
 
     return (
       <section>
@@ -96,6 +97,7 @@ export class PaymentLayout extends Component {
           onSubmit={this.onSubmit.bind(this)}
           ref='pay-form'
           disabled={this.state.processing}
+          model={info}
         >
           <AutoField name="card.name" />
           <AutoField name="card.number" />
