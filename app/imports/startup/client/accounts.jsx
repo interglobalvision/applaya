@@ -22,8 +22,7 @@ Accounts.ui.config({
   onSignedOutHook: () => FlowRouter.go('/'),
   onPostSignUpHook: () => {
     // set lang pref in user.profile
-    let lang = i18n.getLocale();
-    Meteor.users.update(Meteor.userId(), { $set: {'profile.lang': args.lang} });
+    Meteor.users.update(Meteor.userId(), { $set: {'profile.lang': i18n.getLocale()} });
 
     setupApplicant.call({}, (err) => {
       if (err) {
