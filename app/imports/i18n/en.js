@@ -43,8 +43,10 @@ i18n.addTranslations('en', {
           label: 'Email'
         },
         role: {
-          label: 'Role'
-        }
+          label: 'Role',
+          admin: 'Admin',
+          committee: 'Committee',
+        },
       },
       removeUser: {
         label: 'Remove user',
