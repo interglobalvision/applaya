@@ -79,13 +79,15 @@ export const removeUser = new ValidatedMethod({
     }
 
     if (userId === this.userId) {
-      throw new Meteor.Error('Admin.methods.add-user.no-selfdestruct', 'You can\'t remove yourself.');
+      throw new Meteor.Error('Admin.methods.add-user.no-selfdestruct', i18n.__('notifications.removeUser.yourself'));
     }
 
     if (Meteor.isServer) {
+      const email = Meteor.user(userId).emails[0].address;
+
       Meteor.users.remove(userId);
 
-      const message =  'Account removed successfully!';
+      const message =  i18n.__('notifications.removeUser.success', { email });
 
       return { message };
     }

@@ -16,6 +16,10 @@ i18n.addTranslations('es', {
       success: 'Cuenta de {$role} para {$email} creada existosamente',
       alreadyExists: '{$email} ya tiene una cuenta',
     },
+    removeUser: {
+      success: 'Cuenta {$email} eliminada',
+      yourself: 'No te puedes eliminar a ti mismo',
+    },
     payment: {
       success: 'Gracias por tu pago',
     },
