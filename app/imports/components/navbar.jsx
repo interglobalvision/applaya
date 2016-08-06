@@ -45,8 +45,14 @@ export class Navbar extends Component {
             <li><a href="/logout">Logout</a></li>
           : <li><a href="/login">Login</a></li>
           }
-          <li><a href="#" onClick={ () => i18n.setLocale('en') }>En</a></li>
-          <li><a href="#" onClick={ () => i18n.setLocale('es') }>Es</a></li>
+          <li><a href="#" onClick={ () => {
+            i18n.setLocale('en');
+            Meteor.users.update(Meteor.userId(), { $set: {'profile.lang': i18n.getLocale()} });
+          } }>En</a></li>
+          <li><a href="#" onClick={ () => {
+            i18n.setLocale('es');
+            Meteor.users.update(Meteor.userId(), { $set: {'profile.lang': i18n.getLocale()} });
+          } }>Es</a></li>
         </ul>
       </nav>
     );
