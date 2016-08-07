@@ -74,12 +74,9 @@ i18n.addTranslations('en', {
   },
 
   apply: {
-    introduction: "<p class='flow-text'>Thank you for your application to the third edition of Material Art Fair, which will take place from February 4th - 7th, 2017, at Expo Reforma in Mexico City.</p> <p class='flow-text'>Please remember that the <strong>application deadline is Friday, September 18th, 2015</strong>. No applications will be accepted after that date.</p> \
-        <p class='flow-text'>Each application will be carefully reviewed, considered, and discussed by our 2017 Selection Committee and we will send notification of their decisions to all applicants beginning in early October.</p> \
-        <p class='flow-text'>If at any time you need to pause and continue your application at a later moment, please click the save button so as not to lose any information.</p> \
-        <p class='flow-text'>Please report any errors or problems directly to us at <a href='mailto:applications@material-fair.com' class='u-inline-block'>applications@material-fair.com</a>.</p>",
+    introduction: '<p>Thank you for your application to the fourth edition of Material Art Fair, which will take place from February 9th - 12th, 2017, at Expo Reforma in Mexico City. Please remember that the <strong>application deadline is Friday, September 23rd, 2016</strong>. No applications will be accepted after that date.</p><p>Each application will be carefully reviewed, considered, and discussed by our 2017 Selection Committee and we will send notification of their decisions to all applicants beginning in October, once their review has been completed.</p><p>If at any time you need to pause and continue your application at a later moment, please click the save button so as not to lose any information.</p><p>Please report any errors or problems directly to us at <a href="mailto:applications@material-fair.com" class="u-inline-block">applications@material-fair.com</a>.</p>',
     completed: '{$percentage}% Complete',
-    thanks: 'Thanks for your application to Material Art Fair 2016. Your application fee has been processed. The 2016 Selection Committee will begin reviewing applications after the deadline of September 18th and we will begin the notification process in early October.',
+    thanks: 'Thanks for your application to Material Art Fair 2017. Your application fee has been processed. The selection committee will begin reviewing applications after the deadline of September 23rd and we will begin the notification process in October.',
     closed: 'Sorry applications are now closed',
     sections: {
 
@@ -370,7 +367,7 @@ i18n.addTranslations('en', {
 
     payment: {
       title: 'Payment',
-      description: 'Thank you again for your application to the 2016 edition of Material Art Fair. In order to complete the submission of your application, there is a $125 USD application fee, payable by any major credit or debit card below. Please note that this charge will appear as "Conekta" on your bank or credit card statement.',
+      description: 'Thank you again for your application to the 2017 edition of Material Art Fair. In order to complete the submission of your application, there is a $150 USD application fee, payable by any major credit or debit card below. Please note that this charge will appear as "Conekta" on your bank or credit card statement.',
       pay: {
         label: 'Pay',
       },

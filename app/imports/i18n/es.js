@@ -74,13 +74,9 @@ i18n.addTranslations('es', {
   },
 
   apply: {
-    introduction: `<p class='flow-text'>Gracias por tu solicitud a la tercera edición de Material Art Fair, que se llevará a cabo a del 4 al 7 de Febrero del 2016, en el Expo Reforma en la Ciudad de México.</p>
-        <p class='flow-text'>El proceso de registro <strong>concluye el viernes 18 de septiembre del 2015</strong>. No se aceptará ninguna solicitud después de esta fecha.</p>
-        <p class='flow-text'>Cada solicitud será cuidadosamente revisada, considerada y analizada por nuestro comité de selección del 2016. Les haremos llegar la decisión del comité a todos los solicitantes a principios de Octubre.</p>
-        <p class='flow-text'>Si en algún momento necesitas pausar y deseas continuar después con tu solicitud, por favor haz click en el botón “guardar” para no perder tu información.</p>
-        <p class='flow-text'>Por favor reporta cualquier error o problema directamente con nosotros a <a href='mailto:applications@material-fair.com' class='u-inline-block'>applications@material-fair.com</a>.</p>`,
+    introduction: '<p>Gracias por tu solicitud a la cuarta edición de Material Art Fair, que se llevará a cabo a del 9 al 12 de Febrero del 2017, en el Expo Reforma en la Ciudad de México.</p><p>El proceso de registro <strong>concluye el viernes 23 de septiembre del 2016</strong>. No se aceptará ninguna solicitud después de esta fecha.</p><p>Cada solicitud será cuidadosamente revisada, considerada y analizada por nuestro comité de selección del 2017. Les haremos llegar la decisión del comité a todos los solicitantes en Octubre.</p><p>Si en algún momento necesitas pausar y deseas continuar después con tu solicitud, por favor haz click en el botón “guardar” para no perder tu información.</p><p>Por favor reporta cualquier error o problema directamente con nosotros a <a href="mailto:applications@material-fair.com" class="u-inline-block">applications@material-fair.com</a>.',
     completed: '{$percentage}% Completado',
-    thanks: 'Gracias por tu solicitud a Material Art Fair 2016. Tu tasa de solicitud ha sido procesado exitosamente. El comite de selección de 2016 va a empezar a revisar las solicitudes después de la fecha límite del 10 de Septiembre y Material Art Fair comenzará a notificar a los solicitantes en los principios de Octubre.',
+    thanks: 'Gracias por tu solicitud a Material Art Fair 2017. Tu tasa de solicitud ha sido procesado exitosamente. El comité de selección va a empezar a revisar las solicitudes después de la fecha límite del 23 de septiembre y comenzarámos a notificar a los solicitantes en Octubre.',
     closed: 'Sorry applications are now closed',
     sections: {
 
@@ -369,7 +365,7 @@ i18n.addTranslations('es', {
 
     payment: {
       title: 'Pago de tasa de solicitud',
-      description: 'Gracias de nuevo por tu solicitud para la edición 2016 de Material Art Fair. Con el fin de completar el registro, se debe de pagar con tarjeta de crédito o débito una tasa de solicitud de $125 USD, esta es obligatoria y no reembolsable. Toma en cuenta que este cargo aparecerá como "Conekta" en tu estado de cuenta bancaria o tarjeta de crédito.',
+      description: 'Gracias de nuevo por tu solicitud para la edición 2017 de Material Art Fair. Con el fin de completar el registro, se debe de pagar con tarjeta de crédito o débito una tasa de solicitud de $150 USD, esta es obligatoria y no reembolsable. Toma en cuenta que este cargo aparecerá como "Conekta" en tu estado de cuenta bancaria o tarjeta de crédito.',
       pay: {
         label: 'Pagar',
       },
