@@ -7,16 +7,16 @@ export const NewAdminUserSchema = new SimpleSchema({
     type: String,
     label: () => i18n.__('admin.users.addUser.role.label'),
     allowedValues: [
-      'Committee',
-      'Admin'
+      'committee',
+      'admin'
     ],
     uniforms: {
       options: function () {
         // This use " to keep literal values
         return [
           {value: "", label: ""},
-          {value: "Admin", label: i18n.__('admin.users.addUser.role.admin')},
-          {value: "Committee", label: i18n.__('admin.users.addUser.role.committee')},
+          {value: "admin", label: i18n.__('admin.users.addUser.role.admin')},
+          {value: "committee", label: i18n.__('admin.users.addUser.role.committee')},
         ];
       },
     },
