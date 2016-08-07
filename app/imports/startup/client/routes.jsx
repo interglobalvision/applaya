@@ -6,8 +6,10 @@ import { MainLayout } from '/imports/components/mainLayout.jsx';
 import { PageApplicationsClosed } from '/imports/components/pages/pageApplicationsClosed.jsx';
 import { Page401 } from '/imports/components/pages/page401.jsx';
 import { Page404 } from '/imports/components/pages/page404.jsx';
+import { PageThanks } from '/imports/components/pages/pageThanks.jsx';
 
 import { ApplyContainer } from '/imports/containers/applyContainer.jsx';
+import { SubmitContainer } from '/imports/containers/submitContainer.jsx';
 import { PaymentContainer } from '/imports/containers/paymentContainer.jsx';
 import { AdminContainer } from '/imports/containers/adminContainer.jsx';
 import { SingleContainer } from '/imports/containers/singleContainer.jsx';
@@ -105,11 +107,29 @@ authenticatedRoutes.route('/apply/section/:section', {
   },
 });
 
+authenticatedRoutes.route('/apply/submit', {
+  name: 'submit',
+  action(params, queryParams) {
+    mount(MainLayout, {
+      content: <SubmitContainer />,
+    });
+  }
+});
+
 authenticatedRoutes.route('/apply/pay', {
   name: 'pay-application',
   action(params, queryParams) {
     mount(MainLayout, {
       content: <PaymentContainer />,
+    });
+  }
+});
+
+authenticatedRoutes.route('/apply/thanks', {
+  name: 'thanks',
+  action(params, queryParams) {
+    mount(MainLayout, {
+      content: <PageThanks />,
     });
   }
 });

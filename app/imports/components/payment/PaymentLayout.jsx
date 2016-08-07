@@ -91,7 +91,7 @@ export class PaymentLayout extends Component {
     return (
       <section>
         <h2><T>apply.payment.title</T></h2>
-        <T>apply.payment.description</T>
+        <p><T>apply.payment.description</T></p>
         <AutoForm
           schema={ApplicationPaymentSchema}
           onSubmit={this.onSubmit.bind(this)}

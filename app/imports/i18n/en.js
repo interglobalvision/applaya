@@ -4,7 +4,14 @@ i18n.addTranslations('en', {
   common: {
     next: 'Next',
     prev: 'Prev',
-    application: 'Application', 
+    application: 'Application',
+  },
+
+  errors: {
+    codes: {
+      fourzeroone: '401 Unauthorized :/',
+      fourzerofour: '404 Page Not Found :/',
+    }
   },
 
   notifications: {
@@ -65,16 +72,18 @@ i18n.addTranslations('en', {
   },
 
   apply: {
+    introduction: "<p class='flow-text'>Thank you for your application to the third edition of Material Art Fair, which will take place from February 4th - 7th, 2017, at Expo Reforma in Mexico City.</p> <p class='flow-text'>Please remember that the <strong>application deadline is Friday, September 18th, 2015</strong>. No applications will be accepted after that date.</p> \
+        <p class='flow-text'>Each application will be carefully reviewed, considered, and discussed by our 2017 Selection Committee and we will send notification of their decisions to all applicants beginning in early October.</p> \
+        <p class='flow-text'>If at any time you need to pause and continue your application at a later moment, please click the save button so as not to lose any information.</p> \
+        <p class='flow-text'>Please report any errors or problems directly to us at <a href='mailto:applications@material-fair.com' class='u-inline-block'>applications@material-fair.com</a>.</p>",
     completed: '{$percentage}% Complete',
+    thanks: 'Thanks for your application to Material Art Fair 2016. Your application fee has been processed. The 2016 Selection Committee will begin reviewing applications after the deadline of September 18th and we will begin the notification process in early October.',
+    closed: 'Sorry applications are now closed',
     sections: {
 
       // Section: Contact Information
       galleryInformation: {
         title: 'Gallery Information',
-        description: "<p class='flow-text'>Thank you for your application to the third edition of Material Art Fair, which will take place from February 4th - 7th, 2017, at Expo Reforma in Mexico City.</p> <p class='flow-text'>Please remember that the <strong>application deadline is Friday, September 18th, 2015</strong>. No applications will be accepted after that date.</p> \
-        <p class='flow-text'>Each application will be carefully reviewed, considered, and discussed by our 2017 Selection Committee and we will send notification of their decisions to all applicants beginning in early October.</p> \
-        <p class='flow-text'>If at any time you need to pause and continue your application at a later moment, please click the save button so as not to lose any information.</p> \
-        <p class='flow-text'>Please report any errors or problems directly to us at <a href='mailto:applications@material-fair.com' class='u-inline-block'>applications@material-fair.com</a>.</p>",
         galleryName: {
           label: 'Gallery Name'
         },
@@ -349,6 +358,12 @@ i18n.addTranslations('en', {
           label: 'Signature',
         },
       }
+    },
+
+    submit: {
+      title: 'Review and Submit',
+      description: 'Bla Bla',
+      button: 'Submit and go to Payment',
     },
 
     payment: {

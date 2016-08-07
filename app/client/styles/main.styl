@@ -4,6 +4,8 @@
 // https://tj.github.io/nib/
 // but I want Kouto Swiss :[
 
+@import 'fonts-material'
+
 // ******************************************************
 
 global-reset()
@@ -12,32 +14,16 @@ global-reset()
 
 // GRID
 
-$cols = 12
-$col = 90px
 $gutter = 16px
-
-.container
-  margin: 0 auto
-  width: ($col * $cols)+($gutter * $cols)
 
 .row
   clearfix()
 
-.col
-  float: left
-  margin-left: ($gutter/2)
-  margin-right: ($gutter/2)
-  min-height: 1px
-
-for col in 1..$cols
-  .col{col}
-    width: ( col * $col ) + ( ( col - 1 ) * $gutter )
-
-    // FLUID COLS
-
 .fluid-col
   float: left
   box-sizing: border-box
+  padding-left: $gutter
+  padding-right: $gutter
 
 $pcols = 12
 
@@ -82,16 +68,16 @@ $margin-basic = ($gutter * 2)
 $margin-mid = ($gutter * 3.5)
 $margin-large = ($gutter * 5)
 
-$font-size-basic = 17px
+$font-size-basic = 19px
 $font-size-larger = 1.2rem
 $font-size-smaller = 0.8rem
-$font-size-h3 = 1.6rem
-$font-size-h2 = 1.8rem
-$font-size-h1 = 2.5rem
+$font-size-h3 = 1.3rem
+$font-size-h2 = 1.7rem
+$font-size-h1 = 2rem
 
-$font-leading-basic = 1.35
-$font-leading-tighter = 1.15
-$font-leading-larger = 1.45
+$font-leading-basic = 1.45
+$font-leading-tighter = 1.25
+$font-leading-larger = 1.65
 
 $font-tracking-basic = 0.001em
 $font-tracking-wider = 0.05em
@@ -112,8 +98,12 @@ $color-compliment-2 = #7bc6b9 // green
 
 // TYPOGRAPHY
 
+$font-sans = 'Akkurat Pro'
+$font-serif = 'Stanley'
+
 html
-  font-family: 'Helvetica', sans-serif
+  font-family: $font-sans,'Helvetica',sans-serif
+  font-weight: normal
   font-size: $font-size-basic
   letter-spacing: $font-tracking-basic
 
@@ -122,9 +112,15 @@ body
 
   // HTML ELEMENT STYLING
 
+h1, h2, h3, h4
+  font-family: $font-serif,'Georgia',serif
+  font-weight: bold
+  margin-bottom: 1rem
+
 h1
   font-size: $font-size-h1
   line-height: $font-leading-tighter
+  font-weight: 900
 
 h2
   font-size: $font-size-h2
@@ -145,7 +141,7 @@ p
   font-weight: bold
 
 .font-small-caps
-  font-size: 0.85em
+  font-size: 0.8rem
   text-transform: uppercase
 
 .font-capitalize
@@ -171,9 +167,10 @@ p
   // LINKS
 
 a,
+a:hover,
 a:active,
 a:visited
-  color: inherit
+  color: unset
   text-decoration: none
 
 // ******************************************************
@@ -343,7 +340,45 @@ body
 .padding-bottom-large
   padding-bottom: $margin-large
 
+// ******************************************************
+
+// MAIN LAYOUT
+
+.container
+  width: 95%
+  max-width: 1400px
+  min-width: 360px
+  margin-left: auto
+  margin-right: auto
+
+#main-content
+  min-height: 80vh
+
+// ******************************************************
+
 // HEADER
+
+#header
+  h1
+    font-size: 1rem
+
+#main-menu
+  li
+    margin-left: $margin-tiny
+
+// ******************************************************
+
+// COPY
+
+p
+  max-width: 700px
+
+// LISTS
+
+ul
+  margin-bottom: 1rem
+  &.u-inline-list
+    margin-bottom: 0
 
 // ******************************************************
 
@@ -351,14 +386,14 @@ body
 
 button()
   background-color: $color-compliment-2
-  color: $color-white-bright
+  color: $color-white-bright !important
   border-width: 1px
   border-style: solid
   border-color: $color-white-soft
   display: inline-block
   font-size: 1rem
   line-height: 1.4rem
-  padding: $margin-small
+  padding: $margin-tiny $margin-small
   margin-bottom: $margin-tiny
   border-radius: 3px
   cursor: pointer
@@ -369,6 +404,10 @@ button()
 form
   section
     margin-bottom: $margin-basic
+    clearfix()
+  canvas
+    border: 1px solid $color-black-soft
+    border-radius: 3px
 
 label
   display: block
@@ -395,6 +434,8 @@ input[type=checkbox], input[type=radio]
   width: $input-height
   height: $input-height
   padding: 0
+  float: left
+  margin-right: $margin-small
   &:checked:after
     content: "\2713"
     position: absolute
@@ -403,6 +444,8 @@ input[type=checkbox], input[type=radio]
     height: 100%
     text-align: center
     font-size: ( $input-height / 1.75 )
+  & ~ label
+    float: left
 
 input[type=radio]
   border-radius: $input-height
@@ -418,6 +461,7 @@ select
 textarea
   min-height: $input-height * 3
   padding: ( $input-height / 4 )
+  max-width: 100%
 
 section[name=signature] canvas
   background-color: $color-white-bright
@@ -436,31 +480,6 @@ button, .button
   input[type=file]:disabled ~ .buttons
     pointer-events: none
     opacity: $input-disabled-opacity
-
-
-
-// ******************************************************
-
-// MAIN LAYOUT
-
-.container
-  width: 80%
-  max-width: 1400px
-  min-width: 360px
-  margin-left: auto
-  margin-right: auto
-
-// ******************************************************
-
-// HEADER
-
-#header
-  h1
-    font-size: 1rem
-
-#main-menu
-  li
-    margin-left: $margin-tiny
 
 // ******************************************************
 

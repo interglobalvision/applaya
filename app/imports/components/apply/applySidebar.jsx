@@ -32,23 +32,12 @@ export class ApplySidebar extends Component {
     return steps;
   }
 
-  resubmitClick() {
-    submitApplication.call(this.props.application._id, (err) => {
-      if (err) {
-        Alert.error(err.reason);
-        console.log('submitApplication error:', err);
-      } else {
-        FlowRouter.go('/apply/thanks');
-      }
-    });
-  }
-
   renderPayAndSubmit(application) {
     if (StepsInfo.length === application.progress) {
       if (application.status.paid) {
-        return <a className="button" onClick={this.resubmitClick.bind(this)}>Re-Submit</a>
+        return <a href="/apply/submit" className="button">Re-Submit</a>
       } else {
-        return <a href="/apply/pay" className="button">Submit & Pay</a>
+        return <a href="/apply/submit" className="button">Submit & Pay</a>
       }
     }
   }
@@ -57,16 +46,18 @@ export class ApplySidebar extends Component {
     const steps = this.mapSteps(StepsInfo);
 
     return (
-      <div className="content">
-        <h4>Application Progress</h4>
+      <nav className="fluid-col s-10 m-3 background-color-sidebar padding-top-small padding-bottom-small">
         <ul>
           <li><a href="/apply/introduction">Introduction</a></li>
+        </ul>
+        <ul>
+          <li className="font-small-caps">Sections</li>
         {steps.map((step, key) => (
           <ApplySidebarStep name={step.name} url={step.url} validated={step.validated} key={key} />
         ))}
         </ul>
         {this.renderPayAndSubmit(this.props.application)}
-      </div>
+      </nav>
     );
   }
 }
