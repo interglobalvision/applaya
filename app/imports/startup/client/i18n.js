@@ -1,5 +1,3 @@
-import i18n from 'meteor/universe:i18n';
-
 import '/imports/i18n/es.js';
 import '/imports/i18n/en.js';
 

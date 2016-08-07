@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Alert from 'react-s-alert';
 
 import { Applications } from '/imports/collections/applications.js';
 import { ApplicationSections } from '/imports/collections/applicationSections.js';
