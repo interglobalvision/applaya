@@ -10,7 +10,7 @@ export const adminAddUser = new ValidatedMethod({
     },
     role: {
       type: String,
-      allowedValues: ['Admin', 'Committee']
+      allowedValues: ['admin', 'committee']
     }
   }).validator(),
 
@@ -21,8 +21,6 @@ export const adminAddUser = new ValidatedMethod({
     }
 
     if (Meteor.isServer) {
-
-      let role = doc.role.toLowerCase();
 
       if (Accounts.findUserByEmail(doc.email)) {
         throw new Meteor.Error('Admin.methods.add-user.already-exists', i18n.__('notifications.addUser.alreadyExists', {
@@ -36,7 +34,7 @@ export const adminAddUser = new ValidatedMethod({
 
       let newUser = Accounts.findUserByEmail(doc.email);
 
-      Roles.addUsersToRoles(newUser._id, role);
+      Roles.addUsersToRoles(newUser._id, doc.role);
 
       Accounts.sendEnrollmentEmail(newUser._id);
 

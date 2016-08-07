@@ -61,8 +61,10 @@ i18n.addTranslations('es', {
           label: 'Email'
         },
         role: {
-          label: 'Rol'
-        }
+          label: 'Rol',
+          admin: 'Administrador',
+          committee: 'Comité',
+        },
       },
       removeUser: {
         label: 'Eliminar Usuario',
