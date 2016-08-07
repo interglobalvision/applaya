@@ -42,11 +42,11 @@ export class PaymentLayout extends Component {
           _this.setState({processing: false});
 
           Alert.error(err.reason);
-          return console.log(err);
+          console.log('makePayment error:', err);
+        } else {
+          Alert.success(i18n.__('notifications.payment.success'));
+          FlowRouter.go('/apply/thanks');
         }
-
-        Alert.success(i18n.__('notifications.payment.success'));
-        FlowRouter.go('/apply/thanks');
 
       });
     });

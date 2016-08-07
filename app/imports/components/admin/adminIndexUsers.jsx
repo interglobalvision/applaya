@@ -15,8 +15,8 @@ export class AdminIndexUsers extends Component {
       console.log(this);
 
       if (err) {
-        console.log(err);
         Alert.error(err.reason);
+        console.log('adminAddUser error:', err);
       } else {
         Alert.success(res.message);
         // Reset Form
@@ -76,10 +76,10 @@ export class AdminIndexUser extends Component {
 
         if (err) {
           Alert.error(err.reason);
-          console.log(err);
+          console.log('removeUser error:', err);
+        } else {
+          Alert.success(res.message);
         }
-
-        Alert.success(res.message);
 
       });
     }

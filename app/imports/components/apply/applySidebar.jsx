@@ -36,9 +36,10 @@ export class ApplySidebar extends Component {
     submitApplication.call(this.props.application._id, (err) => {
       if (err) {
         Alert.error(err.reason);
-        return new Meteor.Error(err);
+        console.log('submitApplication error:', err);
+      } else {
+        FlowRouter.go('/apply/thanks');
       }
-      FlowRouter.go('/apply/thanks');
     });
   }
 
