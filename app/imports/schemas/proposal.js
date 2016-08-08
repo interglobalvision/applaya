@@ -26,6 +26,9 @@ export const ProposalSchema = new SimpleSchema({
   },
   participation: {
     type: String,
+    uniforms: {
+      component: LongTextField,
+    },
     label: () => i18n.__(schemaLocaleBase + 'participation.label'),
   },
   standProposal: {

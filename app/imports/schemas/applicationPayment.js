@@ -52,6 +52,7 @@ const Schema = new SimpleSchema({
       options: function () {
         // This use " to keep literal values
         return [
+          {value: "", label: "",},
           {value: "Afghanistan", label: "Afghanistan",},
           {value: "Åland Islands", label: "Åland Islands",},
           {value: "Albania", label: "Albania",},

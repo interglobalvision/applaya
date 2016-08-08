@@ -52,7 +52,7 @@ export const ArtistsSchema = new SimpleSchema({
     label: () => i18n.__(schemaLocaleBase + 'work.dimensions.label'),
   },
   'artists.$.work.$.year': {
-    type: Number,
+    type: String,
     label: () => i18n.__(schemaLocaleBase + 'work.year.label'),
   },
 });
