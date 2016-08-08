@@ -14,6 +14,24 @@ i18n.addTranslations('en', {
     }
   },
 
+  notifications: {
+    error: 'Error',
+    upload: {
+      success: '{$filename} uploaded successfully!',
+    },
+    addUser: {
+      success: 'Successfull {$role} account created for {$email}',
+      alreadyExists: '{$email} already has an account',
+    },
+    removeUser: {
+      success: '{$email} account removed successfully',
+      yourself: 'You can\'t remove yourself',
+    },
+    payment: {
+      success: 'Thanks for your payment',
+    },
+  },
+
   applications: {
     title: 'Applications',
     status: {
@@ -43,8 +61,10 @@ i18n.addTranslations('en', {
           label: 'Email'
         },
         role: {
-          label: 'Role'
-        }
+          label: 'Role',
+          admin: 'Admin',
+          committee: 'Committee',
+        },
       },
       removeUser: {
         label: 'Remove user',

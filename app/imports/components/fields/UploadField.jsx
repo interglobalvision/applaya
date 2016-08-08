@@ -1,5 +1,8 @@
 /* globals Slingshot */
 import React, { Component } from 'react';
+import i18n from 'meteor/universe:i18n';
+
+import Alert from 'react-s-alert';
 
 import { connectField } from 'uniforms';
 
@@ -24,6 +27,7 @@ class FieldUpload extends Component {
     
     uploader.send(image, function(error, url) {
       if (error) {  
+        Alert.error(error.message);
         throw new Meteor.Error('upload-file-fail', error);
       } else {
         const file = {
@@ -35,7 +39,11 @@ class FieldUpload extends Component {
           uploading: false,
         });
 
+        Alert.success(i18n.__('notifications.upload.success', {
+          filename: file.name,
+        }));
         this.props.onChange(file);
+
       }
     }.bind(this));
   }
