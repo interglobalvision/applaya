@@ -285,13 +285,13 @@ i18n.addTranslations('es', {
         description: '<p>1. GENERAL</p>\
         <p>Material Art Fair es un evento cultural organizado por Feria de Arte Material México, S.A. de C.V. (“Material Art Fair”) y se llevará a cabo en el Expo Reforma de la Ciudad de México. Estos términos y condiciones de participación gobiernan la participación de los expositores en Material Art Fair. Material Art Fair se reserva el derecho de, en cualquier momento,  emitir otras condiciones, reglas y reglamentos de participación. Los términos y condiciones  de este contrato también cubrirán cualquier día adicional requerido por los expositores para entrar o salir del stand dentro de la exposición.</p>\
         <p>2. FECHAS DE EXPOSICIÓN</p>\
-        <p>Material Art Fair se llevará a cabo del 4 al 7 de Febrero del 2016 con una inauguración previa a la apertura al público el Jueves, 4 de Febrero del  2016.</p>\
+        <p>Material Art Fair se llevará a cabo del 9 al 12 de Febrero del 2017 con una inauguración previa a la apertura al público el Jueves, 9 de Febrero del  2017.</p>\
         <p>3. UBICACIÓN</p>\
-        <p>Expo Reforma</p>\
-        <p>Calle Morelos 67</p>\
-        <p>Col. Juarez, Del. Cuauhtemoc, 06600</p>\
-        <p>Mexico City, D.F.</p>\
-        <p>Mexico</p>\
+        <p>Expo Reforma<br />\
+        Calle Morelos 67<br />\
+        Col. Juarez, Del. Cuauhtemoc, 06600<br />\
+        Mexico City, D.F.<br />\
+        Mexico</p>\
         <p>4. ARTICULOS EN EXPOSICIÓN</p>\
         <p>• Pintura</p>\
         <p>• Escultura</p>\
@@ -316,10 +316,10 @@ i18n.addTranslations('es', {
         <p>8. CO-EXPOSITORES / STAND COMPARTIDO</p>\
         <p>Ningún expositor podrá subarrendar su stand completo o en partes. Los productos, expositores o personas distintas de las especificadas en la solicitud del expositor no se pueden mostrar o anunciar en el stand sin autorización escrita de Material Art Fair.</p>\
         <p>9. CONDICIONES DE PAGO</p>\
-        <p>Se cobrará una tasa de solicitud obligatoria y no reembolsable de $125 USD para enviar la aplicación del expositor. Material requiere del 50% del pago de alquiler de stand inmediatamente después de ser aceptado. Cualquier saldo restante debe ser pagado a más tardar el 20 de noviembre del 2015. Los pagos son no-reembolsables al menos que Material Art Fair acuerde lo contrario de forma personal con cada expositor. En caso de pago incompleto o falta de pago, Material Art Fair se reserva el derecho de  cancelar el contrato del expositor, y reasignar el espacio o retener cualquier pago hecho sin ninguna otra responsabilidad u obligación hacia el expositor.</p>\
+        <p>Se cobrará una tasa de solicitud obligatoria y no reembolsable de $150 USD para enviar la aplicación del expositor. Esta tasa no se acredita a la cuenta de alquiler de stand. Material requiere del 50% del pago de alquiler de stand inmediatamente después de ser aceptado. Cualquier saldo restante debe ser pagado a más tardar el 25 de noviembre del 2016. Los pagos son no-reembolsables al menos que Material Art Fair acuerde lo contrario de forma personal con cada expositor. En caso de pago incompleto o falta de pago, Material Art Fair se reserva el derecho de  cancelar el contrato del expositor, y reasignar el espacio o retener cualquier pago hecho sin ninguna otra responsabilidad u obligación hacia el expositor.</p>\
         <p>10. RESCISIÓN Y CANCELACIÓN DEL CONTRATO DEL EXPOSITOR</p>\
-        <p>Cualquier expositor que no haya ocupado su espacio antes de las 6:00 pm del Miércoles, 03 de febrero 2016, perderá su lugar y Material Art Fair reclamará  de pleno derecho de uso del espacio designado y retendrá cualquier pago hecho sin ninguna otra responsabilidad u obligación hacia el expositor.</p>\
-        <p>Política de cancelación de Material Art Fair: Los expositores que quieran rescindir del contrato están sujetos a un cargo por penalización. Cualquier cancelación de stand recibido en o antes del 01 de diciembre 2015 se traducirá en una cuota para Material Art Fair equivalente a la mitad del costo del alquiler de stand. Las cancelaciones recibidas a partir del 30 de diciembre 2015 darán lugar a perder el 100% de la cuota de stand para Material Art Fair.</p>\
+        <p>Cualquier expositor que no haya ocupado su espacio antes de las 6:00 pm del Miércoles, 08 de febrero 2017, perderá su lugar y Material Art Fair reclamará  de pleno derecho de uso del espacio designado y retendrá cualquier pago hecho sin ninguna otra responsabilidad u obligación hacia el expositor.</p>\
+        <p>Política de cancelación de Material Art Fair: Los expositores que quieran rescindir del contrato están sujetos a un cargo por penalización. Cualquier cancelación de stand recibido en o antes del 02 de diciembre 2016 se traducirá en una cuota para Material Art Fair equivalente a la mitad del costo del alquiler de stand. Las cancelaciones recibidas a partir del 16 de diciembre 2016 darán lugar a perder el 100% de la cuota de stand para Material Art Fair.</p>\
         <p>11. SEGUROS Y EXENCIÓN DE RESPONSABILIDAD</p>\
         <p>Cada expositor debe de contar con cobertura de seguro por daños o pérdidas a los artículos expuestos o que se expondrán, en caso de incendio, robo, robo, rotura, fugas, accidentes o daños por agua, y los riesgos de transporte desde y hacia el espacio del stand del expositor. El expositor asume todo el riesgo de pérdida relacionada con el mismo. Material Art Fair no será responsable de ningún expositor por cualquier daño o perjuicio, directo, incidental o consecuente al expositor o su / su propiedad resultantes de o relacionados con la participación de expositores, a excepción de los daños o pérdidas causados únicamente por negligencia grave de Material Art Fair.</p>\
         <p>Antes de entrar a la feria, se requerirá que cada expositor que firme un formulario liberando a Material Art Fair, sus agentes y subcontratistas de cualquier responsabilidad. Además, el expositor deberá indemnizar y mantener Material Art Fair de y contra cualquier reclamo por daños, pérdidas o daños que resulten de cualquier acto u omisión del expositor o sus empleados, agentes, representantes o subcontratistas.</p>\
@@ -345,7 +345,7 @@ i18n.addTranslations('es', {
         <p>El expositor declara que asegura la autorización requerida para exhibir y explotar las obras de arte que se muestran por el autor o propietario de los derechos de participación a los mismos, así como el uso de las marcas exhibidas, liberando Material Art Fair de cualquier y toda responsabilidad a este respecto.</p>\
         <p>19. CONDICIONES GENERALES</p>\
         <p>El organizador fija las condiciones generales, tales como el lugar, la duración, las fechas, los horarios de apertura y el precio del boleto de entrada a Material Art Fair y se reserva el derecho de modificarlas si es necesario. </p>\
-        <p>Julio, 2015</p>\
+        <p>9 Agosto, 2016</p>\
         <p>Material Art Fair</p>\
         <p>Feria de Arte Material México S.A. de C.V.</p>',
 

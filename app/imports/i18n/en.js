@@ -288,13 +288,13 @@ i18n.addTranslations('en', {
         description: '<p>1. GENERAL</p>\
         <p>Material Art Fair is a cultural event organized by Feria de Arte Material México, S.A. de C.V. (“Material Art Fair”) and will take place at Expo Reforma in Mexico City. These Terms and Conditions of Participation govern the exhibitor’s participation in Material Art Fair. Material Art Fair reserves the right to, at any time, issue other conditions, rules and regulations of participation. The terms and conditions of this Agreement shall also cover any additional days required for Exhibitor to move-in and move-out of the booth space at the Exhibition.</p>\
         <p>2. SHOW DATES</p>\
-        <p>Material Art Fair will take place February 4-7, 2016 with the opening preview on Thursday, February 4, 2016.</p>\
+        <p>Material Art Fair will take place February 9-12, 2017 with the opening preview on Thursday, February 9, 2017.</p>\
         <p>3. LOCATION</p>\
-        <p>Expo Reforma</p>\
-        <p>Calle Morelos 67</p>\
-        <p>Col. Juarez, Del. Cuauhtemoc, 06600 </p>\
-        <p>Mexico City, D.F.</p>\
-        <p>Mexico</p>\
+        <p>Expo Reforma<br />\
+        Calle Morelos 67<br />\
+        Col. Juarez, Del. Cuauhtemoc, 06600 <br />\
+        Mexico City, D.F.<br />\
+        Mexico</p>\
         <p>4. ARTICLES ON EXHIBIT</p>\
         <p>• Painting</p>\
         <p>• Sculpture</p>\
@@ -318,10 +318,10 @@ i18n.addTranslations('en', {
         <p>8. CO-EXHIBITORS / BOOTH SHARING</p>\
         <p>No exhibitor may sublet his/her booth either wholly or in part. Products, exhibitors or individuals other than those specified in the exhibitor’s application may not be shown or advertised in the booth without written permission from Material Art Fair.</p>\
         <p>9. CONDITIONS OF PAYMENT</p>\
-        <p>A mandatory and non-refundable $125 USD application fee will be due upon submission of the exhibitor application. 50% of the booth rental payment will be due upon acceptance. Any remaining balance must be paid no later than November 20th, 2015. Payments are non-refundable unless Material Art Fair otherwise agrees in its discretion. In event of incomplete payment or nonpayment, Material Art Fair may cancel the exhibitor’s contract, reallocate the space and retain any payments made without any further liability or obligation to the exhibitor.</p>\
+        <p> A mandatory and non-refundable $150 USD application fee will be due upon submission of the exhibitor application. This fee is not credited to the exhibitor’s account against booth rental fees. 50% of the booth rental payment will be due upon acceptance. Any remaining balance must be paid no later than November 25th, 2016. Payments are non-refundable unless Material Art Fair otherwise agrees in its discretion. In event of incomplete payment or nonpayment, Material Art Fair may cancel the exhibitor’s contract, reallocate the space and retain any payments made without any further liability or obligation to the exhibitor.</p>\
         <p>10. WITHDRAWAL FROM THE EXHIBITOR’S CONTRACT</p>\
-        <p>Any exhibitor that has not occupied its space by 6:00pm on Wednesday, February 3, 2016, will forfeit that space and Material Art Fair will claim full rights to that space and retain any payments made without any further liability or obligation to the exhibitor.</p>\
-        <p>Material Art Fair Cancellation Policy: Exhibitors withdrawing from the contract are subject to a penalty charge. Any booth cancellations received on or before December 1, 2015 will result in a fee to Material Art Fair equal to half the cost of the booth rental. Cancellations received on or after December 30, 2015 will result in forfeiting 100% of the booth fee to Material Art Fair.</p>\
+        <p>Any exhibitor that has not occupied its space by 6:00pm on Wednesday, February 8, 2017, will forfeit that space and Material Art Fair will claim full rights to that space and retain any payments made without any further liability or obligation to the exhibitor.\
+        Material Art Fair Cancellation Policy: Exhibitors withdrawing from the contract are subject to a penalty charge. Any booth cancellations received on or before December 2, 2016 will result in a fee to Material Art Fair equal to half the cost of the booth rental. Cancellations received on or after December 16, 2016 will result in forfeiting 100% of the booth fee to Material Art Fair.</p>\
         <p>11. INSURANCE AND EXEMPTION FROM LIABILITY</p>\
         <p>Each exhibitor should obtain insurance coverage for damage or loss to articles exhibited or to be exhibited, due to fire, theft, burglary, breakage, leakage, accident or water damage, and the risks of transport to and from the exhibitor’s booth space. The exhibitor assumes all risk of loss related thereto. Material Art Fair will not be liable to any exhibitor for any direct, incidental or consequential damages or loss to exhibitor or his her/its property arising from or connected with exhibitor’s participation, except for damage or loss caused solely by Material Art Fair’s gross negligence.</p>\
         <p>Prior to admission to the show, each exhibitor will be required to sign a form releasing Material Art Fair, their agents and subcontractors from liability. Furthermore, the exhibitor shall indemnify and hold Material Art Fair harmless from and against any claim whatsoever for injury, loss or damage resulting from any act or omission of the exhibitor or its employees, agents, representatives, or subcontractors.</p>\
@@ -347,7 +347,7 @@ i18n.addTranslations('en', {
         <p>The exhibitor declares it has secures the authorization required to exhibit and exploit the works of art shown by the author or owner of the equity rights thereto, as well as to use the brands exhibited, releasing Material Art Fair from any and all liability in this regard.</p>\
         <p>19. GENERAL CONDITIONS</p>\
         <p>The organizer sets the general conditions such as the place, the duration, the dates, the opening hours and the ticket price of Material Art Fair and if necessary reserves the right to modify them.</p>\
-        <p>July, 2015</p>\
+        <p>August 9th, 2016</p>\
         <p>Material Art Fair</p>\
         <p>Feria de Arte Material México S.A. de C.V.</p>',
 
