@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { AutoForm } from 'uniforms-unstyled';
+import Alert from 'react-s-alert';
 
 import { NewAdminUserSchema } from '/imports/schemas/newAdminUserSchema.js';
 
@@ -9,14 +10,15 @@ export class AdminIndexUsers extends Component {
   onSubmit(doc) {
     let _this = this;
 
-    adminAddUser.call(doc, (err) => {
+    adminAddUser.call(doc, (err, res) => {
 
       console.log(this);
 
       if (err) {
-        // >>> needs actual error handling here [user notification etc]
-        console.log(err);
+        Alert.error(err.reason);
+        console.log('adminAddUser error:', err);
       } else {
+        Alert.success(res.message);
         // Reset Form
         _this.refs.addUserForm.reset();
       }
@@ -70,11 +72,13 @@ export class AdminIndexUser extends Component {
     let userId = this.props.user._id;
 
     if (confirm(i18n.__('admin.users.removeUser.confirm'))) {
-      removeUser.call({ userId }, (err) => {
+      removeUser.call({ userId }, (err, res) => {
 
         if (err) {
-          // >>> needs actual error handling here [user notification etc]
-          console.log(err);
+          Alert.error(err.reason);
+          console.log('removeUser error:', err);
+        } else {
+          Alert.success(res.message);
         }
 
       });

@@ -4,6 +4,8 @@
 // https://tj.github.io/nib/
 // but I want Kouto Swiss :[
 
+@import 'fonts-material'
+
 // ******************************************************
 
 global-reset()
@@ -96,8 +98,12 @@ $color-compliment-2 = #7bc6b9 // green
 
 // TYPOGRAPHY
 
+$font-sans = 'Akkurat Pro'
+$font-serif = 'Stanley'
+
 html
-  font-family: 'Helvetica', sans-serif
+  font-family: $font-sans,'Helvetica',sans-serif
+  font-weight: normal
   font-size: $font-size-basic
   letter-spacing: $font-tracking-basic
 
@@ -107,11 +113,14 @@ body
   // HTML ELEMENT STYLING
 
 h1, h2, h3, h4
+  font-family: $font-serif,'Georgia',serif
+  font-weight: bold
   margin-bottom: 1rem
 
 h1
   font-size: $font-size-h1
   line-height: $font-leading-tighter
+  font-weight: 900
 
 h2
   font-size: $font-size-h2

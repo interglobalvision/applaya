@@ -10,7 +10,7 @@ export const adminAddUser = new ValidatedMethod({
     },
     role: {
       type: String,
-      allowedValues: ['Admin', 'Committee']
+      allowedValues: ['admin', 'committee']
     }
   }).validator(),
 
@@ -22,10 +22,10 @@ export const adminAddUser = new ValidatedMethod({
 
     if (Meteor.isServer) {
 
-      let role = doc.role.toLowerCase();
-
       if (Accounts.findUserByEmail(doc.email)) {
-        throw new Meteor.Error('Admin.methods.add-user.already-exists', 'User with same email already exists.');
+        throw new Meteor.Error('Admin.methods.add-user.already-exists', i18n.__('notifications.addUser.alreadyExists', {
+          email: doc.email
+        }));
       }
 
       Accounts.createUser({
@@ -34,12 +34,17 @@ export const adminAddUser = new ValidatedMethod({
 
       let newUser = Accounts.findUserByEmail(doc.email);
 
-      Roles.addUsersToRoles(newUser._id, role);
+      Roles.addUsersToRoles(newUser._id, doc.role);
 
       Accounts.sendEnrollmentEmail(newUser._id);
 
-    }
+      const message =  i18n.__('notifications.addUser.success', {
+        role: doc.role,
+        email: doc.email,
+      });
 
+      return { message };
+    }
   },
 });
 
@@ -72,11 +77,17 @@ export const removeUser = new ValidatedMethod({
     }
 
     if (userId === this.userId) {
-      throw new Meteor.Error('Admin.methods.add-user.no-selfdestruct', 'You can\'t remove yourself.');
+      throw new Meteor.Error('Admin.methods.add-user.no-selfdestruct', i18n.__('notifications.removeUser.yourself'));
     }
 
     if (Meteor.isServer) {
+      const email = Meteor.user(userId).emails[0].address;
+
       Meteor.users.remove(userId);
+
+      const message =  i18n.__('notifications.removeUser.success', { email });
+
+      return { message };
     }
 
   },
