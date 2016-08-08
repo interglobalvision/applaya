@@ -1,5 +1,6 @@
 import { Accounts } from 'meteor/std:accounts-ui';
 
+import { setAccountLocale } from '/imports/api/methods/accountMethods.js';
 import { setupApplicant } from '/imports/api/methods/accountMethods.js';
 
 Accounts.ui.config({
@@ -22,7 +23,8 @@ Accounts.ui.config({
   onSignedOutHook: () => FlowRouter.go('/'),
   onPostSignUpHook: () => {
     // set lang pref in user.profile
-    Meteor.users.update(Meteor.userId(), { $set: {'profile.lang': i18n.getLocale()} });
+    const locale = i18n.getLocale();
+    setAccountLocale.call({locale});
 
     setupApplicant.call({}, (err) => {
       if (err) {
