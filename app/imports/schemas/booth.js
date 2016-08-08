@@ -13,46 +13,57 @@ export const BoothSchema = new SimpleSchema({
     label: () => i18n.__(schemaLocaleBase + 'label'),
   },
 
-  'boothSize.singleSize': {
+  'boothSize.project': {
     type: Boolean,
-    label: () => i18n.__(schemaLocaleBase + 'boothSingle.label'),
+    label: () => i18n.__(schemaLocaleBase + 'project.label'),
     optional: true,
   },
 
-  'boothSize.doubleSize': {
+  'boothSize.principal1': {
     type: Boolean,
     optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'boothDouble.label'),
+    label: () => i18n.__(schemaLocaleBase + 'principal1.label'),
   },
 
-  'boothSize.smallSize': {
+  'boothSize.principal2': {
     type: Boolean,
     optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'boothSmall.label'),
+    label: () => i18n.__(schemaLocaleBase + 'principal2.label'),
   },
 
-  'boothSize.mediumSize': {
+  'boothSize.principal3': {
     type: Boolean,
     optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'boothMedium.label'),
+    label: () => i18n.__(schemaLocaleBase + 'principal3.label'),
   },
 
-  'boothSize.plusSize': {
+  'boothSize.principal4': {
     type: Boolean,
     optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'boothPlus.label'),
+    label: () => i18n.__(schemaLocaleBase + 'principal4.label'),
   },
 
-  'boothSize.largeSize': {
+  'boothSize.principal5': {
     type: Boolean,
     optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'boothLarge.label'),
+    label: () => i18n.__(schemaLocaleBase + 'principal5.label'),
   },
 
-  'boothSize.extraSize': {
+  'boothSize.principal6': {
     type: Boolean,
     optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'boothExtra.label'),
+    label: () => i18n.__(schemaLocaleBase + 'principal6.label'),
   },
 
+  'boothSize.principal7': {
+    type: Boolean,
+    optional: true,
+    label: () => i18n.__(schemaLocaleBase + 'principal7.label'),
+  },
+
+  'boothSize.principal8': {
+    type: Boolean,
+    optional: true,
+    label: () => i18n.__(schemaLocaleBase + 'principal8.label'),
+  },
 });

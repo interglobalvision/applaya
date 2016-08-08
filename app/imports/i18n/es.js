@@ -250,26 +250,32 @@ i18n.addTranslations('es', {
         <p><strong>SELECCIÓN DE STANDS<strong><br /><em>La cantidad de stands de cada categoría es limitada: por favor indiquen todos los stands que sean de interés. Favor de tomar en cuenta: los tamaños exactos y su disponibilidad están sujetos a cambios.</em></p>`,
         label: 'Tamaño de Stand',
 
-        boothSingle: {
-          label: 'Proyecto / Sencillo / 3 m2, $525 usd',
+        project: {
+          label: '5 m2 (54 pies cuadrados), con dos muros (3 metros lineales cada uno) $1000 usd (12 disponibles)',
         },
-        boothDouble: {
-          label: 'Proyecto / Doble / 6 m2, $1050 usd',
+        principal1: {
+          label: '9 m2 (97 pies cuadrados) $2700 usd (8 disponibles)',
         },
-        boothSmall: {
-          label: 'Principal / Chico / 9 m2, $2475 usd',
+        principal2: {
+          label: '13 m2 (140 pies cuadrados) $3900 usd (10 disponibles)',
         },
-        boothMedium: {
-          label: 'Principal / Mediano / 12 m2, $3300 usd',
+        principal3: {
+          label: '15 m2 (161 pies cuadrados)  $4500 usd (10 disponibles)',
         },
-        boothPlus: {
-          label: 'Principal / Mediano Plus / 16 m2, $4400 us',
+        principal4: {
+          label: '18 m2 (194 pies cuadrados) $5400 usd (2 disponibles)',
         },
-        boothLarge: {
-          label: 'Principal / Grande / 24 m2, $6600 usd',
+        principal5: {
+          label: '24 m2 (258 pies cuadrados.) $7200 usd (2 disponibles)',
         },
-        boothExtra: {
-          label: 'Principal / Extra Grande / Te contactaremos con más información',
+        principal6: {
+          label: '31 m2 (334 pies cuadrados.) $9300 usd (2 disponibles)',
+        },
+        principal7: {
+          label: '42 m2 (452 pies cuadrados.) $12,600 usd (2 disponibles)',
+        },
+        principal8: {
+          label: '50 m2 (538 pies cuadrados.) $15,000 usd (4 disponibles)',
         },
       },
 

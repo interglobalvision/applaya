@@ -236,7 +236,7 @@ i18n.addTranslations('en', {
       // Section: Booth
       booth: {
         title: 'Booth Selection',
-        description: '<p>For its 2017 edition, Material Art Fair has again partnered with the Mexico City-based architectural studio, <strong>APRDELESP</strong>. This time, the fair will be divided into <strong>two floors</strong> with nearly identical layouts in which the gallery spaces are situated around a central courtyard, so that the fair’s visitors will be able to flow freely from one space to another.</p>
+        description: `<p>For its 2017 edition, Material Art Fair has again partnered with the Mexico City-based architectural studio, <strong>APRDELESP</strong>. This time, the fair will be divided into <strong>two floors</strong> with nearly identical layouts in which the gallery spaces are situated around a central courtyard, so that the fair’s visitors will be able to flow freely from one space to another.</p>
         <p>In the <strong>Principal Section</strong>, we have significantly expanded the variety of stands available in order to accommodate a wider range of budgets and ambitions.</p>
         <p>The <strong>Project Space</strong> stands, as always, will highlight artist and curator-run independent spaces, non-profit organizations, or galleries that have only been in operation a short time.</p>
         <p>Wall height for all stands is 3.05 meters (10 ft).</p>
@@ -249,29 +249,35 @@ i18n.addTranslations('en', {
           <li>• Complimentary WiFi (1 user)</li>
           <li>• Empty storage</li>
           <li>• Additional work storage</li></ul></p>
-        <p><strong>STAND SELECTION<strong><br /><em>Please indicate any stands of interest, because quantities of each are limited. Also note that exact sizes and availability are subject to change.</em></p>',
+        <p><strong>STAND SELECTION<strong><br /><em>Please indicate any stands of interest, because quantities of each are limited. Also note that exact sizes and availability are subject to change.</em></p>`,
         label: 'Booth Size',
 
-        boothSingle: {
-          label: 'Project / Single / 3 m2 (approx. 32 sq. ft.), $525 USD',
+        project: {
+          label: '5 m2 (54 sq. ft), featuring two walls (3 linear meters each) $1000 usd (12 available)',
         },
-        boothDouble: {
-          label: 'Project / Double / 6 m2 (approx. 64 sq. ft.), $1050 USD',
+        principal1: {
+          label: '9 m2 (97 sq. ft.) $2700 usd (8 available)',
         },
-        boothSmall: {
-          label: 'Principal / Small / 9 m2 (approx. 97 sq. ft.), $2475 USD',
+        principal2: {
+          label: '13 m2 (140 sq. ft.) $3900 usd (10 available)',
         },
-        boothMedium: {
-          label: 'Principal / Medium / 12 m2 (approx. 129 sq. ft.), $3300 USD',
+        principal3: {
+          label: '15 m2 (161 sq. ft.) $4500 usd (10 available)',
         },
-        boothPlus: {
-          label: 'Principal / Medium Plus / 16 m2 (approx. 172 sq. ft.), $4400 USD',
+        principal4: {
+          label: '18 m2 (194 sq. ft) $5400 usd (2 available)',
         },
-        boothLarge: {
-          label: 'Principal / Large / 24 m2 (approx. 258 sq. ft.), $6600 USD',
+        principal5: {
+          label: '24 m2 (258 sq. ft.) $7200 usd (2 available)',
         },
-        boothExtra: {
-          label: 'Principal / Extra Large / We will contact you with further details',
+        principal6: {
+          label: '31 m2 (334 sq. ft.) $9300 usd (2 available)',
+        },
+        principal7: {
+          label: '42 m2 (452 sq. ft.) $12,600 usd (2 available)',
+        },
+        principal8: {
+          label: '50 m2 (538 sq. ft.) $15,000 usd (4 available)',
         },
       },
 
