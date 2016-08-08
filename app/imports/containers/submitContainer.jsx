@@ -29,13 +29,13 @@ const composer = (props, onData) => {
 
         let application = Applications.findOne({ userId: user._id });
 
+        let status = application.status;
+
         // Route according to status
-        if (application.status.complete === false) {
-          return FlowRouter.go('/apply/section/1');
-        } else if (application.status.submitted === true) {
+        if (status.complete === false) {
+          return FlowRouter.go('/apply/section/');
+        } else if (status.submitted === true) {
           return FlowRouter.go('/apply/pay');
-        } else if (application.status.paid === true) {
-          return FlowRouter.go('/apply/thanks');
         }
 
         let sections = ApplicationSections.find(

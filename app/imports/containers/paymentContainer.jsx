@@ -32,12 +32,14 @@ const composer = (props, onData) => {
 
         if (!!application) {
 
+          let status = application.status;
+
           // Route according to status
-          if (application.status.complete === false) {
-            return FlowRouter.go('/apply/section/1');
-          } else if (application.status.submitted === false) {
+          if (status.complete === false) {
+            return FlowRouter.go('/apply/section/');
+          } else if (status.submitted === false) {
             return FlowRouter.go('/apply/submit');
-          } else if (application.status.paid === true) {
+          } else if (status.paid === true) {
             return FlowRouter.go('/apply/thanks');
           }
 
