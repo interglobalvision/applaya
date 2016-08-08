@@ -18,7 +18,14 @@ class ApplicationsCollection extends Mongo.Collection {
   }
 
   update(selector, modifier, ...optionsAndCallback) {
-    modifier.$set['updatedAt'] = modifier.$set['updatedAt'] || new Date();
+
+    // When modifying whole document (ex. Mongol)
+    if(_.isUndefined(modifier.$set)) {
+      modifier['updatedAt'] = modifier['updatedAt'] || new Date();
+    } else if (!_.isUndefined(modifier.$set)) {
+    // When modifying whole document (ex. Mongol)
+      modifier.$set['updatedAt'] = modifier.$set['updatedAt'] || new Date();
+    }
 
     return super.update(selector, modifier, ...optionsAndCallback);
   }

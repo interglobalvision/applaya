@@ -32,8 +32,15 @@ const composer = (props, onData) => {
 
         if (!!application) {
 
-          if (!_.isUndefined(application.status) && application.status.paid === true) {
-            FlowRouter.go('/apply/thanks');
+          let status = application.status;
+
+          // Route according to status
+          if (status.complete === false) {
+            return FlowRouter.go('/apply/section/');
+          } else if (status.submitted === false) {
+            return FlowRouter.go('/apply/submit');
+          } else if (status.paid === true) {
+            return FlowRouter.go('/apply/thanks');
           }
 
           // TODO: Check if application is fully validated

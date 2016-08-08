@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
 import i18n from 'meteor/universe:i18n';
 
+import { setAccountLocale } from '/imports/api/methods/accountMethods.js';
+
 export class Navbar extends Component {
   localeChanged(locale) {
-    this.localizeMessages(locale);
-    this.forceUpdate();
-  }
-
-  localizeMessages(locale) {
-    if (locale === 'en') {
-
-    } else if (locale === 'es') {
-
-    }
+    setAccountLocale.call({locale});
   }
 
   componentWillMount() {
@@ -45,8 +38,8 @@ export class Navbar extends Component {
             <li><a href="/logout">Logout</a></li>
           : <li><a href="/login">Login</a></li>
           }
-          <li><a href="#" onClick={ () => i18n.setLocale('en') }>En</a></li>
-          <li><a href="#" onClick={ () => i18n.setLocale('es') }>Es</a></li>
+          <li><a href="#" onClick={() => i18n.setLocale('en')}>En</a></li>
+          <li><a href="#" onClick={() => i18n.setLocale('es')}>Es</a></li>
         </ul>
       </nav>
     );

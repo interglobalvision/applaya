@@ -73,6 +73,11 @@ i18n.addTranslations('es', {
     }
   },
 
+  frontpage: {
+    title: 'Material Art Fair 2017 Applications',
+    introduction: '<p>Welcome to the online application for Material Art Fair 2016.</p><p>Please click below to proceed in your language of choice.</p>'
+  },
+
   apply: {
     introduction: '<p>Gracias por tu solicitud a la cuarta edición de Material Art Fair, que se llevará a cabo a del 9 al 12 de Febrero del 2017, en el Expo Reforma en la Ciudad de México.</p><p>El proceso de registro <strong>concluye el viernes 23 de septiembre del 2016</strong>. No se aceptará ninguna solicitud después de esta fecha.</p><p>Cada solicitud será cuidadosamente revisada, considerada y analizada por nuestro comité de selección del 2017. Les haremos llegar la decisión del comité a todos los solicitantes en Octubre.</p><p>Si en algún momento necesitas pausar y deseas continuar después con tu solicitud, por favor haz click en el botón “guardar” para no perder tu información.</p><p>Por favor reporta cualquier error o problema directamente con nosotros a <a href="mailto:applications@material-fair.com" class="u-inline-block">applications@material-fair.com</a>.',
     completed: '{$percentage}% Completado',

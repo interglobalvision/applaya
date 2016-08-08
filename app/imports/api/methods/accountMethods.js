@@ -17,3 +17,17 @@ export const setupApplicant = new ValidatedMethod({
 
   },
 });
+
+export const setAccountLocale = new ValidatedMethod({
+  name: 'account.setLocale',
+
+  validate: new SimpleSchema({
+    locale: {
+      type: String,
+    }
+  }).validator(),
+
+  run(args) {
+    Meteor.users.update(this.userId, { $set: {'profile.lang': args.locale} });
+  },
+});

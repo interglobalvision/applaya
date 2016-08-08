@@ -51,17 +51,6 @@ export const adminAddUser = new ValidatedMethod({
 export const removeUser = new ValidatedMethod({
   name: 'admin.removeUser',
 
-  validate({ userId }) {
-
-    return new SimpleSchema({
-      userId: {
-        type: String
-      }
-    }).validate({
-      userId
-    });
-  },
-
   validate: new SimpleSchema({
     userId: {
       type: String

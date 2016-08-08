@@ -28,6 +28,16 @@ const composer = (props, onData) => {
       if (Roles.userIsInRole(user._id, [ 'applicant' ])) {
 
         let application = Applications.findOne({ userId: user._id });
+
+        let status = application.status;
+
+        // Route according to status
+        if (status.complete === false) {
+          return FlowRouter.go('/apply/section/');
+        } else if (status.submitted === true) {
+          return FlowRouter.go('/apply/pay');
+        }
+
         let sections = ApplicationSections.find(
           { applicationId: application._id },
           { sort: {

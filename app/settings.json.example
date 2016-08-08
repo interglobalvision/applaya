@@ -7,8 +7,6 @@
     "AWSSecretAccessKey":"xxx",
     "AWSRegion":"xxx",
 
-    "maxUploadSize": "4194304",
-
     "conekta_private_sandbox":"xxx",
     "conekta_private":"xxx",
 
@@ -23,6 +21,7 @@
     },
 
     "public": {
+      "maxUploadSize": 6291456,
       "applicationFee": 10000,
       "conekta_public_sandbox":"xxx",
       "conekta_public":"xxx",
