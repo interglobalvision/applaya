@@ -1,8 +1,11 @@
 import React from 'react';
 import { mount } from 'react-mounter';
 
+import { Accounts, STATES } from 'meteor/std:accounts-ui';
+
 import { MainLayout } from '/imports/components/mainLayout.jsx';
 
+import { PageFrontpage } from '/imports/components/pages/pageFrontpage.jsx';
 import { PageApplicationsClosed } from '/imports/components/pages/pageApplicationsClosed.jsx';
 import { Page401 } from '/imports/components/pages/page401.jsx';
 import { Page404 } from '/imports/components/pages/page404.jsx';
@@ -22,9 +25,21 @@ publicRoutes.route('/', {
   name: 'home',
   action () {
     mount(MainLayout, {
-      content: 'Hello world!',
+      content: <PageFrontpage />,
     });
   },
+});
+
+publicRoutes.route('/signup', {
+  name: 'signup',
+  action(params) {
+    mount(MainLayout, {
+      content: <Accounts.ui.LoginForm {...{
+        formState: STATES.SIGN_UP,
+        loginPath: '/login'
+      }} />
+    });
+  }
 });
 
 publicRoutes.route('/login', {
