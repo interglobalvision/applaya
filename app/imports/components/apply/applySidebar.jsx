@@ -32,7 +32,7 @@ export class ApplySidebar extends Component {
   }
 
   renderPayAndSubmit(application) {
-    if (StepsInfo.length === application.progress) {
+    if (application.status.complete) {
       if (application.status.paid) {
         return <a href="/apply/submit" className="button">Re-Submit</a>
       } else {
