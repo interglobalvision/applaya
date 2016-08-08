@@ -162,9 +162,9 @@ export const saveApplyProgress = new ValidatedMethod({
     }
 
     if (validatedSteps === StepsInfo.length) {
-
       data['status.complete'] = true;
-
+    } else {
+      data['status.complete'] = false;
     }
 
     Applications.update(applicationId, {
