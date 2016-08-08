@@ -1,4 +1,4 @@
-import { Upload } from '/imports/schemas/Upload.js';
+import { Upload, UploadImage } from '/imports/schemas/Upload.js';
 
 const schemaLocaleBase = 'apply.sections.artists.';
 
@@ -30,7 +30,7 @@ export const ArtistsSchema = new SimpleSchema({
     label: () => i18n.__(schemaLocaleBase + 'work.label'),
   },
   'artists.$.work.$.image': {
-    type: Upload,
+    type: UploadImage,
     // This makes the field 'required'
     autoValue() {
       if (_.isEmpty(this.value) || _.isEmpty(this.value.file)) {

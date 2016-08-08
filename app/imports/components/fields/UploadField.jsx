@@ -17,22 +17,26 @@ class FieldUpload extends Component {
     };
   }
 
+  getSlingshowUploader() {
+    return new Slingshot.Upload('fileUpload');
+  }
+
   uploadFile() {
-    const image = this.refs.fileInput.files[0];
-    const uploader = new Slingshot.Upload('imageUpload');
+    const uploadFile = this.refs.fileInput.files[0];
+    const uploader = this.getSlingshowUploader();
 
     this.setState({
       uploading: true,
     });
-    
-    uploader.send(image, function(error, url) {
-      if (error) {  
+
+    uploader.send(uploadFile, function(error, url) {
+      if (error) {
         Alert.error(error.message);
         throw new Meteor.Error('upload-file-fail', error);
       } else {
         const file = {
           url: url,
-          name: image.name,
+          name: uploadFile.name,
         };
 
         this.setState({
@@ -56,6 +60,14 @@ class FieldUpload extends Component {
     }));
   }
 
+  filePreview() {
+    return (
+      <div className='margin-bottom-tiny'>
+        <a rel='noopener' target='_blank' href={this.props.fileUrl}>{'📄'} {this.props.fileName}</a>
+      </div>
+    );
+  }
+
   render() {
     return (
       <section className="upload-container">
@@ -68,7 +80,7 @@ class FieldUpload extends Component {
           disabled={this.state.uploading}
           style={{display:'none'}}
         />
-        <FilePreview url={this.props.fileUrl} name={this.props.fileName} />
+        {this.filePreview()}
         <div className='buttons'>
           <a onClick={this.handleClick.bind(this)}>
             { this.state.uploading ? 'Uploading...' : 'Choose File' }
@@ -76,22 +88,37 @@ class FieldUpload extends Component {
         </div>
       </section>
     );
-  } 
+  }
 }
 
-const FilePreview = (props) => {
-  return (
-    <div>
-      <img src={props.url} />
-      <p>{props.name}</p>
-    </div>
-  );
-};
+class FieldUploadImage extends FieldUpload {
+  getSlingshowUploader() {
+    return new Slingshot.Upload('imageUpload');
+  }
+
+  filePreview() {
+    return (
+      <div className='margin-bottom-tiny'>
+        <img src={this.props.fileUrl} />
+        <a rel='noopener' target='_blank' href={this.props.fileUrl}>{'📄'} {this.props.fileName}</a>
+      </div>
+    );
+  }
+}
 
 export const UploadField = connectField(FieldUpload, {
   mapProps: props => {
-    props.fileUrl = props.value.url || ''; 
-    props.fileName = props.value.name || ''; 
+    props.fileUrl = props.value.url || '';
+    props.fileName = props.value.name || '';
+
+    return props;
+  },
+});
+
+export const UploadFieldImage = connectField(FieldUploadImage, {
+  mapProps: props => {
+    props.fileUrl = props.value.url || '';
+    props.fileName = props.value.name || '';
 
     return props;
   },

@@ -1,9 +1,14 @@
 /* globals Slingshot Random */
 import { Meteor } from 'meteor/meteor';
 
+Slingshot.fileRestrictions('fileUpload', {
+  allowedFileTypes: ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'],
+  maxSize: parseInt(Meteor.settings.public.maxUploadSize),
+});
+
 Slingshot.fileRestrictions('imageUpload', {
   allowedFileTypes: ['image/png', 'image/jpeg', 'image/gif'],
-  maxSize: parseInt(Meteor.settings.maxUploadSize),
+  maxSize: parseInt(Meteor.settings.public.maxUploadSize),
 });
 
 // Misc
@@ -16,6 +21,26 @@ function createFilename(filename) {
 
 // Server code
 if (Meteor.isServer) {
+
+  Slingshot.createDirective('fileUpload', Slingshot.S3Storage, {
+    bucket: Meteor.settings.aws_bucket,
+
+    acl: 'public-read',
+
+    authorize() {
+      if (!this.userId) {
+        throw new Meteor.Error('not-signed-in', 'You must register a user first before uploading a file.');
+      }
+
+      return true;
+    },
+
+    key(file) {
+      // Store file into an image directory for the user's username.
+      return Meteor.settings.applicationSafeName + '/' + this.userId + '/image/' + createFilename(file.name);
+    },
+
+  });
 
   Slingshot.createDirective('imageUpload', Slingshot.S3Storage, {
     bucket: Meteor.settings.aws_bucket,
@@ -37,4 +62,3 @@ if (Meteor.isServer) {
 
   });
 }
-
