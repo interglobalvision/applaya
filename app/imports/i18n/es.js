@@ -79,13 +79,9 @@ i18n.addTranslations('es', {
   },
 
   apply: {
-    introduction: `<p class='flow-text'>Gracias por tu solicitud a la tercera edición de Material Art Fair, que se llevará a cabo a del 4 al 7 de Febrero del 2016, en el Expo Reforma en la Ciudad de México.</p>
-        <p class='flow-text'>El proceso de registro <strong>concluye el viernes 18 de septiembre del 2015</strong>. No se aceptará ninguna solicitud después de esta fecha.</p>
-        <p class='flow-text'>Cada solicitud será cuidadosamente revisada, considerada y analizada por nuestro comité de selección del 2016. Les haremos llegar la decisión del comité a todos los solicitantes a principios de Octubre.</p>
-        <p class='flow-text'>Si en algún momento necesitas pausar y deseas continuar después con tu solicitud, por favor haz click en el botón “guardar” para no perder tu información.</p>
-        <p class='flow-text'>Por favor reporta cualquier error o problema directamente con nosotros a <a href='mailto:applications@material-fair.com' class='u-inline-block'>applications@material-fair.com</a>.</p>`,
+    introduction: '<p>Gracias por tu solicitud a la cuarta edición de Material Art Fair, que se llevará a cabo a del 9 al 12 de Febrero del 2017, en el Expo Reforma en la Ciudad de México.</p><p>El proceso de registro <strong>concluye el viernes 23 de septiembre del 2016</strong>. No se aceptará ninguna solicitud después de esta fecha.</p><p>Cada solicitud será cuidadosamente revisada, considerada y analizada por nuestro comité de selección del 2017. Les haremos llegar la decisión del comité a todos los solicitantes en Octubre.</p><p>Si en algún momento necesitas pausar y deseas continuar después con tu solicitud, por favor haz click en el botón “guardar” para no perder tu información.</p><p>Por favor reporta cualquier error o problema directamente con nosotros a <a href="mailto:applications@material-fair.com" class="u-inline-block">applications@material-fair.com</a>.',
     completed: '{$percentage}% Completado',
-    thanks: 'Gracias por tu solicitud a Material Art Fair 2016. Tu tasa de solicitud ha sido procesado exitosamente. El comite de selección de 2016 va a empezar a revisar las solicitudes después de la fecha límite del 10 de Septiembre y Material Art Fair comenzará a notificar a los solicitantes en los principios de Octubre.',
+    thanks: 'Gracias por tu solicitud a Material Art Fair 2017. Tu tasa de solicitud ha sido procesado exitosamente. El comité de selección va a empezar a revisar las solicitudes después de la fecha límite del 23 de septiembre y comenzarámos a notificar a los solicitantes en Octubre.',
     closed: 'Sorry applications are now closed',
     sections: {
 
@@ -242,49 +238,49 @@ i18n.addTranslations('es', {
       // Section: Booth
       booth: {
         title: 'Selección de stand',
-        description: '<p><em>TENGA EN CUENTA QUE ESTA SECCIÓN HA SIDO ACTUALIZADA PARA REFLEJAR LOS CAMBIOS EN EL CONCEPTO ARQUITECTÓNICO DE LA FERIA EN SU NUEVA SEDE, EXPO REFORMA.</em></p>\
-        <p>Para su edición 2016, Material Art Fair se ha orgullosamente asociado con el despacho de arquitectura <strong>APRDELESP</strong>.</p>\
-        <p>Cuestionando los cánones fundamentales de la arquitectura de las ferias de arte, en las cuáles filas uniformes de stands se interponen en un diálogo incómodo y forzado con la arquitectura pre-existente del espacio que alberga la feria, APREDELESP ha reimaginado el salón <em>Xaman-Ek</em> de Expo Reforma como un terreno baldío en el que una hermosa, autónoma y funcional edificación puede construirse.</p>\
-        <p>Así se crearán docenas de espacios tipo “cubo blanco” para expositores de la <strong>Sección Principal</strong> y un espacio más abierto y experimental para expositores del área de <strong>Proyectos</strong>, así mismo habrán áreas para alimentos, bebidas, libros, conferencias y otras actividades.</p>\
-        <p>Los espacios dentro del área de <strong>Proyectos</strong> de la feria están abiertos a cualquier solicitante pero se les dará preferencia a los espacios independientes liderados por artistas o curadores, organizaciones sin fines de lucro y galerías que llevan poco tiempo operando.</p>\
-        <p>El diseño del área de <strong>Proyectos</strong> tiene la intención de ser abierto, sin embargo los solicitantes pueden solicitar espacio de pared si lo necesitan. Material proveerá hasta dos metros lineales de pared para espacios <em>Sencillos</em> y hasta 4 metros lineales de pared para espacios <em>Dobles</em>. Se pueden pedir paneles de pared adicionales. La altura de las paredes será de tres metros. El diseño exacto y la configuración de los espacios en el área de Proyectos se discutirá y determinará basada en las necesidades del exhibidor, pero queda ultimadamente a discreción de Material Art Fair.</p>\
-        <p>Los stands de la <strong>Sección Principal</strong> tendrán cuatro paredes con dos esquinas. La altura de las paredes será de tres metros.</p>\
-        <ul><strong>Precios:</strong>\
-          <li>Espacios de Proyectos: $175 usd x m2</li>\
-          <li>Sección Principal: $275 usd x m2</li>\
-        </ul>\
-        <ul><strong>El stand incluye:</strong>\
-          <li>Iluminación interior</li>\
-          <li>Señalética de stand</li>\
-          <li>Pases/gafetes de expositor</li>\
-          <li>VIP de cortesía y pases de admisión general</li>\
-          <li>Conexión WiFi (1 usuario)</li>\
-          <li>Bodega de tránsito</li>\
-          <li>Bodega de trabajo adicional</li>\
-        </ul>\
-        <p><strong>Por favor verifique los tamaños del tipo de stand de su interés, ya que las cantidades de cada tipo están limitadas.</strong></p>',
+        description: `<p>Para la edición de 2017, Material Art Fair ha renovado su colaboración con <strong>APRDELESP</strong>, estudio de arquitectura con base en la Ciudad de México. En esta ocasión, la feria estará dividida en <strong>dos plantas</strong>con planos casi idénticos. Los espacios expositivos rodearán un patio central y los visitantes de la feria podrán moverse libremente entre ellos.</p>
+        <p>Hemos ampliado considerablemente la variedad de stands en oferta en el <strong>Área Principal</strong>, con el fin de acomodar a un rango más amplio de presupuestos y ambiciones.</p>
+        <p>Los <strong>Project Spaces</strong>, como siempre, destacarán espacios independientes dirigidos por artistas y curadores, proyectos sin fines de lucro y galerías muy jóvenes, con corto tiempo en operación.</p>
+        <p>La altura de los muros en todos los stands es de 3 metros.</p>
+        <p><strong>Los stands incluyen:</strong>
+        <ul>
+          <li>• Iluminación interior</li>
+          <li>• Señalética</li>
+          <li>• Gafetes para expositores</li>
+          <li>• Entradas de cortesía: entradas VIP y entrada general</li>
+          <li>• WiFi gratuito (1 usuario)</li>
+          <li>• Almacenaje de empaques vacíos</li>
+          <li>• Almacenaje adicional para obras</li>
+        </ul></p>
+        <p><strong>SELECCIÓN DE STANDS<strong><br /><em>La cantidad de stands de cada categoría es limitada: por favor indiquen todos los stands que sean de interés. Favor de tomar en cuenta: los tamaños exactos y su disponibilidad están sujetos a cambios.</em></p>`,
         label: 'Tamaño de Stand',
 
-        boothSingle: {
-          label: 'Proyecto / Sencillo / 3 m2, $525 usd',
+        project: {
+          label: '5 m2 (54 pies cuadrados), con dos muros (3 metros lineales cada uno) $1000 usd (12 disponibles)',
         },
-        boothDouble: {
-          label: 'Proyecto / Doble / 6 m2, $1050 usd',
+        principal1: {
+          label: '9 m2 (97 pies cuadrados) $2700 usd (8 disponibles)',
         },
-        boothSmall: {
-          label: 'Principal / Chico / 9 m2, $2475 usd',
+        principal2: {
+          label: '13 m2 (140 pies cuadrados) $3900 usd (10 disponibles)',
         },
-        boothMedium: {
-          label: 'Principal / Mediano / 12 m2, $3300 usd',
+        principal3: {
+          label: '15 m2 (161 pies cuadrados)  $4500 usd (10 disponibles)',
         },
-        boothPlus: {
-          label: 'Principal / Mediano Plus / 16 m2, $4400 us',
+        principal4: {
+          label: '18 m2 (194 pies cuadrados) $5400 usd (2 disponibles)',
         },
-        boothLarge: {
-          label: 'Principal / Grande / 24 m2, $6600 usd',
+        principal5: {
+          label: '24 m2 (258 pies cuadrados.) $7200 usd (2 disponibles)',
         },
-        boothExtra: {
-          label: 'Principal / Extra Grande / Te contactaremos con más información',
+        principal6: {
+          label: '31 m2 (334 pies cuadrados.) $9300 usd (2 disponibles)',
+        },
+        principal7: {
+          label: '42 m2 (452 pies cuadrados.) $12,600 usd (2 disponibles)',
+        },
+        principal8: {
+          label: '50 m2 (538 pies cuadrados.) $15,000 usd (4 disponibles)',
         },
       },
 
@@ -294,13 +290,13 @@ i18n.addTranslations('es', {
         description: '<p>1. GENERAL</p>\
         <p>Material Art Fair es un evento cultural organizado por Feria de Arte Material México, S.A. de C.V. (“Material Art Fair”) y se llevará a cabo en el Expo Reforma de la Ciudad de México. Estos términos y condiciones de participación gobiernan la participación de los expositores en Material Art Fair. Material Art Fair se reserva el derecho de, en cualquier momento,  emitir otras condiciones, reglas y reglamentos de participación. Los términos y condiciones  de este contrato también cubrirán cualquier día adicional requerido por los expositores para entrar o salir del stand dentro de la exposición.</p>\
         <p>2. FECHAS DE EXPOSICIÓN</p>\
-        <p>Material Art Fair se llevará a cabo del 4 al 7 de Febrero del 2016 con una inauguración previa a la apertura al público el Jueves, 4 de Febrero del  2016.</p>\
+        <p>Material Art Fair se llevará a cabo del 9 al 12 de Febrero del 2017 con una inauguración previa a la apertura al público el Jueves, 9 de Febrero del  2017.</p>\
         <p>3. UBICACIÓN</p>\
-        <p>Expo Reforma</p>\
-        <p>Calle Morelos 67</p>\
-        <p>Col. Juarez, Del. Cuauhtemoc, 06600</p>\
-        <p>Mexico City, D.F.</p>\
-        <p>Mexico</p>\
+        <p>Expo Reforma<br />\
+        Calle Morelos 67<br />\
+        Col. Juarez, Del. Cuauhtemoc, 06600<br />\
+        Mexico City, D.F.<br />\
+        Mexico</p>\
         <p>4. ARTICULOS EN EXPOSICIÓN</p>\
         <p>• Pintura</p>\
         <p>• Escultura</p>\
@@ -325,10 +321,10 @@ i18n.addTranslations('es', {
         <p>8. CO-EXPOSITORES / STAND COMPARTIDO</p>\
         <p>Ningún expositor podrá subarrendar su stand completo o en partes. Los productos, expositores o personas distintas de las especificadas en la solicitud del expositor no se pueden mostrar o anunciar en el stand sin autorización escrita de Material Art Fair.</p>\
         <p>9. CONDICIONES DE PAGO</p>\
-        <p>Se cobrará una tasa de solicitud obligatoria y no reembolsable de $125 USD para enviar la aplicación del expositor. Material requiere del 50% del pago de alquiler de stand inmediatamente después de ser aceptado. Cualquier saldo restante debe ser pagado a más tardar el 20 de noviembre del 2015. Los pagos son no-reembolsables al menos que Material Art Fair acuerde lo contrario de forma personal con cada expositor. En caso de pago incompleto o falta de pago, Material Art Fair se reserva el derecho de  cancelar el contrato del expositor, y reasignar el espacio o retener cualquier pago hecho sin ninguna otra responsabilidad u obligación hacia el expositor.</p>\
+        <p>Se cobrará una tasa de solicitud obligatoria y no reembolsable de $150 USD para enviar la aplicación del expositor. Esta tasa no se acredita a la cuenta de alquiler de stand. Material requiere del 50% del pago de alquiler de stand inmediatamente después de ser aceptado. Cualquier saldo restante debe ser pagado a más tardar el 25 de noviembre del 2016. Los pagos son no-reembolsables al menos que Material Art Fair acuerde lo contrario de forma personal con cada expositor. En caso de pago incompleto o falta de pago, Material Art Fair se reserva el derecho de  cancelar el contrato del expositor, y reasignar el espacio o retener cualquier pago hecho sin ninguna otra responsabilidad u obligación hacia el expositor.</p>\
         <p>10. RESCISIÓN Y CANCELACIÓN DEL CONTRATO DEL EXPOSITOR</p>\
-        <p>Cualquier expositor que no haya ocupado su espacio antes de las 6:00 pm del Miércoles, 03 de febrero 2016, perderá su lugar y Material Art Fair reclamará  de pleno derecho de uso del espacio designado y retendrá cualquier pago hecho sin ninguna otra responsabilidad u obligación hacia el expositor.</p>\
-        <p>Política de cancelación de Material Art Fair: Los expositores que quieran rescindir del contrato están sujetos a un cargo por penalización. Cualquier cancelación de stand recibido en o antes del 01 de diciembre 2015 se traducirá en una cuota para Material Art Fair equivalente a la mitad del costo del alquiler de stand. Las cancelaciones recibidas a partir del 30 de diciembre 2015 darán lugar a perder el 100% de la cuota de stand para Material Art Fair.</p>\
+        <p>Cualquier expositor que no haya ocupado su espacio antes de las 6:00 pm del Miércoles, 08 de febrero 2017, perderá su lugar y Material Art Fair reclamará  de pleno derecho de uso del espacio designado y retendrá cualquier pago hecho sin ninguna otra responsabilidad u obligación hacia el expositor.</p>\
+        <p>Política de cancelación de Material Art Fair: Los expositores que quieran rescindir del contrato están sujetos a un cargo por penalización. Cualquier cancelación de stand recibido en o antes del 02 de diciembre 2016 se traducirá en una cuota para Material Art Fair equivalente a la mitad del costo del alquiler de stand. Las cancelaciones recibidas a partir del 16 de diciembre 2016 darán lugar a perder el 100% de la cuota de stand para Material Art Fair.</p>\
         <p>11. SEGUROS Y EXENCIÓN DE RESPONSABILIDAD</p>\
         <p>Cada expositor debe de contar con cobertura de seguro por daños o pérdidas a los artículos expuestos o que se expondrán, en caso de incendio, robo, robo, rotura, fugas, accidentes o daños por agua, y los riesgos de transporte desde y hacia el espacio del stand del expositor. El expositor asume todo el riesgo de pérdida relacionada con el mismo. Material Art Fair no será responsable de ningún expositor por cualquier daño o perjuicio, directo, incidental o consecuente al expositor o su / su propiedad resultantes de o relacionados con la participación de expositores, a excepción de los daños o pérdidas causados únicamente por negligencia grave de Material Art Fair.</p>\
         <p>Antes de entrar a la feria, se requerirá que cada expositor que firme un formulario liberando a Material Art Fair, sus agentes y subcontratistas de cualquier responsabilidad. Además, el expositor deberá indemnizar y mantener Material Art Fair de y contra cualquier reclamo por daños, pérdidas o daños que resulten de cualquier acto u omisión del expositor o sus empleados, agentes, representantes o subcontratistas.</p>\
@@ -354,7 +350,7 @@ i18n.addTranslations('es', {
         <p>El expositor declara que asegura la autorización requerida para exhibir y explotar las obras de arte que se muestran por el autor o propietario de los derechos de participación a los mismos, así como el uso de las marcas exhibidas, liberando Material Art Fair de cualquier y toda responsabilidad a este respecto.</p>\
         <p>19. CONDICIONES GENERALES</p>\
         <p>El organizador fija las condiciones generales, tales como el lugar, la duración, las fechas, los horarios de apertura y el precio del boleto de entrada a Material Art Fair y se reserva el derecho de modificarlas si es necesario. </p>\
-        <p>Julio, 2015</p>\
+        <p>9 Agosto, 2016</p>\
         <p>Material Art Fair</p>\
         <p>Feria de Arte Material México S.A. de C.V.</p>',
 
@@ -374,7 +370,7 @@ i18n.addTranslations('es', {
 
     payment: {
       title: 'Pago de tasa de solicitud',
-      description: 'Gracias de nuevo por tu solicitud para la edición 2016 de Material Art Fair. Con el fin de completar el registro, se debe de pagar con tarjeta de crédito o débito una tasa de solicitud de $125 USD, esta es obligatoria y no reembolsable. Toma en cuenta que este cargo aparecerá como "Conekta" en tu estado de cuenta bancaria o tarjeta de crédito.',
+      description: 'Gracias de nuevo por tu solicitud para la edición 2017 de Material Art Fair. Con el fin de completar el registro, se debe de pagar con tarjeta de crédito o débito una tasa de solicitud de $150 USD, esta es obligatoria y no reembolsable. Toma en cuenta que este cargo aparecerá como "Conekta" en tu estado de cuenta bancaria o tarjeta de crédito.',
       pay: {
         label: 'Pagar',
       },

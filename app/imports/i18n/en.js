@@ -79,12 +79,9 @@ i18n.addTranslations('en', {
   },
 
   apply: {
-    introduction: "<p class='flow-text'>Thank you for your application to the third edition of Material Art Fair, which will take place from February 4th - 7th, 2017, at Expo Reforma in Mexico City.</p> <p class='flow-text'>Please remember that the <strong>application deadline is Friday, September 18th, 2015</strong>. No applications will be accepted after that date.</p> \
-        <p class='flow-text'>Each application will be carefully reviewed, considered, and discussed by our 2017 Selection Committee and we will send notification of their decisions to all applicants beginning in early October.</p> \
-        <p class='flow-text'>If at any time you need to pause and continue your application at a later moment, please click the save button so as not to lose any information.</p> \
-        <p class='flow-text'>Please report any errors or problems directly to us at <a href='mailto:applications@material-fair.com' class='u-inline-block'>applications@material-fair.com</a>.</p>",
+    introduction: '<p>Thank you for your application to the fourth edition of Material Art Fair, which will take place from February 9th - 12th, 2017, at Expo Reforma in Mexico City. Please remember that the <strong>application deadline is Friday, September 23rd, 2016</strong>. No applications will be accepted after that date.</p><p>Each application will be carefully reviewed, considered, and discussed by our 2017 Selection Committee and we will send notification of their decisions to all applicants beginning in October, once their review has been completed.</p><p>If at any time you need to pause and continue your application at a later moment, please click the save button so as not to lose any information.</p><p>Please report any errors or problems directly to us at <a href="mailto:applications@material-fair.com" class="u-inline-block">applications@material-fair.com</a>.</p>',
     completed: '{$percentage}% Complete',
-    thanks: 'Thanks for your application to Material Art Fair 2016. Your application fee has been processed. The 2016 Selection Committee will begin reviewing applications after the deadline of September 18th and we will begin the notification process in early October.',
+    thanks: 'Thanks for your application to Material Art Fair 2017. Your application fee has been processed. The selection committee will begin reviewing applications after the deadline of September 23rd and we will begin the notification process in October.',
     closed: 'Sorry applications are now closed',
     sections: {
 
@@ -244,49 +241,48 @@ i18n.addTranslations('en', {
       // Section: Booth
       booth: {
         title: 'Booth Selection',
-        description: '<p><em>PLEASE NOTE THAT THIS SECTION HAS BEEN UPDATED TO REFLECT CHANGES IN THE FAIR’S ARCHITECTURAL CONCEPT FOR ITS NEW VENUE, EXPO REFORMA.</em></p>\
-        <p>For its 2016 edition, Material Art Fair has proudly partnered with the Mexico City-based architectural studio, <strong>APRDELESP</strong>.</p>\
-        <p>Questioning the fundamental tenets of art fair architecture, in which uniform rows of booths stand in an uncomfortable, forced dialogue with the existing architecture of the host space, APRDELESP has reimagined Expo Reforma’s <em>Xaman-Ek</em> salon as a vacant lot upon which a beautiful, autonomous, and purposeful building can be constructed.</p>\
-        <p>This will create dozens of white cube-like spaces for exhibitors in the <strong>Principal Section</strong> and a more open and experimental space for exhibitors in the fair’s <strong>Projects</strong> area, as well as areas for food, drinks, books, conferences, and other activities.</p>\
-        <p>Spaces within the fair’s <strong>Projects</strong> area are open to all applicants but preferential consideration will be given to artist and curator-run independent spaces, non-profit organizations, and galleries that have only been in operation a short time.</p>\
-        <p>The layout of the <strong>Projects</strong> area is intended to be open, however applicants may request wall space, if needed. Material will provide up to 2 linear meters of wall for <em>Single spaces</em> and up to 4 linear meters of wall for <em>Double</em> spaces. Additional wall panels may be requested. Wall height is 3 meters. The exact layout and configuration of the spaces within the Projects area will be discussed and determined based on the exhibitor’s needs, but is ultimately up to Material Art Fair’s discretion.</p>\
-        <p><strong>Principal Section</strong> stands will each feature four walls with two corners. Wall height is 3 meters.</p>\
-        <ul><strong>Pricing:</strong>\
-          <li>Project Space: $175 USD / m2</li>\
-          <li>Principal Section: $275 USD / m2</li>\
-        </ul>\
-        <ul><strong>Stands include:</strong>\
-          <li>Interior lighting</li>\
-          <li>Booth signage</li>\
-          <li>Exhibitor badges</li>\
-          <li>Courtesy VIP and general admission passes</li>\
-          <li>WiFi (1 user)</li>\
-          <li>Empty storage</li>\
-          <li>Additional work storage</li>\
-        </ul>\
-        <p><strong>Please check any booth sizes of interest, since quantities of each are limited.</strong></p>',
+        description: `<p>For its 2017 edition, Material Art Fair has again partnered with the Mexico City-based architectural studio, <strong>APRDELESP</strong>. This time, the fair will be divided into <strong>two floors</strong> with nearly identical layouts in which the gallery spaces are situated around a central courtyard, so that the fair’s visitors will be able to flow freely from one space to another.</p>
+        <p>In the <strong>Principal Section</strong>, we have significantly expanded the variety of stands available in order to accommodate a wider range of budgets and ambitions.</p>
+        <p>The <strong>Project Space</strong> stands, as always, will highlight artist and curator-run independent spaces, non-profit organizations, or galleries that have only been in operation a short time.</p>
+        <p>Wall height for all stands is 3.05 meters (10 ft).</p>
+        <p><strong>Stands include:</strong>
+        <ul>
+          <li>• Interior lighting</li>
+          <li>• Booth signage</li>
+          <li>• Exhibitor badges</li>
+          <li>• Courtesy VIP and general admission passes</li>
+          <li>• Complimentary WiFi (1 user)</li>
+          <li>• Empty storage</li>
+          <li>• Additional work storage</li></ul></p>
+        <p><strong>STAND SELECTION<strong><br /><em>Please indicate any stands of interest, because quantities of each are limited. Also note that exact sizes and availability are subject to change.</em></p>`,
         label: 'Booth Size',
 
-        boothSingle: {
-          label: 'Project / Single / 3 m2 (approx. 32 sq. ft.), $525 USD',
+        project: {
+          label: '5 m2 (54 sq. ft), featuring two walls (3 linear meters each) $1000 usd (12 available)',
         },
-        boothDouble: {
-          label: 'Project / Double / 6 m2 (approx. 64 sq. ft.), $1050 USD',
+        principal1: {
+          label: '9 m2 (97 sq. ft.) $2700 usd (8 available)',
         },
-        boothSmall: {
-          label: 'Principal / Small / 9 m2 (approx. 97 sq. ft.), $2475 USD',
+        principal2: {
+          label: '13 m2 (140 sq. ft.) $3900 usd (10 available)',
         },
-        boothMedium: {
-          label: 'Principal / Medium / 12 m2 (approx. 129 sq. ft.), $3300 USD',
+        principal3: {
+          label: '15 m2 (161 sq. ft.) $4500 usd (10 available)',
         },
-        boothPlus: {
-          label: 'Principal / Medium Plus / 16 m2 (approx. 172 sq. ft.), $4400 USD',
+        principal4: {
+          label: '18 m2 (194 sq. ft) $5400 usd (2 available)',
         },
-        boothLarge: {
-          label: 'Principal / Large / 24 m2 (approx. 258 sq. ft.), $6600 USD',
+        principal5: {
+          label: '24 m2 (258 sq. ft.) $7200 usd (2 available)',
         },
-        boothExtra: {
-          label: 'Principal / Extra Large / We will contact you with further details',
+        principal6: {
+          label: '31 m2 (334 sq. ft.) $9300 usd (2 available)',
+        },
+        principal7: {
+          label: '42 m2 (452 sq. ft.) $12,600 usd (2 available)',
+        },
+        principal8: {
+          label: '50 m2 (538 sq. ft.) $15,000 usd (4 available)',
         },
       },
 
@@ -296,13 +292,13 @@ i18n.addTranslations('en', {
         description: '<p>1. GENERAL</p>\
         <p>Material Art Fair is a cultural event organized by Feria de Arte Material México, S.A. de C.V. (“Material Art Fair”) and will take place at Expo Reforma in Mexico City. These Terms and Conditions of Participation govern the exhibitor’s participation in Material Art Fair. Material Art Fair reserves the right to, at any time, issue other conditions, rules and regulations of participation. The terms and conditions of this Agreement shall also cover any additional days required for Exhibitor to move-in and move-out of the booth space at the Exhibition.</p>\
         <p>2. SHOW DATES</p>\
-        <p>Material Art Fair will take place February 4-7, 2016 with the opening preview on Thursday, February 4, 2016.</p>\
+        <p>Material Art Fair will take place February 9-12, 2017 with the opening preview on Thursday, February 9, 2017.</p>\
         <p>3. LOCATION</p>\
-        <p>Expo Reforma</p>\
-        <p>Calle Morelos 67</p>\
-        <p>Col. Juarez, Del. Cuauhtemoc, 06600 </p>\
-        <p>Mexico City, D.F.</p>\
-        <p>Mexico</p>\
+        <p>Expo Reforma<br />\
+        Calle Morelos 67<br />\
+        Col. Juarez, Del. Cuauhtemoc, 06600 <br />\
+        Mexico City, D.F.<br />\
+        Mexico</p>\
         <p>4. ARTICLES ON EXHIBIT</p>\
         <p>• Painting</p>\
         <p>• Sculpture</p>\
@@ -326,10 +322,10 @@ i18n.addTranslations('en', {
         <p>8. CO-EXHIBITORS / BOOTH SHARING</p>\
         <p>No exhibitor may sublet his/her booth either wholly or in part. Products, exhibitors or individuals other than those specified in the exhibitor’s application may not be shown or advertised in the booth without written permission from Material Art Fair.</p>\
         <p>9. CONDITIONS OF PAYMENT</p>\
-        <p>A mandatory and non-refundable $125 USD application fee will be due upon submission of the exhibitor application. 50% of the booth rental payment will be due upon acceptance. Any remaining balance must be paid no later than November 20th, 2015. Payments are non-refundable unless Material Art Fair otherwise agrees in its discretion. In event of incomplete payment or nonpayment, Material Art Fair may cancel the exhibitor’s contract, reallocate the space and retain any payments made without any further liability or obligation to the exhibitor.</p>\
+        <p> A mandatory and non-refundable $150 USD application fee will be due upon submission of the exhibitor application. This fee is not credited to the exhibitor’s account against booth rental fees. 50% of the booth rental payment will be due upon acceptance. Any remaining balance must be paid no later than November 25th, 2016. Payments are non-refundable unless Material Art Fair otherwise agrees in its discretion. In event of incomplete payment or nonpayment, Material Art Fair may cancel the exhibitor’s contract, reallocate the space and retain any payments made without any further liability or obligation to the exhibitor.</p>\
         <p>10. WITHDRAWAL FROM THE EXHIBITOR’S CONTRACT</p>\
-        <p>Any exhibitor that has not occupied its space by 6:00pm on Wednesday, February 3, 2016, will forfeit that space and Material Art Fair will claim full rights to that space and retain any payments made without any further liability or obligation to the exhibitor.</p>\
-        <p>Material Art Fair Cancellation Policy: Exhibitors withdrawing from the contract are subject to a penalty charge. Any booth cancellations received on or before December 1, 2015 will result in a fee to Material Art Fair equal to half the cost of the booth rental. Cancellations received on or after December 30, 2015 will result in forfeiting 100% of the booth fee to Material Art Fair.</p>\
+        <p>Any exhibitor that has not occupied its space by 6:00pm on Wednesday, February 8, 2017, will forfeit that space and Material Art Fair will claim full rights to that space and retain any payments made without any further liability or obligation to the exhibitor.\
+        Material Art Fair Cancellation Policy: Exhibitors withdrawing from the contract are subject to a penalty charge. Any booth cancellations received on or before December 2, 2016 will result in a fee to Material Art Fair equal to half the cost of the booth rental. Cancellations received on or after December 16, 2016 will result in forfeiting 100% of the booth fee to Material Art Fair.</p>\
         <p>11. INSURANCE AND EXEMPTION FROM LIABILITY</p>\
         <p>Each exhibitor should obtain insurance coverage for damage or loss to articles exhibited or to be exhibited, due to fire, theft, burglary, breakage, leakage, accident or water damage, and the risks of transport to and from the exhibitor’s booth space. The exhibitor assumes all risk of loss related thereto. Material Art Fair will not be liable to any exhibitor for any direct, incidental or consequential damages or loss to exhibitor or his her/its property arising from or connected with exhibitor’s participation, except for damage or loss caused solely by Material Art Fair’s gross negligence.</p>\
         <p>Prior to admission to the show, each exhibitor will be required to sign a form releasing Material Art Fair, their agents and subcontractors from liability. Furthermore, the exhibitor shall indemnify and hold Material Art Fair harmless from and against any claim whatsoever for injury, loss or damage resulting from any act or omission of the exhibitor or its employees, agents, representatives, or subcontractors.</p>\
@@ -355,7 +351,7 @@ i18n.addTranslations('en', {
         <p>The exhibitor declares it has secures the authorization required to exhibit and exploit the works of art shown by the author or owner of the equity rights thereto, as well as to use the brands exhibited, releasing Material Art Fair from any and all liability in this regard.</p>\
         <p>19. GENERAL CONDITIONS</p>\
         <p>The organizer sets the general conditions such as the place, the duration, the dates, the opening hours and the ticket price of Material Art Fair and if necessary reserves the right to modify them.</p>\
-        <p>July, 2015</p>\
+        <p>August 9th, 2016</p>\
         <p>Material Art Fair</p>\
         <p>Feria de Arte Material México S.A. de C.V.</p>',
 
@@ -375,7 +371,7 @@ i18n.addTranslations('en', {
 
     payment: {
       title: 'Payment',
-      description: 'Thank you again for your application to the 2016 edition of Material Art Fair. In order to complete the submission of your application, there is a $125 USD application fee, payable by any major credit or debit card below. Please note that this charge will appear as "Conekta" on your bank or credit card statement.',
+      description: 'Thank you again for your application to the 2017 edition of Material Art Fair. In order to complete the submission of your application, there is a $150 USD application fee, payable by any major credit or debit card below. Please note that this charge will appear as "Conekta" on your bank or credit card statement.',
       pay: {
         label: 'Pay',
       },
