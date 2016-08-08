@@ -6,7 +6,7 @@ import { setupApplicant } from '/imports/api/methods/accountMethods.js';
 Accounts.ui.config({
   passwordSignupFields: 'EMAIL_ONLY',
   loginPath: '/login',
-  onSignedInHook: () => {
+  onSignedInHook() {
     const user = Meteor.user();
 
     // set active locale to user lang pref
@@ -20,8 +20,10 @@ Accounts.ui.config({
       FlowRouter.go('/admin');
     }
   },
-  onSignedOutHook: () => FlowRouter.go('/'),
-  onPostSignUpHook: () => {
+  onSignedOutHook() {
+    FlowRouter.go('/');
+  },
+  onPostSignUpHook() {
     // set lang pref in user.profile
     const locale = i18n.getLocale();
     setAccountLocale.call({locale});
@@ -34,5 +36,5 @@ Accounts.ui.config({
         FlowRouter.go('/apply')
       }
     });
-  }
+  },
 });

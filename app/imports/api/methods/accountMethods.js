@@ -27,7 +27,7 @@ export const setAccountLocale = new ValidatedMethod({
     }
   }).validator(),
 
-  run(locale) {
-    Meteor.users.update(this.userId, { $set: {'profile.lang': locale} });
+  run(args) {
+    Meteor.users.update(this.userId, { $set: {'profile.lang': args.locale} });
   },
 });
