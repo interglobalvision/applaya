@@ -233,27 +233,21 @@ i18n.addTranslations('es', {
       // Section: Booth
       booth: {
         title: 'Selección de stand',
-        description: '<p><em>TENGA EN CUENTA QUE ESTA SECCIÓN HA SIDO ACTUALIZADA PARA REFLEJAR LOS CAMBIOS EN EL CONCEPTO ARQUITECTÓNICO DE LA FERIA EN SU NUEVA SEDE, EXPO REFORMA.</em></p>\
-        <p>Para su edición 2016, Material Art Fair se ha orgullosamente asociado con el despacho de arquitectura <strong>APRDELESP</strong>.</p>\
-        <p>Cuestionando los cánones fundamentales de la arquitectura de las ferias de arte, en las cuáles filas uniformes de stands se interponen en un diálogo incómodo y forzado con la arquitectura pre-existente del espacio que alberga la feria, APREDELESP ha reimaginado el salón <em>Xaman-Ek</em> de Expo Reforma como un terreno baldío en el que una hermosa, autónoma y funcional edificación puede construirse.</p>\
-        <p>Así se crearán docenas de espacios tipo “cubo blanco” para expositores de la <strong>Sección Principal</strong> y un espacio más abierto y experimental para expositores del área de <strong>Proyectos</strong>, así mismo habrán áreas para alimentos, bebidas, libros, conferencias y otras actividades.</p>\
-        <p>Los espacios dentro del área de <strong>Proyectos</strong> de la feria están abiertos a cualquier solicitante pero se les dará preferencia a los espacios independientes liderados por artistas o curadores, organizaciones sin fines de lucro y galerías que llevan poco tiempo operando.</p>\
-        <p>El diseño del área de <strong>Proyectos</strong> tiene la intención de ser abierto, sin embargo los solicitantes pueden solicitar espacio de pared si lo necesitan. Material proveerá hasta dos metros lineales de pared para espacios <em>Sencillos</em> y hasta 4 metros lineales de pared para espacios <em>Dobles</em>. Se pueden pedir paneles de pared adicionales. La altura de las paredes será de tres metros. El diseño exacto y la configuración de los espacios en el área de Proyectos se discutirá y determinará basada en las necesidades del exhibidor, pero queda ultimadamente a discreción de Material Art Fair.</p>\
-        <p>Los stands de la <strong>Sección Principal</strong> tendrán cuatro paredes con dos esquinas. La altura de las paredes será de tres metros.</p>\
-        <ul><strong>Precios:</strong>\
-          <li>Espacios de Proyectos: $175 usd x m2</li>\
-          <li>Sección Principal: $275 usd x m2</li>\
-        </ul>\
-        <ul><strong>El stand incluye:</strong>\
-          <li>Iluminación interior</li>\
-          <li>Señalética de stand</li>\
-          <li>Pases/gafetes de expositor</li>\
-          <li>VIP de cortesía y pases de admisión general</li>\
-          <li>Conexión WiFi (1 usuario)</li>\
-          <li>Bodega de tránsito</li>\
-          <li>Bodega de trabajo adicional</li>\
-        </ul>\
-        <p><strong>Por favor verifique los tamaños del tipo de stand de su interés, ya que las cantidades de cada tipo están limitadas.</strong></p>',
+        description: `<p>Para la edición de 2017, Material Art Fair ha renovado su colaboración con <strong>APRDELESP</strong>, estudio de arquitectura con base en la Ciudad de México. En esta ocasión, la feria estará dividida en <strong>dos plantas</strong>con planos casi idénticos. Los espacios expositivos rodearán un patio central y los visitantes de la feria podrán moverse libremente entre ellos.</p>
+        <p>Hemos ampliado considerablemente la variedad de stands en oferta en el <strong>Área Principal</strong>, con el fin de acomodar a un rango más amplio de presupuestos y ambiciones.</p>
+        <p>Los <strong>Project Spaces</strong>, como siempre, destacarán espacios independientes dirigidos por artistas y curadores, proyectos sin fines de lucro y galerías muy jóvenes, con corto tiempo en operación.</p>
+        <p>La altura de los muros en todos los stands es de 3 metros.</p>
+        <p><strong>Los stands incluyen:</strong>
+        <ul>
+          <li>• Iluminación interior</li>
+          <li>• Señalética</li>
+          <li>• Gafetes para expositores</li>
+          <li>• Entradas de cortesía: entradas VIP y entrada general</li>
+          <li>• WiFi gratuito (1 usuario)</li>
+          <li>• Almacenaje de empaques vacíos</li>
+          <li>• Almacenaje adicional para obras</li>
+        </ul></p>
+        <p><strong>SELECCIÓN DE STANDS<strong><br /><em>La cantidad de stands de cada categoría es limitada: por favor indiquen todos los stands que sean de interés. Favor de tomar en cuenta: los tamaños exactos y su disponibilidad están sujetos a cambios.</em></p>`,
         label: 'Tamaño de Stand',
 
         boothSingle: {

@@ -236,27 +236,20 @@ i18n.addTranslations('en', {
       // Section: Booth
       booth: {
         title: 'Booth Selection',
-        description: '<p><em>PLEASE NOTE THAT THIS SECTION HAS BEEN UPDATED TO REFLECT CHANGES IN THE FAIR’S ARCHITECTURAL CONCEPT FOR ITS NEW VENUE, EXPO REFORMA.</em></p>\
-        <p>For its 2016 edition, Material Art Fair has proudly partnered with the Mexico City-based architectural studio, <strong>APRDELESP</strong>.</p>\
-        <p>Questioning the fundamental tenets of art fair architecture, in which uniform rows of booths stand in an uncomfortable, forced dialogue with the existing architecture of the host space, APRDELESP has reimagined Expo Reforma’s <em>Xaman-Ek</em> salon as a vacant lot upon which a beautiful, autonomous, and purposeful building can be constructed.</p>\
-        <p>This will create dozens of white cube-like spaces for exhibitors in the <strong>Principal Section</strong> and a more open and experimental space for exhibitors in the fair’s <strong>Projects</strong> area, as well as areas for food, drinks, books, conferences, and other activities.</p>\
-        <p>Spaces within the fair’s <strong>Projects</strong> area are open to all applicants but preferential consideration will be given to artist and curator-run independent spaces, non-profit organizations, and galleries that have only been in operation a short time.</p>\
-        <p>The layout of the <strong>Projects</strong> area is intended to be open, however applicants may request wall space, if needed. Material will provide up to 2 linear meters of wall for <em>Single spaces</em> and up to 4 linear meters of wall for <em>Double</em> spaces. Additional wall panels may be requested. Wall height is 3 meters. The exact layout and configuration of the spaces within the Projects area will be discussed and determined based on the exhibitor’s needs, but is ultimately up to Material Art Fair’s discretion.</p>\
-        <p><strong>Principal Section</strong> stands will each feature four walls with two corners. Wall height is 3 meters.</p>\
-        <ul><strong>Pricing:</strong>\
-          <li>Project Space: $175 USD / m2</li>\
-          <li>Principal Section: $275 USD / m2</li>\
-        </ul>\
-        <ul><strong>Stands include:</strong>\
-          <li>Interior lighting</li>\
-          <li>Booth signage</li>\
-          <li>Exhibitor badges</li>\
-          <li>Courtesy VIP and general admission passes</li>\
-          <li>WiFi (1 user)</li>\
-          <li>Empty storage</li>\
-          <li>Additional work storage</li>\
-        </ul>\
-        <p><strong>Please check any booth sizes of interest, since quantities of each are limited.</strong></p>',
+        description: '<p>For its 2017 edition, Material Art Fair has again partnered with the Mexico City-based architectural studio, <strong>APRDELESP</strong>. This time, the fair will be divided into <strong>two floors</strong> with nearly identical layouts in which the gallery spaces are situated around a central courtyard, so that the fair’s visitors will be able to flow freely from one space to another.</p>
+        <p>In the <strong>Principal Section</strong>, we have significantly expanded the variety of stands available in order to accommodate a wider range of budgets and ambitions.</p>
+        <p>The <strong>Project Space</strong> stands, as always, will highlight artist and curator-run independent spaces, non-profit organizations, or galleries that have only been in operation a short time.</p>
+        <p>Wall height for all stands is 3.05 meters (10 ft).</p>
+        <p><strong>Stands include:</strong>
+        <ul>
+          <li>• Interior lighting</li>
+          <li>• Booth signage</li>
+          <li>• Exhibitor badges</li>
+          <li>• Courtesy VIP and general admission passes</li>
+          <li>• Complimentary WiFi (1 user)</li>
+          <li>• Empty storage</li>
+          <li>• Additional work storage</li></ul></p>
+        <p><strong>STAND SELECTION<strong><br /><em>Please indicate any stands of interest, because quantities of each are limited. Also note that exact sizes and availability are subject to change.</em></p>',
         label: 'Booth Size',
 
         boothSingle: {
