@@ -1,5 +1,9 @@
 import React from 'react';
-import { AutoForm, AutoField, ListField, ListItemField, NestField, ErrorsField } from 'uniforms-unstyled';
+
+import { AutoForm, AutoField, NestField, ErrorsField } from 'uniforms-unstyled';
+
+import ListField from '/imports/components/fields/list/ListField.jsx';
+import ListItemField from '/imports/components/fields/list/ListItemField.jsx';
 
 // Import schemas
 import { ArtistsSchema } from '/imports/schemas/artists.js';

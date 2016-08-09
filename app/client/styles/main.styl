@@ -496,26 +496,34 @@ button, .button
 // REPEATED ARTIST FIELDS
 
 .apply-section-artists
-  label
-    span
-      button()
-      margin-left: $margin-small
-      padding: $margin-micro $margin-tiny
   input
     margin-bottom: $margin-small
   section
     margin-bottom: $margin-tiny
-    span
-      button()
-      margin-left: $margin-small
-      padding: $margin-micro $margin-tiny
+    &.list-item
+      margin-bottom: $margin-basic
 
-.apply-section-artist
+
+.list-item
+  position: relative
   padding: $margin-small
   border: 1px dashed $color-black
-  ul > section
-      padding: $margin-small
-      border: 1px dashed $color-black
+  margin-bottom: $margin-basic
+  ul
+    margin-top: $margin-small
+
+.list-item-remove-holder
+  position: absolute
+  top: -12px
+  right: -8px
+  .list-item-remove
+    button()
+    padding: $margin-micro $margin-tiny
+    background-color: $color-compliment-1
+    font-size: .8rem
+    width: 1rem
+    border-radius: 1.5rem
+    text-align: center
 
 
 // ******************************************************
