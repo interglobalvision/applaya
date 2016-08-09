@@ -507,6 +507,38 @@ button, .button
     pointer-events: none
     opacity: $input-disabled-opacity
 
+// REPEATED ARTIST FIELDS
+
+.apply-section-artists
+  input
+    margin-bottom: $margin-small
+  section
+    margin-bottom: $margin-tiny
+    &.list-item
+      margin-bottom: $margin-basic
+
+
+.list-item
+  position: relative
+  padding: $margin-small
+  border: 1px dashed $color-black
+  margin-bottom: $margin-basic
+  ul
+    margin-top: $margin-small
+
+.list-item-remove-holder
+  position: absolute
+  top: -12px
+  right: -8px
+  .list-item-remove
+    button()
+    padding: $margin-micro $margin-tiny
+    background-color: $color-compliment-1
+    font-size: .8rem
+    width: 1rem
+    border-radius: 1.5rem
+    text-align: center
+
 
 // ******************************************************
 
