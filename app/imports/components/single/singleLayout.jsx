@@ -106,13 +106,15 @@ export class SingleSection extends Component {
               return (
                 <section>
                   <ul>
-                    {!_.isUndefined(booths.boothSingle) && booths.boothSingle === true ? <li>✔︎ <T>apply.sections.booth.boothSingle.label</T></li> : false}
-                    {!_.isUndefined(booths.boothDouble) && booths.boothDouble === true ? <li>✔︎ <T>apply.sections.booth.boothDouble.label</T></li> : false}
-                    {!_.isUndefined(booths.boothSmall) && booths.boothSmall === true ? <li>✔︎ <T>apply.sections.booth.boothSmall.label</T></li> : false}
-                    {!_.isUndefined(booths.boothMedium) && booths.boothMedium === true ? <li>✔︎ <T>apply.sections.booth.boothMedium.label</T></li> : false}
-                    {!_.isUndefined(booths.boothPlus) && booths.boothPlus === true ? <li>✔︎ <T>apply.sections.booth.boothPlus.label</T></li> : false}
-                    {!_.isUndefined(booths.boothLarge) && booths.boothLarge === true ? <li>✔︎ <T>apply.sections.booth.boothLarge.label</T></li> : false}
-                    {!_.isUndefined(booths.boothExtra) && booths.boothExtra === true ? <li>✔︎ <T>apply.sections.booth.boothExtra.label</T></li> : false}
+                    {!_.isUndefined(booths.project) && booths.project === true ? <li>✔︎ <T>apply.sections.booth.project.label</T></li> : false}
+                    {!_.isUndefined(booths.principal1) && booths.principal1 === true ? <li>✔︎ <T>apply.sections.booth.principal1.label</T></li> : false}
+                    {!_.isUndefined(booths.principal2) && booths.principal2 === true ? <li>✔︎ <T>apply.sections.booth.principal2.label</T></li> : false}
+                    {!_.isUndefined(booths.principal3) && booths.principal3 === true ? <li>✔︎ <T>apply.sections.booth.principal3.label</T></li> : false}
+                    {!_.isUndefined(booths.principal4) && booths.principal4 === true ? <li>✔︎ <T>apply.sections.booth.principal4.label</T></li> : false}
+                    {!_.isUndefined(booths.principal5) && booths.principal5 === true ? <li>✔︎ <T>apply.sections.booth.principal5.label</T></li> : false}
+                    {!_.isUndefined(booths.principal6) && booths.principal6 === true ? <li>✔︎ <T>apply.sections.booth.principal6.label</T></li> : false}
+                    {!_.isUndefined(booths.principal7) && booths.principal7 === true ? <li>✔︎ <T>apply.sections.booth.principal7.label</T></li> : false}
+                    {!_.isUndefined(booths.principal8) && booths.principal8 === true ? <li>✔︎ <T>apply.sections.booth.principal8.label</T></li> : false}
                   </ul>
                 </section>
               );
