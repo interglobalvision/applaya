@@ -30,18 +30,18 @@ class FieldUpload extends Component {
     });
 
     uploader.send(uploadFile, function(error, url) {
+      this.setState({uploading: false,});
+
       if (error) {
         Alert.error(error.message);
+        console.log(error);
         throw new Meteor.Error('upload-file-fail', error);
+
       } else {
         const file = {
           url: url,
           name: uploadFile.name,
         };
-
-        this.setState({
-          uploading: false,
-        });
 
         Alert.success(i18n.__('notifications.upload.success', {
           filename: file.name,
