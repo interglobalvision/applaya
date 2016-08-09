@@ -14,32 +14,32 @@ import { ArtistsSchema } from '/imports/schemas/artists.js';
 import { BoothSchema } from '/imports/schemas/booth.js';
 import { TermsSchema } from '/imports/schemas/terms.js';
 
-export const Steps = [{ // 1
+export const Steps = [{
   component: GalleryInformation,
   name: 'Gallery Information',
   key: 'gallery-information',
   schema: GalleryInformationSchema,
-}, { // 2
-  component: ContactInformation,
-  name: 'Contact Information',
-  key: 'contact-information',
-  schema: ContactInformationSchema,
-}, { // 3
-  component: Proposal,
-  name: 'Proposal',
-  key: 'proposal',
-  schema: ProposalSchema,
-}, { // 4
-  component: Artists,
-  name: 'Artists',
-  key: 'artists',
-  schema: ArtistsSchema,
-}, { // 5
+}, {
   component: Booth,
   name: 'Booth',
   key: 'booth',
   schema: BoothSchema,
-}, { // 6
+}, {
+  component: ContactInformation,
+  name: 'Contact Information',
+  key: 'contact-information',
+  schema: ContactInformationSchema,
+}, {
+  component: Proposal,
+  name: 'Proposal',
+  key: 'proposal',
+  schema: ProposalSchema,
+}, {
+  component: Artists,
+  name: 'Artists',
+  key: 'artists',
+  schema: ArtistsSchema,
+}, {
   component: Terms,
   name: 'Terms and conditions',
   key: 'terms-and-conditions',
