@@ -33,7 +33,7 @@ export class GalleryInformation extends ApplySection {
           <AutoField name="galleryPhone" />
           <AutoField name="galleryEmail" />
           <AutoField name="website" />
-          <ErrorsField className={'errors'} />
+          <ErrorsField className="errors" />
         </AutoForm>
       </section>
     );

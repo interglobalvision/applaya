@@ -30,7 +30,7 @@ export class ContactInformation extends ApplySection {
           <AutoField name="facebook" />
           <AutoField name="tumblr" />
           <AutoField name="instagram" />
-          <ErrorsField className={'errors'} />
+          <ErrorsField className="errors" />
         </AutoForm>
       </section>
     );

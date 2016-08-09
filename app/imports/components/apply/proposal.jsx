@@ -28,7 +28,7 @@ export class Proposal extends ApplySection {
           <AutoField name="galleryYear" />
           <AutoField name="participation" />
           <AutoField name="standProposal" />
-          <ErrorsField className={'errors'} />
+          <ErrorsField className="errors" />
         </AutoForm>
       </section>
     );
