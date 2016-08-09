@@ -103,6 +103,8 @@ $color-alt-1 = $color-yellow
 $color-compliment-1 = $color-black
 $color-compliment-2 = $color-pink
 
+$color-error = $color-pink
+
 // ******************************************************
 
 // TYPOGRAPHY
@@ -391,6 +393,18 @@ ul
   margin-bottom: 1rem
   &.u-inline-list
     margin-bottom: 0
+
+
+// ******************************************************
+
+// APPLY SECTIONS
+
+.apply-section
+  .errors
+    li
+      padding: $margin-small
+      background-color: $color-error
+      margin-bottom: $margin-tiny
 
 // ******************************************************
 

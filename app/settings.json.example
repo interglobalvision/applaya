@@ -21,6 +21,7 @@
     },
 
     "public": {
+      "autosaveDelay": 1000,
       "maxUploadSize": 6291456,
       "applicationFee": 10000,
       "conekta_public_sandbox":"xxx",

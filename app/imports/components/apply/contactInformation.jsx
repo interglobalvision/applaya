@@ -18,8 +18,8 @@ export class ContactInformation extends ApplySection {
         <T>apply.sections.contactInformation.description</T>
         <AutoForm
           autosave
+          autosaveDelay={Meteor.settings.public.autosaveDelay}
           schema={ContactInformationSchema}
-          onSubmit={this.onSubmit.bind(this)}
           onValidate={this.onValidate.bind(this)}
           model={this.props.model}
         >

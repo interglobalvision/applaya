@@ -18,7 +18,6 @@ export class Terms extends ApplySection {
         <AutoForm
           autosave
           schema={TermsSchema}
-          onSubmit={this.onSubmit.bind(this)}
           onValidate={this.onValidate.bind(this)}
           model={this.props.model}
         >
