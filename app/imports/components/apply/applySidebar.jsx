@@ -4,7 +4,7 @@ import Alert from 'react-s-alert';
 import { Applications } from '/imports/collections/applications.js';
 import { ApplicationSections } from '/imports/collections/applicationSections.js';
 
-import { StepsInfo } from '/imports/components/apply/steps.js';
+import { StepsInfo } from '/imports/lib/steps.js';
 
 import { submitApplication } from '/imports/api/methods/applicationMethods.js';
 

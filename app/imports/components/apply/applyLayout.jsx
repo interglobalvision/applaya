@@ -6,7 +6,7 @@ import { ApplySidebar } from '/imports/components/apply/applySidebar.jsx';
 import { ApplyIntro } from '/imports/components/apply/applyIntro.jsx';
 
 // Import apply steps
-import { Steps } from '/imports/components/apply/steps.js';
+import { Steps } from '/imports/lib/steps.js';
 
 export class ApplyLayout extends Component {
   localeChanged(locale) {
