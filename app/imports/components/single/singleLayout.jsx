@@ -45,7 +45,6 @@ export class SingleSection extends Component {
     return (
       <div className="single-application-section">
         <h3>Section {this.props.section.step}: {step.name}</h3>
-        <h5>Validated: {validatedString}</h5>
         {(() => {
           switch (step.key) {
             case 'gallery-information':
@@ -60,8 +59,11 @@ export class SingleSection extends Component {
                     {data.city}, {data.state}<br />
                     {data.country}. {data.postalCode}
                   </p>
-                  <p>Tel: {data.galleryPhone}</p>
-                  <p>Email: {data.galleryEmail}</p>
+                  <h4>Tel</h4>
+                  <p>{data.galleryPhone}</p>
+                  <h4>Email</h4>
+                  <p>{data.galleryEmail}</p>
+                  <h4>Website</h4>
                   <p><a href={data.website}>{data.website}</a></p>
                 </section>
               );
@@ -70,12 +72,13 @@ export class SingleSection extends Component {
                 <section>
                   <h4><T>apply.sections.contactInformation.contactName.label</T></h4>
                   <p>{data.contactName}</p>
+                  <h4>Email</h4>
                   <p><a href={'mailto:' + data.contactEmail}>{data.contactEmail}</a></p>
-                  { !_.isUndefined(data.contactPhone) ? <p>Tel: {data.contactPhone}</p> : false }
-                  { !_.isUndefined(data.twitter) ? <p>Twitter: {data.twitter}</p> : false }
-                  { !_.isUndefined(data.facebook) ? <p>Facebook: {data.facebook}</p> : false }
-                  { !_.isUndefined(data.tumblr) ? <p>Tumblr: {data.tumblr}</p> : false }
-                  { !_.isUndefined(data.instagram) ? <p>Instagram: {data.tumblr}</p> : false }
+                  { !_.isUndefined(data.contactPhone) ? <div><h4>Tel</h4><p>{data.contactPhone}</p></div> : false }
+                  { !_.isUndefined(data.twitter) ? <div><h4>Twitter</h4><p>{data.twitter}</p></div>  : false }
+                  { !_.isUndefined(data.facebook) ? <div><h4>Facebook</h4><p>{data.facebook}</p></div>  : false }
+                  { !_.isUndefined(data.tumblr) ? <div><h4>Tumblr</h4><p>{data.tumblr}</p></div>  : false }
+                  { !_.isUndefined(data.instagram) ? <div><h4>Instagram</h4><p>{data.tumblr}</p></div>  : false }
                 </section>
               );
             case 'proposal':
@@ -106,19 +109,22 @@ export class SingleSection extends Component {
               return (
                 <section>
                   <ul>
-                    {!_.isUndefined(booths.boothSingle) && booths.boothSingle === true ? <li>✔︎ <T>apply.sections.booth.boothSingle.label</T></li> : false}
-                    {!_.isUndefined(booths.boothDouble) && booths.boothDouble === true ? <li>✔︎ <T>apply.sections.booth.boothDouble.label</T></li> : false}
-                    {!_.isUndefined(booths.boothSmall) && booths.boothSmall === true ? <li>✔︎ <T>apply.sections.booth.boothSmall.label</T></li> : false}
-                    {!_.isUndefined(booths.boothMedium) && booths.boothMedium === true ? <li>✔︎ <T>apply.sections.booth.boothMedium.label</T></li> : false}
-                    {!_.isUndefined(booths.boothPlus) && booths.boothPlus === true ? <li>✔︎ <T>apply.sections.booth.boothPlus.label</T></li> : false}
-                    {!_.isUndefined(booths.boothLarge) && booths.boothLarge === true ? <li>✔︎ <T>apply.sections.booth.boothLarge.label</T></li> : false}
-                    {!_.isUndefined(booths.boothExtra) && booths.boothExtra === true ? <li>✔︎ <T>apply.sections.booth.boothExtra.label</T></li> : false}
+                    {!_.isUndefined(booths.project) && booths.project === true ? <li>✔︎  <T>apply.sections.booth.project.label</T></li> : false}
+                    {!_.isUndefined(booths.principal1) && booths.principal1 === true ? <li>✔︎  <T>apply.sections.booth.principal1.label</T></li> : false}
+                    {!_.isUndefined(booths.principal2) && booths.principal2 === true ? <li>✔︎  <T>apply.sections.booth.principal2.label</T></li> : false}
+                    {!_.isUndefined(booths.principal3) && booths.principal3 === true ? <li>✔︎  <T>apply.sections.booth.principal3.label</T></li> : false}
+                    {!_.isUndefined(booths.principal4) && booths.principal4 === true ? <li>✔︎  <T>apply.sections.booth.principal4.label</T></li> : false}
+                    {!_.isUndefined(booths.principal5) && booths.principal5 === true ? <li>✔︎  <T>apply.sections.booth.principal5.label</T></li> : false}
+                    {!_.isUndefined(booths.principal6) && booths.principal6 === true ? <li>✔︎  <T>apply.sections.booth.principal6.label</T></li> : false}
+                    {!_.isUndefined(booths.principal7) && booths.principal7 === true ? <li>✔︎  <T>apply.sections.booth.principal7.label</T></li> : false}
+                    {!_.isUndefined(booths.principal8) && booths.principal8 === true ? <li>✔︎  <T>apply.sections.booth.principal8.label</T></li> : false}
                   </ul>
                 </section>
               );
             case 'terms-and-conditions':
               return (
                 <section>
+                  <h4><T>apply.sections.terms.signature.label</T></h4>
                   {!_.isUndefined(data.signature) ? <img src={data.signature} /> : false}
                 </section>
               );
@@ -133,13 +139,13 @@ export class SingleArtist extends Component {
   render() {
     const artist = this.props.artist;
     return (
-      <section>
+      <section className='single-application-artist'>
         <h4>{artist.name}</h4>
-        <p><a href={artist.cv.file.url} rel='noopener' target='_blank'>CV</a></p>
+        <p>{'📄'} <a href={artist.cv.file.url} rel='noopener' target='_blank'>{artist.cv.file.name}</a></p>
         {artist.work.map( (work, key) => (
           <SingleWork work={work} key={key} />
         ))}
-g     </section>
+      </section>
     );
   }
 };
@@ -148,12 +154,14 @@ export class SingleWork extends Component {
   render() {
     const work = this.props.work;
     return (
-      <section>
-        <h5>{work.workTitle}</h5>
-        <img src={work.image.file.url} alt={work.image.file.name} />
-        <p><T>apply.sections.artists.work.medium.label</T>: {work.medium}</p>
-        <p><T>apply.sections.artists.work.dimensions.label</T>: {work.dimensions}</p>
-        <p><T>apply.sections.artists.work.year.label</T>: {work.year}</p>
+      <section className='single-application-artist-work'>
+        <img className='single-application-artist-work-image' src={work.image.file.url} alt={work.image.file.name} />
+        <ul>
+          <li><T>apply.sections.artists.work.workTitle.label</T>: {work.workTitle}</li>
+          <li><T>apply.sections.artists.work.medium.label</T>: {work.medium}</li>
+          <li><T>apply.sections.artists.work.dimensions.label</T>: {work.dimensions}</li>
+          <li><T>apply.sections.artists.work.year.label</T>: {work.year}</li>
+        </ul>
       </section>
     );
   }
