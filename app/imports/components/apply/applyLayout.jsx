@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 
 import { Page404 } from '/imports/components/pages/page404.jsx';
 import { ApplySidebar } from '/imports/components/apply/applySidebar.jsx';
+import { ApplyPagination } from '/imports/components/apply/applyPagination.jsx';
 
 import { ApplyIntro } from '/imports/components/apply/applyIntro.jsx';
 
 // Import apply steps
-import { Steps } from '/imports/components/apply/steps.js';
+import { Steps } from '/imports/lib/steps.js';
 
 export class ApplyLayout extends Component {
   localeChanged(locale) {
@@ -131,6 +132,7 @@ export class ApplyLayout extends Component {
             <ApplyIntro />
           : this.getApplySection()
           }
+          <ApplyPagination step={this.props.section.step} applicationStatus={this.props.application.status} />
         </section>
         <ApplySidebar application={this.props.application} />
       </div>

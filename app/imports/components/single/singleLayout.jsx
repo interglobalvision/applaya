@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import i18n from 'meteor/universe:i18n';
 import { autoParagraph } from '/imports/lib/misc.js';
 
-import { StepsInfo } from '/imports/components/apply/steps.js';
+import { StepsInfo } from '/imports/lib/steps.js';
 
 const T = i18n.createComponent();
 

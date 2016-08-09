@@ -3,8 +3,9 @@ import Alert from 'react-s-alert';
 
 import { Applications } from '/imports/collections/applications.js';
 import { ApplicationSections } from '/imports/collections/applicationSections.js';
+import { ApplySubmitAndPay } from '/imports/components/apply/applySubmitAndPay.jsx';
 
-import { StepsInfo } from '/imports/components/apply/steps.js';
+import { StepsInfo } from '/imports/lib/steps.js';
 
 import { submitApplication } from '/imports/api/methods/applicationMethods.js';
 
@@ -32,16 +33,6 @@ export class ApplySidebar extends Component {
     return steps;
   }
 
-  renderPayAndSubmit(application) {
-    if (application.status.complete) {
-      if (application.status.paid) {
-        return <a href="/apply/submit" className="button">Re-Submit</a>
-      } else {
-        return <a href="/apply/submit" className="button">Submit & Pay</a>
-      }
-    }
-  }
-
   render() {
     const steps = this.mapSteps(StepsInfo);
 
@@ -56,7 +47,7 @@ export class ApplySidebar extends Component {
           <ApplySidebarStep name={step.name} url={step.url} validated={step.validated} key={key} />
         ))}
         </ul>
-        {this.renderPayAndSubmit(this.props.application)}
+        <ApplySubmitAndPay status={this.props.application.status} />
       </nav>
     );
   }

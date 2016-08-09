@@ -3,7 +3,7 @@ import { Applications } from '/imports/collections/applications.js';
 import { ApplicationSections } from '/imports/collections/applicationSections.js';
 
 // Import Steps
-import { StepsInfo } from '/imports/components/apply/steps.js';
+import { StepsInfo } from '/imports/lib/steps.js';
 
 // This is a validated method. From the meteor pckg validated-method
 // https://github.com/meteor/validated-method
