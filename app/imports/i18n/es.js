@@ -42,6 +42,15 @@ i18n.addTranslations('es', {
     },
   },
 
+  navbar: {
+    admin: 'Admin',
+    applications: 'Aplicaciones',
+    myApplication: 'Mi Aplicación',
+    login: 'Entrar',
+    signup: 'Registrarse',
+    logout: 'Salir'
+  },
+
   applications: {
     title: 'Aplicaciones',
     status: {
@@ -84,8 +93,8 @@ i18n.addTranslations('es', {
   },
 
   frontpage: {
-    title: 'Material Art Fair 2017 Applications',
-    introduction: '<p>Welcome to the online application for Material Art Fair 2016.</p><p>Please click below to proceed in your language of choice.</p>'
+    title: 'Aplicaciones Material Art Fair 2017',
+    introduction: '<p>Bienvenidos a la solicitud en línea de Material Art Fair 2017.</p><p>Por favor haz click abajo para proceder en tu idioma de preferencia.</p>'
   },
 
   apply: {
@@ -97,6 +106,7 @@ i18n.addTranslations('es', {
 
       // Section: Gallery Information
       galleryInformation: {
+        stepName: "Información de galería",
         title: "Información de galería/espacio",
         galleryName: {
           label: 'Nombre de la Galería',
@@ -159,6 +169,7 @@ i18n.addTranslations('es', {
 
       // Section: Contact Information
       contactInformation: {
+        stepName: 'Contacto',
         title: 'Contacto principal',
         description: '<p>Favor de indicar la información de contacto de la persona encargada de la galería que actuará como responsable de coordinar todo lo relacionado con la feria.</p>',
 
@@ -178,6 +189,7 @@ i18n.addTranslations('es', {
 
       // Section: Proposal
       proposal: {
+        stepName: 'Propuesta',
         title: 'Propuesta de <em>stand</em> para Material Art Fair 2016',
         description: '<p>En esta sección, proporcionarás información sobre tu galería, artistas seleccionados y propuesta de stand para que el Comité de Selección genere una decisión informada con respecto a tu solicitud.</p>',
 
@@ -205,6 +217,7 @@ i18n.addTranslations('es', {
 
       // Section: Artists
       artists: {
+        stepName: 'Artistas',
         title: 'Artistas propuestos para Material Art Fair 2017',
         label: 'Artistas',
 
@@ -239,6 +252,7 @@ i18n.addTranslations('es', {
 
       // Section: Booth
       booth: {
+        stepName: 'Selección de stand',
         title: 'Selección de stand',
         description: `<p>Para la edición de 2017, Material Art Fair ha renovado su colaboración con <strong>APRDELESP</strong>, estudio de arquitectura con base en la Ciudad de México. En esta ocasión, la feria estará dividida en <strong>dos plantas</strong>con planos casi idénticos. Los espacios expositivos rodearán un patio central y los visitantes de la feria podrán moverse libremente entre ellos.</p>
         <p>Hemos ampliado considerablemente la variedad de stands en oferta en el <strong>Área Principal</strong>, con el fin de acomodar a un rango más amplio de presupuestos y ambiciones.</p>
@@ -288,7 +302,8 @@ i18n.addTranslations('es', {
 
       // Section: Terms and Conditions
       terms: {
-        title: 'Terminos y Condiciones de Participación',
+        stepName: 'Términos y condiciones',
+        title: 'Términos y Condiciones de Participación',
         description: '<p>1. GENERAL</p>\
         <p>Material Art Fair es un evento cultural organizado por Feria de Arte Material México, S.A. de C.V. (“Material Art Fair”) y se llevará a cabo en el Expo Reforma de la Ciudad de México. Estos términos y condiciones de participación gobiernan la participación de los expositores en Material Art Fair. Material Art Fair se reserva el derecho de, en cualquier momento,  emitir otras condiciones, reglas y reglamentos de participación. Los términos y condiciones  de este contrato también cubrirán cualquier día adicional requerido por los expositores para entrar o salir del stand dentro de la exposición.</p>\
         <p>2. FECHAS DE EXPOSICIÓN</p>\
@@ -426,8 +441,17 @@ i18n.addTranslations('es', {
       },
 
       confirm: {
-        label: 'Al hacer click en el botón "Pagar", te comprometes a pagar la tasa de solicitud de $125 USD. Recibirás una confirmación del cargo, así como la confirmación de que tu solicitud a Material Art Fair 2016 se ha completado.',
+        label: 'Al hacer click en el botón "Pagar", te comprometes a pagar la tasa de solicitud de $150 USD. Recibirás una confirmación del cargo, así como la confirmación de que tu solicitud a Material Art Fair 2016 se ha completado.',
       },
     },
+  },
+
+  applySidebar: {
+    introduction: 'Introducción',
+    sections: 'Secciones',
+  },
+
+  footer: {
+    applaya: 'Applaya: Bien hecho en CDMX por Interglobal Vision para Material Art Fair 2017',
   },
 });
