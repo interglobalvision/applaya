@@ -96,6 +96,7 @@ i18n.addTranslations('en', {
 
       // Section: Contact Information
       galleryInformation: {
+        stepName: 'Galery Information',
         title: 'Gallery Information',
         galleryName: {
           label: 'Gallery Name'
@@ -164,6 +165,7 @@ i18n.addTranslations('en', {
 
       // Section: Contact Information
       contactInformation: {
+        stepName: 'Contact Information',
         title: 'Primary contact',
         description: '<p class="flow-text">Please indicate the contact information for the primary person at the gallery who will be responsible for managing the fair details.</p>',
         contactName: {
@@ -179,6 +181,7 @@ i18n.addTranslations('en', {
 
       // Section: Proposal
       proposal: {
+        stepName: 'Proposal',
         title: 'Material Art Fair 2017 Booth Proposal',
         description: '<p>In this section, you will provide information about your gallery, selected artists and booth proposal that will allow the Selection Committee to make an informed decision with respect to your application.</p>',
 
@@ -205,6 +208,7 @@ i18n.addTranslations('en', {
 
       // Section: Artists
       artists: {
+        stepName: 'Artists',
         title: 'Proposed Artists for Material Art Fair 2016',
         label: 'Artists',
 
@@ -240,6 +244,7 @@ i18n.addTranslations('en', {
 
       // Section: Booth
       booth: {
+        stepName: 'Booth Selection',
         title: 'Booth Selection',
         description: `<p>For its 2017 edition, Material Art Fair has again partnered with the Mexico City-based architectural studio, <strong>APRDELESP</strong>. This time, the fair will be divided into <strong>two floors</strong> with nearly identical layouts in which the gallery spaces are situated around a central courtyard, so that the fair’s visitors will be able to flow freely from one space to another.</p>
         <p>In the <strong>Principal Section</strong>, we have significantly expanded the variety of stands available in order to accommodate a wider range of budgets and ambitions.</p>
@@ -288,6 +293,7 @@ i18n.addTranslations('en', {
 
       // Section: Terms and Conditions
       terms: {
+        stepName: 'Terms and Conditions',
         title: 'Terms and Conditions of Participation',
         description: '<p>1. GENERAL</p>\
         <p>Material Art Fair is a cultural event organized by Feria de Arte Material México, S.A. de C.V. (“Material Art Fair”) and will take place at Expo Reforma in Mexico City. These Terms and Conditions of Participation govern the exhibitor’s participation in Material Art Fair. Material Art Fair reserves the right to, at any time, issue other conditions, rules and regulations of participation. The terms and conditions of this Agreement shall also cover any additional days required for Exhibitor to move-in and move-out of the booth space at the Exhibition.</p>\
