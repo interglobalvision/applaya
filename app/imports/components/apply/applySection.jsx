@@ -20,22 +20,6 @@ export class ApplySection extends Component {
     this.savePosition();
   }
 
-  onSubmit(doc) {
-    let step = this.props.step;
-    let applicationId = this.props.applicationId;
-    let data = doc;
-
-    submitApplicationSection.call({
-      step,
-      applicationId,
-      data,
-    }, (err) => {
-      if (err) {
-        return new Meteor.Error(err);
-      }
-    });
-  }
-
   onValidate(model, error, callback) {
     let step = this.props.step;
     let applicationId = this.props.applicationId;
