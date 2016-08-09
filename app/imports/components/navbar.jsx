@@ -6,6 +6,7 @@ import { setAccountLocale } from '/imports/api/methods/accountMethods.js';
 export class Navbar extends Component {
   localeChanged(locale) {
     setAccountLocale.call({locale});
+    T9n.setLanguage(locale)
   }
 
   componentWillMount() {
