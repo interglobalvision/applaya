@@ -34,59 +34,45 @@ const composer = (props, onData) => {
 
         if (!!application) {
 
-          // Route according to status
-          if (application.status.submitted === true) {
-            return FlowRouter.go('/apply/pay');
-          }
-
           // Get section URL (props come from the router)
           const currentSection = props.section;
 
-          // If section is not in the URL, route to  latest position in the application if set
-          if (currentSection === undefined && application.position !== undefined && props.intro === false) {
-            return FlowRouter.go('/apply/section/' + application.position);
-          }
+          // If section is not in the URL
+          if (currentSection === undefined && !props.intro) {
 
-          // Check if props section is set
-          if (currentSection !== undefined) {
-
-            // If section is not in the URL, get the latest position in the application
-            // I changed these conditions. In ES6 you can check for undefined as expected.
-            // Fallback for <IE8 is done by Babel if configured.
-            if (currentSection === undefined && application.position !== undefined) {
-              return FlowRouter.go('/apply/section/' + application.position);
-            } else if (currentSection === undefined) {
-              // Otherwise go to /apply/1
-              return FlowRouter.go('/apply/section/1');
+            // If is submitted got ot /applay/pay
+            if (application.status.submitted === true) {
+              return FlowRouter.go('/apply/pay');
             }
 
-            let section = {
-              applicationId: application._id,
-              step: currentSection,
-            };
-
-            let sectionData = ApplicationSections.findOne({
-              applicationId: application._id,
-              step: currentSection,
-            });
-
-            let validated = _.isUndefined(sectionData) || _.isUndefined(sectionData.validated) ? false : sectionData.validated;
-
-            // Merge data
-            section = Object.assign(section, sectionData);
-
-            onData(null, { user, section, application, validated });
-
-          } else {
-
-            let showIntro = true;
-
-            onData(null, { user, application, showIntro });
-
+            // If position is saved got to that position
+            if (application.position !== undefined) {
+              return FlowRouter.go('/apply/section/' + application.position);
+            } else {
+              return FlowRouter.go('/apply/introduction');
+            }
           }
 
-        } else {
-          // If no application returned proceed to create a new application for the user
+          let section = {
+            applicationId: application._id,
+            step: currentSection,
+          };
+
+          let sectionData = ApplicationSections.findOne({
+            applicationId: application._id,
+            step: currentSection,
+          });
+
+          let validated = _.isUndefined(sectionData) || _.isUndefined(sectionData.validated) ? false : sectionData.validated;
+
+          // Merge data
+          section = Object.assign(section, sectionData);
+
+          onData(null, { user, section, application, validated });
+
+
+
+        } else { // If no application returned proceed to create a new application for the user
           createApplication.call({}, (err) => {
             if (err) {
               onData(new Meteor.Error(err));
