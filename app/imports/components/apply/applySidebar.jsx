@@ -32,9 +32,9 @@ export class ApplySidebar extends Component {
     return steps;
   }
 
-  renderPayAndSubmit(application) {
-    if (application.status.complete) {
-      if (application.status.paid) {
+  renderPayAndSubmit(status) {
+    if (status.complete) {
+      if (status.paid) {
         return <a href="/apply/submit" className="button">Re-Submit</a>
       } else {
         return <a href="/apply/submit" className="button">Submit & Pay</a>
@@ -56,7 +56,7 @@ export class ApplySidebar extends Component {
           <ApplySidebarStep name={step.name} url={step.url} validated={step.validated} key={key} />
         ))}
         </ul>
-        {this.renderPayAndSubmit(this.props.application)}
+        {this.renderPayAndSubmit(this.props.application.status)}
       </nav>
     );
   }
