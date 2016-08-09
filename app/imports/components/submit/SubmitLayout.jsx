@@ -21,15 +21,17 @@ export class SubmitLayout extends Component {
     const T = i18n.createComponent();
 
     return (
-      <section>
-        <h2><T>apply.submit.title</T></h2>
-        <p><T>apply.submit.description</T></p>
-        <div>
-          {this.props.sections.map((section, key) => (
-            <SingleSection section={section} key={key} />
-          ))}
+      <section className='row'>
+        <div className='fluid-col s-12'>
+          <h2><T>apply.submit.title</T></h2>
+          <p><T>apply.submit.description</T></p>
+          <div>
+            {this.props.sections.map((section, key) => (
+              <SingleSection section={section} key={key} />
+            ))}
+          </div>
+          <a className="button" onClick={this.onSubmit.bind(this)}><T>apply.submit.button</T></a>
         </div>
-        <a className="button" onClick={this.onSubmit.bind(this)}><T>apply.submit.button</T></a>
       </section>
     );
   }
