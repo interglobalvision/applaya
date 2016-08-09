@@ -10,8 +10,10 @@ Accounts.ui.config({
     const user = Meteor.user();
 
     // set active locale to user lang pref
-    if (!_.isUndefined(user.profile.lang)) {
-      i18n.setLocale(user.profile.lang);
+    if (!_.isUndefined(user.profile)) {
+      if (!_.isUndefined(user.profile.lang)) {
+        i18n.setLocale(user.profile.lang);
+      }
     }
 
     if (Roles.userIsInRole(user._id, [ 'applicant' ])) {
