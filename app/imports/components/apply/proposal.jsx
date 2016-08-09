@@ -18,6 +18,7 @@ export class Proposal extends ApplySection {
         <T>apply.sections.proposal.description</T>
         <AutoForm
           autosave
+          autosaveDelay={Meteor.settings.public.autosaveDelay}
           schema={ProposalSchema}
           onValidate={this.onValidate.bind(this)}
           model={this.props.model}

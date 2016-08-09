@@ -18,6 +18,7 @@ export class GalleryInformation extends ApplySection {
         <h2><T>apply.sections.galleryInformation.title</T></h2>
         <AutoForm
           autosave
+          autosaveDelay={Meteor.settings.public.autosaveDelay}
           schema={GalleryInformationSchema}
           onValidate={this.onValidate.bind(this)}
           model={this.props.model}

@@ -17,6 +17,7 @@ export class Artists extends ApplySection {
         <h2><T>apply.sections.artists.title</T></h2>
         <AutoForm
           autosave
+          autosaveDelay={Meteor.settings.public.autosaveDelay}
           schema={ArtistsSchema}
           onValidate={this.onValidate.bind(this)}
           model={this.props.model}
