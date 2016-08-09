@@ -32,6 +32,15 @@ i18n.addTranslations('en', {
     },
   },
 
+  navbar: {
+    admin: 'Admin',
+    applications: 'Applications',
+    myApplication: 'My Application',
+    login: 'Login',
+    signup: 'Signup',
+    logout: 'Logout'
+  },
+
   applications: {
     title: 'Applications',
     status: {
