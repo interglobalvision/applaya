@@ -256,7 +256,7 @@ i18n.addTranslations('es', {
         label: 'Tamaño de Stand',
 
         project: {
-          label: '5 m2 (54 pies cuadrados), con dos muros (3 metros lineales cada uno) $1000 usd (12 disponibles)',
+          label: 'PROJECT SPACE 5 m2 (54 pies cuadrados), con dos muros (3 metros lineales cada uno) $1000 usd (12 disponibles)',
         },
         principal1: {
           label: '9 m2 (97 pies cuadrados) $2700 usd (8 disponibles)',

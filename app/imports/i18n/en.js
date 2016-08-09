@@ -258,7 +258,7 @@ i18n.addTranslations('en', {
         label: 'Booth Size',
 
         project: {
-          label: '5 m2 (54 sq. ft), featuring two walls (3 linear meters each) $1000 usd (12 available)',
+          label: 'PROJECT SPACE 5 m2 (54 sq. ft), featuring two walls (3 linear meters each) $1000 usd (12 available)',
         },
         principal1: {
           label: '9 m2 (97 sq. ft.) $2700 usd (8 available)',
