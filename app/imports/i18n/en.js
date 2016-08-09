@@ -438,4 +438,8 @@ i18n.addTranslations('en', {
     introduction: 'Introduction',
     sections: 'Sections',
   },
+
+  footer: {
+    applaya: 'Applaya: <i>Bien hecho</i> in CDMX by Interglobal Vision for Material Art Fair 2017',
+  },
 });

@@ -440,4 +440,8 @@ i18n.addTranslations('es', {
     introduction: 'Introducción',
     sections: 'Secciones',
   },
+
+  footer: {
+    applaya: 'Applaya: Bien hecho en CDMX por Interglobal Vision para Material Art Fair 2017',
+  },
 });
