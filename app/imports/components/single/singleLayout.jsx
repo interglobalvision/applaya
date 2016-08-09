@@ -141,7 +141,7 @@ export class SingleArtist extends Component {
     return (
       <section className='single-application-artist'>
         <h4>{artist.name}</h4>
-        <p><h4>CV</h4><a href={artist.cv.file.url} rel='noopener' target='_blank'>{artist.cv.file.name}</a></p>
+        <p>{'📄'} <a href={artist.cv.file.url} rel='noopener' target='_blank'>{artist.cv.file.name}</a></p>
         {artist.work.map( (work, key) => (
           <SingleWork work={work} key={key} />
         ))}
@@ -155,9 +155,9 @@ export class SingleWork extends Component {
     const work = this.props.work;
     return (
       <section className='single-application-artist-work'>
-        <h5>{work.workTitle}</h5>
         <img className='single-application-artist-work-image' src={work.image.file.url} alt={work.image.file.name} />
         <ul>
+          <li><T>apply.sections.artists.work.workTitle.label</T>: {work.workTitle}</li>
           <li><T>apply.sections.artists.work.medium.label</T>: {work.medium}</li>
           <li><T>apply.sections.artists.work.dimensions.label</T>: {work.dimensions}</li>
           <li><T>apply.sections.artists.work.year.label</T>: {work.year}</li>
