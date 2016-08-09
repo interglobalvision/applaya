@@ -18,7 +18,6 @@ export class Artists extends ApplySection {
         <AutoForm
           autosave
           schema={ArtistsSchema}
-          onSubmit={this.onSubmit.bind(this)}
           onValidate={this.onValidate.bind(this)}
           model={this.props.model}
         >

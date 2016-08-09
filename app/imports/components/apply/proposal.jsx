@@ -19,7 +19,6 @@ export class Proposal extends ApplySection {
         <AutoForm
           autosave
           schema={ProposalSchema}
-          onSubmit={this.onSubmit.bind(this)}
           onValidate={this.onValidate.bind(this)}
           model={this.props.model}
         >

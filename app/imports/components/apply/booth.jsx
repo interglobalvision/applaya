@@ -19,7 +19,6 @@ export class Booth extends ApplySection {
         <AutoForm
           autosave
           schema={BoothSchema}
-          onSubmit={this.onSubmit.bind(this)}
           onValidate={this.onValidate.bind(this)}
           model={this.props.model}
         >

@@ -14,7 +14,6 @@ export class FormTest extends ApplySection {
       <AutoForm
         autosave
         schema={FormSchema}
-        onSubmit={this.onSubmit.bind(this)}
         onValidate={this.onValidate.bind(this)}
         model={this.props.model}
       />

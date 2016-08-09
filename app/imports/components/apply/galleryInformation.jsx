@@ -19,7 +19,6 @@ export class GalleryInformation extends ApplySection {
         <AutoForm
           autosave
           schema={GalleryInformationSchema}
-          onSubmit={this.onSubmit.bind(this)}
           onValidate={this.onValidate.bind(this)}
           model={this.props.model}
         >

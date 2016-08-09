@@ -19,7 +19,6 @@ export class ContactInformation extends ApplySection {
         <AutoForm
           autosave
           schema={ContactInformationSchema}
-          onSubmit={this.onSubmit.bind(this)}
           onValidate={this.onValidate.bind(this)}
           model={this.props.model}
         >
