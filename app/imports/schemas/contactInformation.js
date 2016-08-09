@@ -8,6 +8,7 @@ export const ContactInformationSchema = new SimpleSchema({
   },
   contactEmail: {
     type: String,
+    regEx: SimpleSchema.RegEx.Email,
     label: () => i18n.__(schemaLocaleBase + 'contactEmail.label'),
   },
   contactPhone: {

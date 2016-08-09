@@ -297,10 +297,12 @@ export const GalleryInformationSchema = new SimpleSchema({
   },
   galleryEmail: {
     type: String,
+    regEx: SimpleSchema.RegEx.Email,
     label: () => i18n.__(schemaLocaleBase + 'galleryEmail.label'),
   },
   website: {
     type: String,
+    regEx: SimpleSchema.RegEx.WeakDomain,
     optional: true,
     label: () => i18n.__(schemaLocaleBase + 'website.label'),
   },

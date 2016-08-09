@@ -1,9 +1,14 @@
 /* globals _ */
+import { TextField } from 'uniforms-unstyled';
+
 const schemaLocaleBase = 'apply.payment.';
 
 const Schema = new SimpleSchema({
   'card.number': {
     type: Number,
+    uniforms: {
+      component: TextField,
+    },
     label: () => i18n.__(schemaLocaleBase + 'cardNumber.label'),
   },
   'card.name': {
@@ -12,14 +17,23 @@ const Schema = new SimpleSchema({
   },
   'card.exp_year': {
     type: Number,
+    uniforms: {
+      component: TextField,
+    },
     label: () => i18n.__(schemaLocaleBase + 'expirationYear.label'),
   },
   'card.exp_month': {
     type: Number,
+    uniforms: {
+      component: TextField,
+    },
     label: () => i18n.__(schemaLocaleBase + 'expirationMonth.label'),
   },
   'card.cvc': {
     type: Number,
+    uniforms: {
+      component: TextField,
+    },
     label: () => i18n.__(schemaLocaleBase + 'cvc.label'),
   },
   'address.street1': {
@@ -52,6 +66,7 @@ const Schema = new SimpleSchema({
       options: function () {
         // This use " to keep literal values
         return [
+          {value: "", label: "",},
           {value: "Afghanistan", label: "Afghanistan",},
           {value: "Åland Islands", label: "Åland Islands",},
           {value: "Albania", label: "Albania",},

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AutoForm } from 'uniforms-unstyled';
+import { AutoForm, AutoField, ErrorsField } from 'uniforms-unstyled';
 
 // Import schemas
 import { TermsSchema } from '/imports/schemas/terms.js';
@@ -12,7 +12,7 @@ export class Terms extends ApplySection {
     const T = i18n.createComponent();
 
     return (
-      <section>
+      <section className="apply-section">
         <h2><T>apply.sections.terms.title</T></h2>
         <T>apply.sections.terms.description</T>
         <AutoForm
@@ -20,7 +20,11 @@ export class Terms extends ApplySection {
           schema={TermsSchema}
           onSubmit={this.onSubmit.bind(this)}
           onValidate={this.onValidate.bind(this)}
-          model={this.props.model} />
+          model={this.props.model}
+        >
+          <AutoField name="signature" />
+          <ErrorsField className="errors" />
+        </AutoForm>
         <T>apply.sections.terms.agreement</T>
       </section>
     );

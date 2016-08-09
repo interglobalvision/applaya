@@ -1,5 +1,5 @@
 import React from 'react';
-import { AutoForm } from 'uniforms-unstyled';
+import { AutoForm, AutoField, ErrorsField } from 'uniforms-unstyled';
 
 // Import schemas
 import { BoothSchema } from '/imports/schemas/booth.js';
@@ -13,7 +13,7 @@ export class Booth extends ApplySection {
     const T = i18n.createComponent();
 
     return (
-      <section>
+      <section className="apply-section">
         <h2><T>apply.sections.booth.title</T></h2>
         <T>apply.sections.booth.description</T>
         <AutoForm
@@ -22,7 +22,10 @@ export class Booth extends ApplySection {
           onSubmit={this.onSubmit.bind(this)}
           onValidate={this.onValidate.bind(this)}
           model={this.props.model}
-        />
+        >
+          <AutoField name="boothSize" />
+          <ErrorsField className="errors" />
+        </AutoForm>
       </section>
     );
   }

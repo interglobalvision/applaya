@@ -1,4 +1,4 @@
-import { LongTextField } from 'uniforms-unstyled';
+import { TextField, LongTextField } from 'uniforms-unstyled';
 
 const schemaLocaleBase = 'apply.sections.proposal.';
 
@@ -22,10 +22,17 @@ export const ProposalSchema = new SimpleSchema({
   },
   galleryYear: {
     type: Number,
+    uniforms: {
+      component: TextField,
+    },
     label: () => i18n.__(schemaLocaleBase + 'galleryYear.label'),
   },
   participation: {
     type: String,
+    max: 2000,
+    uniforms: {
+      component: LongTextField,
+    },
     label: () => i18n.__(schemaLocaleBase + 'participation.label'),
   },
   standProposal: {
