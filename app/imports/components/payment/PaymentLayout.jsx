@@ -68,34 +68,36 @@ export class PaymentLayout extends Component {
     const T = i18n.createComponent();
 
     return (
-      <section>
-        <h2><T>apply.payment.title</T></h2>
-        <p><T>apply.payment.description</T></p>
-        <AutoForm
-          schema={ApplicationPaymentSchema}
-          onSubmit={this.onSubmit.bind(this)}
-          ref='pay-form'
-          disabled={this.state.processing}
-        >
-          <AutoField name="card.name" />
-          <AutoField name="card.number" />
-          <AutoField name="card.cvc" />
-          <AutoField name="card.exp_year" />
-          <AutoField name="card.exp_month" />
-          <AutoField name="address.street1" />
-          <AutoField name="address.street2" />
-          <AutoField name="address.city" />
-          <AutoField name="address.state" />
-          <AutoField name="address.zip" />
-          <AutoField name="address.country" />
-          <AutoField name="phone" />
-          <AutoField name="cellphone" />
-          <hr />
-          <h3>Totals</h3>
-          <p><b>Application Fee</b>: {this.formatAmount(Meteor.settings.public.applicationFee)}</p>
-          <ErrorsField />
-          <SubmitField value="Pay" />
-        </AutoForm>
+      <section className='row'>
+        <div className='fluid-col s-12'>
+          <h2><T>apply.payment.title</T></h2>
+          <p><T>apply.payment.description</T></p>
+          <AutoForm
+            schema={ApplicationPaymentSchema}
+            onSubmit={this.onSubmit.bind(this)}
+            ref='pay-form'
+            disabled={this.state.processing}
+          >
+            <AutoField name="card.name" />
+            <AutoField name="card.number" />
+            <AutoField name="card.cvc" />
+            <AutoField name="card.exp_year" />
+            <AutoField name="card.exp_month" />
+            <AutoField name="address.street1" />
+            <AutoField name="address.street2" />
+            <AutoField name="address.city" />
+            <AutoField name="address.state" />
+            <AutoField name="address.zip" />
+            <AutoField name="address.country" />
+            <AutoField name="phone" />
+            <AutoField name="cellphone" />
+            <hr />
+            <h3>Totals</h3>
+            <p><b>Application Fee</b>: {this.formatAmount(Meteor.settings.public.applicationFee)}</p>
+            <ErrorsField />
+            <SubmitField value="Pay" />
+          </AutoForm>
+        </div>
       </section>
     );
   }

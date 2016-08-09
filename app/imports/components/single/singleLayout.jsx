@@ -21,12 +21,14 @@ export class SingleLayout extends Component {
     }
 
     return (
-      <section id="application-single">
-        <h1>Single Application</h1>
-        {this.props.sections.map((section, key) => (
-          <SingleSection section={section} key={key} />
-        ))}
-        {roleSpecificNav}
+      <section id="application-single" className='row'>
+        <div className='fluid-col s-12'>
+          <h1>Single Application</h1>
+          {this.props.sections.map((section, key) => (
+            <SingleSection section={section} key={key} />
+          ))}
+          {roleSpecificNav}
+        </div>
       </section>
     );
   }
