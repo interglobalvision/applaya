@@ -99,6 +99,10 @@ export class ApplyLayout extends Component {
 
   getApplySection() {
 
+    if (this.props.intro) {
+      return <ApplyIntro />;
+    }
+
     let step = this.props.section.step;
 
     // Steps is an array, so positions start at 0.
@@ -108,13 +112,16 @@ export class ApplyLayout extends Component {
     const StepComponent = Steps[step].component;
 
     return (
-      <StepComponent
-        applicationId={this.props.application._id}
-        step={this.props.section.step}
-        sectionId={this.props.section.id}
-        model={this.props.section.data}
-        validated={this.props.validated}
-      />
+      <div className='section-container'>
+        <StepComponent
+          applicationId={this.props.application._id}
+          step={this.props.section.step}
+          sectionId={this.props.section.id}
+          model={this.props.section.data}
+          validated={this.props.validated}
+        />
+        <ApplyPagination step={this.props.section.step} applicationStatus={this.props.application.status} />
+      </div>
     );
 
   }
@@ -128,11 +135,7 @@ export class ApplyLayout extends Component {
     return (
       <div className="row">
         <section className="apply-layout fluid-col s-10 m-9">
-          { this.props.showIntro ?
-            <ApplyIntro />
-          : this.getApplySection()
-          }
-          { this.props.showIntro ? null : <ApplyPagination step={this.props.section.step} applicationStatus={this.props.application.status} /> }
+          { this.getApplySection() }
         </section>
         <ApplySidebar application={this.props.application} />
       </div>
