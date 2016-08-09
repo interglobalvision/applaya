@@ -65,30 +65,7 @@ export class PaymentLayout extends Component {
   }
 
   render() {
-
     const T = i18n.createComponent();
-
-/*
-    const info = {
-      card: {
-        name: 'Carlos Solares',
-        number: 4000000000000002,
-        cvc: 123,
-        exp_year: 2020,
-        exp_month: 2,
-      },
-      address: {
-        street1: 'Ayuntamiento 132',
-        street2: 'Int 15, Col Centro.',
-        city: 'Cuauhtemoc',
-        state: 'Ciudad de México',
-        zip: '06040',
-        country: 'Mexico',
-      },
-      phone: '1234567890',
-      cellphone: '1234567890',
-    };
-*/
 
     return (
       <section>
@@ -99,7 +76,6 @@ export class PaymentLayout extends Component {
           onSubmit={this.onSubmit.bind(this)}
           ref='pay-form'
           disabled={this.state.processing}
-          model={info}
         >
           <AutoField name="card.name" />
           <AutoField name="card.number" />
