@@ -32,6 +32,16 @@ i18n.addTranslations('es', {
     },
   },
 
+  users: {
+    signup: {
+      title: 'Registrarse',
+      introduction: 'Registrate aquí con un email y la contraseña de tu elección de más de 7 caracteres',
+    },
+    login: {
+      title: 'Entrar',
+    },
+  },
+
   navbar: {
     admin: 'Admin',
     applications: 'Aplicaciones',
@@ -431,7 +441,7 @@ i18n.addTranslations('es', {
       },
 
       confirm: {
-        label: 'Al hacer click en el botón "Pagar", te comprometes a pagar la tasa de solicitud de $125 USD. Recibirás una confirmación del cargo, así como la confirmación de que tu solicitud a Material Art Fair 2016 se ha completado.',
+        label: 'Al hacer click en el botón "Pagar", te comprometes a pagar la tasa de solicitud de $150 USD. Recibirás una confirmación del cargo, así como la confirmación de que tu solicitud a Material Art Fair 2016 se ha completado.',
       },
     },
   },

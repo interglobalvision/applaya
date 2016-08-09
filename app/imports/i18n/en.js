@@ -32,6 +32,16 @@ i18n.addTranslations('en', {
     },
   },
 
+  users: {
+    signup: {
+      title: 'Signup',
+      introduction: 'Signup here with an email address and a password of your choice with more than 7 characters',
+    },
+    login: {
+      title: 'Login',
+    },
+  },
+
   navbar: {
     admin: 'Admin',
     applications: 'Applications',
@@ -429,7 +439,7 @@ i18n.addTranslations('en', {
         label: 'Cellphone',
       },
       confirm: {
-        label: 'y clicking the "Pay" button below, you agree to pay the $125 USD application fee. You will receive confirmation of the charge as well as confirmation that your application to Material Art Fair 2016 has been completed.',
+        label: 'y clicking the "Pay" button below, you agree to pay the $150 USD application fee. You will receive confirmation of the charge as well as confirmation that your application to Material Art Fair 2016 has been completed.',
       },
     },
   },
