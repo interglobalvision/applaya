@@ -133,6 +133,21 @@ i18n.addTranslations('es', {
           label: 'Sitio web',
         },
 
+        twitter: {
+          label: 'Twitter',
+          placeholder: '@theGallery',
+        },
+
+        facebook: {
+          label: 'Facebook',
+          placeholder: 'facebook.com/theGallery',
+        },
+
+        instagram: {
+          label: 'Instagram',
+          placeholder: '@theGallery',
+        },
+
       },
 
       // Section: Contact Information
@@ -150,26 +165,6 @@ i18n.addTranslations('es', {
 
         contactPhone: {
           label: 'Teléfono celular (con clave lada)',
-        },
-
-        twitter: {
-          label: 'Twitter',
-          placeholder: '@theGallery',
-        },
-
-        facebook: {
-          label: 'Facebook',
-          placeholder: 'facebook.com/theGallery',
-        },
-
-        tumblr: {
-          label: 'Tumblr',
-          placeholder: 'tumblr.com/theGallery',
-        },
-
-        instagram: {
-          label: 'Instagram',
-          placeholder: '@theGallery',
         },
 
       },

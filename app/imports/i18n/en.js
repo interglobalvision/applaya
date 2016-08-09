@@ -139,6 +139,21 @@ i18n.addTranslations('en', {
           label: 'Website'
         },
 
+        twitter: {
+          label: 'Twitter',
+          placeholder: '@theGallery'
+        },
+
+        facebook: {
+          label: 'Facebook',
+          placeholder: 'facebook.com/theGallery'
+        },
+
+        instagram: {
+          label: 'Instagram',
+          placeholder: '@theGallery'
+        },
+
       },
 
       // Section: Contact Information
@@ -154,27 +169,6 @@ i18n.addTranslations('en', {
         contactPhone: {
           label: 'Mobile phone (with country code)',
         },
-
-        twitter: {
-          label: 'Twitter',
-          placeholder: '@theGallery'
-        },
-
-        facebook: {
-          label: 'Facebook',
-          placeholder: 'facebook.com/theGallery'
-        },
-
-        tumblr: {
-          label: 'Tumblr',
-          placeholder: 'tumblr.com/theGallery'
-        },
-
-        instagram: {
-          label: 'Instagram',
-          placeholder: '@theGallery'
-        },
-
       },
 
       // Section: Proposal
