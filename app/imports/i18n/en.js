@@ -32,6 +32,16 @@ i18n.addTranslations('en', {
     },
   },
 
+  users: {
+    signup: {
+      title: 'Signup',
+      introduction: 'Signup here with an email address and a password of your choice with more than 7 characters',
+    },
+    login: {
+      title: 'Login',
+    },
+  },
+
   applications: {
     title: 'Applications',
     status: {

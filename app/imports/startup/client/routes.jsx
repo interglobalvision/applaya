@@ -5,6 +5,9 @@ import { Accounts, STATES } from 'meteor/std:accounts-ui';
 
 import { MainLayout } from '/imports/components/mainLayout.jsx';
 
+import { UserLogin } from '/imports/components/user/UserLogin.jsx';
+import { UserSignup } from '/imports/components/user/UserSignup.jsx';
+
 import { PageFrontpage } from '/imports/components/pages/pageFrontpage.jsx';
 import { PageApplicationsClosed } from '/imports/components/pages/pageApplicationsClosed.jsx';
 import { Page401 } from '/imports/components/pages/page401.jsx';
@@ -34,10 +37,7 @@ publicRoutes.route('/signup', {
   name: 'signup',
   action(params) {
     mount(MainLayout, {
-      content: <Accounts.ui.LoginForm {...{
-        formState: STATES.SIGN_UP,
-        loginPath: '/login'
-      }} />
+      content: <UserSignup />,
     });
   }
 });
@@ -46,7 +46,7 @@ publicRoutes.route('/login', {
   name: 'login',
   action() {
     mount(MainLayout, {
-      content: <Accounts.ui.LoginForm />,
+      content: <UserLogin />,
     });
   },
 });
