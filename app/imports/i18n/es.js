@@ -429,4 +429,9 @@ i18n.addTranslations('es', {
       },
     },
   },
+
+  applySidebar: {
+    introduction: 'Introducción',
+    sections: 'Secciones',
+  },
 });

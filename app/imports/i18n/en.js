@@ -427,4 +427,9 @@ i18n.addTranslations('en', {
       },
     },
   },
+
+  applySidebar: {
+    introduction: 'Introduction',
+    sections: 'Sections',
+  },
 });

@@ -9,6 +9,8 @@ import { StepsInfo } from '/imports/lib/steps.js';
 
 import { submitApplication } from '/imports/api/methods/applicationMethods.js';
 
+const T = i18n.createComponent();
+
 export class ApplySidebar extends Component {
   mapSteps(steps) {
 
@@ -39,10 +41,10 @@ export class ApplySidebar extends Component {
     return (
       <nav className="fluid-col s-10 m-3 background-color-sidebar padding-top-small padding-bottom-small">
         <ul>
-          <li><a href="/apply/introduction">Introduction</a></li>
+          <li><a href="/apply/introduction"><T>applySidebar.introduction</T></a></li>
         </ul>
         <ul>
-          <li className="font-small-caps">Sections</li>
+          <li className="font-small-caps"><T>applySidebar.sections</T></li>
         {steps.map((step, key) => (
           <ApplySidebarStep name={step.name} url={step.url} validated={step.validated} key={key} />
         ))}
