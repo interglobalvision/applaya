@@ -34,11 +34,11 @@ i18n.addTranslations('es', {
 
   users: {
     signup: {
-      title: 'Signup',
-      introduction: 'Signup here with an email address and a password of your choice with more than 7 characters',
+      title: 'Registrarse',
+      introduction: 'Registrate aquí con un email y la contraseña de tu elección de más de 7 caracteres',
     },
     login: {
-      title: 'Login',
+      title: 'Entrar',
     },
   },
 
