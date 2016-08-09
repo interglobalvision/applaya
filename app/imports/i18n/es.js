@@ -356,6 +356,14 @@ i18n.addTranslations('es', {
 
         agreement: 'HE / HEMOS LEÍDO ESTE ACUERDO EN NOMBRE DEL EXPOSITOR EN SU TOTALIDAD, INCLUYENDO LAS NORMAS Y REGLAMENTOS, Y COMO AGENTE / S DE EXPOSITOR, CONVIENEN EN QUE EL EXPOSITOR DEBERÁ ESTAR OBLIGADO POR LOS TÉRMINOS Y CONDICIONES AQUÍ.',
 
+        name: {
+          label: 'Full Name',
+        },
+
+        date: {
+          label: 'Date',
+        },
+
         signature: {
           label: 'Firma',
         },

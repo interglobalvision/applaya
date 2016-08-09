@@ -357,6 +357,14 @@ i18n.addTranslations('en', {
 
         agreement: 'I / WE HAVE READ THIS AGREEMENT ON BEHALF OF EXHIBITOR IN ITS ENTIRETY, INCLUDING THE RULES AND REGULATIONS, AND AS AGENT/S OF EXHIBITOR, AGREE THAT EXHIBITOR SHALL BE BOUND BY THE TERMS AND CONDITIONS HEREIN.',
 
+        name: {
+          label: 'Full Name',
+        },
+
+        date: {
+          label: 'Date',
+        },
+
         signature: {
           label: 'Signature',
         },

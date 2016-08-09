@@ -21,6 +21,8 @@ export class Terms extends ApplySection {
           onValidate={this.onValidate.bind(this)}
           model={this.props.model}
         >
+          <AutoField name="name" />
+          <AutoField name="date" disabled="true" value={Date()} />
           <AutoField name="signature" />
           <ErrorsField className="errors" />
         </AutoForm>
