@@ -22,9 +22,9 @@ export class Artists extends ApplySection {
           onValidate={this.onValidate.bind(this)}
           model={this.props.model}
         >
-          <ListField name="artists">
+          <ListField name="artists" className='apply-section-artists'>
             <ListItemField name="$">
-              <NestField>
+              <NestField className='apply-section-artist'>
                 <AutoField name="name" />
                 <AutoField name="cv" />
                 <AutoField name="work" />
