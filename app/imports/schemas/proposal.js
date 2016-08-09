@@ -1,5 +1,8 @@
+import React from 'react';
+
 import { TextField, LongTextField } from 'uniforms-unstyled';
 
+const T = i18n.createComponent();
 const schemaLocaleBase = 'apply.sections.proposal.';
 
 export const ProposalSchema = new SimpleSchema({
@@ -10,7 +13,7 @@ export const ProposalSchema = new SimpleSchema({
     uniforms: {
       component: LongTextField,
     },
-    label: () => i18n.__(schemaLocaleBase + 'galleryHistory.label'),
+    label: () => <T>{schemaLocaleBase + 'galleryHistory.label'}</T>,
   },
   artistsRepresented: {
     type: String,
@@ -18,14 +21,14 @@ export const ProposalSchema = new SimpleSchema({
     uniforms: {
       component: LongTextField,
     },
-    label: () => i18n.__(schemaLocaleBase + 'artistsRepresented.label'),
+    label: () => <T>{schemaLocaleBase + 'artistsRepresented.label'}</T>,
   },
   galleryYear: {
     type: Number,
     uniforms: {
       component: TextField,
     },
-    label: () => i18n.__(schemaLocaleBase + 'galleryYear.label'),
+    label: () => <T>{schemaLocaleBase + 'galleryYear.label'}</T>,
   },
   participation: {
     type: String,
@@ -33,7 +36,7 @@ export const ProposalSchema = new SimpleSchema({
     uniforms: {
       component: LongTextField,
     },
-    label: () => i18n.__(schemaLocaleBase + 'participation.label'),
+    label: () => <T>{schemaLocaleBase + 'participation.label'}</T>,
   },
   standProposal: {
     type: String,
@@ -41,6 +44,6 @@ export const ProposalSchema = new SimpleSchema({
     uniforms: {
       component: LongTextField,
     },
-    label: () => i18n.__(schemaLocaleBase + 'standProposal.label'),
+    label: () => <T>{schemaLocaleBase + 'standProposal.label'}</T>,
   },
 });

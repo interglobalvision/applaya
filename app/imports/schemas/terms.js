@@ -1,24 +1,24 @@
+import React from 'react';
 import { SignatureField } from '/imports/components/fields/signatureField.jsx';
 
-import i18n from 'meteor/universe:i18n';
-
+const T = i18n.createComponent();
 const schemaLocaleBase = 'apply.sections.terms.';
 
 const SectionSchema = new SimpleSchema({
   name: {
     type: String,
-    label: () => i18n.__(schemaLocaleBase + 'name.label'),
+    label: () => <T>{schemaLocaleBase + 'name.label'}</T>,
   },
   date: {
     type: String,
-    label: () => i18n.__(schemaLocaleBase + 'date.label'),
+    label: () => <T>{schemaLocaleBase + 'date.label'}</T>,
   },
   signature: {
     type: String,
     uniforms: {
       component: SignatureField,
     },
-    label: () => i18n.__(schemaLocaleBase + 'signature.label'),
+    label: () => <T>{schemaLocaleBase + 'signature.label'}</T>,
   },
 });
 
