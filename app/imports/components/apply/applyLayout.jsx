@@ -132,7 +132,7 @@ export class ApplyLayout extends Component {
             <ApplyIntro />
           : this.getApplySection()
           }
-          <ApplyPagination step={this.props.section.step} applicationStatus={this.props.application.status} />
+          { this.props.showIntro ? null : <ApplyPagination step={this.props.section.step} applicationStatus={this.props.application.status} /> }
         </section>
         <ApplySidebar application={this.props.application} />
       </div>
