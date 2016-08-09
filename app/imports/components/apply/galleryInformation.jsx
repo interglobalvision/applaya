@@ -32,10 +32,10 @@ export class GalleryInformation extends ApplySection {
           <AutoField name="country" />
           <AutoField name="galleryPhone" />
           <AutoField name="galleryEmail" />
-          <AutoField name="website" />
-          <AutoField name="twitter" />
-          <AutoField name="facebook" />
-          <AutoField name="instagram" />
+          <AutoField name="website" placeholder="thegallery.com" />
+          <AutoField name="twitter" placeholder="@theGallery" />
+          <AutoField name="facebook" placeholder="facebook.com/theGallery" />
+          <AutoField name="instagram" placeholder="@theGallery" />
           <ErrorsField className="errors" />
         </AutoForm>
       </section>

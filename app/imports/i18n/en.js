@@ -140,18 +140,15 @@ i18n.addTranslations('en', {
         },
 
         twitter: {
-          label: 'Twitter',
-          placeholder: '@theGallery'
+          label: 'Twitter'
         },
 
         facebook: {
-          label: 'Facebook',
-          placeholder: 'facebook.com/theGallery'
+          label: 'Facebook'
         },
 
         instagram: {
-          label: 'Instagram',
-          placeholder: '@theGallery'
+          label: 'Instagram'
         },
 
       },
