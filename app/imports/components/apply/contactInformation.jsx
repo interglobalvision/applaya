@@ -26,10 +26,6 @@ export class ContactInformation extends ApplySection {
           <AutoField name="contactName" />
           <AutoField name="contactEmail" />
           <AutoField name="contactPhone" />
-          <AutoField name="twitter" />
-          <AutoField name="facebook" />
-          <AutoField name="tumblr" />
-          <AutoField name="instagram" />
           <ErrorsField className="errors" />
         </AutoForm>
       </section>

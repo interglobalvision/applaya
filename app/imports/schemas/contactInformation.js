@@ -15,26 +15,4 @@ export const ContactInformationSchema = new SimpleSchema({
     type: String,
     label: () => i18n.__(schemaLocaleBase + 'contactPhone.label'),
   },
-
-  // -- Social
-  twitter: {
-    type: String,
-    optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'twitter.label'),
-  },
-  facebook: {
-    type: String,
-    optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'facebook.label'),
-  },
-  tumblr: {
-    type: String,
-    optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'tumblr.label'),
-  },
-  instagram: {
-    type: String,
-    optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'instagram.label'),
-  },
 });

@@ -139,6 +139,18 @@ i18n.addTranslations('en', {
           label: 'Website'
         },
 
+        twitter: {
+          label: 'Twitter'
+        },
+
+        facebook: {
+          label: 'Facebook'
+        },
+
+        instagram: {
+          label: 'Instagram'
+        },
+
       },
 
       // Section: Contact Information
@@ -154,27 +166,6 @@ i18n.addTranslations('en', {
         contactPhone: {
           label: 'Mobile phone (with country code)',
         },
-
-        twitter: {
-          label: 'Twitter',
-          placeholder: '@theGallery'
-        },
-
-        facebook: {
-          label: 'Facebook',
-          placeholder: 'facebook.com/theGallery'
-        },
-
-        tumblr: {
-          label: 'Tumblr',
-          placeholder: 'tumblr.com/theGallery'
-        },
-
-        instagram: {
-          label: 'Instagram',
-          placeholder: '@theGallery'
-        },
-
       },
 
       // Section: Proposal
@@ -258,7 +249,7 @@ i18n.addTranslations('en', {
         label: 'Booth Size',
 
         project: {
-          label: '5 m2 (54 sq. ft), featuring two walls (3 linear meters each) $1000 usd (12 available)',
+          label: 'PROJECT SPACE 5 m2 (54 sq. ft), featuring two walls (3 linear meters each) $1000 usd (12 available)',
         },
         principal1: {
           label: '9 m2 (97 sq. ft.) $2700 usd (8 available)',
@@ -356,6 +347,14 @@ i18n.addTranslations('en', {
         <p>Feria de Arte Material México S.A. de C.V.</p>',
 
         agreement: 'I / WE HAVE READ THIS AGREEMENT ON BEHALF OF EXHIBITOR IN ITS ENTIRETY, INCLUDING THE RULES AND REGULATIONS, AND AS AGENT/S OF EXHIBITOR, AGREE THAT EXHIBITOR SHALL BE BOUND BY THE TERMS AND CONDITIONS HEREIN.',
+
+        name: {
+          label: 'Full Name',
+        },
+
+        date: {
+          label: 'Date',
+        },
 
         signature: {
           label: 'Signature',

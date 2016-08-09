@@ -67,6 +67,9 @@ export class SingleSection extends Component {
                   <p>{data.galleryEmail}</p>
                   <h4>Website</h4>
                   <p><a href={data.website}>{data.website}</a></p>
+                  { !_.isUndefined(data.twitter) ? <div><h4>Twitter</h4><p>{data.twitter}</p></div>  : false }
+                  { !_.isUndefined(data.facebook) ? <div><h4>Facebook</h4><p>{data.facebook}</p></div>  : false }
+                  { !_.isUndefined(data.instagram) ? <div><h4>Instagram</h4><p>{data.instagram}</p></div>  : false }
                 </section>
               );
             case 'contact-information':
@@ -77,10 +80,6 @@ export class SingleSection extends Component {
                   <h4>Email</h4>
                   <p><a href={'mailto:' + data.contactEmail}>{data.contactEmail}</a></p>
                   { !_.isUndefined(data.contactPhone) ? <div><h4>Tel</h4><p>{data.contactPhone}</p></div> : false }
-                  { !_.isUndefined(data.twitter) ? <div><h4>Twitter</h4><p>{data.twitter}</p></div>  : false }
-                  { !_.isUndefined(data.facebook) ? <div><h4>Facebook</h4><p>{data.facebook}</p></div>  : false }
-                  { !_.isUndefined(data.tumblr) ? <div><h4>Tumblr</h4><p>{data.tumblr}</p></div>  : false }
-                  { !_.isUndefined(data.instagram) ? <div><h4>Instagram</h4><p>{data.tumblr}</p></div>  : false }
                 </section>
               );
             case 'proposal':

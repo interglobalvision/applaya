@@ -306,4 +306,19 @@ export const GalleryInformationSchema = new SimpleSchema({
     optional: true,
     label: () => i18n.__(schemaLocaleBase + 'website.label'),
   },
+  twitter: {
+    type: String,
+    optional: true,
+    label: () => i18n.__(schemaLocaleBase + 'twitter.label'),
+  },
+  facebook: {
+    type: String,
+    optional: true,
+    label: () => i18n.__(schemaLocaleBase + 'facebook.label'),
+  },
+  instagram: {
+    type: String,
+    optional: true,
+    label: () => i18n.__(schemaLocaleBase + 'instagram.label'),
+  },
 });

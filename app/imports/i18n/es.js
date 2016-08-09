@@ -133,6 +133,18 @@ i18n.addTranslations('es', {
           label: 'Sitio web',
         },
 
+        twitter: {
+          label: 'Twitter'
+        },
+
+        facebook: {
+          label: 'Facebook'
+        },
+
+        instagram: {
+          label: 'Instagram'
+        },
+
       },
 
       // Section: Contact Information
@@ -150,26 +162,6 @@ i18n.addTranslations('es', {
 
         contactPhone: {
           label: 'Teléfono celular (con clave lada)',
-        },
-
-        twitter: {
-          label: 'Twitter',
-          placeholder: '@theGallery',
-        },
-
-        facebook: {
-          label: 'Facebook',
-          placeholder: 'facebook.com/theGallery',
-        },
-
-        tumblr: {
-          label: 'Tumblr',
-          placeholder: 'tumblr.com/theGallery',
-        },
-
-        instagram: {
-          label: 'Instagram',
-          placeholder: '@theGallery',
         },
 
       },
@@ -256,7 +248,7 @@ i18n.addTranslations('es', {
         label: 'Tamaño de Stand',
 
         project: {
-          label: '5 m2 (54 pies cuadrados), con dos muros (3 metros lineales cada uno) $1000 usd (12 disponibles)',
+          label: 'PROJECT SPACE 5 m2 (54 pies cuadrados), con dos muros (3 metros lineales cada uno) $1000 usd (12 disponibles)',
         },
         principal1: {
           label: '9 m2 (97 pies cuadrados) $2700 usd (8 disponibles)',
@@ -355,6 +347,14 @@ i18n.addTranslations('es', {
         <p>Feria de Arte Material México S.A. de C.V.</p>',
 
         agreement: 'HE / HEMOS LEÍDO ESTE ACUERDO EN NOMBRE DEL EXPOSITOR EN SU TOTALIDAD, INCLUYENDO LAS NORMAS Y REGLAMENTOS, Y COMO AGENTE / S DE EXPOSITOR, CONVIENEN EN QUE EL EXPOSITOR DEBERÁ ESTAR OBLIGADO POR LOS TÉRMINOS Y CONDICIONES AQUÍ.',
+
+        name: {
+          label: 'Nombre completo',
+        },
+
+        date: {
+          label: 'Fecha',
+        },
 
         signature: {
           label: 'Firma',
