@@ -1,11 +1,15 @@
+import React from 'react';
+
+const T = i18n.createComponent();
+
 export const NewAdminUserSchema = new SimpleSchema({
   email: {
     type: String,
-    label: () => i18n.__('admin.users.addUser.email.label'),
+    label: () => <T>{'admin.users.addUser.email.label'}</T>,
   },
   role: {
     type: String,
-    label: () => i18n.__('admin.users.addUser.role.label'),
+    label: () => <T>{'admin.users.addUser.role.label'}</T>,
     allowedValues: [
       'committee',
       'admin'
@@ -15,8 +19,8 @@ export const NewAdminUserSchema = new SimpleSchema({
         // This use " to keep literal values
         return [
           {value: "", label: ""},
-          {value: "admin", label: i18n.__('admin.users.addUser.role.admin')},
-          {value: "committee", label: i18n.__('admin.users.addUser.role.committee')},
+          {value: "admin", label: () => <T>{'admin.users.addUser.role.admin'}</T>,},
+          {value: "committee", label: () => <T>{'admin.users.addUser.role.committee'}</T>,},
         ];
       },
     },
