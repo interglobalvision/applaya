@@ -96,7 +96,7 @@ i18n.addTranslations('es', {
 
       // Section: Gallery Information
       galleryInformation: {
-        stepName: "Información de galería/espacio",
+        stepName: "Información de galería",
         title: "Información de galería/espacio",
         galleryName: {
           label: 'Nombre de la Galería',

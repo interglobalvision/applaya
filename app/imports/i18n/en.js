@@ -96,7 +96,7 @@ i18n.addTranslations('en', {
 
       // Section: Contact Information
       galleryInformation: {
-        stepName: 'Galery Information',
+        stepName: 'Gallery Information',
         title: 'Gallery Information',
         galleryName: {
           label: 'Gallery Name'
