@@ -1,5 +1,5 @@
 import React from 'react';
-import { AutoForm } from 'uniforms-unstyled';
+import { AutoForm, AutoField, ListField, ListItemField, NestField, ErrorsField } from 'uniforms-unstyled';
 
 // Import schemas
 import { ArtistsSchema } from '/imports/schemas/artists.js';
@@ -13,7 +13,7 @@ export class Artists extends ApplySection {
     const T = i18n.createComponent();
 
     return (
-      <section>
+      <section className="apply-section">
         <h2><T>apply.sections.artists.title</T></h2>
         <AutoForm
           autosave
@@ -21,7 +21,18 @@ export class Artists extends ApplySection {
           onSubmit={this.onSubmit.bind(this)}
           onValidate={this.onValidate.bind(this)}
           model={this.props.model}
-        />
+        >
+          <ListField name="artists">
+            <ListItemField name="$">
+              <NestField>
+                <AutoField name="name" />
+                <AutoField name="cv" />
+                <AutoField name="work" />
+              </NestField>
+            </ListItemField>
+          </ListField>
+          <ErrorsField className="errors" />
+        </AutoForm>
       </section>
     );
   }

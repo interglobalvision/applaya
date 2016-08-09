@@ -1,5 +1,5 @@
 import React from 'react';
-import { AutoForm } from 'uniforms-unstyled';
+import { AutoForm, AutoField, ErrorsField } from 'uniforms-unstyled';
 
 // Import schemas
 import { ProposalSchema } from '/imports/schemas/proposal.js';
@@ -13,7 +13,7 @@ export class Proposal extends ApplySection {
     const T = i18n.createComponent();
 
     return (
-      <section>
+      <section className="apply-section">
         <h2><T>apply.sections.proposal.title</T></h2>
         <T>apply.sections.proposal.description</T>
         <AutoForm
@@ -21,7 +21,15 @@ export class Proposal extends ApplySection {
           schema={ProposalSchema}
           onSubmit={this.onSubmit.bind(this)}
           onValidate={this.onValidate.bind(this)}
-          model={this.props.model}/>
+          model={this.props.model}
+        >
+          <AutoField name="galleryHistory" />
+          <AutoField name="artistsRepresented" />
+          <AutoField name="galleryYear" />
+          <AutoField name="participation" />
+          <AutoField name="standProposal" />
+          <ErrorsField className={'errors'} />
+        </AutoForm>
       </section>
     );
   }

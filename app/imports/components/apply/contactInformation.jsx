@@ -1,5 +1,5 @@
 import React from 'react';
-import { AutoForm } from 'uniforms-unstyled';
+import { AutoForm, AutoField, ErrorsField } from 'uniforms-unstyled';
 
 // Import schemas
 import { ContactInformationSchema } from '/imports/schemas/contactInformation.js';
@@ -13,7 +13,7 @@ export class ContactInformation extends ApplySection {
     const T = i18n.createComponent();
 
     return (
-      <section>
+      <section className="apply-section">
         <h2><T>apply.sections.contactInformation.title</T></h2>
         <T>apply.sections.contactInformation.description</T>
         <AutoForm
@@ -22,7 +22,16 @@ export class ContactInformation extends ApplySection {
           onSubmit={this.onSubmit.bind(this)}
           onValidate={this.onValidate.bind(this)}
           model={this.props.model}
-        />
+        >
+          <AutoField name="contactName" />
+          <AutoField name="contactEmail" />
+          <AutoField name="contactPhone" />
+          <AutoField name="twitter" />
+          <AutoField name="facebook" />
+          <AutoField name="tumblr" />
+          <AutoField name="instagram" />
+          <ErrorsField className={'errors'} />
+        </AutoForm>
       </section>
     );
   }
