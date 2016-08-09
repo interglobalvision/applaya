@@ -302,7 +302,7 @@ export const GalleryInformationSchema = new SimpleSchema({
   },
   website: {
     type: String,
-    regEx: SimpleSchema.RegEx.Url,
+    regEx: SimpleSchema.RegEx.WeakDomain,
     optional: true,
     label: () => i18n.__(schemaLocaleBase + 'website.label'),
   },
