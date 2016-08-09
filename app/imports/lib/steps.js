@@ -1,3 +1,5 @@
+import React from 'react';
+
 // Import apply parts
 import { GalleryInformation } from '/imports/components/apply/galleryInformation.jsx';
 import { ContactInformation } from '/imports/components/apply/contactInformation.jsx';
@@ -14,34 +16,36 @@ import { ArtistsSchema } from '/imports/schemas/artists.js';
 import { BoothSchema } from '/imports/schemas/booth.js';
 import { TermsSchema } from '/imports/schemas/terms.js';
 
+const T = i18n.createComponent();
+
 export const Steps = [{
   component: GalleryInformation,
-  name: 'Gallery Information',
+  name: <T>apply.sections.galleryInformation.stepName</T>,
   key: 'gallery-information',
   schema: GalleryInformationSchema,
 }, {
   component: Booth,
-  name: 'Booth',
+  name: <T>apply.sections.booth.stepName</T>,
   key: 'booth',
   schema: BoothSchema,
 }, {
   component: ContactInformation,
-  name: 'Contact Information',
+  name: <T>apply.sections.contactInformation.stepName</T>,
   key: 'contact-information',
   schema: ContactInformationSchema,
 }, {
   component: Proposal,
-  name: 'Proposal',
+  name: <T>apply.sections.proposal.stepName</T>,
   key: 'proposal',
   schema: ProposalSchema,
 }, {
   component: Artists,
-  name: 'Artists',
+  name: <T>apply.sections.artists.stepName</T>,
   key: 'artists',
   schema: ArtistsSchema,
 }, {
   component: Terms,
-  name: 'Terms and conditions',
+  name: <T>apply.sections.terms.stepName</T>,
   key: 'terms-and-conditions',
   schema: TermsSchema,
 }];

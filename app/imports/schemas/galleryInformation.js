@@ -1,38 +1,39 @@
-import i18n from 'meteor/universe:i18n';
+import React from 'react';
 
+const T = i18n.createComponent();
 const schemaLocaleBase = 'apply.sections.galleryInformation.';
 
 export const GalleryInformationSchema = new SimpleSchema({
   galleryName: {
     type: String,
-    label: () => i18n.__(schemaLocaleBase + 'galleryName.label'),
+    label: () => <T>{schemaLocaleBase + 'galleryName.label'}</T>,
   },
   address1: {
     type: String,
-    label: () => i18n.__(schemaLocaleBase + 'address1.label'),
+    label: () => <T>{schemaLocaleBase + 'address1.label'}</T>,
   },
   address2: {
     type: String,
     optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'address2.label'),
+    label: () => <T>{schemaLocaleBase + 'address2.label'}</T>,
   },
   city: {
     type: String,
-    label: () => i18n.__(schemaLocaleBase + 'city.label'),
+    label: () => <T>{schemaLocaleBase + 'city.label'}</T>,
   },
   state: {
     type: String,
     optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'state.label'),
+    label: () => <T>{schemaLocaleBase + 'state.label'}</T>,
   },
   postalCode: {
     type: String,
     optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'postalCode.label'),
+    label: () => <T>{schemaLocaleBase + 'postalCode.label'}</T>,
   },
   country: {
     type: String,
-    label: () => i18n.__(schemaLocaleBase + 'country.label'),
+    label: () => <T>{schemaLocaleBase + 'country.label'}</T>,
     uniforms: {
       options: function () {
         // This use " to keep literal values
@@ -293,32 +294,32 @@ export const GalleryInformationSchema = new SimpleSchema({
   },
   galleryPhone: {
     type: String,
-    label: () => i18n.__(schemaLocaleBase + 'galleryPhone.label'),
+    label: () => <T>{schemaLocaleBase + 'galleryPhone.label'}</T>,
   },
   galleryEmail: {
     type: String,
     regEx: SimpleSchema.RegEx.Email,
-    label: () => i18n.__(schemaLocaleBase + 'galleryEmail.label'),
+    label: () => <T>{schemaLocaleBase + 'galleryEmail.label'}</T>,
   },
   website: {
     type: String,
     regEx: SimpleSchema.RegEx.WeakDomain,
     optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'website.label'),
+    label: () => <T>{schemaLocaleBase + 'website.label'}</T>,
   },
   twitter: {
     type: String,
     optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'twitter.label'),
+    label: () => <T>{schemaLocaleBase + 'twitter.label'}</T>,
   },
   facebook: {
     type: String,
     optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'facebook.label'),
+    label: () => <T>{schemaLocaleBase + 'facebook.label'}</T>,
   },
   instagram: {
     type: String,
     optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'instagram.label'),
+    label: () => <T>{schemaLocaleBase + 'instagram.label'}</T>,
   },
 });

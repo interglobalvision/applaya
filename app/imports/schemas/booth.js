@@ -1,3 +1,6 @@
+import React from 'react';
+
+const T = i18n.createComponent();
 const schemaLocaleBase = 'apply.sections.booth.';
 
 export const BoothSchema = new SimpleSchema({
@@ -10,60 +13,60 @@ export const BoothSchema = new SimpleSchema({
         return 'minCount';
       }
     },
-    label: () => i18n.__(schemaLocaleBase + 'label'),
+    label: () => <T>{schemaLocaleBase + 'label'}</T>,
   },
 
   'boothSize.project': {
     type: Boolean,
-    label: () => i18n.__(schemaLocaleBase + 'project.label'),
+    label: () => <T>{schemaLocaleBase + 'project.label'}</T>,
     optional: true,
   },
 
   'boothSize.principal1': {
     type: Boolean,
     optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'principal1.label'),
+    label: () => <T>{schemaLocaleBase + 'principal1.label'}</T>,
   },
 
   'boothSize.principal2': {
     type: Boolean,
     optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'principal2.label'),
+    label: () => <T>{schemaLocaleBase + 'principal2.label'}</T>,
   },
 
   'boothSize.principal3': {
     type: Boolean,
     optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'principal3.label'),
+    label: () => <T>{schemaLocaleBase + 'principal3.label'}</T>,
   },
 
   'boothSize.principal4': {
     type: Boolean,
     optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'principal4.label'),
+    label: () => <T>{schemaLocaleBase + 'principal4.label'}</T>,
   },
 
   'boothSize.principal5': {
     type: Boolean,
     optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'principal5.label'),
+    label: () => <T>{schemaLocaleBase + 'principal5.label'}</T>,
   },
 
   'boothSize.principal6': {
     type: Boolean,
     optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'principal6.label'),
+    label: () => <T>{schemaLocaleBase + 'principal6.label'}</T>,
   },
 
   'boothSize.principal7': {
     type: Boolean,
     optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'principal7.label'),
+    label: () => <T>{schemaLocaleBase + 'principal7.label'}</T>,
   },
 
   'boothSize.principal8': {
     type: Boolean,
     optional: true,
-    label: () => i18n.__(schemaLocaleBase + 'principal8.label'),
+    label: () => <T>{schemaLocaleBase + 'principal8.label'}</T>,
   },
 });
