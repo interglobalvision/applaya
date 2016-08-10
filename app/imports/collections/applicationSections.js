@@ -13,7 +13,7 @@ class ApplicationSectionsCollection extends Mongo.Collection {
   }
 
   update(selector, modifier, ...optionsAndCallback) {
-    
+
     // When modifying whole document (ex. Mongol)
     if(_.isUndefined(modifier.$set)) {
       modifier['updatedAt'] = modifier['updatedAt'] || new Date();
@@ -21,10 +21,16 @@ class ApplicationSectionsCollection extends Mongo.Collection {
     // When modifying whole document (ex. Mongol)
       modifier.$set['updatedAt'] = modifier.$set['updatedAt'] || new Date();
     }
-  
+
     return super.update(selector, modifier, ...optionsAndCallback);
   }
 }
 
 // Export instance of our extended class
 export const ApplicationSections = new ApplicationSectionsCollection('ApplicationSections');
+
+ApplicationSections.deny({
+  insert() { return true; },
+  update() { return true; },
+  remove() { return true; },
+});
