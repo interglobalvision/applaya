@@ -26,7 +26,7 @@ const composer = (props, onData) => {
     if (user) {
 
       // And check roles
-      if (Roles.userIsInRole(user._id, [ 'superadmin', 'committee' ])) {
+      if (Roles.userIsInRole(user._id, [ 'admin', 'committee' ])) {
 
         let applications = Applications.find({}).fetch();
 
