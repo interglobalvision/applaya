@@ -314,11 +314,7 @@ const Schema = new SimpleSchema({
   phone: {
     label: () => i18n.__(schemaLocaleBase + 'phone.label'),
     type: String,
-  },
-  cellphone: {
-    label: () => i18n.__(schemaLocaleBase + 'cell.label'),
-    type: String,
-  },
+  }
 });
 
 export const ApplicationPaymentSchema = Schema;
