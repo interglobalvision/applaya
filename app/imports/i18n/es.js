@@ -396,6 +396,7 @@ i18n.addTranslations('es', {
 
     payment: {
       title: 'Pago de tasa de solicitud',
+      feeText: 'Tasa de solicitud',
       description: 'Gracias de nuevo por tu solicitud para la edición 2017 de Material Art Fair. Con el fin de completar el registro, se debe de pagar con tarjeta de crédito o débito una tasa de solicitud de $150 USD, esta es obligatoria y no reembolsable. Toma en cuenta que este cargo aparecerá como "Conekta" en tu estado de cuenta bancaria o tarjeta de crédito.',
       pay: {
         label: 'Pagar',
