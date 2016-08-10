@@ -2,19 +2,6 @@ import React, { Component } from 'react';
 import i18n from 'meteor/universe:i18n';
 
 export class PageFrontpage extends Component {
-  componentWillMount() {
-    // Conditional routing for logged in users
-    if (Meteor.userId()) {
-      if (Roles.userIsInRole(Meteor.userId(), 'applicant')) {
-        FlowRouter.go('/apply');
-      } else if (Roles.userIsInRole(Meteor.userId(), 'committee')) {
-        FlowRouter.go('/applications');
-      } else if (Roles.userIsInRole(Meteor.userId(), 'admin')) {
-        FlowRouter.go('/admin');
-      }
-    }
-  }
-
   onLanguageEn() {
     i18n.setLocale('en');
     FlowRouter.go('/signup');
@@ -33,8 +20,12 @@ export class PageFrontpage extends Component {
         <section className="fluid-col s-12">
           <h1><T>frontpage.title</T></h1>
           <T>frontpage.introduction</T>
-          <a className='button' onClick={this.onLanguageEn}>English</a>
-          <a className='button' onClick={this.onLanguageEs}>Español</a>
+          <p>
+            <a className='button' onClick={this.onLanguageEn}>English</a>
+            <a className='button' onClick={this.onLanguageEs}>Español</a>
+          </p>
+          <T>frontpage.returningUsers</T>
+          <a className='button' href='/login'><T>users.login.title</T></a>
         </section>
       </div>
     );
