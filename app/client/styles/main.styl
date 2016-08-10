@@ -105,6 +105,8 @@ $color-compliment-2 = $color-pink
 
 $color-error = $color-pink
 
+$color-button-disabled = lightgray
+
 // ******************************************************
 
 // TYPOGRAPHY
@@ -489,6 +491,9 @@ section[name=signature] canvas
 
 button, .button
   button()
+
+button:disabled
+  background-color: $color-button-disabled
 
 .upload-container
   input[type=file]:disabled ~ .buttons
