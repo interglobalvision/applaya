@@ -30,6 +30,18 @@ i18n.addTranslations('en', {
     payment: {
       success: 'Thanks for your payment',
     },
+    delete: {
+      confirm: 'Are you sure you want to delete this application and user?!',
+      success: 'Application and user deleted',
+    },
+    unsubmit: {
+      confirm: 'Are you sure you want to unsubmit this application?',
+      success: 'Application unsubmitted',
+    },
+    markPaid: {
+      confirm: 'Are you sure you want to mark this application paid?',
+      success: 'Application marked as paid',
+    },
   },
 
   users: {
@@ -58,7 +70,7 @@ i18n.addTranslations('en', {
     },
     actions: {
       label: 'Actions',
-      remove: 'Remove',
+      delete: 'Delete',
       unsubmit: 'Unsubmit',
       markAsPaid: 'Mark as paid',
       extend: 'Extend',
