@@ -23,14 +23,12 @@ export class PaymentLayout extends Component {
 
   onSubmit(data) {
     let _this = this;
-    Conekta.locale = i18n.getLocale();
 
     // Set processing state [to disable submission]
     this.setState({processing: true});
 
     // Tokenize card and call method
     Conekta.Token.create(data, response => {
-
       makePayment.call({
         card: response.id,
         details: data,
@@ -49,6 +47,18 @@ export class PaymentLayout extends Component {
         }
 
       });
+    }, err => {
+      console.log('conetka token err', err);
+
+      // Locale setting doesnt do anything so this check seems to return correct language errors
+      if (i18n.getLocale() === 'en') {
+        Alert.error(err.message);
+      } else {
+        Alert.error(err.message_to_purchaser);
+      }
+
+      // Revert state
+      _this.setState({processing: false});
     });
   }
 
