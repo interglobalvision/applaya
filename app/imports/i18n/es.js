@@ -389,7 +389,8 @@ i18n.addTranslations('es', {
 
     submit: {
       title: 'Review and Submit',
-      description: 'Bla Bla',
+      description: 'In this section you can review all the information in your application. Please check every section is accurate and complete and then submit and pay to complete your application',
+      confirmation: 'IMPORTANT: Once you submit here you cannot return to edit your application. You will need to pay the application fee and your submission will be complete. Until you pay the fee your appliction is not completed.',
       button: 'Submit and go to Payment',
     },
 

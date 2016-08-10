@@ -30,7 +30,10 @@ export class SubmitLayout extends Component {
               <SingleSection section={section} key={key} />
             ))}
           </div>
+          <div className='margin-top-large'>
+          <p><T>apply.submit.confirmation</T></p>
           <a className="button" onClick={this.onSubmit.bind(this)}><T>apply.submit.button</T></a>
+          </div>
         </div>
       </section>
     );
