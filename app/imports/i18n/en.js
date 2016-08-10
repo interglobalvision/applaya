@@ -148,7 +148,7 @@ i18n.addTranslations('en', {
         },
 
         galleryPhone: {
-          label: 'Gallery phone',
+          label: 'Gallery phone (with country code)',
         },
 
         galleryEmail: {

@@ -142,7 +142,7 @@ i18n.addTranslations('es', {
         },
 
         galleryPhone: {
-          label: 'Teléfono de la galería',
+          label: 'Teléfono de la galería (with country code)',
         },
 
         galleryEmail: {
