@@ -48,7 +48,10 @@ export class PaymentLayout extends Component {
 
       });
     }, err => {
-      console.log('conetka token err', err);
+      // Revert state
+      _this.setState({processing: false});
+
+      console.log('Conekta token error:', err);
 
       // Locale setting doesnt do anything so this check seems to return correct language errors
       if (i18n.getLocale() === 'en') {
@@ -56,9 +59,6 @@ export class PaymentLayout extends Component {
       } else {
         Alert.error(err.message_to_purchaser);
       }
-
-      // Revert state
-      _this.setState({processing: false});
     });
   }
 
@@ -104,7 +104,7 @@ export class PaymentLayout extends Component {
             <h3>Total</h3>
             <p><b><T>apply.payment.feeText</T></b>: {this.formatAmount(Meteor.settings.public.applicationFee)}</p>
             <ErrorsField />
-            <SubmitField value="Pay" />
+            { this.state.processing ? <button disabled>Processing...</button> : <SubmitField value="Pay" /> }
           </AutoForm>
         </div>
       </section>
