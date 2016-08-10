@@ -9,7 +9,7 @@ export const ProposalSchema = new SimpleSchema({
   // Proposal
   galleryHistory: {
     type: String,
-    max: 2000,
+    max: 4000,
     uniforms: {
       component: LongTextField,
     },
@@ -17,7 +17,7 @@ export const ProposalSchema = new SimpleSchema({
   },
   artistsRepresented: {
     type: String,
-    max: 2000,
+    max: 4000,
     uniforms: {
       component: LongTextField,
     },
@@ -32,7 +32,7 @@ export const ProposalSchema = new SimpleSchema({
   },
   participation: {
     type: String,
-    max: 2000,
+    max: 4000,
     uniforms: {
       component: LongTextField,
     },
@@ -40,7 +40,7 @@ export const ProposalSchema = new SimpleSchema({
   },
   standProposal: {
     type: String,
-    max: 2000,
+    max: 4000,
     uniforms: {
       component: LongTextField,
     },
