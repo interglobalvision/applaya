@@ -67,7 +67,7 @@ export const makePayment = new ValidatedMethod({
           "card": data.card,
           "details": {
             "name": data.details.card.name,
-            "phone": data.details.cellphone,
+            "phone": data.details.phone,
             "email": data.email,
             "line_items": [{
               "name": "Material Art Fair application fee",
@@ -84,8 +84,7 @@ export const makePayment = new ValidatedMethod({
               "state": data.details.state,
               "zip": data.details.zip,
               "country": data.details.country,
-              "phone": data.phone,
-              "cellphone": data.cellphone,
+              "phone": data.phone
             },
           },
         });

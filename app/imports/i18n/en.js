@@ -437,9 +437,6 @@ i18n.addTranslations('en', {
       phone: {
         label: 'Telephone',
       },
-      cell: {
-        label: 'Cellphone',
-      },
       confirm: {
         label: 'y clicking the "Pay" button below, you agree to pay the $150 USD application fee. You will receive confirmation of the charge as well as confirmation that your application to Material Art Fair 2016 has been completed.',
       },

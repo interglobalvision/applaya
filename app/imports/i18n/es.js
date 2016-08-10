@@ -438,10 +438,6 @@ i18n.addTranslations('es', {
       phone: {
         label: 'Teléfono',
       },
-      cell: {
-        label: 'Teléfono celular',
-      },
-
       confirm: {
         label: 'Al hacer click en el botón "Pagar", te comprometes a pagar la tasa de solicitud de $150 USD. Recibirás una confirmación del cargo, así como la confirmación de que tu solicitud a Material Art Fair 2016 se ha completado.',
       },

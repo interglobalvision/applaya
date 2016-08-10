@@ -90,7 +90,6 @@ export class PaymentLayout extends Component {
             <AutoField name="address.zip" />
             <AutoField name="address.country" />
             <AutoField name="phone" />
-            <AutoField name="cellphone" />
             <hr />
             <h3>Total</h3>
             <p><b><T>apply.payment.feeText</T></b>: {this.formatAmount(Meteor.settings.public.applicationFee)}</p>
