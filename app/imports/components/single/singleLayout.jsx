@@ -23,7 +23,7 @@ export class SingleLayout extends Component {
     return (
       <section id="application-single" className='row'>
         <div className='fluid-col s-12'>
-          <h1>Single Application</h1>
+          <h1><T>single.title</T></h1>
           {this.props.sections.map((section, key) => (
             <SingleSection section={section} key={key} />
           ))}
@@ -39,7 +39,7 @@ export class SingleSection extends Component {
     if (Roles.userIsInRole(Meteor.userId(), 'applicant')) {
       let url = '/apply/section/' + this.props.section.step;
       return (
-        <a href={url} className='button'>Edit this section</a>
+        <a href={url} className='button'><T>single.edit</T></a>
       );
     } else {
       return null;
@@ -56,7 +56,7 @@ export class SingleSection extends Component {
 
     return (
       <div className="single-application-section">
-        <h3>Section {this.props.section.step}: {step.name}</h3>
+        <h3><T>single.section</T> {this.props.section.step}: {step.name}</h3>
         {(() => {
           switch (step.key) {
             case 'gallery-information':
