@@ -94,7 +94,7 @@ i18n.addTranslations('en', {
 
   frontpage: {
     title: 'Material Art Fair 2017 — Online Application',
-    introduction: '<p>Welcome to the online application for Material Art Fair 2016.</p><p>Please click below to proceed in your language of choice.</p>'
+    introduction: '<p>Welcome to the online application for Material Art Fair 2017.</p><p>Please click below to proceed in your language of choice.</p>'
   },
 
   apply: {
@@ -219,7 +219,7 @@ i18n.addTranslations('en', {
       // Section: Artists
       artists: {
         stepName: 'Artists and Works',
-        title: 'Proposed Artists for Material Art Fair 2016',
+        title: 'Proposed Artists for Material Art Fair 2017',
         label: 'Artists and Works',
 
         name: {
@@ -374,7 +374,7 @@ i18n.addTranslations('en', {
         label: 'Telephone',
       },
       confirm: {
-        label: 'y clicking the "Pay" button below, you agree to pay the $150 USD application fee. You will receive confirmation of the charge as well as confirmation that your application to Material Art Fair 2016 has been completed.',
+        label: 'By clicking the "Pay" button below, you agree to pay the $150 USD application fee. You will receive confirmation of the charge as well as confirmation that your application to Material Art Fair 2017 has been completed.',
       },
     },
   },
