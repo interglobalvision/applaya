@@ -218,9 +218,9 @@ i18n.addTranslations('en', {
 
       // Section: Artists
       artists: {
-        stepName: 'Artists',
+        stepName: 'Artists and Works',
         title: 'Proposed Artists for Material Art Fair 2016',
-        label: 'Artists',
+        label: 'Artists and Works',
 
         name: {
           label: 'Artist name'
@@ -270,7 +270,7 @@ i18n.addTranslations('en', {
           <li>• Empty storage</li>
           <li>• Additional work storage</li></ul></p>
         <p><strong>STAND SELECTION<strong><br /><em>Please indicate any stands of interest, because quantities of each are limited. Also note that exact sizes and availability are subject to change.</em></p>`,
-        label: 'Stand Size',
+        label: ' ',
 
         project: {
           label: 'PROJECT SPACE 5 m2 (54 sq. ft), featuring two walls (3 linear meters each) $1000 usd (12 available)',

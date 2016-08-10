@@ -217,9 +217,9 @@ i18n.addTranslations('es', {
 
       // Section: Artists
       artists: {
-        stepName: 'Artistas',
+        stepName: 'Artistas y Obras',
         title: 'Artistas propuestos para Material Art Fair 2017',
-        label: 'Artistas',
+        label: 'Artistas y Obras',
 
         name: {
           label: 'Nombre de artista'
@@ -269,7 +269,7 @@ i18n.addTranslations('es', {
           <li>• Almacenaje adicional para obras</li>
         </ul></p>
         <p><strong>SELECCIÓN DE STANDS<strong><br /><em>La cantidad de stands de cada categoría es limitada: por favor indiquen todos los stands que sean de interés. Favor de tomar en cuenta: los tamaños exactos y su disponibilidad están sujetos a cambios.</em></p>`,
-        label: 'Tamaño de Stand',
+        label: ' ',
 
         project: {
           label: 'PROJECT SPACE 5 m2 (54 pies cuadrados), con dos muros (3 metros lineales cada uno) $1000 usd (12 disponibles)',
