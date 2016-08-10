@@ -27,6 +27,17 @@ const publicRoutes = FlowRouter.group({ name: 'public' });
 publicRoutes.route('/', {
   name: 'home',
   action () {
+
+    if (Meteor.userId() && Roles.subscription.ready() && FlowRouter._initialized) {
+      if (Roles.userIsInRole(Meteor.userId(), 'applicant')) {
+        return FlowRouter.go('/apply');
+      } else if (Roles.userIsInRole(Meteor.userId(), 'committee')) {
+        return FlowRouter.go('/applications');
+      } else if (Roles.userIsInRole(Meteor.userId(), 'admin')) {
+        return FlowRouter.go('/admin');
+      }
+    }
+
     mount(MainLayout, {
       content: <PageFrontpage />,
     });
@@ -45,6 +56,17 @@ publicRoutes.route('/signup', {
 publicRoutes.route('/login', {
   name: 'login',
   action() {
+
+    if (Meteor.userId() && Roles.subscription.ready() && FlowRouter._initialized) {
+      if (Roles.userIsInRole(Meteor.userId(), 'applicant')) {
+        return FlowRouter.go('/apply');
+      } else if (Roles.userIsInRole(Meteor.userId(), 'committee')) {
+        return FlowRouter.go('/applications');
+      } else if (Roles.userIsInRole(Meteor.userId(), 'admin')) {
+        return FlowRouter.go('/admin');
+      }
+    }
+
     mount(MainLayout, {
       content: <UserLogin />,
     });
@@ -54,8 +76,9 @@ publicRoutes.route('/login', {
 publicRoutes.route('/logout', {
   name: 'logout',
   action() {
-    Meteor.logout();
-    FlowRouter.go('/login');
+    Meteor.logout(() => {
+      FlowRouter.go('/login');
+    });
   },
 });
 
