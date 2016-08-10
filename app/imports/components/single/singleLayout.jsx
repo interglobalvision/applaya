@@ -172,9 +172,13 @@ export class SingleAdminNav extends Component {
   render() {
 
     return (
-      <nav>
-        <h3>Admin nav</h3>
-        Here goes the same method buttons as the /applications index. And maybe also something more?
+      <nav className='margin-top-basic'>
+        <h2>Admin</h2>
+        <ul>
+          <li><button>Unsubmit Application</button></li>
+          <li><button>Mark Application Paid</button></li>
+          <li><button>Delete Application</button></li>
+        </ul>
       </nav>
     );
   }
