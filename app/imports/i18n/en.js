@@ -93,7 +93,7 @@ i18n.addTranslations('en', {
   },
 
   frontpage: {
-    title: 'Material Art Fair 2017 Applications',
+    title: 'Material Art Fair 2017 — Online Application',
     introduction: '<p>Welcome to the online application for Material Art Fair 2016.</p><p>Please click below to proceed in your language of choice.</p>'
   },
 
