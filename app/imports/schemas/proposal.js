@@ -13,7 +13,7 @@ export const ProposalSchema = new SimpleSchema({
     uniforms: {
       component: LongTextField,
     },
-    label: () => <T>{schemaLocaleBase + 'galleryHistory.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'galleryHistory.label'),
   },
   artistsRepresented: {
     type: String,
@@ -21,14 +21,14 @@ export const ProposalSchema = new SimpleSchema({
     uniforms: {
       component: LongTextField,
     },
-    label: () => <T>{schemaLocaleBase + 'artistsRepresented.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'artistsRepresented.label'),
   },
   galleryYear: {
     type: Number,
     uniforms: {
       component: TextField,
     },
-    label: () => <T>{schemaLocaleBase + 'galleryYear.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'galleryYear.label'),
   },
   participation: {
     type: String,
@@ -36,7 +36,7 @@ export const ProposalSchema = new SimpleSchema({
     uniforms: {
       component: LongTextField,
     },
-    label: () => <T>{schemaLocaleBase + 'participation.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'participation.label'),
   },
   standProposal: {
     type: String,
@@ -44,6 +44,6 @@ export const ProposalSchema = new SimpleSchema({
     uniforms: {
       component: LongTextField,
     },
-    label: () => <T>{schemaLocaleBase + 'standProposal.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'standProposal.label'),
   },
 });

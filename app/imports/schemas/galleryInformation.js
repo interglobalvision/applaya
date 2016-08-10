@@ -6,34 +6,34 @@ const schemaLocaleBase = 'apply.sections.galleryInformation.';
 export const GalleryInformationSchema = new SimpleSchema({
   galleryName: {
     type: String,
-    label: () => <T>{schemaLocaleBase + 'galleryName.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'galleryName.label'),
   },
   address1: {
     type: String,
-    label: () => <T>{schemaLocaleBase + 'address1.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'address1.label'),
   },
   address2: {
     type: String,
     optional: true,
-    label: () => <T>{schemaLocaleBase + 'address2.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'address2.label'),
   },
   city: {
     type: String,
-    label: () => <T>{schemaLocaleBase + 'city.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'city.label'),
   },
   state: {
     type: String,
     optional: true,
-    label: () => <T>{schemaLocaleBase + 'state.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'state.label'),
   },
   postalCode: {
     type: String,
     optional: true,
-    label: () => <T>{schemaLocaleBase + 'postalCode.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'postalCode.label'),
   },
   country: {
     type: String,
-    label: () => <T>{schemaLocaleBase + 'country.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'country.label'),
     uniforms: {
       options: function () {
         // This use " to keep literal values
@@ -294,32 +294,32 @@ export const GalleryInformationSchema = new SimpleSchema({
   },
   galleryPhone: {
     type: String,
-    label: () => <T>{schemaLocaleBase + 'galleryPhone.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'galleryPhone.label'),
   },
   galleryEmail: {
     type: String,
     regEx: SimpleSchema.RegEx.Email,
-    label: () => <T>{schemaLocaleBase + 'galleryEmail.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'galleryEmail.label'),
   },
   website: {
     type: String,
     regEx: SimpleSchema.RegEx.WeakDomain,
     optional: true,
-    label: () => <T>{schemaLocaleBase + 'website.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'website.label'),
   },
   twitter: {
     type: String,
     optional: true,
-    label: () => <T>{schemaLocaleBase + 'twitter.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'twitter.label'),
   },
   facebook: {
     type: String,
     optional: true,
-    label: () => <T>{schemaLocaleBase + 'facebook.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'facebook.label'),
   },
   instagram: {
     type: String,
     optional: true,
-    label: () => <T>{schemaLocaleBase + 'instagram.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'instagram.label'),
   },
 });
