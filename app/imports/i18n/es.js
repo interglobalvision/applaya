@@ -93,7 +93,7 @@ i18n.addTranslations('es', {
   },
 
   frontpage: {
-    title: 'Aplicaciones Material Art Fair 2017',
+    title: 'Material Art Fair 2017 — Solicitud en línea',
     introduction: '<p>Bienvenidos a la solicitud en línea de Material Art Fair 2017.</p><p>Por favor haz click abajo para proceder en tu idioma de preferencia.</p>'
   },
 
@@ -142,7 +142,7 @@ i18n.addTranslations('es', {
         },
 
         galleryPhone: {
-          label: 'Teléfono de la galería',
+          label: 'Teléfono de la galería (con clave lada)',
         },
 
         galleryEmail: {
@@ -217,9 +217,9 @@ i18n.addTranslations('es', {
 
       // Section: Artists
       artists: {
-        stepName: 'Artistas',
+        stepName: 'Artistas y Obras',
         title: 'Artistas propuestos para Material Art Fair 2017',
-        label: 'Artistas',
+        label: 'Artistas y Obras',
 
         name: {
           label: 'Nombre de artista'
@@ -269,7 +269,7 @@ i18n.addTranslations('es', {
           <li>• Almacenaje adicional para obras</li>
         </ul></p>
         <p><strong>SELECCIÓN DE STANDS<strong><br /><em>La cantidad de stands de cada categoría es limitada: por favor indiquen todos los stands que sean de interés. Favor de tomar en cuenta: los tamaños exactos y su disponibilidad están sujetos a cambios.</em></p>`,
-        label: 'Tamaño de Stand',
+        label: ' ',
 
         project: {
           label: 'PROJECT SPACE 5 m2 (54 pies cuadrados), con dos muros (3 metros lineales cada uno) $1000 usd (12 disponibles)',
@@ -396,6 +396,7 @@ i18n.addTranslations('es', {
 
     payment: {
       title: 'Pago de tasa de solicitud',
+      feeText: 'Tasa de solicitud',
       description: 'Gracias de nuevo por tu solicitud para la edición 2017 de Material Art Fair. Con el fin de completar el registro, se debe de pagar con tarjeta de crédito o débito una tasa de solicitud de $150 USD, esta es obligatoria y no reembolsable. Toma en cuenta que este cargo aparecerá como "Conekta" en tu estado de cuenta bancaria o tarjeta de crédito.',
       pay: {
         label: 'Pagar',
@@ -437,10 +438,6 @@ i18n.addTranslations('es', {
       phone: {
         label: 'Teléfono',
       },
-      cell: {
-        label: 'Teléfono celular',
-      },
-
       confirm: {
         label: 'Al hacer click en el botón "Pagar", te comprometes a pagar la tasa de solicitud de $150 USD. Recibirás una confirmación del cargo, así como la confirmación de que tu solicitud a Material Art Fair 2016 se ha completado.',
       },
