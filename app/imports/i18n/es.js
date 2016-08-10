@@ -388,10 +388,10 @@ i18n.addTranslations('es', {
     },
 
     submit: {
-      title: 'Review and Submit',
-      description: 'In this section you can review all the information in your application. Please check every section is accurate and complete and then submit and pay to complete your application',
-      confirmation: 'IMPORTANT: Once you submit here you cannot return to edit your application. You will need to pay the application fee and your submission will be complete. Until you pay the fee your appliction is not completed.',
-      button: 'Submit and go to Payment',
+      title: 'Revisar y enviar',
+      description: 'En esta sección puedes revisar toda la información de tu aplicación. Por favor asegurate de revisar que cada sección esta correcta y completa antes de enviar y pagar para completar tu aplicación.',
+      confirmation: '<b>IMPORTANTE</b>: Una vez enviada tu aplicación no podras regresar a editar tu información. Tienes que cubrir la cuota de aplicación para que tu solicitud sea completada. Si no se realizas el pago tu aplicación seguira incompleta.',
+      button: 'Enviar e ir a Pago',
     },
 
     payment: {
@@ -445,6 +445,12 @@ i18n.addTranslations('es', {
         label: 'Al hacer click en el botón "Pagar", te comprometes a pagar la tasa de solicitud de $150 USD. Recibirás una confirmación del cargo, así como la confirmación de que tu solicitud a Material Art Fair 2016 se ha completado.',
       },
     },
+  },
+
+  single: {
+    title: 'Single Application',
+    edit: 'Editar esta sección',
+    section: 'Sección',
   },
 
   applySidebar: {

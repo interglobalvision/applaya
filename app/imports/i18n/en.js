@@ -390,7 +390,7 @@ i18n.addTranslations('en', {
     submit: {
       title: 'Review and Submit',
       description: 'In this section you can review all the information in your application. Please check every section is accurate and complete and then submit and pay to complete your application',
-      confirmation: 'IMPORTANT: Once you submit here you cannot return to edit your application. You will need to pay the application fee and your submission will be complete. Until you pay the fee your appliction is not completed.',
+      confirmation: '<b>IMPORTANT</b>: Once you submit here you cannot return to edit your application. You will need to pay the application fee and your submission will be complete. Until you pay the fee your appliction is not completed.',
       button: 'Submit and go to Payment',
     },
 
@@ -443,6 +443,12 @@ i18n.addTranslations('en', {
         label: 'y clicking the "Pay" button below, you agree to pay the $150 USD application fee. You will receive confirmation of the charge as well as confirmation that your application to Material Art Fair 2016 has been completed.',
       },
     },
+  },
+
+  single: {
+    title: 'Single Application',
+    edit: 'Edit this section',
+    section: 'Section',
   },
 
   applySidebar: {
