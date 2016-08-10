@@ -7,18 +7,18 @@ const schemaLocaleBase = 'apply.sections.terms.';
 const SectionSchema = new SimpleSchema({
   name: {
     type: String,
-    label: () => <T>{schemaLocaleBase + 'name.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'name.label'),
   },
   date: {
     type: String,
-    label: () => <T>{schemaLocaleBase + 'date.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'date.label'),
   },
   signature: {
     type: String,
     uniforms: {
       component: SignatureField,
     },
-    label: () => <T>{schemaLocaleBase + 'signature.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'signature.label'),
   },
 });
 

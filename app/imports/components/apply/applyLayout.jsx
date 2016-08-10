@@ -12,7 +12,6 @@ import { Steps } from '/imports/lib/steps.js';
 export class ApplyLayout extends Component {
   localeChanged(locale) {
     this.localizeMessages(locale);
-    this.forceUpdate();
   }
 
   localizeMessages(locale) {
