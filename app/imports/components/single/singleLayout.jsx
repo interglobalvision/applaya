@@ -35,6 +35,16 @@ export class SingleLayout extends Component {
 }
 
 export class SingleSection extends Component {
+  renderEditLink() {
+    if (Roles.userIsInRole(Meteor.userId(), 'applicant')) {
+      let url = '/apply/section/' + this.props.section.step;
+      return (
+        <a href={url} className='button'>Edit this section</a>
+      );
+    } else {
+      return null;
+    }
+  }
   render() {
 
     let validatedString = this.props.section.validated.toString();
@@ -126,11 +136,16 @@ export class SingleSection extends Component {
               return (
                 <section>
                   <h4><T>apply.sections.terms.signature.label</T></h4>
+                  <p>
+                  {!_.isUndefined(data.name) ? <span>{data.name}<br/></span> : false}
+                  {!_.isUndefined(data.date) ? <span>{data.date}</span> : false}
+                  </p>
                   {!_.isUndefined(data.signature) ? <img src={data.signature} /> : false}
                 </section>
               );
           }
         })()}
+        {this.renderEditLink()}
       </div>
     );
   }
