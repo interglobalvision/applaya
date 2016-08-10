@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export class AdminIndexApplications extends Component {
   render() {
     return (
-      <div className="row">
+      <div className='row margin-bottom-mid'>
         <section className="fluid-col s-12 m-12">
           <h2>Latest Applications</h2>
           <ul>
