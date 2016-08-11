@@ -30,7 +30,7 @@ export class GalleryInformation extends ApplySection {
           <AutoField name="state" />
           <AutoField name="postalCode" />
           <AutoField name="country" />
-          <AutoField name="galleryPhone" placeholder="1-541-754-3010" />
+          <AutoField name="galleryPhone" placeholder="+1-541-754-3010" />
           <AutoField name="galleryEmail" />
           <AutoField name="website" placeholder="thegallery.com" />
           <AutoField name="twitter" placeholder="@theGallery" />
