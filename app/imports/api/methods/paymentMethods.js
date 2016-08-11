@@ -52,6 +52,10 @@ export const makePayment = new ValidatedMethod({
 
       const application = Applications.findOne(data.applicationId);
 
+      if(application.status.paid) {
+        throw new Meteor.Error('Payment.methods.pay-application.application-already-paid', i18n.__('notifications.payment.alreadyPaid'));
+      }
+
       //Conekta.locale = Meteor.user().profile.lang;
 
       data.email = Meteor.user().emails[0].address;
@@ -96,10 +100,9 @@ export const makePayment = new ValidatedMethod({
 
       Charges.insert({applicationId: application._id, chargeData: chargeData});
 
-      paymentSuccessEmail(this.userId, chargeData.id, chargeData.payment_method.brand, chargeData.payment_method.last4);
+      Applications.update(application._id, {$set: {'status.submitted': true, 'status.paid': true,},});
 
-      return Applications.update(application._id, {$set: {'status.submitted': true, 'status.paid': true,},});
-
+      return paymentSuccessEmail(this.userId, chargeData.id, chargeData.payment_method.brand, chargeData.payment_method.last4);
     }
 
   },
