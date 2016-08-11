@@ -56,6 +56,15 @@ i18n.addTranslations('en', {
     },
   },
 
+  upload: {
+    chooseFile: 'Choose File',
+    uploading: 'Uploading...',
+    specs: {
+      file: 'PDF or DOCX.  Max 10mb',
+      images: 'JPG, PNG, or GIF.  72 dpi.  Maximum 1200px, 4mb',
+    },
+  },
+
   navbar: {
     admin: 'Admin',
     applications: 'Applications',
@@ -242,14 +251,12 @@ i18n.addTranslations('en', {
         },
         cv: {
           label: 'CV',
-          specs:  'PDF o DOCX.  Max 10mb'
         },
         work: {
           label: 'Work',
 
           image: {
             label: 'Image',
-            specs: 'JPG, PNG, or GIF.  72 dpi.  Maximum 1200px, 4mb',
           },
           workTitle: {
             label: 'Title'

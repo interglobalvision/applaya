@@ -8,6 +8,8 @@ import { connectField } from 'uniforms';
 
 import '/imports/startup/slingshot.js';
 
+const T = i18n.createComponent();
+
 class FieldUpload extends Component {
   constructor(props) {
     super(props);
@@ -61,10 +63,20 @@ class FieldUpload extends Component {
   }
 
   filePreview() {
+    if (this.props.fileUrl) {
+      return (
+        <div className='margin-bottom-tiny'>
+          <a rel='noopener' target='_blank' href={this.props.fileUrl}>{'📄'} {this.props.fileName}</a>
+        </div>
+      );
+    } else {
+      return null
+    }
+  }
+
+  renderSpecs() {
     return (
-      <div className='margin-bottom-tiny'>
-        <a rel='noopener' target='_blank' href={this.props.fileUrl}>{'📄'} {this.props.fileName}</a>
-      </div>
+      <T>upload.specs.file</T>
     );
   }
 
@@ -83,8 +95,8 @@ class FieldUpload extends Component {
         {this.filePreview()}
         <div className='buttons'>
           <a onClick={this.handleClick.bind(this)}>
-            { this.state.uploading ? 'Uploading...' : 'Choose File' }
-          </a>
+            { this.state.uploading ? <T>upload.chooseFile</T> : <T>upload.chooseFile</T> }
+          </a> <span className='font-smaller'>{this.renderSpecs()}</span>
         </div>
       </section>
     );
@@ -97,11 +109,21 @@ class FieldUploadImage extends FieldUpload {
   }
 
   filePreview() {
+    if (this.props.fileUrl) {
+      return (
+        <div className='margin-bottom-tiny'>
+          <img src={this.props.fileUrl} /><br/>
+          <a rel='noopener' target='_blank' href={this.props.fileUrl}>{'📄'} {this.props.fileName}</a>
+        </div>
+      );
+    } else {
+      return null
+    }
+  }
+
+  renderSpecs() {
     return (
-      <div className='margin-bottom-tiny'>
-        <img src={this.props.fileUrl} />
-        <a rel='noopener' target='_blank' href={this.props.fileUrl}>{'📄'} {this.props.fileName}</a>
-      </div>
+      <T>upload.specs.images</T>
     );
   }
 }
