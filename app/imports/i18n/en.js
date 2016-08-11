@@ -60,8 +60,8 @@ i18n.addTranslations('en', {
     chooseFile: 'Choose File',
     uploading: 'Uploading...',
     specs: {
-      file: 'PDF or DOCX.  Max 10mb',
-      images: 'JPG, PNG, or GIF.  72 dpi.  Maximum 1200px, 4mb',
+      file: 'PDF or DOCX.  Max 10MB',
+      images: 'JPG, PNG, or GIF.  72 dpi.  Maximum 1200px, 4MB',
     },
   },
 
