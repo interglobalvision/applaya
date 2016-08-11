@@ -1,6 +1,7 @@
 // Import collections
 import { Applications } from '/imports/collections/applications.js';
 import { ApplicationSections } from '/imports/collections/applicationSections.js';
+import { Charges } from '/imports/collections/charges.js';
 
 // Import Steps
 import { StepsInfo } from '/imports/lib/steps.js';
@@ -29,10 +30,11 @@ export const deleteApplication = new ValidatedMethod({
 
   run({ applicationId, userId }) {
     if (!Roles.userIsInRole(this.userId, 'admin')) {
-      throw new Meteor.Error('Admin.methods.add-user.not-allowed', 'Must be admin to do this.');
+      throw new Meteor.Error('Admin.methods.delete.not-allowed', 'Must be admin to do this.');
     }
 
     ApplicationSections.remove({applicationId: applicationId});
+    Charges.remove({applicationId: applicationId});
     Applications.remove(applicationId);
     Meteor.users.remove(userId);
 
@@ -52,21 +54,22 @@ export const unsubmitApplication = new ValidatedMethod({
 
   run(applicationId) {
     if (!Roles.userIsInRole(this.userId, 'admin')) {
-      throw new Meteor.Error('Admin.methods.add-user.not-allowed', 'Must be admin to do this.');
+      throw new Meteor.Error('Admin.methods.unsubmit.not-allowed', 'Must be admin to do this.');
     }
 
-    let application = Applications.findOne(applicationId);
-
-    Applications.update(application._id, {
+    let application = Applications.update(applicationId, {
       $set: {
         'status.submitted': false,
       },
     });
 
-    const message =  i18n.__('notifications.unsubmit.success');
+    if (application) {
+      const message =  i18n.__('notifications.unsubmit.success');
 
-    return { message };
+      return { message };
+    } 
 
+    throw new Meteor.Error('Admin.methods.unsubmit.error', i18n.__('notifications.errorOccurred'));
   },
 });
 
@@ -79,20 +82,21 @@ export const markPaidApplication = new ValidatedMethod({
 
   run(applicationId) {
     if (!Roles.userIsInRole(this.userId, 'admin')) {
-      throw new Meteor.Error('Admin.methods.add-user.not-allowed', 'Must be admin to do this.');
+      throw new Meteor.Error('Admin.methods.mark-paid.not-allowed', 'Must be admin to do this.');
     }
 
-    let application = Applications.findOne(applicationId);
-
-    Applications.update(application._id, {
+    let application = Applications.update(applicationId, {
       $set: {
         'status.paid': true,
       },
     });
 
-    const message =  i18n.__('notifications.markPaid.success');
+    if (application) {
+      const message =  i18n.__('notifications.markPaid.success');
 
-    return { message };
+      return { message };
+    } 
 
+    throw new Meteor.Error('Admin.methods.mark-paid.error', i18n.__('notifications.errorOccurred'));
   },
 });
