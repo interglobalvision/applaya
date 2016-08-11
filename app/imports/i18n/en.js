@@ -16,6 +16,7 @@ i18n.addTranslations('en', {
 
   notifications: {
     error: 'Error',
+    errorOccurred: 'An Error occurred, try again later',
     upload: {
       success: '{$filename} uploaded successfully!',
     },
