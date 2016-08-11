@@ -32,3 +32,9 @@ class ApplicationsCollection extends Mongo.Collection {
 }
 
 export const Applications = new ApplicationsCollection('Applications');
+
+Applications.deny({
+  insert() { return true; },
+  update() { return true; },
+  remove() { return true; },
+});

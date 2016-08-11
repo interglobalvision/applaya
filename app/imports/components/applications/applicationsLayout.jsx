@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import Alert from 'react-s-alert';
+
+import { deleteApplication, unsubmitApplication, markPaidApplication } from '/imports/api/methods/adminApplicationMethods.js';
+
 const T = i18n.createComponent();
 
 export class ApplicationsLayout extends Component {
@@ -39,14 +43,14 @@ export class ApplicationsLayout extends Component {
         <table>
           <thead>
             <tr>
-              <td><T>applications.title</T></td>
-              <td><T>applications.status.label</T></td>
-              <td><T>applications.actions.label</T></td>
+              <td className='table-applications-title'><T>applications.title</T></td>
+              <td className='table-applications-status'><T>applications.status.label</T></td>
+              <td className='table-applications-actions'><T>applications.actions.label</T></td>
             </tr>
           </thead>
           <tbody>
             {this.props.applications.map((application, key) => (
-              <ApplicationsApplication _id={application._id} userId={application.userId} userEmail={application.userEmail} key={key} />
+              <ApplicationsApplication _id={application._id} userId={application.userId} userEmail={application.userEmail} status={application.status} key={key} />
             ))}
           </tbody>
         </table>
@@ -60,6 +64,57 @@ export class ApplicationsLayout extends Component {
 }
 
 export class ApplicationsApplication extends Component {
+  clickAdminAction(method) {
+
+    switch (method) {
+      case 'deleteApplication':
+        if (confirm(i18n.__('notifications.delete.confirm'))) {
+          deleteApplication.call({applicationId: this.props._id, userId: this.props.userId}, (err, res) => {
+            this.adminActionCallback(err, res);
+          });
+        }
+        break;
+      case 'unsubmitApplication':
+        if (confirm(i18n.__('notifications.unsubmit.confirm'))) {
+          unsubmitApplication.call(this.props._id, (err, res) => {
+            this.adminActionCallback(err, res);
+          });
+        }
+        break;
+      case 'markPaidApplication':
+        if (confirm(i18n.__('notifications.markPaid.confirm'))) {
+          markPaidApplication.call(this.props._id, (err, res) => {
+            this.adminActionCallback(err, res);
+          });
+        }
+        break;
+      default:
+        break;
+    }
+
+  }
+
+  adminActionCallback(err, res) {
+    if (err) {
+      Alert.error(err.reason);
+      console.log('Error:', err);
+    } else {
+      Alert.success(res.message);
+    }
+  }
+
+  renderStatus() {
+    if (this.props.status.paid === true) {
+      return ('Paid');
+    } else if (this.props.status.submitted === true) {
+      return ('Submitted');
+    } else if (this.props.status.complete === true) {
+      return ('Complete');
+    } else {
+      return ('In Process');
+    }
+  }
+
   render() {
 
     let title = this.props._id;
@@ -70,14 +125,16 @@ export class ApplicationsApplication extends Component {
 
     return (
       <tr>
-        <td><a href={'/application/' + this.props._id}>{title}</a></td>
-        <td>status goes here</td>
-        <td>
-          <a className="button"><T>applications.actions.remove</T></a>
-          <a className="button"><T>applications.actions.unsubmit</T></a>
-          <a className="button"><T>applications.actions.markAsPaid</T></a>
-          <a className="button"><T>applications.actions.extend</T></a>
-          <a className="button"><T>applications.actions.approve</T></a>
+        <td className='table-applications-title'>
+          <a href={'/application/' + this.props._id}>{title}</a>
+        </td>
+        <td className='table-applications-status'>
+          {this.renderStatus()}
+        </td>
+        <td className='table-applications-actions'>
+          <button onClick={() => this.clickAdminAction('deleteApplication')}><T>applications.actions.delete</T></button>
+          <button onClick={() => this.clickAdminAction('unsubmitApplication')} disabled={!this.props.status.submitted}><T>applications.actions.unsubmit</T></button>
+          <button onClick={() => this.clickAdminAction('markPaidApplication')} disabled={this.props.status.paid}><T>applications.actions.markAsPaid</T></button>
         </td>
       </tr>
     );

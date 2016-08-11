@@ -105,6 +105,8 @@ $color-compliment-2 = $color-pink
 
 $color-error = $color-pink
 
+$color-button-disabled = lightgray
+
 // ******************************************************
 
 // TYPOGRAPHY
@@ -491,6 +493,9 @@ section[name=signature] canvas
 button, .button
   button()
 
+button:disabled
+  background-color: $color-button-disabled
+
 .upload-container
   input[type=file]:disabled ~ .buttons
     pointer-events: none
@@ -563,6 +568,26 @@ formError()
 .single-application-artist-work-image
   max-height: 40vh
   margin: $margin-small auto
+
+// ******************************************************
+
+// ADMIN
+
+table
+  width: 100%
+  margin-bottom: $margin-basic
+
+thead
+  font-style: italic
+
+.table-applications-title
+  width: 25%
+
+.table-applications-status
+  width: 12.5%
+
+.table-applications-actions
+  width: 62.5%
 
 // ******************************************************
 

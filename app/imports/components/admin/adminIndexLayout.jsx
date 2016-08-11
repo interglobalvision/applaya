@@ -35,7 +35,11 @@ export class AdminIndexLayout extends Component {
 
     return (
       <section id="admin-index">
-        <h1>Admin Zone</h1>
+        <div className='row'>
+          <div className='fluid-col s-12'>
+            <h1>Admin Zone</h1>
+          </div>
+        </div>
         <AdminIndexAnalytics applications={this.props.applications} />
         <AdminIndexApplications applications={this.props.latestApplicationsWithUsers} />
         <AdminIndexUsers admins={this.props.admins} committee={this.props.committee} />

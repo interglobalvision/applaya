@@ -12,3 +12,9 @@ class ChargesCollection extends Mongo.Collection {
 }
 
 export const Charges = new ChargesCollection('Charges');
+
+Charges.deny({
+  insert() { return true; },
+  update() { return true; },
+  remove() { return true; },
+});

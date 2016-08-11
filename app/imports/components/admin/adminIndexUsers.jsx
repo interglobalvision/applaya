@@ -34,7 +34,7 @@ export class AdminIndexUsers extends Component {
             <h2>Users</h2>
           </div>
         </div>
-        <div className="row">
+        <div className='row margin-bottom-basic'>
           <div className="fluid-col s-12 m-6">
             <h3>Committee</h3>
 
