@@ -30,6 +30,7 @@ i18n.addTranslations('es', {
     },
     payment: {
       success: 'Gracias por tu pago',
+      alreadyPaid: 'Tu aplicación ya estaba pagada, por favor refresca la pagina',
     },
     delete: {
       confirm: 'Are you sure you want to delete this application and user?!',
