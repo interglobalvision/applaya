@@ -230,3 +230,10 @@ const scrollToTop = () => {
 };
 
 FlowRouter.triggers.enter([scrollToTop]);
+
+// Not found routes
+FlowRouter.notFound = {
+  action() {
+    return FlowRouter.go('/not-found');
+  },
+};
