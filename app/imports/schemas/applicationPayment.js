@@ -314,7 +314,12 @@ const Schema = new SimpleSchema({
   phone: {
     label: () => i18n.__(schemaLocaleBase + 'phone.label'),
     type: String,
-  }
+  },
+  email: {
+    type: String,
+    regEx: SimpleSchema.RegEx.Email,
+    label: () => i18n.__(schemaLocaleBase + 'email.label'),
+  },
 });
 
 export const ApplicationPaymentSchema = Schema;
