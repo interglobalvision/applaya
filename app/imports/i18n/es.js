@@ -94,8 +94,8 @@ i18n.addTranslations('es', {
 
   frontpage: {
     title: 'Material Art Fair 2017 — Solicitud en línea',
-    introduction: '<p>Bienvenidos a la solicitud en línea de Material Art Fair 2017.</p><p>Por favor haz click abajo para proceder en tu idioma de preferencia.</p>',
-    returningUsers: '<p>Or returing users please login to continue.</p>',
+    introduction: '<p>Bienvenidos a la solicitud en línea de Material Art Fair 2017.</p><p>Usuarios nuevos, favor de seleccionar tu idioma de preferencia para continuar.</p>',
+    returningUsers: '<p>Usuarios registrados, favor de iniciar sesión para continuar.</p>',
   },
 
   apply: {
