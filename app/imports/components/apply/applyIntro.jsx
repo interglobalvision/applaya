@@ -9,6 +9,7 @@ export class ApplyIntro extends Component {
     return (
       <div>
         <T>apply.introduction</T>
+        <a href='/apply/section/1' className='button'><T>apply.startLink</T></a>
       </div>
     );
   }

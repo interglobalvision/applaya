@@ -112,11 +112,8 @@ i18n.addTranslations('es', {
   },
 
   apply: {
-    introduction: `<p>Gracias por aplicar a la cuarta edición de Material Art Fair, que se llevará a cabo de 9 a 12 de febrero de 2017, en Expo Reforma en la Ciudad de México.</p>
-<p>El proceso de solicitud <strong>concluye viernes, 23 de septiembre de 2016.</strong> No se aceptará ninguna solicitud después de esa fecha.</p>
-<p>Nuestro comité de selección de 2017 revisará, considerará y analizará cada solicitud cuidadosamente. En octubre, entregaremos las decisiones del comité a todos los solicitantes.</p>
-<p>Los cambios a tu solicitud se guardarán automáticamente. Con tu usuario y contraseña, podrás ingresar las veces que quieras a editar tu solicitud, antes de firmar y entregar.</p>
-<p>Cualquier error o problema, por favor comunícate directamente con nosotros al siguiente correo: <a href="mailto:applications@material-fair.com">applications@material-fair.com.</a></p>`,
+    introduction: `<p>Gracias por aplicar a la cuarta edición de Material Art Fair, que se llevará a cabo de 9 a 12 de febrero de 2017, en Expo Reforma en la Ciudad de México.</p><p>El proceso de solicitud <strong>concluye viernes, 23 de septiembre de 2016.</strong> No se aceptará ninguna solicitud después de esa fecha.</p><p>Nuestro comité de selección de 2017 revisará, considerará y analizará cada solicitud cuidadosamente. En octubre, entregaremos las decisiones del comité a todos los solicitantes.</p><p>Los cambios a tu solicitud se guardarán automáticamente. Con tu usuario y contraseña, podrás ingresar las veces que quieras a editar tu solicitud, antes de firmar y entregar.</p><p>Cualquier error o problema, por favor comunícate directamente con nosotros al siguiente correo: <a href="mailto:applications@material-fair.com">applications@material-fair.com.</a></p>`,
+    startLink: 'Comienza tu aplicación',
     completed: '{$percentage}% Completado',
     thanks: 'Gracias por tu solicitud a Material Art Fair 2017. Tu tasa de solicitud ha sido procesado exitosamente. El comité de selección va a empezar a revisar las solicitudes después de la fecha límite del 23 de septiembre y comenzarámos a notificar a los solicitantes en Octubre.',
     closed: 'Sorry applications are now closed',

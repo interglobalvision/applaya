@@ -113,6 +113,7 @@ i18n.addTranslations('en', {
 
   apply: {
     introduction: '<p>Thank you for your application to the fourth edition of Material Art Fair, which will take place from February 9th - 12th, 2017, at Expo Reforma in Mexico City. Please remember that the <strong>application deadline is Friday, September 23rd, 2016</strong>. No applications will be accepted after that date.</p><p>Each application will be carefully reviewed, considered, and discussed by our 2017 Selection Committee and we will send notification of their decisions to all applicants beginning in October, once their review has been completed.</p><p>Changes made to your application will be saved automatically. With your login and password you’ll be able to edit your application as many times as you wish, before signing and submitting.</p><p>Please report any errors or problems directly to us at <a href="mailto:applications@material-fair.com" class="u-inline-block">applications@material-fair.com</a>.</p>',
+    startLink: 'Start your application',
     completed: '{$percentage}% Complete',
     thanks: 'Thanks for your application to Material Art Fair 2017. Your application fee has been processed. The selection committee will begin reviewing applications after the deadline of September 23rd and we will begin the notification process in October.',
     closed: 'Sorry applications are now closed',
