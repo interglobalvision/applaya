@@ -1,6 +1,5 @@
 import React from 'react';
 
-const T = i18n.createComponent();
 const schemaLocaleBase = 'apply.sections.galleryInformation.';
 
 export const GalleryInformationSchema = new SimpleSchema({

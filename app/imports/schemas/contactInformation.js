@@ -1,6 +1,5 @@
 import React from 'react';
 
-const T = i18n.createComponent();
 const schemaLocaleBase = 'apply.sections.contactInformation.';
 
 export const ContactInformationSchema = new SimpleSchema({

@@ -1,7 +1,5 @@
 import React from 'react';
 
-const T = i18n.createComponent();
-
 export const NewAdminUserSchema = new SimpleSchema({
   email: {
     type: String,

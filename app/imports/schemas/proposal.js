@@ -2,7 +2,6 @@ import React from 'react';
 
 import { TextField, LongTextField } from 'uniforms-unstyled';
 
-const T = i18n.createComponent();
 const schemaLocaleBase = 'apply.sections.proposal.';
 
 export const ProposalSchema = new SimpleSchema({

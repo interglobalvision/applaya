@@ -1,7 +1,6 @@
 import React from 'react';
 import { SignatureField } from '/imports/components/fields/signatureField.jsx';
 
-const T = i18n.createComponent();
 const schemaLocaleBase = 'apply.sections.terms.';
 
 const SectionSchema = new SimpleSchema({

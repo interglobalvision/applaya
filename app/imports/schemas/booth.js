@@ -1,6 +1,5 @@
 import React from 'react';
 
-const T = i18n.createComponent();
 const schemaLocaleBase = 'apply.sections.booth.';
 
 export const BoothSchema = new SimpleSchema({

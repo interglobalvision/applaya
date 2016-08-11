@@ -3,7 +3,6 @@ import { Upload, UploadImage } from '/imports/schemas/Upload.js';
 
 import ListField from '/imports/components/fields/list/ListField.jsx';
 
-const T = i18n.createComponent();
 const schemaLocaleBase = 'apply.sections.artists.';
 
 export const ArtistsSchema = new SimpleSchema({
@@ -12,14 +11,14 @@ export const ArtistsSchema = new SimpleSchema({
     type: [ Object ],
     minCount: 1,
     maxCount: 15,
-    label: () => <T>{schemaLocaleBase + 'label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'label'),
     uniforms: {
       component: ListField,
     },
   },
   'artists.$.name': {
     type: String,
-    label: () => <T>{schemaLocaleBase + 'name.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'name.label'),
   },
   'artists.$.cv': {
     type: Upload,
@@ -29,13 +28,13 @@ export const ArtistsSchema = new SimpleSchema({
         this.unset();
       }
     },
-    label: () => <T>{schemaLocaleBase + 'cv.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'cv.label'),
   },
   'artists.$.work': {
     type: [ Object ],
     minCount: 1,
     maxCount: 5,
-    label: () => <T>{schemaLocaleBase + 'work.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'work.label'),
     uniforms: {
       component: ListField,
     },
@@ -48,22 +47,22 @@ export const ArtistsSchema = new SimpleSchema({
         this.unset();
       }
     },
-    label: () => <T>{schemaLocaleBase + 'work.image.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'work.image.label'),
   },
   'artists.$.work.$.workTitle': {
     type: String,
-    label: () => <T>{schemaLocaleBase + 'work.workTitle.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'work.workTitle.label'),
   },
   'artists.$.work.$.medium': {
     type: String,
-    label: () => <T>{schemaLocaleBase + 'work.medium.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'work.medium.label'),
   },
   'artists.$.work.$.dimensions': {
     type: String,
-    label: () => <T>{schemaLocaleBase + 'work.dimensions.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'work.dimensions.label'),
   },
   'artists.$.work.$.year': {
     type: String,
-    label: () => <T>{schemaLocaleBase + 'work.year.label'}</T>,
+    label: () => i18n.__(schemaLocaleBase + 'work.year.label'),
   },
 });
