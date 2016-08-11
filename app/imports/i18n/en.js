@@ -107,7 +107,8 @@ i18n.addTranslations('en', {
 
   frontpage: {
     title: 'Material Art Fair 2017 — Online Application',
-    introduction: '<p>Welcome to the online application for Material Art Fair 2017.</p><p>Please click below to proceed in your language of choice.</p>'
+    introduction: '<p>Welcome to the online application for Material Art Fair 2017.</p><p>New applicants please click below to proceed in your language of choice.</p>',
+    returningUsers: '<p>Or returning users please login to continue.</p>',
   },
 
   apply: {
