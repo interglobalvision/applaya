@@ -104,7 +104,7 @@ Meteor.publishComposite('applications.index', function(posts, page) {
 
     // This function
     find() {
-      return Applications.find({}, {limit: posts, skip: skip});
+      return Applications.find({}, {limit: posts, skip: skip, sort: {createdAt: -1}});
     },
 
     children: [ {
