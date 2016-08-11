@@ -76,7 +76,7 @@ export const makePayment = new ValidatedMethod({
             "line_items": [{
               "name": "Material Art Fair application fee",
               "sku": "maf_fee_1",
-              "unit_price": 12500,
+              "unit_price": Meteor.settings.public.applicationFee,
               "description": "Art Fair Application",
               "quantity": 1,
               "type": "application",
