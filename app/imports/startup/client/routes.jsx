@@ -223,3 +223,10 @@ Tracker.autorun(() => {
     FlowRouter.initialize();
   }
 });
+
+// Scroll to top on route change
+const scrollToTop = () => {
+  $('html, body').stop().animate({ scrollTop: 0 }, 300);
+};
+
+FlowRouter.triggers.enter([scrollToTop]);
