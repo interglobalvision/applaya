@@ -396,6 +396,9 @@ i18n.addTranslations('en', {
       phone: {
         label: 'Telephone',
       },
+      email: {
+        label: 'Email',
+      },
       confirm: {
         label: 'By clicking the "Pay" button below, you agree to pay the $150 USD application fee. You will receive confirmation of the charge as well as confirmation that your application to Material Art Fair 2017 has been completed.',
       },

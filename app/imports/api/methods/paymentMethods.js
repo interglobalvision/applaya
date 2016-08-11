@@ -56,9 +56,7 @@ export const makePayment = new ValidatedMethod({
         throw new Meteor.Error('Payment.methods.pay-application.application-already-paid', i18n.__('notifications.payment.alreadyPaid'));
       }
 
-      //Conekta.locale = Meteor.user().profile.lang;
-
-      data.email = Meteor.user().emails[0].address;
+      Conekta.locale = data.locale;
 
       let result;
 
@@ -72,7 +70,7 @@ export const makePayment = new ValidatedMethod({
           "details": {
             "name": data.details.card.name,
             "phone": data.details.phone,
-            "email": data.email,
+            "email": data.details.email,
             "line_items": [{
               "name": "Material Art Fair application fee",
               "sku": "maf_fee_1",

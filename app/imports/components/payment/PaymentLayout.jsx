@@ -78,7 +78,7 @@ export class PaymentLayout extends Component {
     const T = i18n.createComponent();
 
     return (
-      <section className='row'>
+      <section className='payment-section row'>
         <div className='fluid-col s-12'>
           <h2><T>apply.payment.title</T></h2>
           <p><T>apply.payment.description</T></p>
@@ -100,10 +100,11 @@ export class PaymentLayout extends Component {
             <AutoField name="address.zip" />
             <AutoField name="address.country" />
             <AutoField name="phone" />
+            <AutoField name="email" />
             <hr />
             <h3>Total</h3>
             <p><b><T>apply.payment.feeText</T></b>: {this.formatAmount(Meteor.settings.public.applicationFee)}</p>
-            <ErrorsField />
+            <ErrorsField className='errors'/>
             { this.state.processing ? <button disabled>Processing...</button> : <SubmitField value="Pay" /> }
           </AutoForm>
         </div>
