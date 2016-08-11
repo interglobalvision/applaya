@@ -95,7 +95,7 @@ class FieldUpload extends Component {
         {this.filePreview()}
         <div className='buttons'>
           <a onClick={this.handleClick.bind(this)}>
-            { this.state.uploading ? <T>upload.chooseFile</T> : <T>upload.chooseFile</T> }
+            { this.state.uploading ? <T>upload.uploading</T> : <T>upload.chooseFile</T> }
           </a> <span className='font-smaller'>{this.renderSpecs()}</span>
         </div>
       </section>
