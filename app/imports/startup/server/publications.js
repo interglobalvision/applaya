@@ -72,11 +72,27 @@ Meteor.publishComposite('admin.application.single', function(applicationId) {
 
 });
 
-Meteor.publishComposite('admin.applications', function() {
+Meteor.publish('admin.applications.counts', function() {
+  return Applications.find({}, {
+    fields: {
+      status: 1,
+    },
+  });
+});
+
+Meteor.publishComposite('admin.applications.latest', function() {
   return {
 
     find() {
-      return Applications.find({});
+      return Applications.find({}, {
+        fields: {
+          userId: 1,
+        },
+        sort: {
+          createdAt: -1,
+        },
+        limit: 10,
+      });
     },
 
     children: [ {
@@ -124,7 +140,7 @@ Meteor.publish('admin.users.committee', function() {
     return Roles.getUsersInRole('committee');
   } else {
     this.stop();
-    return
+    return;
   }
 
 });
@@ -135,7 +151,7 @@ Meteor.publish('admin.users.admin', function() {
     return Roles.getUsersInRole('admin');
   } else {
     this.stop();
-    return
+    return;
   }
 
 });
