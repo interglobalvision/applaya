@@ -39,10 +39,59 @@ export class AdminIndexAnalytics extends Component {
     return Object.assign(roundedBigValues, roundedSmallValues);
   }
 
+  applicationsTotal() {
+    return this.props.applications.length;
+  }
+
+  getStats(applications, extended = false) {
+
+    let inProgress = this.countByStatus(applications, 'inProgress', extended);
+    let complete = this.countByStatus(applications, 'complete', extended);
+    let submitted = this.countByStatus(applications, 'submitted', extended);
+    let paid = this.countByStatus(applications, 'paid', extended);
+
+    return {
+      inProgress,
+      complete,
+      submitted,
+      paid,
+    };
+  }
+
+  /** 
+   * Return the count of application with specified status.
+   *
+   * @param applications[array] the applications to check
+   * @param status[string] the status to check
+   * @param extended[boolean] if extended
+   *
+   **/
+  countByStatus(applications, status, extended) {
+    return _.filter(applications, val => {
+      switch(status) {
+        case 'inProgress':
+          return !val.status['complete'] && !val.status['submitted'] && !val.status['paid'] && val.status['extended'] == extended;
+          break;
+        case 'complete':
+          return val.status['complete'] && !val.status['submitted'] && !val.status['paid'] && val.status['extended'] == extended;
+          break;
+        case 'submitted':
+          return val.status['complete'] && val.status['submitted'] && !val.status['paid'] && val.status['extended'] == extended;
+          break;
+        case 'paid':
+          return val.status['complete'] && val.status['submitted'] && val.status['paid'] && val.status['extended'] == extended;
+          break;
+        case 'approved':
+          return val.status['approved'];
+      }
+      return val.status[status];
+    }).length;
+  }
+
   render() {
 
-    let total = this.props.total;
-    let stats = this.props.stats;
+    let total = this.props.applications.length;
+    let stats = this.getStats(this.props.applications);
     let roundedStats = this.roundStats(stats, total, 0.12);
 
     return (
