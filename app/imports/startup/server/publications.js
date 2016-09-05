@@ -87,6 +87,7 @@ Meteor.publishComposite('admin.applications.latest', function() {
       return Applications.find({}, {
         fields: {
           userId: 1,
+          createdAt: 1,
         },
         sort: {
           createdAt: -1,

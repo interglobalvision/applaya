@@ -30,7 +30,6 @@ const composer = (props, onData) => {
         let applications = Applications.find({}).fetch();
 
         let latestApplications = Applications.find({}, {
-          // >>> why does this sort not seem to work?
           sort: {
             createdAt: -1,
           },
