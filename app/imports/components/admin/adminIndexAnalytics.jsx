@@ -154,7 +154,7 @@ export class AdminIndexAnalytics extends Component {
 
     return (
       <section className='row margin-bottom-mid'>
-        <div className='fluid-col s-12 m-12'>
+        <div className='fluid-col s-12'>
           <h2>Admin Analytics Dashboard</h2>
         </div>
         <div className='fluid-col s-12 m-2 text-align-center'>
@@ -185,7 +185,7 @@ export class AdminIndexAnalytics extends Component {
             <span>{stats.paid}</span>
           </span>
         </div>
-        <div className='fluid-col s-12 m-12'>
+        <div className='fluid-col s-12'>
           <input name='extended' type='checkbox' checked={this.state.checked} onChange={ () => this.toggleExtended()} ref='extended'/>
           <label htmlFor='extended'>Extended</label>
         </div>
