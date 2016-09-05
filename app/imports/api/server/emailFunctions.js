@@ -63,8 +63,10 @@ export const paymentSuccessEmail = (userId, chargeId, cardBrand, cardLastFour) =
   check(obj, schema);
 
   let user = Meteor.users.findOne(userId);
-  let content = 'Your application fee payment to Material Art Fair for $' + Meteor.settings.public.applicationFee + ' USD has been completed from your ' + cardBrand + ' ending in ' + cardLastFour + '.\r\n\r\nThank you very much and if you have any further questions, please write to applications@material-fair.com.\r\n\r\nMaterial Art Fair';
+  let content = 'Your application fee payment to Material Art Fair for $' + (Meteor.settings.public.applicationFee/100) + ' USD has been completed from your ' + cardBrand + ' ending in ' + cardLastFour + '.\r\n\r\nThank you very much and if you have any further questions, please write to applications@material-fair.com.\r\n\r\nMaterial Art Fair';
 
   sendMail(user.emails[0].address, 'MAF Payment Recieved', content);
 
 };
+
+
