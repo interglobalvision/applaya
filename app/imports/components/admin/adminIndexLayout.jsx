@@ -28,6 +28,7 @@ export class AdminIndexLayout extends Component {
     i18n.offChangeLocale(this.localeChanged.bind(this));
   }
 
+
   render() {
     if (!this.props.user) {
       return <Accounts.ui.LoginForm />;

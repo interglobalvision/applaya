@@ -8,12 +8,13 @@ import { Applications } from '/imports/collections/applications.js';
 
 const composer = (props, onData) => {
 
-  const applicationsSubscription = Meteor.subscribe('admin.applications');
+  const latestApplicationsSub = Meteor.subscribe('admin.applications.latest');
+  const applicationsCountSub = Meteor.subscribe('admin.applications.counts');
   const committeeSubscription = Meteor.subscribe('admin.users.committee');
   const adminSubscription = Meteor.subscribe('admin.users.admin');
 
   // Check if subscription is ready
-  if (applicationsSubscription.ready() && committeeSubscription.ready() && adminSubscription.ready()) {
+  if (applicationsCountSub.ready() && latestApplicationsSub.ready() && committeeSubscription.ready() && adminSubscription.ready()) {
 
     const user = !!Meteor.user() ? Meteor.user() : null;
 
@@ -29,7 +30,6 @@ const composer = (props, onData) => {
         let applications = Applications.find({}).fetch();
 
         let latestApplications = Applications.find({}, {
-          // >>> why does this sort not seem to work?
           sort: {
             createdAt: -1,
           },
