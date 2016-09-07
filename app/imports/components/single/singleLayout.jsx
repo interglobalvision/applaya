@@ -45,6 +45,7 @@ export class SingleSection extends Component {
       return null;
     }
   }
+  
   render() {
 
     let validatedString = this.props.section.validated.toString();
@@ -77,9 +78,9 @@ export class SingleSection extends Component {
                   <p>{data.galleryEmail}</p>
                   <h4>Website</h4>
                   <p><a href={data.website}>{data.website}</a></p>
-                  { !_.isUndefined(data.twitter) ? <div><h4>Twitter</h4><p>{data.twitter}</p></div>  : false }
-                  { !_.isUndefined(data.facebook) ? <div><h4>Facebook</h4><p>{data.facebook}</p></div>  : false }
-                  { !_.isUndefined(data.instagram) ? <div><h4>Instagram</h4><p>{data.instagram}</p></div>  : false }
+                  { data.twitter ? <div><h4>Twitter</h4><p>{data.twitter}</p></div> : false }
+                  { data.facebook ? <div><h4>Facebook</h4><p>{data.facebook}</p></div> : false }
+                  { data.instagram ? <div><h4>Instagram</h4><p>{data.instagram}</p></div> : false }
                 </section>
               );
             case 'contact-information':
@@ -89,7 +90,7 @@ export class SingleSection extends Component {
                   <p>{data.contactName}</p>
                   <h4>Email</h4>
                   <p><a href={'mailto:' + data.contactEmail}>{data.contactEmail}</a></p>
-                  { !_.isUndefined(data.contactPhone) ? <div><h4>Tel</h4><p>{data.contactPhone}</p></div> : false }
+                  { data.contactPhone ? <div><h4>Tel</h4><p>{data.contactPhone}</p></div> : false }
                 </section>
               );
             case 'proposal':
@@ -120,15 +121,15 @@ export class SingleSection extends Component {
               return (
                 <section>
                   <ul>
-                    {!_.isUndefined(booths.project) && booths.project === true ? <li>✔︎  <T>apply.sections.booth.project.label</T></li> : false}
-                    {!_.isUndefined(booths.principal1) && booths.principal1 === true ? <li>✔︎  <T>apply.sections.booth.principal1.label</T></li> : false}
-                    {!_.isUndefined(booths.principal2) && booths.principal2 === true ? <li>✔︎  <T>apply.sections.booth.principal2.label</T></li> : false}
-                    {!_.isUndefined(booths.principal3) && booths.principal3 === true ? <li>✔︎  <T>apply.sections.booth.principal3.label</T></li> : false}
-                    {!_.isUndefined(booths.principal4) && booths.principal4 === true ? <li>✔︎  <T>apply.sections.booth.principal4.label</T></li> : false}
-                    {!_.isUndefined(booths.principal5) && booths.principal5 === true ? <li>✔︎  <T>apply.sections.booth.principal5.label</T></li> : false}
-                    {!_.isUndefined(booths.principal6) && booths.principal6 === true ? <li>✔︎  <T>apply.sections.booth.principal6.label</T></li> : false}
-                    {!_.isUndefined(booths.principal7) && booths.principal7 === true ? <li>✔︎  <T>apply.sections.booth.principal7.label</T></li> : false}
-                    {!_.isUndefined(booths.principal8) && booths.principal8 === true ? <li>✔︎  <T>apply.sections.booth.principal8.label</T></li> : false}
+                    { booths.project ? <li>✔︎  <T>apply.sections.booth.project.label</T></li> : false}
+                    { booths.principal1 ? <li>✔︎  <T>apply.sections.booth.principal1.label</T></li> : false}
+                    { booths.principal2 ? <li>✔︎  <T>apply.sections.booth.principal2.label</T></li> : false}
+                    { booths.principal3 ? <li>✔︎  <T>apply.sections.booth.principal3.label</T></li> : false}
+                    { booths.principal4 ? <li>✔︎  <T>apply.sections.booth.principal4.label</T></li> : false}
+                    { booths.principal5 ? <li>✔︎  <T>apply.sections.booth.principal5.label</T></li> : false}
+                    { booths.principal6 ? <li>✔︎  <T>apply.sections.booth.principal6.label</T></li> : false}
+                    { booths.principal7 ? <li>✔︎  <T>apply.sections.booth.principal7.label</T></li> : false}
+                    { booths.principal8 ? <li>✔︎  <T>apply.sections.booth.principal8.label</T></li> : false}
                   </ul>
                 </section>
               );
@@ -137,10 +138,10 @@ export class SingleSection extends Component {
                 <section>
                   <h4><T>apply.sections.terms.signature.label</T></h4>
                   <p>
-                  {!_.isUndefined(data.name) ? <span>{data.name}<br/></span> : false}
-                  {!_.isUndefined(data.date) ? <span>{data.date}</span> : false}
+                  { data.name ? <span>{data.name}<br/></span> : false}
+                  { data.date ? <span>{data.date}</span> : false}
                   </p>
-                  {!_.isUndefined(data.signature) ? <img src={data.signature} /> : false}
+                  { data.signature ? <img src={data.signature} /> : false}
                 </section>
               );
           }
@@ -154,32 +155,40 @@ export class SingleSection extends Component {
 export class SingleArtist extends Component {
   render() {
     const artist = this.props.artist;
-    return (
-      <section className='single-application-artist'>
-        <h4>{artist.name}</h4>
-        <p>{'📄'} <a href={artist.cv.file.url} rel='noopener' target='_blank'>{artist.cv.file.name}</a></p>
-        {artist.work.map( (work, key) => (
-          <SingleWork work={work} key={key} />
-        ))}
-      </section>
-    );
+
+    if (artist) {
+      return (
+        <section className='single-application-artist'>
+          <h4>{artist.name}</h4>
+          { artist.cv ? <p>{'📄'} <a href={artist.cv.file.url} rel='noopener' target='_blank'>{artist.cv.file.name}</a></p> : false }
+          {artist.work.map( (work, key) => (
+            <SingleWork work={work} key={key} />
+          ))}
+        </section>
+      );
+    }
+
+    return '';
   }
 };
 
 export class SingleWork extends Component {
   render() {
     const work = this.props.work;
-    return (
-      <section className='single-application-artist-work'>
-        <img className='single-application-artist-work-image' src={work.image.file.url} alt={work.image.file.name} />
-        <ul>
-          <li><T>apply.sections.artists.work.workTitle.label</T>: {work.workTitle}</li>
-          <li><T>apply.sections.artists.work.medium.label</T>: {work.medium}</li>
-          <li><T>apply.sections.artists.work.dimensions.label</T>: {work.dimensions}</li>
-          <li><T>apply.sections.artists.work.year.label</T>: {work.year}</li>
-        </ul>
-      </section>
-    );
+    if (work) {
+      return (
+        <section className='single-application-artist-work'>
+          { work.image ? <img className='single-application-artist-work-image' src={work.image.file.url} alt={work.image.file.name} /> : false }
+          <ul>
+            <li><T>apply.sections.artists.work.workTitle.label</T>: {work.workTitle}</li>
+            <li><T>apply.sections.artists.work.medium.label</T>: {work.medium}</li>
+            <li><T>apply.sections.artists.work.dimensions.label</T>: {work.dimensions}</li>
+            <li><T>apply.sections.artists.work.year.label</T>: {work.year}</li>
+          </ul>
+        </section>
+      );
+    }
+    return '';
   }
 };
 
