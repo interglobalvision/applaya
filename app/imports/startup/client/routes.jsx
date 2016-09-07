@@ -1,8 +1,6 @@
 import React from 'react';
 import { mount } from 'react-mounter';
 
-import { Accounts, STATES } from 'meteor/std:accounts-ui';
-
 import { MainLayout } from '/imports/components/mainLayout.jsx';
 
 import { UserLogin } from '/imports/components/user/UserLogin.jsx';
