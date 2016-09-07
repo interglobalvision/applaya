@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import i18n from 'meteor/universe:i18n';
 
-import { Accounts, STATES } from 'meteor/std:accounts-ui';
+import { Accounts } from '/imports/components/accounts.jsx';
 
 export class UserSignup extends Component {
   render() {
