@@ -10,3 +10,4 @@ import '/imports/api/methods/accountMethods.js';
 import '/imports/api/methods/paymentMethods.js';
 import '/imports/api/methods/adminMethods.js';
 import '/imports/api/methods/adminApplicationMethods.js';
+import '/imports/api/methods/ratingMethods.js';
