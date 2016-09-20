@@ -18,7 +18,7 @@ export class SingleLayout extends Component {
     let roleSpecificNav;
     if (Roles.userIsInRole(Meteor.userId(), 'admin')) {
       roleSpecificNav = <SingleAdminNav />;
-    } else {
+    } else if (this.props.application.status.paid) { // Display ratings only on paid applications
       roleSpecificNav = <SingleCommitteeNav applicationId={this.props.application._id} rating={this.props.rating ? this.props.rating.value : 0} />;
     }
 

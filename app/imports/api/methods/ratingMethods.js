@@ -27,6 +27,7 @@ export const saveRating = new ValidatedMethod({
       }, (err) => {
         if (!err) {
           // Get avg rating and save it in the application, like saveApplyProgress.call(applicationId);
+          saveAverageRating.call(applicationId);
         }
       });
     } else {
@@ -40,8 +41,46 @@ export const saveRating = new ValidatedMethod({
       }, { upsert: true }, (err) => {
         if (!err) {
           // Get avg rating and save it in the application, like saveApplyProgress.call(applicationId);
+          saveAverageRating.call(applicationId);
         }
       });
     }
+  },
+});
+
+const saveAverageRating = new ValidatedMethod({
+  name: 'rating.save-average',
+
+  validate(applicationId) {
+    check(applicationId, String);
+  },
+
+  run(applicationId) {
+    if (!Roles.userIsInRole(this.userId, ['admin', 'committee'])) {
+      throw new Meteor.Error('Rating.methods.set-average.not-allowed', 'Must be admin/committee to do this.');
+    }
+
+    // Get ratings
+    let ratings = Ratings.find({ applicationId }, {
+      fields: {
+        value: true,
+      }
+    }).fetch();
+
+    let average = 0;
+
+    if( ratings.length ) {
+      // Reduce ratings
+      let total = ratings.reduce( (total,rating) => {
+        return total + rating.value;
+      }, 0);
+
+      average = total/ratings.length;
+
+    } 
+
+    // Save new avg rating
+    Applications.update(applicationId, { $set: { averageRating: average } });
+
   },
 });
