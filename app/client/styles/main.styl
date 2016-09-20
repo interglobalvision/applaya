@@ -616,6 +616,23 @@ thead
 .stats-submitted
   background: $color-green
 
+// COMMITTEE RATINGS
+.rating-buttons
+  button
+    transition: opacity 150ms
+    opacity: 0.3
+
+    &:focus
+      outline: none
+      border: 1px solid $color-green
+
+    &.active
+      opacity: 1
+
+
+  &.clean
+    button
+      opacity: 1
 // ******************************************************
 
 // MAF STYLES
