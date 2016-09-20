@@ -3,6 +3,8 @@ import { Meteor } from 'meteor/meteor';
 import { Applications } from '/imports/collections/applications.js';
 import { ApplicationSections } from '/imports/collections/applicationSections.js';
 
+import { Ratings } from '/imports/collections/ratings.js';
+
 // For publication we use the old function() {} syntax
 Meteor.publishComposite('application.single', function() {
   const userId = this.userId;
@@ -60,6 +62,15 @@ Meteor.publishComposite('admin.application.single', function(applicationId) {
         return ApplicationSections.find({
           applicationId: application._id,
         });
+      },
+    }, {
+      find(application) {
+        if (Roles.userIsInRole(this.userId, 'committee')) {
+          return Ratings.find({
+            applicationId: application._id,
+            userId: this.userId,
+          });
+        }
       },
     }, {
       find(application) {
