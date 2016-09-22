@@ -9,6 +9,19 @@ class RatingsCollection extends Mongo.Collection {
 
     return super.insert(doc,callback);
   }
+
+  update(selector, modifier, ...optionsAndCallback) {
+
+    // When modifying whole document (ex. Mongol)
+    if(_.isUndefined(modifier.$set)) {
+      modifier['updatedAt'] = modifier['updatedAt'] || new Date();
+    } else if (!_.isUndefined(modifier.$set)) {
+    // When modifying whole document (ex. Mongol)
+      modifier.$set['updatedAt'] = modifier.$set['updatedAt'] || new Date();
+    }
+
+    return super.update(selector, modifier, ...optionsAndCallback);
+  }
 }
 
 export const Ratings = new RatingsCollection('Ratings');
