@@ -5,6 +5,8 @@ import { autoParagraph } from '/imports/lib/misc.js';
 
 import { StepsInfo } from '/imports/lib/steps.js';
 
+import { Rating } from '/imports/components/committee/rating.jsx';
+
 const T = i18n.createComponent();
 
 export class SingleLayout extends Component {
@@ -16,8 +18,8 @@ export class SingleLayout extends Component {
     let roleSpecificNav;
     if (Roles.userIsInRole(Meteor.userId(), 'admin')) {
       roleSpecificNav = <SingleAdminNav />;
-    } else {
-      roleSpecificNav = <SingleCommitteeNav />;
+    } else if (this.props.application.status.paid) { // Display ratings only on paid applications
+      roleSpecificNav = <SingleCommitteeNav applicationId={this.props.application._id} rating={this.props.rating ? this.props.rating.value : 0} />;
     }
 
     return (
@@ -214,7 +216,7 @@ export class SingleCommitteeNav extends Component {
     return (
       <nav>
         <h3>Committee nav</h3>
-        Here goes comments and rating functions
+        <Rating rating={this.props.rating} applicationId={this.props.applicationId} />
       </nav>
     );
   }

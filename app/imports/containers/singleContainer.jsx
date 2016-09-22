@@ -6,6 +6,7 @@ import { SingleLayout } from '/imports/components/single/singleLayout.jsx';
 
 import { Applications } from '/imports/collections/applications.js';
 import { ApplicationSections } from '/imports/collections/applicationSections.js';
+import { Ratings } from '/imports/collections/ratings.js';
 
 const composer = (props, onData) => {
 
@@ -33,7 +34,17 @@ const composer = (props, onData) => {
 
         let applicationUser = Meteor.users.findOne(application.userId);
 
-        onData(null, { user, application, sections, applicationUser });
+        // If committee member, look for ratings too
+        if (Roles.userIsInRole(user._id, ['committee'])) {
+          let rating = Ratings.findOne({ 
+            applicationId: application._id,
+            userId: user._id,
+          });
+
+          onData(null, { user, application, sections, applicationUser, rating });
+        } else {
+          onData(null, { user, application, sections, applicationUser });
+        }
 
       } else {
         FlowRouter.go('/unauthorized');
