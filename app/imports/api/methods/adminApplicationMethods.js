@@ -100,3 +100,31 @@ export const markPaidApplication = new ValidatedMethod({
     throw new Meteor.Error('Admin.methods.mark-paid.error', i18n.__('notifications.errorOccurred'));
   },
 });
+
+export const extendApplication = new ValidatedMethod({
+  name: 'application.admin.extend',
+
+  validate(applicationId) {
+    check(applicationId, String);
+  },
+
+  run(applicationId) {
+    if (!Roles.userIsInRole(this.userId, 'admin')) {
+      throw new Meteor.Error('Admin.methods.extend.not-allowed', 'Must be admin to do this.');
+    }
+
+    let application = Applications.update(applicationId, {
+      $set: {
+        'status.extended': true,
+      },
+    });
+
+    if (application) {
+      const message =  i18n.__('notifications.extend.success');
+
+      return { message };
+    } 
+
+    throw new Meteor.Error('Admin.methods.extend.error', i18n.__('notifications.errorOccurred'));
+  },
+});
