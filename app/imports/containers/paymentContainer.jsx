@@ -8,11 +8,6 @@ import { Applications } from '/imports/collections/applications.js';
 import { ApplicationSections } from '/imports/collections/applicationSections.js';
 
 const composer = (props, onData) => {
-  // Check if time is after deadline
-  if (moment() > moment(Meteor.settings.public.applicationDeadline, Meteor.settings.public.dateFormat)) {
-    return FlowRouter.go('/applications-closed');
-  }
-
   const subscription = Meteor.subscribe('application.single');
 
   // Check if subscription is ready
@@ -31,6 +26,16 @@ const composer = (props, onData) => {
         let application = Applications.findOne({ userId: user._id });
 
         if (!!application) {
+
+          // Check if time is after deadline
+          if (moment() > moment(Meteor.settings.public.applicationDeadline, Meteor.settings.public.dateFormat) && application.status.extended === false) {
+            return FlowRouter.go('/applications-closed');
+          }
+
+          // Check if time is after extended deadline
+          if (moment() > moment(Meteor.settings.public.applicationExtension, Meteor.settings.public.dateFormat)) {
+            return FlowRouter.go('/applications-closed');
+          }
 
           let status = application.status;
 
