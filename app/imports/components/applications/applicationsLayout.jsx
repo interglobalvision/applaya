@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Alert from 'react-s-alert';
 
-import { deleteApplication, unsubmitApplication, markPaidApplication } from '/imports/api/methods/adminApplicationMethods.js';
+import { deleteApplication, unsubmitApplication, markPaidApplication, extendApplication } from '/imports/api/methods/adminApplicationMethods.js';
 
 const T = i18n.createComponent();
 
@@ -88,6 +88,13 @@ export class ApplicationsApplication extends Component {
           });
         }
         break;
+      case 'extendApplication':
+        if (confirm(i18n.__('notifications.extend.confirm'))) {
+          extendApplication.call(this.props._id, (err, res) => {
+            this.adminActionCallback(err, res);
+          });
+        }
+        break;
       default:
         break;
     }
@@ -135,6 +142,7 @@ export class ApplicationsApplication extends Component {
           <button onClick={() => this.clickAdminAction('deleteApplication')}><T>applications.actions.delete</T></button>
           <button onClick={() => this.clickAdminAction('unsubmitApplication')} disabled={!this.props.status.submitted}><T>applications.actions.unsubmit</T></button>
           <button onClick={() => this.clickAdminAction('markPaidApplication')} disabled={this.props.status.paid}><T>applications.actions.markAsPaid</T></button>
+          <button onClick={() => this.clickAdminAction('extendApplication')} disabled={this.props.status.extended}><T>applications.actions.extend</T></button>
         </td>
       </tr>
     );

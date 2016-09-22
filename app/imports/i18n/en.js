@@ -44,6 +44,10 @@ i18n.addTranslations('en', {
       confirm: 'Are you sure you want to mark this application paid?',
       success: 'Application marked as paid',
     },
+    extend: {
+      confirm: 'Are you sure you want to extend this application\' deadline?',
+      success: 'Application marked as extended',
+    },
   },
 
   users: {
