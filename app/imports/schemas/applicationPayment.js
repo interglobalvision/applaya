@@ -5,7 +5,7 @@ const schemaLocaleBase = 'apply.payment.';
 
 const Schema = new SimpleSchema({
   'card.number': {
-    type: Number,
+    type: String,
     label: () => i18n.__(schemaLocaleBase + 'cardNumber.label'),
   },
   'card.name': {
@@ -24,7 +24,7 @@ const Schema = new SimpleSchema({
     min: 1,
   },
   'card.cvc': {
-    type: Number,
+    type: String,
     label: () => i18n.__(schemaLocaleBase + 'cvc.label'),
   },
   'address.street1': {
