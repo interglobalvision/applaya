@@ -88,6 +88,7 @@ npm-mongo@1.5.45
 observe-sequence@1.0.12
 okgrow:analytics@2.0.0
 ordered-dict@1.0.8
+percolate:migrations@0.9.8
 promise@0.8.3
 random@1.0.10
 rate-limit@1.0.5
