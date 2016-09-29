@@ -8,7 +8,7 @@ const ListAdd = ({
     value,
     ...props
 }) => {
-  const limitNotReached = !disabled && !(parent.maxCount <= value.length);
+  const limitNotReached = !disabled && !(parent.maxCount <= parent.value.length);
 
   return (
     <span
