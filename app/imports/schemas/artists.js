@@ -33,7 +33,7 @@ export const ArtistsSchema = new SimpleSchema({
   'artists.$.work': {
     type: [ Object ],
     minCount: 1,
-    maxCount: 10,
+    maxCount: 18,
     label: () => i18n.__(schemaLocaleBase + 'work.label'),
     uniforms: {
       component: ListField,
