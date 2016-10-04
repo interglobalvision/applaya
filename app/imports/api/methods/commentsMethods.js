@@ -42,16 +42,26 @@ export const deleteComment = new ValidatedMethod({
 
   run(commentId) {
     if (!Roles.userIsInRole(this.userId, ['committee', 'admin'])) {
-      throw new Meteor.Error('Coments.methods.submit.not-allowed', 'Must be committee to do this.');
+      throw new Meteor.Error('Coments.methods.submit.not-allowed', 'Must be committee or admin to do this.');
     }
 
-    if (Comments.findOne({ _id: commentId, userId: this.userId })  === undefined) {
-      throw new Meteor.Error('Coments.methods.submit.not-owned', 'Must own this comment to do this.');
-    }
+    if (Roles.userIsInRole(this.userId, ['admin'])) { // Admin can delete any comment
 
-    Comments.remove({
-      _id: commentId,
-      userId: this.userId
-    });
+      Comments.remove({
+        _id: commentId,
+      });
+
+    } else { // Committee can only delete owned comments
+
+      if (Comments.findOne({ _id: commentId, userId: this.userId })  === undefined) {
+        throw new Meteor.Error('Coments.methods.submit.not-owned', 'Must own this comment to do this.');
+      }
+
+      Comments.remove({
+        _id: commentId,
+        userId: this.userId
+      });
+
+    }
   } 
 });

@@ -53,7 +53,7 @@ export class Comments extends Component {
     return (
       <ul>
         {this.props.comments.map( (comment, key) => (
-          <Comment comment={comment} />
+          <Comment comment={comment} key={key} />
         ))}
       </ul>
     );
@@ -73,9 +73,13 @@ export class Comment extends Component {
 
   render() {
     let comment = this.props.comment;
+    let isAdmin = Roles.userIsInRole(Meteor.userId(), ['admin']);
+    let ownsComment = Meteor.userId() === comment.userId;
+    let commentDate = moment(comment.createdAt, 'DD-MM-YYYY HH:mm').format('DD/MM/YYYY, h:mm a');
+
     return (
       <li className='comment-item'>
-        <p><b>{comment.email}</b>: <span class="comment-date">{moment(comment.createdAt, 'DD-MM-YYYY HH:mm').format('DD/MM/YYYY, h:mm a')}</span> { Meteor.userId() === comment.userId ? <button className='list-item-remove' onClick={this.deleteComment.bind(this)}>&times;</button> : '' }</p>
+        <p><b>{comment.email}</b>: <span className="comment-date">{commentDate}</span> { ownsComment || isAdmin ? <button className='list-item-remove' onClick={this.deleteComment.bind(this)}>&times;</button> : '' }</p>
         <div dangerouslySetInnerHTML={autoParagraph(comment.content)} />
       </li>
     );
