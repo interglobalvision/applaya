@@ -45,7 +45,7 @@ export const deleteComment = new ValidatedMethod({
       throw new Meteor.Error('Coments.methods.submit.not-allowed', 'Must be committee to do this.');
     }
 
-    if (Comments.findOne({ _id: commentId, userId: 'asdf' })  === undefined) {
+    if (Comments.findOne({ _id: commentId, userId: this.userId })  === undefined) {
       throw new Meteor.Error('Coments.methods.submit.not-owned', 'Must own this comment to do this.');
     }
 
