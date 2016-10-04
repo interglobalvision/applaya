@@ -535,6 +535,11 @@ button:disabled
 
 // ******************************************************
 
+// ALERTS 
+  
+.s-alert-success
+  background-color: $color-green
+
 // FORM ERRORS
 
 formError()
@@ -558,7 +563,7 @@ formError()
 
 // SINGLE APPLICATION
 
-.single-application-section
+.single-application-section, #comments-section
   margin-top: $margin-mid
   padding-top: $margin-mid
   border-top: 1px dashed $color-black
@@ -633,6 +638,15 @@ thead
   &.clean
     button
       opacity: 1
+      
+// COMMITTEE COMMENTS 
+
+.comment-item 
+  padding: $margin-small 0
+  border-bottom: 1px dashed #000
+  &:last-of-type
+    border-bottom: none
+
 // ******************************************************
 
 // MAF STYLES
@@ -645,7 +659,6 @@ thead
 
 #footer
   background-position: center bottom
-
 
 // ******************************************************
 

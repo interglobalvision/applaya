@@ -7,6 +7,7 @@ import { SingleLayout } from '/imports/components/single/singleLayout.jsx';
 import { Applications } from '/imports/collections/applications.js';
 import { ApplicationSections } from '/imports/collections/applicationSections.js';
 import { Ratings } from '/imports/collections/ratings.js';
+import { Comments } from '/imports/collections/comments.js';
 
 const composer = (props, onData) => {
 
@@ -32,6 +33,8 @@ const composer = (props, onData) => {
             step: 1,
           } }).fetch();
 
+        let comments = Comments.find({ applicationId: application._id });
+
         let applicationUser = Meteor.users.findOne(application.userId);
 
         // If committee member, look for ratings too
@@ -41,9 +44,9 @@ const composer = (props, onData) => {
             userId: user._id,
           });
 
-          onData(null, { user, application, sections, applicationUser, rating });
+          onData(null, { user, application, sections, applicationUser, rating , comments });
         } else {
-          onData(null, { user, application, sections, applicationUser });
+          onData(null, { user, application, sections, applicationUser, comments });
         }
 
       } else {

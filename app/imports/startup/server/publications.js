@@ -4,6 +4,7 @@ import { Applications } from '/imports/collections/applications.js';
 import { ApplicationSections } from '/imports/collections/applicationSections.js';
 
 import { Ratings } from '/imports/collections/ratings.js';
+import { Comments } from '/imports/collections/comments.js';
 
 // For publication we use the old function() {} syntax
 Meteor.publishComposite('application.single', function() {
@@ -60,6 +61,12 @@ Meteor.publishComposite('admin.application.single', function(applicationId) {
     children: [{
       find(application) {
         return ApplicationSections.find({
+          applicationId: application._id,
+        });
+      },
+    }, {
+      find(application) {
+        return Comments.find({
           applicationId: application._id,
         });
       },

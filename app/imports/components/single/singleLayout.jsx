@@ -6,6 +6,7 @@ import { autoParagraph } from '/imports/lib/misc.js';
 import { StepsInfo } from '/imports/lib/steps.js';
 
 import { Rating } from '/imports/components/committee/rating.jsx';
+import { CommentsSection } from '/imports/components/single/commentsSection.jsx';
 
 const T = i18n.createComponent();
 
@@ -30,6 +31,7 @@ export class SingleLayout extends Component {
             <SingleSection section={section} key={key} />
           ))}
           {roleSpecificNav}
+          <CommentsSection applicationId={this.props.applicationId} comments={this.props.comments} />
         </div>
       </section>
     );
