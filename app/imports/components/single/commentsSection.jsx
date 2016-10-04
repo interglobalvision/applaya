@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { AutoForm, ErrorsField, LongTextField, SubmitField } from 'uniforms-unstyled';
+import Alert from 'react-s-alert';
 
 import { CommentSchema } from '/imports/schemas/comment.js';
 
@@ -28,7 +29,7 @@ export class AddComment extends Component {
       comment: data.content,
     }, (err) => {
       if (err) {
-        return new Meteor.Error(err);
+        Alert.error(err.reason);
       } else {
         _this.refs.commentField.reset();
       }
@@ -64,7 +65,7 @@ export class Comment extends Component {
     if (confirm('Are you sure you want to delete this comment?')) {
       deleteComment.call(this.props.comment._id, err => {
         if (err) {
-          return new Meteor.Error(err);
+          Alert.error(err.reason);
         }
       });
     }
