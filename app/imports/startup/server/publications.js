@@ -118,7 +118,7 @@ Meteor.publishComposite('admin.applications.latest', function() {
 
 });
 
-Meteor.publishComposite('applications.index', function(posts, page, status) {
+Meteor.publishComposite('applications.index', function(posts, page, status, sortBy) {
 
   if (!page) {
     page = 0;
@@ -130,9 +130,15 @@ Meteor.publishComposite('applications.index', function(posts, page, status) {
 
   let query = {};
 
-  if(status) {
+  let projection = {
+    limit: posts,
+    skip,
+  };
 
-    switch(status) {
+
+  if (status) {
+
+    switch (status) {
       case 'in-process':
         query['status.complete'] = false;
         break;
@@ -154,12 +160,25 @@ Meteor.publishComposite('applications.index', function(posts, page, status) {
     }
   }
 
+  if (sortBy) {
+    switch (sortBy) {
+      case 'rating-asc':
+        projection['sort'] = { averageRating: 1 };
+        break;
+      case 'rating-desc':
+        projection['sort'] = { averageRating: -1 };
+        break;
+    }
+  }
+
   console.log('query', query);
+  console.log('projection', projection);
+
   return {
 
     // This function
     find() {
-      return Applications.find(query, {limit: posts, skip: skip});
+      return Applications.find(query, projection);
     },
 
     children: [ {
