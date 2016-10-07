@@ -7,12 +7,12 @@ const T = i18n.createComponent();
 
 export class ApplicationsLayout extends Component {
   renderPaginationPrev() {
-    let pagePrev = this.props.page - 1;
+    let page = parseInt(this.props.queryParams.page) || 1;
+    let pagePrev = page - 1;
 
     if (pagePrev !== 0) {
-      let url = '/applications/page/' + pagePrev;
       return (
-        <a className="button" href={url}><T>common.prev</T></a>
+        <a className="button" onClick={() => FlowRouter.setQueryParams({ page: pagePrev })}><T>common.prev</T></a>
       );
     } else {
       return false;
@@ -20,12 +20,12 @@ export class ApplicationsLayout extends Component {
   }
 
   renderPaginationNext() {
-    let pageNext = this.props.page + 1;
+    let page = parseInt(this.props.queryParams.page) || 1;
+    let pageNext = page + 1;
 
     if (pageNext) {
-      let url = '/applications/page/' + pageNext;
       return (
-        <a className="button" href={url}><T>common.next</T></a>
+        <a className="button" onClick={ () => FlowRouter.setQueryParams({page: pageNext}) }><T>common.next</T></a>
       );
     } else {
       return false;
@@ -113,8 +113,10 @@ export class ApplicationsControls extends Component {
             <option value=""></option>
             <option value="rating-asc">Rating (low-high)</option>
             <option value="rating-desc">Rating (high-low)</option>
+            {/*
             <option value="gallery-asc">Gallery name (A-Z)</option>
             <option value="gallery-desc">Gallery name (Z-A)</option>
+            */}
           </select>
         </form>
       </nav>

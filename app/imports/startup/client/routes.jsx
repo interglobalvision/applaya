@@ -202,19 +202,6 @@ adminRoutes.route('/applications', {
   },
 });
 
-/*
-adminRoutes.route('/applications/page/:page', {
-  name: 'applications',
-  action(params) {
-    let page = parseInt(params.page);
-
-    mount(MainLayout, {
-      content: <ApplicationsContainer page={page} />,
-    });
-  },
-});
-*/
-
 // Other Routes stuff
 FlowRouter.wait();
 
