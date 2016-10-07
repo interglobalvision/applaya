@@ -40,6 +40,7 @@ export class ApplicationsLayout extends Component {
     return (
       <section id="applications" className="fluid-col s-12 m-12">
         <h3><T>applications.title</T></h3>
+        <ApplicationsControls />
         <table>
           <thead>
             <tr>
@@ -59,6 +60,64 @@ export class ApplicationsLayout extends Component {
           { this.renderPaginationNext() }
         </nav>
       </section>
+    );
+  }
+}
+
+export class ApplicationsControls extends Component {
+  onChange() {
+    let search = this.refs.search.value || null;
+    let status = this.refs.status.value || null;
+    let sortBy = this.refs.sortBy.value || null;
+
+    FlowRouter.setQueryParams({
+      status,
+      search,
+      sortBy,
+      page: null,
+    });
+
+  }
+
+  handleStatusChange() {
+    let status = this.refs.status.value;
+
+    // Status clears the search filter
+    if (status) {
+      this.refs.search.value = null;
+    }
+  }
+
+  handleSearchChange() {
+    let search = this.refs.search.value;
+
+    // Search clears the status filter
+    if (search) {
+      this.refs.status.value = null;
+    }
+  }
+
+  render() {
+    return (
+      <nav>
+        <form onChange={this.onChange.bind(this)}>
+          <input ref="search" type="text" onChange={this.handleSearchChange.bind(this)} />
+          <select ref="status" onChange={this.handleStatusChange.bind(this)}>
+            <option value="">All</option>
+            <option value="in-process">In Process</option>
+            <option value="complete">Complete</option>
+            <option value="submitted">Submitted</option>
+            <option value="paid">Paid</option>
+          </select>
+          <select ref="sortBy">
+            <option value=""></option>
+            <option value="rating-asc">Rating (low-high)</option>
+            <option value="rating-desc">Rating (high-low)</option>
+            <option value="gallery-asc">Gallery name (A-Z)</option>
+            <option value="gallery-desc">Gallery name (Z-A)</option>
+          </select>
+        </form>
+      </nav>
     );
   }
 }

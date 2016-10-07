@@ -7,15 +7,14 @@ import { ApplicationsLayout } from '/imports/components/applications/application
 import { Applications } from '/imports/collections/applications.js';
 
 const composer = (props, onData) => {
+  console.log(props);
 
   let posts = 10;
-  let page = 1;
+  let page = props.queryParams.page || 1;
+  let status = props.queryParams.status || null;
 
-  if (props.page) {
-    page = props.page;
-  }
-
-  const subscription = Meteor.subscribe('applications.index', posts, page);
+  // TODO: send the filters here
+  const subscription = Meteor.subscribe('applications.index', posts, page, status);
 
   // Check if subscription is ready
   if (subscription.ready()) {

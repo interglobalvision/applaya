@@ -195,13 +195,14 @@ adminRoutes.route('/admin', {
 
 adminRoutes.route('/applications', {
   name: 'applications',
-  action() {
+  action(params, queryParams) {
     mount(MainLayout, {
-      content: <ApplicationsContainer />,
+      content: <ApplicationsContainer queryParams={queryParams} />,
     });
   },
 });
 
+/*
 adminRoutes.route('/applications/page/:page', {
   name: 'applications',
   action(params) {
@@ -212,6 +213,7 @@ adminRoutes.route('/applications/page/:page', {
     });
   },
 });
+*/
 
 // Other Routes stuff
 FlowRouter.wait();

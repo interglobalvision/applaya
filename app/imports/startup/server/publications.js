@@ -118,7 +118,7 @@ Meteor.publishComposite('admin.applications.latest', function() {
 
 });
 
-Meteor.publishComposite('applications.index', function(posts, page) {
+Meteor.publishComposite('applications.index', function(posts, page, status) {
 
   if (!page) {
     page = 0;
@@ -128,11 +128,38 @@ Meteor.publishComposite('applications.index', function(posts, page) {
 
   let skip = posts * page;
 
+  let query = {};
+
+  if(status) {
+
+    switch(status) {
+      case 'in-process':
+        query['status.complete'] = false;
+        break;
+      case 'complete':
+        query['status.complete'] = true;
+        query['status.submitted'] = false;
+        break;
+      case 'submitted':
+        query['status.submitted'] = true;
+        query['status.paid'] = false;
+        break;
+      case 'paid':
+        query['status.paid'] = true;
+        query['status.approved'] = false;
+        break;
+      case 'approved':
+        query['status.approved'] = true;
+        break;
+    }
+  }
+
+  console.log('query', query);
   return {
 
     // This function
     find() {
-      return Applications.find({}, {limit: posts, skip: skip, sort: {createdAt: -1}});
+      return Applications.find(query, {limit: posts, skip: skip});
     },
 
     children: [ {
