@@ -13,9 +13,11 @@ export const createApplication = new ValidatedMethod({
   name: 'application.create',
 
   // This doesn't receive any arguments, so we don't need validation
-  validate: null,
+  validate: new SimpleSchema({
+    userEmail:  { type: SimpleSchema.RegEx.WeakEmail, },
+  }).validator(),
 
-  run() {
+  run({ userEmail }) {
 
     if (!this.userId) {
       throw new Meteor.Error('Applications.methods.insert.not-logged-in', 'Must be logged in to create an application.');
@@ -23,6 +25,7 @@ export const createApplication = new ValidatedMethod({
 
     Applications.insert({
       userId: this.userId,
+      userEmail,
     });
 
   },

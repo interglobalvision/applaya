@@ -78,7 +78,8 @@ const composer = (props, onData) => {
 
 
         } else { // If no application returned proceed to create a new application for the user
-          createApplication.call({}, (err) => {
+          var userEmail = user.emails[0].address;
+          createApplication.call({ userEmail }, (err) => {
             if (err) {
               onData(new Meteor.Error(err));
             }
