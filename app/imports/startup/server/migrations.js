@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 
 import { Applications } from '/imports/collections/applications.js';
+import { ApplicationSections } from '/imports/collections/applicationSections.js';
 
 Migrations.add({
   version: 1,
@@ -23,6 +24,33 @@ Migrations.add({
 
   }, 
 });
+
+Migrations.add({
+  version: 2,
+  name: 'Add galleryName to each application',
+  up: function() {
+    //code to migrate up to version 1
+    Applications.find({}).forEach(application => { // Find ALL Applications
+      const galleryInfo = ApplicationSections.findOne({
+        applicationId: application._id,
+        step: 1,
+      });
+
+      if (galleryInfo) {
+        const galleryName = galleryInfo.data.galleryName;
+
+        if(galleryName) {
+        
+          Applications.update(application._id, { $set: { galleryName } });
+        }
+
+      }
+
+    });
+
+  }, 
+});
+
 
 Meteor.startup(function() {
   Migrations.migrateTo('latest');
