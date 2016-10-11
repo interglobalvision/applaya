@@ -66,9 +66,9 @@ export class ApplicationsLayout extends Component {
 
 export class ApplicationsControls extends Component {
   onChange() {
-    let search = this.refs.search.value || null;
     let status = this.refs.status.value || null;
     let sortBy = this.refs.sortBy.value || null;
+    let search = this.refs.search.value || null;
 
     FlowRouter.setQueryParams({
       status,
@@ -113,10 +113,8 @@ export class ApplicationsControls extends Component {
             <option value=""></option>
             <option value="rating-asc">Rating (low-high)</option>
             <option value="rating-desc">Rating (high-low)</option>
-            {/*
             <option value="gallery-asc">Gallery name (A-Z)</option>
             <option value="gallery-desc">Gallery name (Z-A)</option>
-            */}
           </select>
         </form>
       </nav>
