@@ -29,24 +29,30 @@ Migrations.add({
   version: 2,
   name: 'Add galleryName to each application',
   up: function() {
-    //code to migrate up to version 1
-    Applications.find({}).forEach(application => { // Find ALL Applications
+    Applications.find({}).forEach(application => { // Find ALL Applications and iterate
+
+      // Get section 1 for the current application, which contain the gallery info
       const galleryInfo = ApplicationSections.findOne({
         applicationId: application._id,
         step: 1,
       });
 
       if (galleryInfo) {
+
+        // Get the gallery name
         const galleryName = galleryInfo.data.galleryName;
 
         if(galleryName) {
         
+          // Update current application with galleryName
           Applications.update(application._id, { $set: { galleryName } });
         }
 
       }
 
     });
+
+
 
   }, 
 });
