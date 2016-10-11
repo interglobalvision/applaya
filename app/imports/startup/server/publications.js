@@ -118,7 +118,7 @@ Meteor.publishComposite('admin.applications.latest', function() {
 
 });
 
-Meteor.publishComposite('applications.index', function(posts, page, status, sortBy) {
+Meteor.publishComposite('applications.index', function(posts, page, status, sortBy, search) {
 
   if (!page) {
     page = 0;
@@ -160,6 +160,14 @@ Meteor.publishComposite('applications.index', function(posts, page, status, sort
     }
   }
 
+  if (search) {
+    query['$text'] = {
+      $search: search,
+    };
+  }
+
+    
+
   if (sortBy) {
     switch (sortBy) {
       case 'rating-asc':
@@ -168,11 +176,14 @@ Meteor.publishComposite('applications.index', function(posts, page, status, sort
       case 'rating-desc':
         projection['sort'] = { averageRating: -1 };
         break;
+      case 'gallery-asc':
+        projection['sort'] = { galleryName: 1 };
+        break;
+      case 'gallery-desc':
+        projection['sort'] = { galleryName: -1 };
+        break;
     }
   }
-
-  console.log('query', query);
-  console.log('projection', projection);
 
   return {
 
