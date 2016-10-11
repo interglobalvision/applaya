@@ -12,10 +12,11 @@ const composer = (props, onData) => {
   let posts = 20;
   let page = props.queryParams.page || 1;
   let status = props.queryParams.status || null;
+  let search = props.queryParams.search || null;
   let sortBy = props.queryParams.sortBy || null;
 
   // TODO: send the filters here
-  const subscription = Meteor.subscribe('applications.index', posts, page, status, sortBy);
+  const subscription = Meteor.subscribe('applications.index', posts, page, status, sortBy, search);
 
   // Check if subscription is ready
   if (subscription.ready()) {
