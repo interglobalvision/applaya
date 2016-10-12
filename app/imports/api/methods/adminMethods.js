@@ -23,7 +23,10 @@ export const adminAddUser = new ValidatedMethod({
       }
 
       Accounts.createUser({
-        email: doc.email
+        email: doc.email,
+        profile: {
+          name: doc.name,
+        }
       });
 
       let newUser = Accounts.findUserByEmail(doc.email);
