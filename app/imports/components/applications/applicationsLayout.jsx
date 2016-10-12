@@ -40,7 +40,7 @@ export class ApplicationsLayout extends Component {
     return (
       <section id="applications" className="fluid-col s-12 m-12">
         <h3><T>applications.title</T></h3>
-        <ApplicationsControls />
+        <ApplicationsFilters />
         <table>
           <thead>
             <tr>
@@ -64,7 +64,7 @@ export class ApplicationsLayout extends Component {
   }
 }
 
-export class ApplicationsControls extends Component {
+export class ApplicationsFilters extends Component {
   onChange() {
     let status = this.refs.status.value || null;
     let sortBy = this.refs.sortBy.value || null;
