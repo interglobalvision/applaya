@@ -23,12 +23,18 @@ export const submitComment = new ValidatedMethod({
     }
 
     let user = Meteor.users.findOne(this.userId);
+    
+    let author = user.emails[0].address;
+
+    if (user.profile && user.profile.name) {
+      author = user.profile.name; 
+    }
 
     Comments.insert({
       userId: this.userId,
-      email: user.emails[0].address,
       applicationId: applicationId,
       content: comment,
+      author,
     });
   }
 });

@@ -79,7 +79,7 @@ export class Comment extends Component {
 
     return (
       <li className='comment-item'>
-        <p><b>{comment.email}</b>: <span className="comment-date">{commentDate}</span> { ownsComment || isAdmin ? <button className='list-item-remove' onClick={this.deleteComment.bind(this)}>&times;</button> : '' }</p>
+        <p><b>{comment.author}</b>: <span className="comment-date">{commentDate}</span> { ownsComment || isAdmin ? <button className='list-item-remove' onClick={this.deleteComment.bind(this)}>&times;</button> : '' }</p>
         <div dangerouslySetInnerHTML={autoParagraph(comment.content)} />
       </li>
     );

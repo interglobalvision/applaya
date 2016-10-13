@@ -103,6 +103,9 @@ i18n.addTranslations('es', {
     users: {
       addUser: {
         label: 'Añadir nuevo usuario',
+        name: {
+          label: 'Full name',
+        },
         email: {
           label: 'Email'
         },

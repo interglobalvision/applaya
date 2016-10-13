@@ -1,6 +1,10 @@
 import React from 'react';
 
 export const NewAdminUserSchema = new SimpleSchema({
+  name: {
+    type: String,
+    label: () => i18n.__('admin.users.addUser.name.label'),
+  },
   email: {
     type: String,
     label: () => i18n.__('admin.users.addUser.email.label'),
