@@ -38,27 +38,33 @@ export class ApplicationsLayout extends Component {
     }
 
     return (
-      <section id="applications" className="fluid-col s-12 m-12">
-        <h3><T>applications.title</T></h3>
-        <ApplicationsFilters />
-        <table>
-          <thead>
-            <tr>
-              <td className='table-applications-title'><T>applications.title</T></td>
-              <td className='table-applications-status'><T>applications.status.label</T></td>
-              <td className='table-applications-actions'><T>applications.actions.label</T></td>
-            </tr>
-          </thead>
-          <tbody>
-            {this.props.applications.map((application, key) => (
-              <ApplicationsApplication _id={application._id} userId={application.userId} userEmail={application.userEmail} status={application.status} key={key} />
-            ))}
-          </tbody>
-        </table>
-        <nav>
-          { this.renderPaginationPrev() }
-          { this.renderPaginationNext() }
-        </nav>
+      <section id="applications">
+        <div className='row'>
+          <div className='fluid-col s-12'>
+            <h3><T>applications.title</T></h3>
+          </div>
+          <ApplicationsFilters />
+          <div className='fluid-col s-12'>
+            <table>
+              <thead>
+                <tr>
+                  <td className='s-3'><T>applications.title</T></td>
+                  <td className='s-2'><T>applications.status.label</T></td>
+                  <td className='s-7'><T>applications.actions.label</T></td>
+                </tr>
+              </thead>
+              <tbody>
+                {this.props.applications.map((application, key) => (
+                  <ApplicationsApplication _id={application._id} userId={application.userId} userEmail={application.userEmail} status={application.status} key={key} />
+                ))}
+              </tbody>
+            </table>
+            <nav>
+              { this.renderPaginationPrev() }
+              { this.renderPaginationNext() }
+            </nav>
+          </div>
+        </div>
       </section>
     );
   }
@@ -99,23 +105,32 @@ export class ApplicationsFilters extends Component {
 
   render() {
     return (
-      <nav>
-        <form onChange={this.onChange.bind(this)}>
-          <input ref="search" type="text" onChange={this.handleSearchChange.bind(this)} />
-          <select ref="status" onChange={this.handleStatusChange.bind(this)}>
-            <option value="">All</option>
-            <option value="in-process">In Process</option>
-            <option value="complete">Complete</option>
-            <option value="submitted">Submitted</option>
-            <option value="paid">Paid</option>
-          </select>
-          <select ref="sortBy">
-            <option value=""></option>
-            <option value="rating-asc">Rating (low-high)</option>
-            <option value="rating-desc">Rating (high-low)</option>
-            <option value="gallery-asc">Gallery name (A-Z)</option>
-            <option value="gallery-desc">Gallery name (Z-A)</option>
-          </select>
+      <nav className='margin-bottom-small'>
+        <form onChange={this.onChange.bind(this)} className='row'>
+          <div className='fluid-col s-4'>
+            <h5 className='margin-bottom-micro'>Search</h5>
+            <input ref="search" type="text" placeholder="search" onChange={this.handleSearchChange.bind(this)} />
+          </div>
+          <div className='fluid-col s-4'>
+            <h5 className='margin-bottom-micro'>Status</h5>
+            <select ref="status" onChange={this.handleStatusChange.bind(this)}>
+              <option value="">All</option>
+              <option value="in-process">In Process</option>
+              <option value="complete">Complete</option>
+              <option value="submitted">Submitted</option>
+              <option value="paid">Paid</option>
+            </select>
+          </div>
+          <div className='fluid-col s-4'>
+            <h5 className='margin-bottom-micro'>Sort</h5>
+            <select ref="sortBy">
+              <option value=""></option>
+              <option value="rating-asc">Rating (low-high)</option>
+              <option value="rating-desc">Rating (high-low)</option>
+              <option value="gallery-asc">Gallery name (A-Z)</option>
+              <option value="gallery-desc">Gallery name (Z-A)</option>
+            </select>
+          </div>
         </form>
       </nav>
     );
