@@ -83,6 +83,12 @@ i18n.addTranslations('en', {
     status: {
       label: 'Status',
     },
+    rating: {
+      label: 'Rating',
+      average: {
+        label: 'Average',
+      },
+    },
     actions: {
       label: 'Actions',
       delete: 'Delete',
