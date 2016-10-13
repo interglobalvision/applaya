@@ -48,10 +48,10 @@ export class ApplicationsLayout extends Component {
             <table>
               <thead>
                 <tr>
-                  <td className='s-3'><T>applications.title</T></td>
+                  <td className='s-4'><T>applications.title</T></td>
                   <td className='s-2'><T>applications.status.label</T></td>
                   <td className='s-1'><T>applications.rating.average.label</T></td>
-                  <td className='s-6'><T>applications.actions.label</T></td>
+                  <td className='s-5'><T>applications.actions.label</T></td>
                 </tr>
               </thead>
               <tbody>
