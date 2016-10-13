@@ -8,14 +8,13 @@ import { Applications } from '/imports/collections/applications.js';
 
 const composer = (props, onData) => {
 
-  let posts = 10;
-  let page = 1;
+  let posts = 20;
+  let page = props.queryParams.page || 1;
+  let status = props.queryParams.status || null;
+  let search = props.queryParams.search || null;
+  let sortBy = props.queryParams.sortBy || null;
 
-  if (props.page) {
-    page = props.page;
-  }
-
-  const subscription = Meteor.subscribe('applications.index', posts, page);
+  const subscription = Meteor.subscribe('applications.index', posts, page, status, sortBy, search);
 
   // Check if subscription is ready
   if (subscription.ready()) {

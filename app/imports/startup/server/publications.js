@@ -125,7 +125,7 @@ Meteor.publishComposite('admin.applications.latest', function() {
 
 });
 
-Meteor.publishComposite('applications.index', function(posts, page) {
+Meteor.publishComposite('applications.index', function(posts, page, status, sortBy, search) {
 
   if (!page) {
     page = 0;
@@ -135,11 +135,68 @@ Meteor.publishComposite('applications.index', function(posts, page) {
 
   let skip = posts * page;
 
+  let query = {};
+
+  let projection = {
+    limit: posts,
+    skip,
+  };
+
+
+  if (status) {
+
+    switch (status) {
+      case 'in-process':
+        query['status.complete'] = false;
+        break;
+      case 'complete':
+        query['status.complete'] = true;
+        query['status.submitted'] = false;
+        break;
+      case 'submitted':
+        query['status.submitted'] = true;
+        query['status.paid'] = false;
+        break;
+      case 'paid':
+        query['status.paid'] = true;
+        query['status.approved'] = false;
+        break;
+      case 'approved':
+        query['status.approved'] = true;
+        break;
+    }
+  }
+
+  if (search) {
+    query['$text'] = {
+      $search: search,
+    };
+  }
+
+    
+
+  if (sortBy) {
+    switch (sortBy) {
+      case 'rating-asc':
+        projection['sort'] = { averageRating: 1 };
+        break;
+      case 'rating-desc':
+        projection['sort'] = { averageRating: -1 };
+        break;
+      case 'gallery-asc':
+        projection['sort'] = { galleryName: 1 };
+        break;
+      case 'gallery-desc':
+        projection['sort'] = { galleryName: -1 };
+        break;
+    }
+  }
+
   return {
 
     // This function
     find() {
-      return Applications.find({}, {limit: posts, skip: skip, sort: {createdAt: -1}});
+      return Applications.find(query, projection);
     },
 
     children: [ {
