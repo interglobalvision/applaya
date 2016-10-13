@@ -109,7 +109,7 @@ export class ApplicationsFilters extends Component {
         <form onChange={this.onChange.bind(this)} className='row'>
           <div className='fluid-col s-4'>
             <h5 className='margin-bottom-micro'>Search</h5>
-            <input ref="search" type="text" placeholder="search" onChange={this.handleSearchChange.bind(this)} />
+            <input ref="search" type="text" onChange={this.handleSearchChange.bind(this)} />
           </div>
           <div className='fluid-col s-4'>
             <h5 className='margin-bottom-micro'>Status</h5>
@@ -124,7 +124,7 @@ export class ApplicationsFilters extends Component {
           <div className='fluid-col s-4'>
             <h5 className='margin-bottom-micro'>Sort</h5>
             <select ref="sortBy">
-              <option value=""></option>
+              <option value="">Date</option>
               <option value="rating-asc">Rating (low-high)</option>
               <option value="rating-desc">Rating (high-low)</option>
               <option value="gallery-asc">Gallery name (A-Z)</option>
