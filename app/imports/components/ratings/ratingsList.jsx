@@ -24,17 +24,13 @@ export class RatingsList extends Component {
                   </td>
                 </tr>
               ))}
-              <tr>
-                <td>Average rating</td>
-                <td>{this.props.averageRating}</td>
-              </tr>
             </tbody>
           </table>
           <table>
             <tbody>
               <tr>
-                <td className='s-6'>Average rating</td>
-                <td className='s-6'>{this.props.averageRating}</td>
+                <td className="s-6">Average rating</td>
+                <td className="s-6">{this.props.averageRating}</td>
               </tr>
             </tbody>
           </table>
