@@ -31,13 +31,21 @@ export const saveRating = new ValidatedMethod({
         }
       });
     } else {
+      let user = Meteor.users.findOne(this.userId, {
+        fields: {
+          name: true,
+          emails: true,
+        },
+      });
+
       Ratings.update({
-        applicationId: applicationId,
         userId: this.userId,
+        applicationId: applicationId,
       }, {
         userId: this.userId,
         applicationId: applicationId,
         value: rating,
+        user,
       }, { upsert: true }, (err) => {
         if (!err) {
           // Get avg rating and save it in the application, like saveApplyProgress.call(applicationId);

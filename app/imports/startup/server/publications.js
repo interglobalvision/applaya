@@ -72,10 +72,9 @@ Meteor.publishComposite('admin.application.single', function(applicationId) {
       },
     }, {
       find(application) {
-        if (Roles.userIsInRole(this.userId, 'committee')) {
+        if (Roles.userIsInRole(this.userId, ['committee', 'admin'])) {
           return Ratings.find({
             applicationId: application._id,
-            userId: this.userId,
           });
         }
       },

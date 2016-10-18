@@ -37,17 +37,34 @@ const composer = (props, onData) => {
 
         let applicationUser = Meteor.users.findOne(application.userId);
 
-        // If committee member, look for ratings too
-        if (Roles.userIsInRole(user._id, ['committee'])) {
-          let rating = Ratings.findOne({ 
+        let ratings = null;
+
+        if (Roles.userIsInRole(user._id, ['admin','committee'])) { // If admin look for all ratings on this application
+          ratings = Ratings.find({ 
             applicationId: application._id,
-            userId: user._id,
           });
 
-          onData(null, { user, application, sections, applicationUser, rating , comments });
-        } else {
-          onData(null, { user, application, sections, applicationUser, comments });
+        } 
+
+        let currentRating = null;
+
+        // If committee member, look for currentRating
+        if (Roles.userIsInRole(user._id, ['committee'])) {
+          let savedRating = Ratings.findOne({ 
+            applicationId: application._id,
+            userId: user._id,
+          }, {
+            fields: {
+              value: true,
+            }
+          });
+
+          if (savedRating) {
+            currentRating = savedRating.value;
+          }
         }
+
+        onData(null, { user, application, sections, applicationUser, ratings, currentRating, comments });
 
       } else {
         FlowRouter.go('/unauthorized');
