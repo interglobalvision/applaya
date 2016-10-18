@@ -33,6 +33,14 @@ class ApplicationsCollection extends Mongo.Collection {
 
 export const Applications = new ApplicationsCollection('Applications');
 
+// Ensure indexes exist for text search in this fields
+if (Meteor.isServer) {
+  Applications._ensureIndex({
+    galleryName: 'text',
+    userEmail: 'text',
+  });
+}
+
 Applications.deny({
   insert() { return true; },
   update() { return true; },

@@ -88,9 +88,17 @@ export class AdminIndexUser extends Component {
 
   render() {
     const T = i18n.createComponent();
+    
+    // Set display name as the email
+    let displayName = this.props.user.emails[0].address;
+
+    // If a Full Name is available, make it the displayName
+    if (this.props.user.profile && this.props.user.profile.name) {
+      displayName = this.props.user.profile.name;
+    }
 
     return (
-      <li>{this.props.user._id}: {this.props.user.emails[0].address} <a onClick={this.removeUser.bind(this)} className='button'><T>admin.users.removeUser.label</T></a></li>
+      <li>{displayName} <a onClick={this.removeUser.bind(this)} className='button'><T>admin.users.removeUser.label</T></a></li>
     );
   }
 }

@@ -195,20 +195,9 @@ adminRoutes.route('/admin', {
 
 adminRoutes.route('/applications', {
   name: 'applications',
-  action() {
+  action(params, queryParams) {
     mount(MainLayout, {
-      content: <ApplicationsContainer />,
-    });
-  },
-});
-
-adminRoutes.route('/applications/page/:page', {
-  name: 'applications',
-  action(params) {
-    let page = parseInt(params.page);
-
-    mount(MainLayout, {
-      content: <ApplicationsContainer page={page} />,
+      content: <ApplicationsContainer queryParams={queryParams} />,
     });
   },
 });

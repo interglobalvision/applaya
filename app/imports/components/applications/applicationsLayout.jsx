@@ -7,12 +7,12 @@ const T = i18n.createComponent();
 
 export class ApplicationsLayout extends Component {
   renderPaginationPrev() {
-    let pagePrev = this.props.page - 1;
+    let page = parseInt(this.props.queryParams.page) || 1;
+    let pagePrev = page - 1;
 
     if (pagePrev !== 0) {
-      let url = '/applications/page/' + pagePrev;
       return (
-        <a className="button" href={url}><T>common.prev</T></a>
+        <a className="button" onClick={() => FlowRouter.setQueryParams({ page: pagePrev })}><T>common.prev</T></a>
       );
     } else {
       return false;
@@ -20,12 +20,12 @@ export class ApplicationsLayout extends Component {
   }
 
   renderPaginationNext() {
-    let pageNext = this.props.page + 1;
+    let page = parseInt(this.props.queryParams.page) || 1;
+    let pageNext = page + 1;
 
     if (pageNext) {
-      let url = '/applications/page/' + pageNext;
       return (
-        <a className="button" href={url}><T>common.next</T></a>
+        <a className="button" onClick={ () => FlowRouter.setQueryParams({page: pageNext}) }><T>common.next</T></a>
       );
     } else {
       return false;
@@ -38,27 +38,102 @@ export class ApplicationsLayout extends Component {
     }
 
     return (
-      <section id="applications" className="fluid-col s-12 m-12">
-        <h3><T>applications.title</T></h3>
-        <table>
-          <thead>
-            <tr>
-              <td className='table-applications-title'><T>applications.title</T></td>
-              <td className='table-applications-status'><T>applications.status.label</T></td>
-              <td className='table-applications-actions'><T>applications.actions.label</T></td>
-            </tr>
-          </thead>
-          <tbody>
-            {this.props.applications.map((application, key) => (
-              <ApplicationsApplication _id={application._id} userId={application.userId} userEmail={application.userEmail} status={application.status} key={key} />
-            ))}
-          </tbody>
-        </table>
-        <nav>
-          { this.renderPaginationPrev() }
-          { this.renderPaginationNext() }
-        </nav>
+      <section id="applications">
+        <div className='row'>
+          <div className='fluid-col s-12'>
+            <h3><T>applications.title</T></h3>
+          </div>
+          <ApplicationsFilters />
+          <div className='fluid-col s-12'>
+            <table>
+              <thead>
+                <tr>
+                  <td className='s-4'><T>applications.title</T></td>
+                  <td className='s-2'><T>applications.status.label</T></td>
+                  <td className='s-1'><T>applications.rating.average.label</T></td>
+                  <td className='s-5'><T>applications.actions.label</T></td>
+                </tr>
+              </thead>
+              <tbody>
+                {this.props.applications.map((application, key) => (
+                  <ApplicationsApplication _id={application._id} userId={application.userId} userEmail={application.userEmail} status={application.status} key={key} averageRating={application.averageRating} />
+                ))}
+              </tbody>
+            </table>
+            <nav>
+              { this.renderPaginationPrev() }
+              { this.renderPaginationNext() }
+            </nav>
+          </div>
+        </div>
       </section>
+    );
+  }
+}
+
+export class ApplicationsFilters extends Component {
+  onChange() {
+    let status = this.refs.status.value || null;
+    let sortBy = this.refs.sortBy.value || null;
+    let search = this.refs.search.value || null;
+
+    FlowRouter.setQueryParams({
+      status,
+      search,
+      sortBy,
+      page: null,
+    });
+
+  }
+
+  handleStatusChange() {
+    let status = this.refs.status.value;
+
+    // Status clears the search filter
+    if (status) {
+      this.refs.search.value = null;
+    }
+  }
+
+  handleSearchChange() {
+    let search = this.refs.search.value;
+
+    // Search clears the status filter
+    if (search) {
+      this.refs.status.value = null;
+    }
+  }
+
+  render() {
+    return (
+      <nav className='margin-bottom-small'>
+        <form onChange={this.onChange.bind(this)} className='row'>
+          <div className='fluid-col s-4'>
+            <h5 className='margin-bottom-micro'>Search</h5>
+            <input ref="search" type="text" onChange={this.handleSearchChange.bind(this)} />
+          </div>
+          <div className='fluid-col s-4'>
+            <h5 className='margin-bottom-micro'>Status</h5>
+            <select ref="status" onChange={this.handleStatusChange.bind(this)}>
+              <option value="">All</option>
+              <option value="in-process">In Process</option>
+              <option value="complete">Complete</option>
+              <option value="submitted">Submitted</option>
+              <option value="paid">Paid</option>
+            </select>
+          </div>
+          <div className='fluid-col s-4'>
+            <h5 className='margin-bottom-micro'>Sort</h5>
+            <select ref="sortBy">
+              <option value="">Date</option>
+              <option value="rating-asc">Rating (low-high)</option>
+              <option value="rating-desc">Rating (high-low)</option>
+              <option value="gallery-asc">Gallery name (A-Z)</option>
+              <option value="gallery-desc">Gallery name (Z-A)</option>
+            </select>
+          </div>
+        </form>
+      </nav>
     );
   }
 }
@@ -126,8 +201,14 @@ export class ApplicationsApplication extends Component {
 
     let title = this.props._id;
 
+    let rating = '';
+
     if (!!this.props.userEmail) {
       title = this.props.userEmail;
+    }
+
+    if (!!this.props.averageRating) {
+      rating = this.props.averageRating;
     }
 
     return (
@@ -138,11 +219,14 @@ export class ApplicationsApplication extends Component {
         <td className='table-applications-status'>
           {this.renderStatus()}
         </td>
+        <td className='table-applications-rating'>
+          {rating}
+        </td>
         <td className='table-applications-actions'>
-          <button onClick={() => this.clickAdminAction('deleteApplication')}><T>applications.actions.delete</T></button>
-          <button onClick={() => this.clickAdminAction('unsubmitApplication')} disabled={!this.props.status.submitted}><T>applications.actions.unsubmit</T></button>
-          <button onClick={() => this.clickAdminAction('markPaidApplication')} disabled={this.props.status.paid}><T>applications.actions.markAsPaid</T></button>
-          <button onClick={() => this.clickAdminAction('extendApplication')} disabled={this.props.status.extended}><T>applications.actions.extend</T></button>
+          <button className='button-small' onClick={() => this.clickAdminAction('deleteApplication')}><T>applications.actions.delete</T></button>
+          <button className='button-small' onClick={() => this.clickAdminAction('unsubmitApplication')} disabled={!this.props.status.submitted}><T>applications.actions.unsubmit</T></button>
+          <button className='button-small' onClick={() => this.clickAdminAction('markPaidApplication')} disabled={this.props.status.paid}><T>applications.actions.markAsPaid</T></button>
+          <button className='button-small' onClick={() => this.clickAdminAction('extendApplication')} disabled={this.props.status.extended}><T>applications.actions.extend</T></button>
         </td>
       </tr>
     );

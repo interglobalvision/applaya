@@ -83,6 +83,12 @@ i18n.addTranslations('es', {
     status: {
       label: 'Estatus',
     },
+    rating: {
+      label: 'Calificación',
+      average: {
+        label: 'Promedio',
+      },
+    },
     actions: {
       label: 'Acciones',
       delete: 'Eliminar',
@@ -103,6 +109,9 @@ i18n.addTranslations('es', {
     users: {
       addUser: {
         label: 'Añadir nuevo usuario',
+        name: {
+          label: 'Full name',
+        },
         email: {
           label: 'Email'
         },

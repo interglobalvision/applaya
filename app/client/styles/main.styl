@@ -413,6 +413,9 @@ button()
   margin-bottom: $margin-tiny
   border-radius: 3px
   cursor: pointer
+  &.button-small
+    padding: $margin-micro $margin-tiny
+    font-size: .8rem
 
 .field
   margin-bottom: $margin-basic
@@ -582,18 +585,32 @@ formError()
 table
   width: 100%
   margin-bottom: $margin-basic
+  button 
+    margin-top: $margin-tiny
+
+td
+  border-right: 1px solid $color-white
+  &:last-of-type 
+    border-right: 0
 
 thead
-  font-style: italic
+  background-color: $color-black
+  color: $color-white
+  td 
+    padding: $margin-tiny
+    &:first-of-type
+      border-radius: 3px 0 0 0 
+    &:last-of-type
+      border-radius: 0 3px 0 0
 
-.table-applications-title
-  width: 25%
-
-.table-applications-status
-  width: 12.5%
-
-.table-applications-actions
-  width: 62.5%
+tbody
+  tr
+    &:nth-of-type(odd)
+      background-color: $color-white
+      td
+        border-right-color: $color-white-soft
+  td 
+    padding: 0 $margin-tiny
 
 // ADMIN ANALYTICS
 .stat-bar

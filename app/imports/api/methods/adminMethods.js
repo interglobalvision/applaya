@@ -1,18 +1,12 @@
 import { Meteor } from 'meteor/meteor'
 import { Accounts } from 'meteor/accounts-base'
 
+import { NewAdminUserSchema } from '/imports/schemas/newAdminUserSchema.js';
+
 export const adminAddUser = new ValidatedMethod({
   name: 'admin.newUser',
 
-  validate: new SimpleSchema({
-    email: {
-      type: String
-    },
-    role: {
-      type: String,
-      allowedValues: ['admin', 'committee']
-    }
-  }).validator(),
+  validate: NewAdminUserSchema.validator(),
 
   run( doc ) {
 
@@ -29,7 +23,10 @@ export const adminAddUser = new ValidatedMethod({
       }
 
       Accounts.createUser({
-        email: doc.email
+        email: doc.email,
+        profile: {
+          name: doc.name,
+        }
       });
 
       let newUser = Accounts.findUserByEmail(doc.email);
@@ -62,11 +59,11 @@ export const removeUser = new ValidatedMethod({
     let userId = args.userId;
 
     if (!Roles.userIsInRole(this.userId, 'admin')) {
-      throw new Meteor.Error('Admin.methods.add-user.not-allowed', 'Must be admin to do this.');
+      throw new Meteor.Error('Admin.methods.remove-user.not-allowed', 'Must be admin to do this.');
     }
 
     if (userId === this.userId) {
-      throw new Meteor.Error('Admin.methods.add-user.no-selfdestruct', i18n.__('notifications.removeUser.yourself'));
+      throw new Meteor.Error('Admin.methods.remove-user.no-selfdestruct', i18n.__('notifications.removeUser.yourself'));
     }
 
     if (Meteor.isServer) {
