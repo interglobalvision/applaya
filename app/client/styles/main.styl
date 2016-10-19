@@ -586,9 +586,12 @@ table
   width: 100%
   margin-bottom: $margin-basic
   button 
-    margin-top: $margin-tiny
-
+    margin: 0
+    margin-right: $margin-micro 
+    &:last-of-type 
+      margin-right: 0
 td
+  padding: $margin-tiny
   border-right: 1px solid $color-white
   &:last-of-type 
     border-right: 0
@@ -597,7 +600,6 @@ thead
   background-color: $color-black
   color: $color-white
   td 
-    padding: $margin-tiny
     &:first-of-type
       border-radius: 3px 0 0 0 
     &:last-of-type
@@ -609,8 +611,6 @@ tbody
       background-color: $color-white
       td
         border-right-color: $color-white-soft
-  td 
-    padding: 0 $margin-tiny
 
 // ADMIN ANALYTICS
 .stat-bar
