@@ -5,7 +5,8 @@ import { autoParagraph } from '/imports/lib/misc.js';
 
 import { StepsInfo } from '/imports/lib/steps.js';
 
-import { Rating } from '/imports/components/committee/rating.jsx';
+import { RatingSetter } from '/imports/components/ratings/ratingSetter.jsx';
+import { RatingsList } from '/imports/components/ratings/ratingsList.jsx';
 import { CommentsSection } from '/imports/components/single/commentsSection.jsx';
 
 const T = i18n.createComponent();
@@ -20,7 +21,7 @@ export class SingleLayout extends Component {
     if (Roles.userIsInRole(Meteor.userId(), 'admin')) {
       roleSpecificNav = <SingleAdminNav />;
     } else if (this.props.application.status.paid) { // Display ratings only on paid applications
-      roleSpecificNav = <SingleCommitteeNav applicationId={this.props.application._id} rating={this.props.rating ? this.props.rating.value : 0} />;
+      roleSpecificNav = <SingleCommitteeNav applicationId={this.props.application._id} />;
     }
 
     return (
@@ -31,6 +32,7 @@ export class SingleLayout extends Component {
             <SingleSection section={section} key={key} />
           ))}
           {roleSpecificNav}
+          <RatingsSection applicationId={this.props.applicationId} ratings={this.props.ratings} currentRating={this.props.currentRating} averageRating={this.props.application.averageRating} />
           <CommentsSection applicationId={this.props.applicationId} comments={this.props.comments} />
         </div>
       </section>
@@ -212,13 +214,24 @@ export class SingleAdminNav extends Component {
   }
 }
 
+export class RatingsSection extends Component {
+  render() {
+    return(
+      <section>
+        <h3>Ratings</h3>
+        <RatingSetter rating={this.props.currentRating} applicationId={this.props.applicationId} />
+        <RatingsList ratings={this.props.ratings} averageRating={this.props.averageRating}/>
+      </section>
+    );
+  }
+};
+
 export class SingleCommitteeNav extends Component {
   render() {
 
     return (
       <nav>
         <h3>Committee nav</h3>
-        <Rating rating={this.props.rating} applicationId={this.props.applicationId} />
       </nav>
     );
   }
