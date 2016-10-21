@@ -29,7 +29,7 @@ export class Navbar extends Component {
             <li><a href="/admin"><T>navbar.admin</T></a></li>
             : ''
           }
-          { roles.indexOf('committee') > -1 ?
+          { roles.indexOf('admin') > -1 || roles.indexOf('committee') > -1 ?
             <li><a href="/applications"><T>navbar.applications</T></a></li>
             : ''
           }
