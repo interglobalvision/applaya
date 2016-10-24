@@ -56,7 +56,7 @@ export class ApplicationsLayout extends Component {
               </thead>
               <tbody>
                 {this.props.applications.map((application, key) => (
-                  <ApplicationsApplication _id={application._id} userId={application.userId} userEmail={application.userEmail} status={application.status} key={key} averageRating={application.averageRating} />
+                  <ApplicationsApplication _id={application._id} userId={application.userId} userEmail={application.userEmail} galleryName={application.galleryName} status={application.status} key={key} averageRating={application.averageRating} />
                 ))}
               </tbody>
             </table>
@@ -199,12 +199,14 @@ export class ApplicationsApplication extends Component {
 
   render() {
 
-    let title = this.props._id;
+    let displayName = this.props._id;
 
     let rating = '';
 
-    if (!!this.props.userEmail) {
-      title = this.props.userEmail;
+    if (!!this.props.galleryName) {
+      displayName = this.props.galleryName;
+    } else if (!!this.props.userEmail) {
+      displayName = this.props.userEmail;
     }
 
     if (!!this.props.averageRating) {
@@ -214,7 +216,7 @@ export class ApplicationsApplication extends Component {
     return (
       <tr>
         <td className='table-applications-title'>
-          <a href={'/application/' + this.props._id}>{title}</a>
+          <a href={'/application/' + this.props._id}>{displayName}</a>
         </td>
         <td className='table-applications-status'>
           {this.renderStatus()}
