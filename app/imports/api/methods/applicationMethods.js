@@ -103,10 +103,43 @@ export const submitApplicationSection = new ValidatedMethod({
     ApplicationSections.update(query, update, { upsert: true }, (err) => {
       if (!err) {
         saveApplyProgress.call(applicationId);
+
+        // If it's saving the first step, save galleryName in the application too
+        if (step === 0 && data.galleryName !== undefined) {
+          const galleryName = data.galleryName;
+          saveGalleryName.call({applicationId, galleryName});
+        }
       }
     });
   },
 
+});
+
+export const saveGalleryName = new ValidatedMethod({
+  name: 'application.galleryName',
+
+  validate: new SimpleSchema({
+    applicationId: {
+      type: String,
+    },
+
+    galleryName: {
+      type: String,
+    },
+  }).validator(),
+
+  run({ applicationId, galleryName}) {
+    if (!this.userId) {
+      throw new Meteor.Error('Applications.methods.save-galleryName.not-logged-in', 'Must be logged in to do this');
+    }
+
+    Applications.update(applicationId, {
+      $set: {
+        galleryName,
+      },
+    });
+
+  },
 });
 
 export const saveApplyPosition = new ValidatedMethod({
