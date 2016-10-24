@@ -52,12 +52,10 @@ Migrations.add({
 
     });
 
-
-
   }, 
 });
 
 
 Meteor.startup(function() {
-  Migrations.migrateTo('latest');
+  Migrations.migrateTo('2,rerun');
 });
