@@ -19,7 +19,7 @@ export const submitComment = new ValidatedMethod({
 
   run({ applicationId, comment }) {
     if (!Roles.userIsInRole(this.userId, ['committee', 'admin'])) {
-      throw new Meteor.Error('Coments.methods.submit.not-allowed', 'Must be committee to do this.');
+      throw new Meteor.Error('Coments.methods.submit.not-allowed', 'Must be committee or admin to do this.');
     }
 
     let user = Meteor.users.findOne(this.userId);
@@ -71,3 +71,24 @@ export const deleteComment = new ValidatedMethod({
     }
   } 
 });
+
+// This is not a method. IMO since this should to be called only in the server it could be a normal function
+export const removeAllUserComments = (userId) => {
+
+  // Get all comments by the givven user
+  let userComments = Comments.find({
+    userId
+  }, {
+    fields: {
+      applicationId: 1
+    },
+  }).fetch();
+
+  // Get all application IDs related to the comments by the given user
+  let ratedApplicationsIds = _.map(userComments, comment => comment.applicationId);
+
+  // Remove all docs from Comments made by a user
+  Comments.remove({
+    userId,
+  });
+};
