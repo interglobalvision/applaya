@@ -3,6 +3,8 @@ import { Accounts } from 'meteor/accounts-base'
 
 import { NewAdminUserSchema } from '/imports/schemas/newAdminUserSchema.js';
 
+import { removeAllUserRatings } from '/imports/api/methods/ratingMethods.js';
+
 export const adminAddUser = new ValidatedMethod({
   name: 'admin.newUser',
 
@@ -69,7 +71,13 @@ export const removeUser = new ValidatedMethod({
     if (Meteor.isServer) {
       const email = Meteor.user(userId).emails[0].address;
 
+      let isCommittee = Roles.userIsInRole(userId, 'committee');
+
       Meteor.users.remove(userId);
+
+      if(isCommittee) {
+        removeAllUserRatings(userId);
+      }
 
       const message =  i18n.__('notifications.removeUser.success', { email });
 
