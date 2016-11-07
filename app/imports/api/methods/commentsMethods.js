@@ -84,9 +84,6 @@ export const removeAllUserComments = (userId) => {
     },
   }).fetch();
 
-  // Get all application IDs related to the comments by the given user
-  let ratedApplicationsIds = _.map(userComments, comment => comment.applicationId);
-
   // Remove all docs from Comments made by a user
   Comments.remove({
     userId,
