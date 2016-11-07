@@ -57,5 +57,5 @@ Migrations.add({
 
 
 Meteor.startup(function() {
-  Migrations.migrateTo('2,rerun');
+  Migrations.migrateTo('2');
 });
