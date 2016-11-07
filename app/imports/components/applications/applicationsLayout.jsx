@@ -51,7 +51,7 @@ export class ApplicationsLayout extends Component {
                   <td className='s-4'><T>applications.title</T></td>
                   <td className='s-2'><T>applications.status.label</T></td>
                   <td className='s-1'><T>applications.rating.average.label</T></td>
-                  { this.props.isAdmin ? <td className='s-5'><T>applications.actions.label</T></td> : '' }
+                  { this.props.isAdmin ? <td className='s-5'><T>applications.actions.label</T></td> : false }
                 </tr>
               </thead>
               <tbody>
@@ -231,7 +231,7 @@ export class ApplicationsApplication extends Component {
             <button className='button-small' onClick={() => this.clickAdminAction('markPaidApplication')} disabled={this.props.status.paid}><T>applications.actions.markAsPaid</T></button>
             <button className='button-small' onClick={() => this.clickAdminAction('extendApplication')} disabled={this.props.status.extended}><T>applications.actions.extend</T></button>
           </td>
-        : '' }
+        : false }
       </tr>
     );
   }
