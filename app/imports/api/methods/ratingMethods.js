@@ -92,3 +92,30 @@ const saveAverageRating = new ValidatedMethod({
 
   },
 });
+
+
+// This is not a method. IMO since this should to be called only in the server it could be a normal function
+export const removeAllUserRatings = (userId) => {
+
+  // Get all ratings by the givven user
+  let userRatings = Ratings.find({
+    userId
+  }, {
+    fields: {
+      applicationId: 1
+    },
+  }).fetch();
+
+  // Get all application IDs related to the ratings by the given user
+  let ratedApplicationsIds = _.map(userRatings, rating => rating.applicationId);
+
+  // Remove all docs from Ratings made by a user
+  Ratings.remove({
+    userId,
+  });
+
+  // Recalculate avg. ratings for the affected applications
+  ratedApplicationsIds.forEach( function(applicationId) {
+    saveAverageRating.call(applicationId);
+  });
+};
