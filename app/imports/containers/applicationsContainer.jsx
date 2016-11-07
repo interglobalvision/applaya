@@ -39,7 +39,9 @@ const composer = (props, onData) => {
           return application;
         });
 
-        onData(null, { user, applications, page });
+        let isAdmin = Roles.userIsInRole(user._id, 'admin') || false;
+
+        onData(null, { user, applications, page, isAdmin });
 
       } else {
         FlowRouter.go('/unauthorized');
