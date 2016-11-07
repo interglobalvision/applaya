@@ -51,12 +51,12 @@ export class ApplicationsLayout extends Component {
                   <td className='s-4'><T>applications.title</T></td>
                   <td className='s-2'><T>applications.status.label</T></td>
                   <td className='s-1'><T>applications.rating.average.label</T></td>
-                  <td className='s-5'><T>applications.actions.label</T></td>
+                  { this.props.isAdmin ? <td className='s-5'><T>applications.actions.label</T></td> : '' }
                 </tr>
               </thead>
               <tbody>
                 {this.props.applications.map((application, key) => (
-                  <ApplicationsApplication _id={application._id} userId={application.userId} userEmail={application.userEmail} galleryName={application.galleryName} status={application.status} key={key} averageRating={application.averageRating} />
+                  <ApplicationsApplication _id={application._id} userId={application.userId} userEmail={application.userEmail} isAdmin={this.props.isAdmin} galleryName={application.galleryName} status={application.status} key={key} averageRating={application.averageRating} />
                 ))}
               </tbody>
             </table>
@@ -224,12 +224,14 @@ export class ApplicationsApplication extends Component {
         <td className='table-applications-rating'>
           {rating}
         </td>
-        <td className='table-applications-actions'>
-          <button className='button-small' onClick={() => this.clickAdminAction('deleteApplication')}><T>applications.actions.delete</T></button>
-          <button className='button-small' onClick={() => this.clickAdminAction('unsubmitApplication')} disabled={!this.props.status.submitted}><T>applications.actions.unsubmit</T></button>
-          <button className='button-small' onClick={() => this.clickAdminAction('markPaidApplication')} disabled={this.props.status.paid}><T>applications.actions.markAsPaid</T></button>
-          <button className='button-small' onClick={() => this.clickAdminAction('extendApplication')} disabled={this.props.status.extended}><T>applications.actions.extend</T></button>
-        </td>
+        { this.props.isAdmin ? 
+          <td className='table-applications-actions'>
+            <button className='button-small' onClick={() => this.clickAdminAction('deleteApplication')}><T>applications.actions.delete</T></button>
+            <button className='button-small' onClick={() => this.clickAdminAction('unsubmitApplication')} disabled={!this.props.status.submitted}><T>applications.actions.unsubmit</T></button>
+            <button className='button-small' onClick={() => this.clickAdminAction('markPaidApplication')} disabled={this.props.status.paid}><T>applications.actions.markAsPaid</T></button>
+            <button className='button-small' onClick={() => this.clickAdminAction('extendApplication')} disabled={this.props.status.extended}><T>applications.actions.extend</T></button>
+          </td>
+        : '' }
       </tr>
     );
   }
