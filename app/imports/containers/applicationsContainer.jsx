@@ -40,7 +40,6 @@ const composer = (props, onData) => {
         });
 
         let isAdmin = Roles.userIsInRole(user._id, 'admin') || false;
-        console.log(isAdmin);
 
         onData(null, { user, applications, page, isAdmin });
 

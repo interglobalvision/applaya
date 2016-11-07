@@ -43,13 +43,13 @@ export class ApplicationsLayout extends Component {
           <div className='fluid-col s-12'>
             <h3><T>applications.title</T></h3>
           </div>
-          <ApplicationsFilters />
+          <ApplicationsFilters isAdmin={this.props.isAdmin} />
           <div className='fluid-col s-12'>
             <table>
               <thead>
                 <tr>
                   <td className='s-4'><T>applications.title</T></td>
-                  <td className='s-2'><T>applications.status.label</T></td>
+                  { this.props.isAdmin ? <td className='s-2'><T>applications.status.label</T></td> : false }
                   <td className='s-1'><T>applications.rating.average.label</T></td>
                   { this.props.isAdmin ? <td className='s-5'><T>applications.actions.label</T></td> : false }
                 </tr>
@@ -73,7 +73,7 @@ export class ApplicationsLayout extends Component {
 
 export class ApplicationsFilters extends Component {
   onChange() {
-    let status = this.refs.status.value || null;
+    let status = this.props.isAdmin ? this.refs.status.value : null;
     let sortBy = this.refs.sortBy.value || null;
     let search = this.refs.search.value || null;
 
@@ -99,7 +99,7 @@ export class ApplicationsFilters extends Component {
     let search = this.refs.search.value;
 
     // Search clears the status filter
-    if (search) {
+    if (search && isAdmin) {
       this.refs.status.value = null;
     }
   }
@@ -112,16 +112,18 @@ export class ApplicationsFilters extends Component {
             <h5 className='margin-bottom-micro'>Search</h5>
             <input ref="search" type="text" onChange={this.handleSearchChange.bind(this)} />
           </div>
-          <div className='fluid-col s-4'>
-            <h5 className='margin-bottom-micro'>Status</h5>
-            <select ref="status" onChange={this.handleStatusChange.bind(this)}>
-              <option value="">All</option>
-              <option value="in-process">In Process</option>
-              <option value="complete">Complete</option>
-              <option value="submitted">Submitted</option>
-              <option value="paid">Paid</option>
-            </select>
-          </div>
+          { this.props.isAdmin ?
+            <div className='fluid-col s-4'>
+              <h5 className='margin-bottom-micro'>Status</h5>
+              <select ref="status" onChange={this.handleStatusChange.bind(this)}>
+                <option value="">All</option>
+                <option value="in-process">In Process</option>
+                <option value="complete">Complete</option>
+                <option value="submitted">Submitted</option>
+                <option value="paid">Paid</option>
+              </select>
+            </div>
+          : false }
           <div className='fluid-col s-4'>
             <h5 className='margin-bottom-micro'>Sort</h5>
             <select ref="sortBy">
@@ -218,9 +220,11 @@ export class ApplicationsApplication extends Component {
         <td className='table-applications-title'>
           <a href={'/application/' + this.props._id}>{displayName}</a>
         </td>
-        <td className='table-applications-status'>
-          {this.renderStatus()}
-        </td>
+        { this.props.isAdmin ? 
+          <td className='table-applications-status'>
+            {this.renderStatus()}
+          </td>
+        : false }
         <td className='table-applications-rating'>
           {rating}
         </td>

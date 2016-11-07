@@ -142,6 +142,11 @@ Meteor.publishComposite('applications.index', function(posts, page, status, sort
   };
 
 
+  // Lock Committee members to Paid Applications
+  if (Roles.getUsersInRole('committee')) {
+    status = 'paid';
+  }
+
   if (status) {
 
     switch (status) {
