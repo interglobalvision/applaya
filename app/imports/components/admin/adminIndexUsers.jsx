@@ -29,13 +29,13 @@ export class AdminIndexUsers extends Component {
   render() {
     return (
       <section id="admin-users">
-        <div className="row">
-          <div className="fluid-col s-12 m-12">
+        <div className="grid-row">
+          <div className="grid-item item-s-12 item-m-12">
             <h2>Users</h2>
           </div>
         </div>
         <div className='row margin-bottom-basic'>
-          <div className="fluid-col s-12 m-6">
+          <div className="grid-item item-s-12 item-m-6">
             <h3>Committee</h3>
 
             <ul>

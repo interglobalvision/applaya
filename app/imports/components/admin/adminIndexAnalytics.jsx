@@ -153,41 +153,44 @@ export class AdminIndexAnalytics extends Component {
     let percentages = this.getPercentages(roundedStats, total);
 
     return (
-      <section className='row margin-bottom-mid'>
-        <div className='fluid-col s-12'>
-          <h2>Admin Analytics Dashboard</h2>
+      <section className='margin-bottom-mid'>
+        <div className='grid-row'>
+          <div className='grid-item item-s-12 margin-bottom-small'>
+            <h2 className='font-serif font-size-mid'>Admin Analytics Dashboard</h2>
+          </div>
+          <div className='grid-item item-s-12 item-m-2 text-align-center'>
+            <div className='stat-bar stats-total padding-top-small padding-bottom-small'>
+              <h3 className='font-size-tiny'>Total{this.state.extended ? ' extended' : ''}</h3>
+              <span className='font-size-mid'>{total}</span>
+            </div>
+          </div>
+          <div className='grid-item item-s-12 item-m-1 text-align-center grid-column justify-center'>
+            <div className='padding-top-small padding-bottom-small font-size-large'>=</div>
+          </div>
+          <div className='grid-item item-s-12 item-m-9 grid-row'>
+            <div className='grid-item no-gutter stat-bar stats-in-progress text-align-center padding-top-small padding-bottom-small' style={{flexBasis: percentages.inProgress, display: percentages.inProgress === '0%' ? 'none' : 'initial'}}>
+              <h3 className='font-size-tiny'>In progress</h3>
+              <span className='font-size-mid'>{stats.inProgress}</span>
+            </div>
+            <div className='grid-item no-gutter stat-bar stats-complete text-align-center padding-top-small padding-bottom-small' style={{flexBasis: percentages.complete, display: percentages.complete === '0%' ? 'none' : 'initial'}}>
+              <h3 className='font-size-tiny'>Filled</h3>
+              <span className='font-size-mid'>{stats.complete}</span>
+            </div>
+            <div className='grid-item no-gutter stat-bar stats-submitted text-align-center padding-top-small padding-bottom-small' style={{flexBasis: percentages.submitted, display: percentages.submitted === '0%' ? 'none' : 'initial'}}>
+              <h3 className='font-size-tiny'>Submitted</h3>
+              <span className='font-size-mid'>{stats.submitted}</span>
+            </div>
+            <div className='grid-item no-gutter stat-bar stats-paid text-align-center padding-top-small padding-bottom-small' style={{flexBasis: percentages.paid, display: percentages.paid === '0%' ? 'none' : 'initial'}}>
+              <h3 className='font-size-tiny'>Paid</h3>
+              <span className='font-size-mid'>{stats.paid}</span>
+            </div>
+          </div>
         </div>
-        <div className='fluid-col s-12 m-2 text-align-center'>
-          <span className='stat-bar stats-total'>
-            <h3>Total{this.state.extended ? ' extended' : ''}</h3>
-            <span>{total}</span>
-          </span>
-        </div>
-        <div className='fluid-col s-12 m-1 text-align-center'>
-          <h3>&emsp;</h3>
-          <span>=</span>
-        </div>
-        <div className='fluid-col s-12 m-9'>
-          <span className='stat-bar stats-in-progress text-align-center' style={{width: percentages.inProgress, display: percentages.inProgress === '0%' ? 'none' : 'inline-block'}}>
-            <h3>In progress</h3>
-            <span>{stats.inProgress}</span>
-          </span>
-          <span className='stat-bar stats-complete text-align-center' style={{width: percentages.complete, display: percentages.complete === '0%' ? 'none' : 'inline-block'}}>
-            <h3>Filled</h3>
-            <span>{stats.complete}</span>
-          </span>
-          <span className='stat-bar stats-submitted text-align-center' style={{width: percentages.submitted, display: percentages.submitted === '0%' ? 'none' : 'inline-block'}}>
-            <h3>Submitted</h3>
-            <span>{stats.submitted}</span>
-          </span>
-          <span className='stat-bar stats-paid text-align-center' style={{width: percentages.paid, display: percentages.paid === '0%' ? 'none' : 'inline-block'}}>
-            <h3>Paid</h3>
-            <span>{stats.paid}</span>
-          </span>
-        </div>
-        <div className='fluid-col s-12'>
-          <input name='extended' type='checkbox' checked={this.state.checked} onChange={ () => this.toggleExtended()} ref='extended'/>
-          <label htmlFor='extended'>Extended</label>
+        <div className='grid-row'>
+          <div className='grid-item item-s-12'>
+            <input name='extended' type='checkbox' checked={this.state.checked} onChange={ () => this.toggleExtended()} ref='extended'/>
+            <label htmlFor='extended'>Extended</label>
+          </div>
         </div>
       </section>
     );

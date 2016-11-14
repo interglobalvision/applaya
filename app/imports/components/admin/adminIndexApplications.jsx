@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 export class AdminIndexApplications extends Component {
   render() {
     return (
-      <div className='row margin-bottom-mid'>
-        <section className="fluid-col s-12 m-12">
+      <div className='grid-row margin-bottom-mid'>
+        <section className="grid-item item-s-12 item-m-12">
           <h2>Latest Applications</h2>
           <ul>
           {this.props.applications.map((application, key) => (

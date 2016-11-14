@@ -36,8 +36,8 @@ export class AdminIndexLayout extends Component {
 
     return (
       <section id="admin-index">
-        <div className='row'>
-          <div className='fluid-col s-12'>
+        <div className='grid-row margin-bottom-small'>
+          <div className='grid-item item-s-12'>
             <h1>Admin Zone</h1>
           </div>
         </div>
