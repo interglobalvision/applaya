@@ -51,12 +51,13 @@ export class ApplicationsLayout extends Component {
                   <td className='s-4'><T>applications.title</T></td>
                   { this.props.isAdmin ? <td className='s-2'><T>applications.status.label</T></td> : false }
                   <td className='s-1'><T>applications.rating.average.label</T></td>
+                  { this.props.isAdmin ?  false: <td className='s-2'><T>applications.rating.userRating.label</T></td> }
                   { this.props.isAdmin ? <td className='s-5'><T>applications.actions.label</T></td> : false }
                 </tr>
               </thead>
               <tbody>
                 {this.props.applications.map((application, key) => (
-                  <ApplicationsApplication _id={application._id} userId={application.userId} userEmail={application.userEmail} isAdmin={this.props.isAdmin} galleryName={application.galleryName} status={application.status} key={key} averageRating={application.averageRating} />
+                  <ApplicationsApplication _id={application._id} userId={application.userId} userEmail={application.userEmail} isAdmin={this.props.isAdmin} galleryName={application.galleryName} status={application.status} key={key} averageRating={application.averageRating} userRating={application.userRating} />
                 ))}
               </tbody>
             </table>
@@ -235,7 +236,7 @@ export class ApplicationsApplication extends Component {
             <button className='button-small' onClick={() => this.clickAdminAction('markPaidApplication')} disabled={this.props.status.paid}><T>applications.actions.markAsPaid</T></button>
             <button className='button-small' onClick={() => this.clickAdminAction('extendApplication')} disabled={this.props.status.extended}><T>applications.actions.extend</T></button>
           </td>
-        : false }
+          : <td className='table-applications-user-rating'>{this.props.userRating}</td> }
       </tr>
     );
   }
