@@ -4,85 +4,13 @@
 // https://tj.github.io/nib/
 // but I want Kouto Swiss :[
 
-@import 'fonts-material'
-
 // ******************************************************
 
 global-reset()
 
 // ******************************************************
 
-// GRID
-
-$gutter = 18px
-
-.row
-  clearfix()
-
-.fluid-col
-  float: left
-  box-sizing: border-box
-  padding-left: $gutter
-  padding-right: $gutter
-
-$pcols = 12
-
-for pcol in 1..$pcols
-  .s-into-{pcol}
-    width: ( 100% / pcol )
-
-for pcol in 1..$pcols
-  .s-{pcol}
-    width: ( 100% / $pcols ) * pcol
-
-@media screen and (min-width: 601px)
-
-  for pcol in 1..$pcols
-    .m-into-{pcol}
-      width: ( 100% / pcol )
-
-  for pcol in 1..$pcols
-    .m-{pcol}
-      width: ( 100% / $pcols ) * pcol
-
-@media screen and (min-width: 993px)
-
-  for pcol in 1..$pcols
-    .l-into-{pcol}
-      width: ( 100% / pcol )
-
-  for pcol in 1..$pcols
-    .l-{pcol}
-      width: ( 100% / $pcols ) * pcol
-
-// ******************************************************
-
 // VARIABLES
-
-$golden-ratio = 1.61803398875
-
-$margin-small = ($gutter)
-$margin-tiny = ($gutter / 2)
-$margin-micro = ($gutter / 3.5)
-$margin-basic = ($gutter * 2)
-$margin-mid = ($gutter * 3.5)
-$margin-large = ($gutter * 5)
-
-$font-size-basic = 19px
-$font-size-smaller = 0.8rem
-$font-size-larger = 1.3rem
-
-$font-size-h4 = 1.25rem
-$font-size-h3 = 1.5rem
-$font-size-h2 = 1.75rem
-$font-size-h1 = 2rem
-
-$font-leading-basic = 1.35
-$font-leading-tighter = 1.15
-$font-leading-larger = 1.45
-
-$font-tracking-basic = 0.001em
-$font-tracking-wider = 0.05em
 
 $input-height = 2.5em
 $input-disabled-opacity = 0.5
@@ -109,85 +37,9 @@ $color-button-disabled = lightgray
 
 // ******************************************************
 
-// TYPOGRAPHY
+@import 'type'
 
-$font-sans = 'Akkurat Pro'
-$font-serif = 'Stanley'
-
-html
-  font-family: $font-sans,'Helvetica',sans-serif
-  font-weight: normal
-  font-size: $font-size-basic
-  letter-spacing: $font-tracking-basic
-
-body
-  line-height: $font-leading-basic
-
-  // HTML ELEMENT STYLING
-
-h1, h2, h3, h4
-  font-family: $font-serif,'Georgia',serif
-  font-weight: bold
-  margin-bottom: 1rem
-
-h1
-  font-size: $font-size-h1
-  line-height: $font-leading-tighter
-  font-weight: 900
-
-h2
-  font-size: $font-size-h2
-  line-height: $font-leading-tighter
-
-h3
-  font-size: $font-size-h3
-
-p
-  margin-bottom: 1rem
-
-  // FONT RULES
-
-.font-serif
-  font-family: $font-serif,'Georgia',serif
-
-.font-italic, em, i
-  font-style: italic
-
-.font-bold, strong, b
-  font-weight: bold
-
-.font-small-caps
-  font-size: 0.8rem
-  text-transform: uppercase
-
-.font-capitalize
-  text-transform: capitalize
-
-.font-smaller
-  font-size: $font-size-smaller
-
-  // TEXT RULES
-
-.text-overflow-ellipsis
-  overflow: ellipsis
-
-.text-align-left
-  text-align: left
-
-.text-align-right
-  text-align: right
-
-.text-align-center
-  text-align: center
-
-  // LINKS
-
-a,
-a:hover,
-a:active,
-a:visited
-  color: unset
-  text-decoration: none
+@import 'grid'
 
 // ******************************************************
 
@@ -205,7 +57,6 @@ a:visited
 .font-color-white
   color: $color-white-bright
 
-
 // ******************************************************
 
 // UTILITY
@@ -217,7 +68,6 @@ a:visited
   display: inline-block
   li
     display: inline-block
-
 
 // ******************************************************
 
@@ -238,134 +88,7 @@ body
 
 // ******************************************************
 
-// MARGINS AND PADDING
-
-.margin-micro
-  margin: $margin-micro
-
-.margin-tiny
-  margin: $margin-tiny
-
-.margin-small
-  margin: $margin-small
-
-.margin-basic
-  margin: $margin-basic
-
-.margin-mid
-  margin: $margin-mid
-
-.margin-large
-  margin: $margin-large
-
-.padding-micro
-  padding: $margin-micro
-
-.padding-tiny
-  padding: $margin-tiny
-
-.padding-small
-  padding: $margin-small
-
-.padding-basic
-  padding: $margin-basic
-
-.padding-mid
-  padding: $margin-mid
-
-.padding-large
-  padding: $margin-large
-
-  // MARGIN TOP
-
-.margin-top-micro
-  margin-top: $margin-micro
-
-.margin-top-tiny
-  margin-top: $margin-tiny
-
-.margin-top-small
-  margin-top: $margin-small
-
-.margin-top-basic
-  margin-top: $margin-basic
-
-.margin-top-mid
-  margin-top: $margin-mid
-
-.margin-top-large
-  margin-top: $margin-large
-
-  // MARGIN BOTTOM
-
-.margin-bottom-micro
-  margin-bottom: $margin-micro
-
-.margin-bottom-tiny
-  margin-bottom: $margin-tiny
-
-.margin-bottom-small
-  margin-bottom: $margin-small
-
-.margin-bottom-basic
-  margin-bottom: $margin-basic
-
-.margin-bottom-mid
-  margin-bottom: $margin-mid
-
-.margin-bottom-large
-  margin-bottom: $margin-large
-
-  // PADDING TOP
-
-.padding-top-micro
-  padding-top: $margin-micro
-
-.padding-top-tiny
-  padding-top: $margin-tiny
-
-.padding-top-small
-  padding-top: $margin-small
-
-.padding-top-basic
-  padding-top: $margin-basic
-
-.padding-top-mid
-  padding-top: $margin-mid
-
-.padding-top-large
-  padding-top: $margin-large
-
-  // PADDING BOTTOM
-
-.padding-bottom-micro
-  padding-bottom: $margin-micro
-
-.padding-bottom-tiny
-  padding-bottom: $margin-tiny
-
-.padding-bottom-small
-  padding-bottom: $margin-small
-
-.padding-bottom-basic
-  padding-bottom: $margin-basic
-
-.padding-bottom-mid
-  padding-bottom: $margin-mid
-
-.padding-bottom-large
-  padding-bottom: $margin-large
-
-// ******************************************************
-
 // MAIN LAYOUT
-
-.container
-  width: 95%
-  max-width: 1400px
-  min-width: 360px
-  margin-left: auto
-  margin-right: auto
 
 #main-content
   min-height: 80vh
@@ -614,20 +337,8 @@ tbody
 
 // ADMIN ANALYTICS
 .stat-bar
-  display: inline-block
-  width: 100%
   overflow: hidden
   background: $color-pink
-
-  h3
-    font-size: 0.7em
-    padding: $margin-small 0 0
-    margin: 0
-
-  span
-    display: block
-    font-size: 1.5em
-    padding: $margin-small 0
 
 .stats-in-progress
   background: $color-yellow
@@ -679,8 +390,23 @@ tbody
 
 // ******************************************************
 
+grid(95%, 18px, s)
+
+space-maker(6px, 9px, 18px, 36px, 50px, 72px)
+
+font-sizes(19px, 36px, 30px, 24px, 16px, 12px, 9px)
+
 // MEDIA QUERIES
 
-// @media screen and (max-width: ($col * $cols)+($gutter * $cols))
+@media screen and (min-width: 600px)
 
-// @media screen and (max-width: 601px)
+  grid(580px, 18px, m)
+  
+  space-maker(6px, 9px, 18px, 36px, 50px, 72px)
+  
+@media screen and (min-width: 900px)
+
+  grid(880px, 18px, l)
+  
+  space-maker(6px, 9px, 18px, 36px, 50px, 72px)
+  
