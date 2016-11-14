@@ -30,7 +30,7 @@ const composer = (props, onData) => {
 
         let applications = Applications.find({}).fetch();
 
-        let isAdmin = Roles.userIsInRole(user._id, 'admin') || false;
+        let isAdmin = Roles.userIsInRole(user._id, 'admin');
 
         // If user is commitee
         if (!isAdmin) {

@@ -51,7 +51,7 @@ export class ApplicationsLayout extends Component {
                   <td className='s-4'><T>applications.title</T></td>
                   { this.props.isAdmin ? <td className='s-2'><T>applications.status.label</T></td> : false }
                   <td className='s-1'><T>applications.rating.average.label</T></td>
-                  { this.props.isAdmin ?  false: <td className='s-2'><T>applications.rating.userRating.label</T></td> }
+                  { this.props.isAdmin ?  false : <td className='s-2'><T>applications.rating.userRating.label</T></td> }
                   { this.props.isAdmin ? <td className='s-5'><T>applications.actions.label</T></td> : false }
                 </tr>
               </thead>
