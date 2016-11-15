@@ -235,3 +235,22 @@ Meteor.publish('admin.users.admin', function() {
   }
 
 });
+
+// Ratings
+
+/*
+ * Used in applciations index, return all ratings by this user in the given applications
+ *
+ * applicationsIds (array): list of applications ids
+ */
+
+Meteor.publish('ratings.applications', function(applicationsIds) {
+
+  return Ratings.find({
+    applicationId: {
+      $in: applicationsIds
+    },
+    userId: this.userId,
+  });
+
+});

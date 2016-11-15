@@ -88,6 +88,9 @@ i18n.addTranslations('en', {
       average: {
         label: 'Average',
       },
+      userRating: {
+        label: 'Your Rating',
+      },
     },
     actions: {
       label: 'Actions',
